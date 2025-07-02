@@ -17,9 +17,9 @@ class MainWindow(QWidget):
 
 
     def setUpMainWindow(self):
-        image_source1 = "/home/ubuntupc/Загрузки/konstr.png"
-        image_source2 = "/home/ubuntupc/Загрузки/tabl.png"
-        image_source3 = "/home/ubuntupc/Загрузки/downl(1).png"
+        image_source1 = "konstr.png"
+        image_source2 = "tabl.png"
+        image_source3 = "downl(1).png"
 
         with open(image_source1):
             im_konstr = QLabel(self)
