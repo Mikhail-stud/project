@@ -1,7 +1,7 @@
 import psycopg2
 from psycopg2.extras import DictCursor
-from main_window import MainWindow
-from PyQt6.QtWidgets import (QApplication, QWidget, QLabel, QPushButton)
+#from main_window import MainWindow
+from PyQt6.QtWidgets import (QApplication, QWidget, QLabel, QPushButton, QVBoxLayout)
 
 
 
@@ -25,6 +25,9 @@ for rules in result:
     print(rules['rules_msg'])
 
 
-class TableWindow(MainWindow):
-    def __init__(self):
+class EditorTab(QWidget):
+    def __init__(self,):
         super().__init__()
+        layout = QVBoxLayout()
+        layout.addWidget(QLabel("Redact"))
+        self.setLayout(layout)

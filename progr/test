@@ -1,0 +1,48 @@
+import sys
+from PyQt6.QtWidgets import (QMainWindow, QApplication, QWidget, QTabWidget, QVBoxLayout, QLabel)
+
+
+class TetsWindow(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle("Test")
+        self.tabs = QTabWidget()
+        self.setCentralWidget(self.tabs)
+
+
+
+        self.editor_tab = EditorTab()
+        self.tabs.addTab(self.editor_tab, "Redactor")
+        self.konstr_tab = KonstTab()
+        self.tabs.addTab(self.konstr_tab, "Konstr")
+
+    def add_tab(self, widget:QWidget, title:str):
+        self.tabs.addTab(widget, title)
+
+
+
+
+
+
+class EditorTab(QWidget):
+    def __init__(self,):
+        super().__init__()
+        layout = QVBoxLayout()
+        layout.addWidget(QLabel("Redact"))
+        self.setLayout(layout)
+
+class KonstTab(QWidget):
+    def __init__(self,):
+        super().__init__()
+        layout1 = QVBoxLayout()
+        layout1.addWidget(QLabel("Konstr"))
+        self.setLayout(layout1)
+    
+
+
+
+
+app = QApplication(sys.argv)
+window = TetsWindow()
+window.show()
+sys.exit(app.exec())
