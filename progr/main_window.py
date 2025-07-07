@@ -15,7 +15,7 @@ class MainWindow(QMainWindow):
 
 
         self.editor_tab = EditorTab()
-        self.tabs.addTab(self.editor_tab, "Таблицы с редактированием")
+        self.tabs.addTab(self.editor_tab, "Сохраненные правила")
        
 
     def add_tab(self, widget:QWidget, title:str):

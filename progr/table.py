@@ -4,32 +4,39 @@ from PyQt6.QtWidgets import (QWidget, QLabel, QPushButton, QVBoxLayout, QScrollA
 from PyQt6.QtGui import QIcon
 
 
+filds_names = [
+    "Действие:", "Протокол:", "IP источника:", "Порт источника:", "Направление:",
+    "IP получателя:", "Порт получателя:", "Название правила:", "Содержимое:", "SID:", "Версия:"
+]
+names_colomns = [
+    "rules_action", "rules_protocol", "rules_ip_s", "rules_port_s", "rules_route",
+    "rules_ip_d", "rules_port_d","rules_msg", "rules_content", "rules_sid", "rules_rev"
+]
 
 class RuleEditDialog(QDialog):
     def __init__(self, rule_data: dict = None):
         super().__init__()
         self.setWindowTitle("Редактировать правило")
-        self.resize(600, 400)
+        self.resize(600, 500)
 
         self.layout = QVBoxLayout()
-        self.fields = []
+        self.fields = {}
         self.setLayout(self.layout)
 
-        for i in range(11):
-            title_edit = QLineEdit()
-            value_edit = QLineEdit()
-
-            if rule_data:
-                title_edit.setText(rule_data.get(f"title_{i+1}", f"Поле {i+1}"))
-                value_edit.setText(rule_data.get(f"value_{i+1}", ""))
-
+        for field in filds_names:
             hbox = QHBoxLayout()
-            hbox.addWidget(title_edit)
-            hbox.addWidget(value_edit)
+            label = QLabel(field)
+            edit = QLineEdit()
 
+            if rule_data and field in rule_data:
+                edit.setText(str(rule_data[field]))
+
+            hbox.addWidget(label)
+            hbox.addWidget(edit)
             self.layout.addLayout(hbox)
-            self.fields.append((title_edit, value_edit))
+            self.fields[field] = edit
 
+        #Кнопки
         button_box = QHBoxLayout()
         self.save_button = QPushButton("Сохранить")
         self.cancel_button = QPushButton("Отмена")
@@ -40,11 +47,7 @@ class RuleEditDialog(QDialog):
         self.layout.addLayout(button_box)
 
     def get_data(self):
-        data = {}
-        for i, (title_edit, value_edit) in enumerate(self.fields):
-            data[f"title_{i+1}"] = title_edit.text()
-            data[f"value_{i+1}"] = value_edit.text()
-        return data
+        return {field: widget.text() for field, widget in self.fields.items()}
 
 
 quantity_rec_page = 10
@@ -88,16 +91,18 @@ class EditorTab(QWidget):
 
         self.load_records()
 
-
+    #Загрузка записей из БД
     def load_records(self):
         # Очистить старые виджеты
         while self.records_area.count():
             item = self.records_area.takeAt(0)
             widget = item.widget()
+
             if widget:
                 widget.setParent(None)
                 widget.deleteLater()
-
+        
+        #Подключение к БД
         offset = self.current_page * quantity_rec_page
         conn = psycopg2.connect(
         host="127.0.0.1",
@@ -115,10 +120,11 @@ class EditorTab(QWidget):
 
         #for rules in self.result:
         #    print(rules['rules_msg'])
+        #Вывод записей
         for row in self.result:
             self.records_area.addWidget(self.create_record_widget(row))
 
-
+    #Создание кнопок рядом с записями
     def create_record_widget(self, record):
         rules_id, rules_action, rules_protocol, rules_ip_s, rules_port_s, rules_route, rules_ip_d, rules_port_d, rules_msg, rules_content, rules_sid, rules_rev = record
         widget = QWidget()
@@ -150,13 +156,31 @@ class EditorTab(QWidget):
 
 
     def open_editor(self, rule_id):
+        conn = psycopg2.connect(
+        host="127.0.0.1",
+        user="postgres",
+        password="admin",
+        port=5432,
+        dbname="proga_db"
+        )
+
+        cursor = conn.cursor()
+        cursor.execute(f"SELECT {', '.join(names_colomns)} FROM rules WHERE rules_id = %s", (rule_id,))
+        row = cursor.fetchone()
+        cursor.close()
+        conn.close()
+
+        if row:
+            data = dict(zip(names_colomns, row))
+        else:
+            data = {}
+        
         dialog = RuleEditDialog()
+
         if dialog.exec():
-            data = dialog.get_data()
-            self.modified_rules[rule_id] = data
+            self.modified_rules[rule_id] = dialog.get_data()
             QMessageBox.information(self, "Сохранено", f"Изменения сохранены локально для ID {rule_id}")
-
-
+    #Оценка правил
     def rate_rule(self, rule_id, is_positive: bool):
         conn = psycopg2.connect(
         host="127.0.0.1",
@@ -165,18 +189,22 @@ class EditorTab(QWidget):
         port=5432,
         dbname="proga_db"
         )
+
         cursor = conn.cursor()
+
         if is_positive:
             cursor.execute("UPDATE rules SET rules_effpol = rules_effpol + 1 WHERE rules_id = %s", (rule_id,))
         else:
             cursor.execute("UPDATE rules SET rules_effotr = rules_effotr + 1 WHERE rules_id = %s", (rule_id,))
+        
         conn.commit()
         cursor.close()
         conn.close()
         QMessageBox.information(self, "Оценка", f"Оценка {'положительная' if is_positive else 'отрицательная'} добавлена.")
 
-
+    #Сохранение изменений
     def commit_changes(self):
+
         if not self.modified_rules:
             QMessageBox.information(self, "Нет изменений", "Нет правил для обновления.")
             return
@@ -188,11 +216,14 @@ class EditorTab(QWidget):
         port=5432,
         dbname="proga_db"
         )
+
         cursor = conn.cursor()
 
         for rule_id, data in self.modified_rules.items():
-            text_data = "\n".join([f"{data[f'title_{i+1}']}: {data[f'value_{i+1}']}" for i in range(11)])
-            cursor.execute("UPDATE rules SET rules_action = %s, rules_protocol = %s, rules_ip_s = %s, rules_port_s = %s, rules_route = %s, rules_ip_d = %s, rules_port_d = %s, rules_msg = %s, rules_content = %s, rules_sid = %s, rules_rev= %s WHERE rules_id = %s", (text_data, rule_id))
+            assignments = ", ".join([f"{k} = %s" for k in names_colomns])
+            values = [data[k] for k in filds_names] + [rule_id]
+            cursor.execute(f"UPDATE rules SET {assignments} WHERE rules_id = %s", values)
+
         conn.commit()
         cursor.close()
         conn.close()
@@ -200,12 +231,13 @@ class EditorTab(QWidget):
         self.load_records()
         QMessageBox.information(self, "Успешно", "Все изменения сохранены.")
 
-
+    #Следующая страница
     def load_next(self):
         self.current_page += 1
         self.load_records()
-
+    #Предыдущая страница
     def load_previous(self):
+
         if self.current_page > 0:
             self.current_page -= 1
             self.load_records()
