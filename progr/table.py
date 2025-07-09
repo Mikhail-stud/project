@@ -4,11 +4,11 @@ from PyQt6.QtWidgets import (QWidget, QLabel, QPushButton, QVBoxLayout, QScrollA
 from PyQt6.QtGui import QIcon
 
 
-filds_names = [
+fields_names = [
     "Действие:", "Протокол:", "IP источника:", "Порт источника:", "Направление:",
     "IP получателя:", "Порт получателя:", "Название правила:", "Содержимое:", "SID:", "Версия:"
 ]
-names_colomns = [
+names_columns = [
     "rules_action", "rules_protocol", "rules_ip_s", "rules_port_s", "rules_route",
     "rules_ip_d", "rules_port_d","rules_msg", "rules_content", "rules_sid", "rules_rev"
 ]
@@ -23,7 +23,7 @@ class RuleEditDialog(QDialog):
         self.fields = {}
         self.setLayout(self.layout)
 
-        for field in filds_names:
+        for field in fields_names:
             hbox = QHBoxLayout()
             label = QLabel(field)
             edit = QLineEdit()
@@ -165,13 +165,13 @@ class EditorTab(QWidget):
         )
 
         cursor = conn.cursor()
-        cursor.execute(f"SELECT {', '.join(names_colomns)} FROM rules WHERE rules_id = %s", (rule_id,))
+        cursor.execute(f"SELECT {', '.join(names_columns)} FROM rules WHERE rules_id = %s", (rule_id,))
         row = cursor.fetchone()
         cursor.close()
         conn.close()
 
         if row:
-            data = dict(zip(names_colomns, row))
+            data = dict(zip(names_columns, row))
         else:
             data = {}
         
@@ -180,6 +180,7 @@ class EditorTab(QWidget):
         if dialog.exec():
             self.modified_rules[rule_id] = dialog.get_data()
             QMessageBox.information(self, "Сохранено", f"Изменения сохранены локально для ID {rule_id}")
+        
     #Оценка правил
     def rate_rule(self, rule_id, is_positive: bool):
         conn = psycopg2.connect(
@@ -220,8 +221,8 @@ class EditorTab(QWidget):
         cursor = conn.cursor()
 
         for rule_id, data in self.modified_rules.items():
-            assignments = ", ".join([f"{k} = %s" for k in names_colomns])
-            values = [data[k] for k in filds_names] + [rule_id]
+            assignments = ", ".join([f"{k} = %s" for k in names_columns])
+            values = [data[k] for k in fields_names] + [rule_id]
             cursor.execute(f"UPDATE rules SET {assignments} WHERE rules_id = %s", values)
 
         conn.commit()
