@@ -10,7 +10,7 @@ fields_names = [
 ]
 names_columns = [
     "rules_action", "rules_protocol", "rules_ip_s", "rules_port_s", "rules_route",
-    "rules_ip_d", "rules_port_d","rules_msg", "rules_content", "rules_sid", "rules_rev"
+    "rules_ip_d", "rules_port_d","rules_msg", "rules_content", "rules_sid", "rules_rev", "rules_effpol", "rules_effotr"
 ]
 
 class RuleEditDialog(QDialog):
@@ -113,20 +113,19 @@ class EditorTab(QWidget):
         )
 
         cursor = conn.cursor(cursor_factory=DictCursor)
-        cursor.execute("SELECT rules_id, rules_action, rules_protocol, rules_ip_s, rules_port_s, rules_route, rules_ip_d, rules_port_d, rules_msg, rules_content, rules_sid, rules_rev FROM rules ORDER BY rules_id LIMIT %s OFFSET %s", (quantity_rec_page, offset))
+        cursor.execute("SELECT rules_id, rules_action, rules_protocol, rules_ip_s, rules_port_s, rules_route, rules_ip_d, rules_port_d, rules_msg, rules_content, rules_sid, rules_rev, rules_effpol, rules_effotr FROM rules ORDER BY rules_id LIMIT %s OFFSET %s", (quantity_rec_page, offset))
         self.result = cursor.fetchall()
         cursor.close()
         conn.close()
 
-        #for rules in self.result:
-        #    print(rules['rules_msg'])
+        
         #Вывод записей
         for row in self.result:
             self.records_area.addWidget(self.create_record_widget(row))
 
     #Создание кнопок рядом с записями
     def create_record_widget(self, record):
-        rules_id, rules_action, rules_protocol, rules_ip_s, rules_port_s, rules_route, rules_ip_d, rules_port_d, rules_msg, rules_content, rules_sid, rules_rev = record
+        rules_id, rules_action, rules_protocol, rules_ip_s, rules_port_s, rules_route, rules_ip_d, rules_port_d, rules_msg, rules_content, rules_sid, rules_rev, rules_effpol, rules_effotr = record
         widget = QWidget()
         layout = QHBoxLayout()
         widget.setLayout(layout)
@@ -142,15 +141,20 @@ class EditorTab(QWidget):
         green_button = QPushButton()
         green_button.setIcon(QIcon.fromTheme("dialog-apply"))
         green_button.clicked.connect(lambda: self.rate_rule(rules_id, True))
+        green_button_count = QLabel(f"{rules_effpol}")
+        
 
         red_button = QPushButton()
         red_button.setIcon(QIcon.fromTheme("dialog-cancel"))
         red_button.clicked.connect(lambda: self.rate_rule(rules_id, False))
+        red_button_count = QLabel(f"{rules_effotr}")
 
         layout.addWidget(label)
         layout.addWidget(edit_button)
         layout.addWidget(green_button)
+        layout.addWidget(green_button_count)
         layout.addWidget(red_button)
+        layout.addWidget(red_button_count)
 
         return widget
 
@@ -206,10 +210,7 @@ class EditorTab(QWidget):
     #Сохранение изменений
     def commit_changes(self):
 
-        if not self.modified_rules:
-            QMessageBox.information(self, "Нет изменений", "Нет правил для обновления.")
-            return
-
+        
         conn = psycopg2.connect(
         host="127.0.0.1",
         user="postgres",
@@ -230,7 +231,7 @@ class EditorTab(QWidget):
         conn.close()
         self.modified_rules.clear()
         self.load_records()
-        QMessageBox.information(self, "Успешно", "Все изменения сохранены.")
+        QMessageBox.information(self, "Успешно", "Данные обновлены.")
 
     #Следующая страница
     def load_next(self):
