@@ -131,7 +131,7 @@ class EditorTab(QWidget):
         widget.setLayout(layout)
         widget.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Fixed)
 
-        label = QLabel(f"[{rules_id}] {rules_action} {rules_protocol} {rules_ip_s} {rules_port_s} {rules_route} {rules_ip_d} {rules_port_d} {rules_msg} {rules_content} {rules_sid} {rules_rev} ")
+        label = QLabel(f"{rules_action} {rules_protocol} {rules_ip_s} {rules_port_s} {rules_route} {rules_ip_d} {rules_port_d} {rules_msg} {rules_content} {rules_sid} {rules_rev} ")
         label.setWordWrap(True)
         label.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Preferred)
 
@@ -183,7 +183,7 @@ class EditorTab(QWidget):
 
         if dialog.exec():
             self.modified_rules[rule_id] = dialog.get_data()
-            QMessageBox.information(self, "Сохранено", f"Изменения сохранены локально для ID {rule_id}")
+            QMessageBox.information(self, "Сохранено", "Изменения сохранены локально")
         
     #Оценка правил
     def rate_rule(self, rule_id, is_positive: bool):
