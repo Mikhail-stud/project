@@ -4,13 +4,13 @@ from PyQt6.QtWidgets import (QWidget, QLabel, QPushButton, QVBoxLayout, QScrollA
 from PyQt6.QtGui import QIcon
 
 
-fields_names = [
+filds_names = [
     "Действие:", "Протокол:", "IP источника:", "Порт источника:", "Направление:",
     "IP получателя:", "Порт получателя:", "Название правила:", "Содержимое:", "SID:", "Версия:"
 ]
-names_columns = [
+names_colomns = [
     "rules_action", "rules_protocol", "rules_ip_s", "rules_port_s", "rules_route",
-    "rules_ip_d", "rules_port_d","rules_msg", "rules_content", "rules_sid", "rules_rev", "rules_effpol", "rules_effotr"
+    "rules_ip_d", "rules_port_d","rules_msg", "rules_content", "rules_sid", "rules_rev"
 ]
 
 class RuleEditDialog(QDialog):
@@ -23,7 +23,7 @@ class RuleEditDialog(QDialog):
         self.fields = {}
         self.setLayout(self.layout)
 
-        for field in fields_names:
+        for field in filds_names:
             hbox = QHBoxLayout()
             label = QLabel(field)
             edit = QLineEdit()
@@ -119,7 +119,6 @@ class EditorTab(QWidget):
         conn.close()
 
         
-        #Вывод записей
         for row in self.result:
             self.records_area.addWidget(self.create_record_widget(row))
 
@@ -169,13 +168,13 @@ class EditorTab(QWidget):
         )
 
         cursor = conn.cursor()
-        cursor.execute(f"SELECT {', '.join(names_columns)} FROM rules WHERE rules_id = %s", (rule_id,))
+        cursor.execute(f"SELECT {', '.join(names_colomns)} FROM rules WHERE rules_id = %s", (rule_id,))
         row = cursor.fetchone()
         cursor.close()
         conn.close()
 
         if row:
-            data = dict(zip(names_columns, row))
+            data = dict(zip(names_colomns, row))
         else:
             data = {}
         
@@ -184,7 +183,6 @@ class EditorTab(QWidget):
         if dialog.exec():
             self.modified_rules[rule_id] = dialog.get_data()
             QMessageBox.information(self, "Сохранено", "Изменения сохранены локально")
-        
     #Оценка правил
     def rate_rule(self, rule_id, is_positive: bool):
         conn = psycopg2.connect(
@@ -210,7 +208,6 @@ class EditorTab(QWidget):
     #Сохранение изменений
     def commit_changes(self):
 
-        
         conn = psycopg2.connect(
         host="127.0.0.1",
         user="postgres",
@@ -222,8 +219,8 @@ class EditorTab(QWidget):
         cursor = conn.cursor()
 
         for rule_id, data in self.modified_rules.items():
-            assignments = ", ".join([f"{k} = %s" for k in names_columns])
-            values = [data[k] for k in fields_names] + [rule_id]
+            assignments = ", ".join([f"{k} = %s" for k in names_colomns])
+            values = [data[k] for k in filds_names] + [rule_id]
             cursor.execute(f"UPDATE rules SET {assignments} WHERE rules_id = %s", values)
 
         conn.commit()
@@ -231,7 +228,7 @@ class EditorTab(QWidget):
         conn.close()
         self.modified_rules.clear()
         self.load_records()
-        QMessageBox.information(self, "Успешно", "Данные обновлены.")
+        QMessageBox.information(self, "Успешно", "Все изменения сохранены.")
 
     #Следующая страница
     def load_next(self):
@@ -243,7 +240,3 @@ class EditorTab(QWidget):
         if self.current_page > 0:
             self.current_page -= 1
             self.load_records()
-
-
-
-
