@@ -203,7 +203,7 @@ class EditorTab(QWidget):
         conn.commit()
         cursor.close()
         conn.close()
-        QMessageBox.information(self, "Оценка", f"Оценка {'положительная' if is_positive else 'отрицательная'} добавлена.")
+        QMessageBox.information(self, "Оценка", f"{'Положительная' if is_positive else 'Отрицательная'} оценка добавлена.")
 
     #Сохранение изменений
     def commit_changes(self):

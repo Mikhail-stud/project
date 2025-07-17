@@ -7,7 +7,7 @@ from constr import ConstructorTab
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.resize(1200,800)
+        self.resize(1300,900)
         self.setWindowTitle("Программа Х")
         self.tabs = QTabWidget()
         self.setCentralWidget(self.tabs)
