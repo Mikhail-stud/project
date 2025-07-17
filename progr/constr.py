@@ -166,10 +166,6 @@ class ConstructorTab(QWidget):
     # Формируем строку для отображения
         result_lines = []
         for key, val in values.items():
-            if key == "rules_route":
-                direction = "->" if val.lower() == "in" else "->" 
-                result_lines.append(f"{key}: {direction}")
-            else:
                 result_lines.append(f"{key}: {val}")
         result_text = " ".join(result_lines)
 
