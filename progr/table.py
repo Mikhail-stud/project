@@ -4,6 +4,7 @@ from PyQt6.QtWidgets import (QWidget, QLabel, QPushButton, QVBoxLayout, QScrollA
 from PyQt6.QtGui import QIcon
 
 
+# Названия полей для формы редактирования и их соответствие в базе данных
 fields_names = [
     "Действие:", "Протокол:", "IP источника:", "Порт источника:", "Направление:",
     "IP получателя:", "Порт получателя:", "Название правила:", "Содержимое:", "SID:", "Версия:"
@@ -13,6 +14,7 @@ names_columns = [
     "rules_ip_d", "rules_port_d","rules_msg", "rules_content", "rules_sid", "rules_rev"
 ]
 
+# Диалог редактирования правила
 class RuleEditDialog(QDialog):
     def __init__(self, rule_data: dict = None):
         super().__init__()
@@ -23,20 +25,28 @@ class RuleEditDialog(QDialog):
         self.fields = {}
         self.setLayout(self.layout)
 
-        for field in fields_names:
-            hbox = QHBoxLayout()
-            label = QLabel(field)
+        conn = psycopg2.connect(
+        host="127.0.0.1",
+        user="postgres",
+        password="admin",
+        port=5432,
+        dbname="proga_db"
+        )
+        cursor = conn.cursor()
+        # Создание строк ввода по каждому полю
+        for label_text, db_key in zip(fields_names, names_columns):
+            row = QHBoxLayout()
+            label = QLabel(label_text)
             edit = QLineEdit()
+            if rule_data and db_key in rule_data:
+                edit.setText(str(rule_data[db_key]))
+            row.addWidget(label)
+            row.addWidget(edit)
+            self.layout.addLayout(row)
+            self.fields[db_key] = edit
 
-            if rule_data and field in rule_data:
-                edit.setText(str(rule_data[field]))
 
-            hbox.addWidget(label)
-            hbox.addWidget(edit)
-            self.layout.addLayout(hbox)
-            self.fields[field] = edit
-
-        #Кнопки
+        # Кнопки Сохранить и Отмена
         button_box = QHBoxLayout()
         self.save_button = QPushButton("Сохранить")
         self.cancel_button = QPushButton("Отмена")
@@ -46,6 +56,7 @@ class RuleEditDialog(QDialog):
         button_box.addWidget(self.cancel_button)
         self.layout.addLayout(button_box)
 
+     # Получаем данные из всех полей
     def get_data(self):
         return {field: widget.text() for field, widget in self.fields.items()}
 
@@ -240,3 +251,5 @@ class EditorTab(QWidget):
         if self.current_page > 0:
             self.current_page -= 1
             self.load_records()
+
+
