@@ -1,0 +1,120 @@
+from PyQt6.QtWidgets import (
+    QWidget, QVBoxLayout, QPushButton, QFileDialog,
+    QComboBox, QLineEdit, QTableView, QMessageBox
+)
+from PyQt6.QtCore import QSortFilterProxyModel, Qt
+from controllers.constructor_controller import ConstructorController
+from models.logs_table_model import LogsTableModel
+from threads.file_loader_thread import FileLoaderThread
+from threads.log_parser_thread import LogParserThread
+from dialogs.create_rule_dialog import CreateRuleDialog
+from utils.logger import LOGGER
+
+
+class ConstructorView(QWidget):
+    """
+    Вкладка 'Конструктор':
+    - Загрузка логов.
+    - Парсинг в таблицу.
+    - Создание правил IDS/IPS.
+    """
+
+    def __init__(self, thread_manager):
+        super().__init__()
+        self.thread_manager = thread_manager
+        self.controller = ConstructorController()
+        self.log_lines = []
+
+        self.layout = QVBoxLayout(self)
+
+        # === Кнопка загрузки файла логов ===
+        self.load_button = QPushButton("Загрузить файл логов")
+        self.load_button.clicked.connect(self.load_logs)
+        self.layout.addWidget(self.load_button)
+
+        # === Выбор типа парсера ===
+        self.parser_selector = QComboBox()
+        self.parser_selector.addItems(["apache", "nginx", "wordpress", "bitrix"])
+        self.layout.addWidget(self.parser_selector)
+
+        # === Кнопка парсинга ===
+        self.process_button = QPushButton("Сформировать таблицу логов")
+        self.process_button.clicked.connect(self.process_logs)
+        self.layout.addWidget(self.process_button)
+
+        # === Поле поиска ===
+        self.search_field = QLineEdit()
+        self.search_field.setPlaceholderText("Поиск по логам...")
+        self.layout.addWidget(self.search_field)
+
+        # === Таблица логов ===
+        self.table_view = QTableView()
+        self.layout.addWidget(self.table_view)
+
+        # === Кнопка создания правила ===
+        self.create_rule_button = QPushButton("Создать правило")
+        self.create_rule_button.clicked.connect(self.show_create_rule_dialog)
+        self.layout.addWidget(self.create_rule_button)
+
+    # === Загрузка файла ===
+    def load_logs(self):
+        file_path, _ = QFileDialog.getOpenFileName(
+            self, "Выбери лог-файл", "", "Log files (*.log *.txt)"
+        )
+        if file_path:
+            LOGGER.info(f"[ConstructorView] Выбран файл: {file_path}")
+            thread = FileLoaderThread(file_path)
+            thread.finished.connect(self.on_file_loaded)
+            thread.error.connect(lambda msg: QMessageBox.critical(self, "Ошибка загрузки файла", msg))
+            self.thread_manager.start(thread)
+
+    def on_file_loaded(self, lines):
+        self.log_lines = lines
+        QMessageBox.information(self, "Файл загружен", "Файл логов успешно загружен.")
+        LOGGER.info(f"[ConstructorView] Загружено строк: {len(lines)}")
+
+    # === Парсинг логов ===
+    def process_logs(self):
+        log_type = self.parser_selector.currentText()
+        if not self.log_lines:
+            QMessageBox.warning(self, "Ошибка", "Сначала загрузите файл логов.")
+            return
+        LOGGER.info(f"[ConstructorView] Запуск парсинга: тип={log_type}")
+        thread = LogParserThread(self.log_lines, log_type)
+        thread.finished.connect(self.display_logs)
+        thread.error.connect(lambda msg: QMessageBox.critical(self, "Ошибка парсинга", msg))
+        self.thread_manager.start(thread)
+
+    def display_logs(self, df):
+        """Отображает DataFrame в QTableView с поиском и сортировкой."""
+        headers = list(df.columns)
+        rows = df.values.tolist()
+
+        model = LogsTableModel(rows, headers)
+        proxy_model = QSortFilterProxyModel()
+        proxy_model.setSourceModel(model)
+        proxy_model.setFilterCaseSensitivity(Qt.CaseSensitivity.CaseInsensitive)
+
+        self.search_field.textChanged.connect(proxy_model.setFilterFixedString)
+
+        self.table_view.setModel(proxy_model)
+        self.table_view.setSortingEnabled(True)
+        self.table_view.resizeColumnsToContents()
+        LOGGER.info(f"[ConstructorView] Таблица логов сформирована: {len(rows)} записей")
+
+    # === Создание нового правила ===
+    def show_create_rule_dialog(self):
+        """
+        Открывает диалоговое окно для создания нового правила.
+        После подтверждения передаёт данные в контроллер для валидации и сохранения.
+        """
+        dialog = CreateRuleDialog(self)  # Пустой диалог для создания
+        if dialog.exec():
+            rule_data = dialog.get_data()
+            try:
+                rule_id = self.controller.create_rule(rule_data)
+                QMessageBox.information(self, "Успех", f"Правило успешно создано (ID: {rule_id})")
+            except ValueError as ve:
+                QMessageBox.warning(self, "Ошибка валидации", str(ve))
+            except Exception as e:
+                QMessageBox.critical(self, "Ошибка", f"Не удалось создать правило: {e}")
