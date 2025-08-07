@@ -1,12 +1,21 @@
 import sys
-from PyQt6.QtWidgets import (QApplication, QWidget, QLabel, QPushButton)
+from PyQt6.QtWidgets import QApplication
+from utils.logger import LOGGER
 from main_window import MainWindow
 
 
+def main():
+    """Точка входа в приложение."""
+    app = QApplication(sys.argv)
+
+    LOGGER.info("=== Запуск IDS/IPS Rule Manager ===")
+    window = MainWindow()
+    window.show()
+
+    exit_code = app.exec()
+    LOGGER.info("=== Завершение работы приложения ===")
+    sys.exit(exit_code)
 
 
-
-app = QApplication(sys.argv)
-window = MainWindow()
-window.show()
-sys.exit(app.exec())
+if __name__ == "__main__":
+    main()
