@@ -1,10 +1,10 @@
 from PyQt6.QtWidgets import QMainWindow, QTabWidget, QStatusBar, QMenuBar, QMessageBox
 from PyQt6.QtGui import QAction
-from config.ui_config import UI_CONFIG
-from utils.logger import LOGGER
-from views.constructor_view import ConstructorView
-from views.editor_view import EditorView
-from views.export_view import ExportView
+from progr.config_app.ui_config import UI_CONFIG
+from progr.utils_app.logger import LOGGER
+from progr.views.constructor_view import ConstructorView
+from progr.views.editor_view import EditorView
+from progr.views.export_view import ExportView
 
 
 class MainWindow(QMainWindow):
@@ -75,11 +75,11 @@ class MainWindow(QMainWindow):
         """Перезагружает данные на активной вкладке."""
         current_widget = self.tabs.currentWidget()
         if hasattr(current_widget, "load_rules"):
-            logger.info("[MainWindow] Обновление данных во вкладке 'Редактор'")
+            LOGGER.info("[MainWindow] Обновление данных во вкладке 'Редактор'")
             current_widget.load_rules()
             self.status_bar.showMessage("Данные обновлены", 3000)
         elif hasattr(current_widget, "process_logs"):
-            logger.info("[MainWindow] Обновление данных во вкладке 'Конструктор'")
+            LOGGER.info("[MainWindow] Обновление данных во вкладке 'Конструктор'")
             current_widget.process_logs()
             self.status_bar.showMessage("Логи обновлены", 3000)
         else:
@@ -90,7 +90,7 @@ class MainWindow(QMainWindow):
         QMessageBox.information(
             self,
             "О программе",
-            "IDS/IPS Rule Manager\nВерсия 1.0\nАвтор: Ваше имя\n© 2025"
+            "IDS/IPS Rule Manager\nВерсия 1.0\nАвтор: Михаил\n© 2025"
         )
 
     def start(self, thread):

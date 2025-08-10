@@ -1,6 +1,6 @@
 from PyQt6.QtCore import QThread, pyqtSignal
-from models.rule_model import RuleModel
-from utils.logger import LOGGER
+from progr.models.rule_model import RuleModel
+from progr.utils_app.logger import LOGGER
 
 
 class BatchSaverThread(QThread):

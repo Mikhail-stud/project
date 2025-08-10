@@ -1,6 +1,6 @@
 import re
 import pandas as pd
-from utils.logger import LOGGER
+from progr.utils_app.logger import LOGGER
 
 
 class LogParser:

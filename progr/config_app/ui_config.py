@@ -7,16 +7,16 @@ UI_CONFIG = {
     # === Главное окно приложения ===
     "main_window": {
         "title": "IDS/IPS Rule Manager",
-        "width": 800,
-        "height": 600
+        "width": 1000,
+        "height": 800
     },
 
     # === Диалог создания/редактирования правил ===
     "create_rule_dialog": {
         "title_create": "Создание правила",
         "title_edit": "Редактирование правила",
-        "min_width": 600,
-        "min_height": 400
+        "min_width": 800,
+        "min_height": 600
     },
 
     # === Цвета подсветки HTTP-кодов ===
@@ -29,6 +29,6 @@ UI_CONFIG = {
     "styles": {
         "font": "Arial",
         "font_size": 10,
-        "table_alternate_row_color": "#685F5F"
+        "table_alternate_row_color": "#000000FF"
     }
 }

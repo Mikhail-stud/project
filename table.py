@@ -14,6 +14,7 @@ names_columns = [
     "rules_ip_d", "rules_port_d","rules_msg", "rules_content", "rules_sid", "rules_rev"
 ]
 
+
 # Диалог редактирования правила
 class RuleEditDialog(QDialog):
     def __init__(self, rule_data: dict = None):
@@ -25,14 +26,6 @@ class RuleEditDialog(QDialog):
         self.fields = {}
         self.setLayout(self.layout)
 
-        conn = psycopg2.connect(
-        host="127.0.0.1",
-        user="postgres",
-        password="admin",
-        port=5432,
-        dbname="proga_db"
-        )
-        cursor = conn.cursor()
         # Создание строк ввода по каждому полю
         for label_text, db_key in zip(fields_names, names_columns):
             row = QHBoxLayout()
@@ -44,7 +37,6 @@ class RuleEditDialog(QDialog):
             row.addWidget(edit)
             self.layout.addLayout(row)
             self.fields[db_key] = edit
-
 
         # Кнопки Сохранить и Отмена
         button_box = QHBoxLayout()
@@ -61,8 +53,11 @@ class RuleEditDialog(QDialog):
         return {field: widget.text() for field, widget in self.fields.items()}
 
 
+# Количество записей на странице
 quantity_rec_page = 10
 
+
+# Главный класс вкладки "Редактор"
 class EditorTab(QWidget):
     def __init__(self,):
         super().__init__()
@@ -80,7 +75,7 @@ class EditorTab(QWidget):
         top_bar.addWidget(self.refresh_button)
         self.main_layout.addLayout(top_bar)
 
-        # Прокручиваемая область для записей
+        # Прокручиваемая область, куда будут добавляться виджеты записей
         self.records_area = QVBoxLayout()
         self.records_container = QWidget()
         self.records_container.setLayout(self.records_area)
@@ -90,7 +85,7 @@ class EditorTab(QWidget):
         scroll.setWidget(self.records_container)
         self.main_layout.addWidget(scroll)
 
-        # Кнопки навигации
+        # Кнопки "Назад" и "Следующие" для постраничной навигации
         nav_layout = QHBoxLayout()
         self.prev_button = QPushButton("Назад")
         self.next_button = QPushButton("Следующие")
@@ -101,6 +96,7 @@ class EditorTab(QWidget):
         self.main_layout.addLayout(nav_layout)
 
         self.load_records()
+
 
     #Загрузка записей из БД
     def load_records(self):
@@ -113,7 +109,7 @@ class EditorTab(QWidget):
                 widget.setParent(None)
                 widget.deleteLater()
         
-        #Подключение к БД
+        # Подключение к базе данных PostgreSQL
         offset = self.current_page * quantity_rec_page
         conn = psycopg2.connect(
         host="127.0.0.1",
@@ -123,6 +119,7 @@ class EditorTab(QWidget):
         dbname="proga_db"
         )
 
+        # Получаем список правил с полями эффективности
         cursor = conn.cursor(cursor_factory=DictCursor)
         cursor.execute("SELECT rules_id, rules_action, rules_protocol, rules_ip_s, rules_port_s, rules_route, rules_ip_d, rules_port_d, rules_msg, rules_content, rules_sid, rules_rev, rules_effpol, rules_effotr FROM rules ORDER BY rules_id LIMIT %s OFFSET %s", (quantity_rec_page, offset))
         self.result = cursor.fetchall()
@@ -133,7 +130,8 @@ class EditorTab(QWidget):
         for row in self.result:
             self.records_area.addWidget(self.create_record_widget(row))
 
-    #Создание кнопок рядом с записями
+
+    # Создаём виджет для одной записи правила
     def create_record_widget(self, record):
         rules_id, rules_action, rules_protocol, rules_ip_s, rules_port_s, rules_route, rules_ip_d, rules_port_d, rules_msg, rules_content, rules_sid, rules_rev, rules_effpol, rules_effotr = record
         widget = QWidget()
@@ -141,13 +139,16 @@ class EditorTab(QWidget):
         widget.setLayout(layout)
         widget.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Fixed)
 
+        # Строка с текстовым отображением правила
         label = QLabel(f'{rules_action} {rules_protocol} {rules_ip_s} {rules_port_s} {rules_route} {rules_ip_d} {rules_port_d} (msg: "{rules_msg}"; content: "{rules_content}"; sid: {rules_sid}; rev: {rules_rev})')
         label.setWordWrap(True)
         label.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Preferred)
 
+        # Кнопка редактирования записи
         edit_button = QPushButton("Редактировать")
         edit_button.clicked.connect(lambda: self.open_editor(rules_id))
 
+        # Кнопки эффективности с количеством оценок
         green_button = QPushButton()
         green_button.setIcon(QIcon.fromTheme("dialog-apply"))
         green_button.clicked.connect(lambda: self.rate_rule(rules_id, True))
@@ -169,7 +170,10 @@ class EditorTab(QWidget):
         return widget
 
 
+    # Открытие редактора для одной записи
     def open_editor(self, rule_id):
+
+        # Подключение к базе данных PostgreSQL
         conn = psycopg2.connect(
         host="127.0.0.1",
         user="postgres",
@@ -194,8 +198,12 @@ class EditorTab(QWidget):
         if dialog.exec():
             self.modified_rules[rule_id] = dialog.get_data()
             QMessageBox.information(self, "Сохранено", "Изменения сохранены локально")
+
+
     #Оценка правил
     def rate_rule(self, rule_id, is_positive: bool):
+
+        # Подключение к базе данных PostgreSQL
         conn = psycopg2.connect(
         host="127.0.0.1",
         user="postgres",
@@ -216,9 +224,11 @@ class EditorTab(QWidget):
         conn.close()
         QMessageBox.information(self, "Оценка", f"{'Положительная' if is_positive else 'Отрицательная'} оценка добавлена.")
 
-    #Сохранение изменений
+
+    # Сохраняем все изменения, внесённые в записи
     def commit_changes(self):
 
+        # Подключение к базе данных PostgreSQL
         conn = psycopg2.connect(
         host="127.0.0.1",
         user="postgres",
@@ -241,11 +251,13 @@ class EditorTab(QWidget):
         self.load_records()
         QMessageBox.information(self, "Успешно", "Все изменения сохранены.")
 
-    #Следующая страница
+
+    # Перейти на следующую страницу
     def load_next(self):
         self.current_page += 1
         self.load_records()
-    #Предыдущая страница
+
+    # Перейти на следующую страницу
     def load_previous(self):
 
         if self.current_page > 0:

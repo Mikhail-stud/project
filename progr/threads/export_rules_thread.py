@@ -1,7 +1,7 @@
 from PyQt6.QtCore import QThread, pyqtSignal
-from models.export_model import ExportModel
-from utils.export_rules import export_to_rules_file
-from utils.logger import LOGGER
+from progr.models.export_model import ExportModel
+from progr.utils_app.export_rules import export_to_rules_file
+from progr.utils_app.logger import LOGGER
 
 
 class ExportRulesThread(QThread):

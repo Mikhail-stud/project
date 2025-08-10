@@ -55,7 +55,8 @@ class ConstructorTab(QWidget):
         port=5432,
         dbname="proga_db"
         )
-        self.cur = self.conn.cursor() # Создание курсора для выполнения SQL-запросов
+        # Создание курсора для выполнения SQL-запросов
+        self.cur = self.conn.cursor() 
         
         # Таблица для отображения логов
         self.table = QTableWidget()
@@ -64,15 +65,17 @@ class ConstructorTab(QWidget):
         # Переменная для хранения распарсенных данных
         self.log_data = pd.DataFrame()
 
+
+    # Открывает диалог выбора файла и сохраняет путь
     def select_file(self):
-        # Открывает диалог выбора файла и сохраняет путь
         file_name, _ = QFileDialog.getOpenFileName(self, "Выберите лог-файл", "", "Log files (*.log *.txt)")
         if file_name:
             self.file_label.setText(file_name)
             self.file_path = file_name
 
+
+    # Определяет тип логов и запускает парсинг выбранного файла
     def parse_logs(self):
-        # Определяет тип логов и запускает парсинг выбранного файла
         parser = self.parser_type.currentText()
         if not hasattr(self, 'file_path'):
             self.file_label.setText("Файл не выбран!")
@@ -84,10 +87,10 @@ class ConstructorTab(QWidget):
         self.log_data = self.parse_log_lines(lines, parser)
         self.update_table()
 
+
+    # Парсит строки логов в зависимости от выбранного формата
     def parse_log_lines(self, lines, parser_type):
         import re
-        
-        # Парсит строки логов в зависимости от выбранного формата
         structured = []
         if parser_type in ["Apache", "NGINX"]:
             # Регулярное выражение для логов Apache/NGINX
@@ -110,13 +113,14 @@ class ConstructorTab(QWidget):
                         "User-Agent": data["agent"]
                     })
         elif parser_type in ["WordPress", "Bitrix"]:
-            # Заглушка для CMS логов — просто сохраняем как строку
+            # Заглушка для CMS логов
             for line in lines:
                 structured.append({"CMS лог": line.strip()})
         return pd.DataFrame(structured)
-    
+
+
+    # Отображает DataFrame в виде таблицы на интерфейсе
     def update_table(self):
-        # Отображает DataFrame в виде таблицы на интерфейсе
         df = self.log_data
         self.table.setColumnCount(len(df.columns))
         self.table.setRowCount(len(df.index))
@@ -126,8 +130,9 @@ class ConstructorTab(QWidget):
             for j in range(len(df.columns)):
                 self.table.setItem(i, j, QTableWidgetItem(str(df.iat[i, j])))
 
+
+    # Открытие окна для создания одной записи
     def open_create_dialog(self):
-        # Открывает окно для ввода данных нового правила
         dialog = QDialog(self)
         dialog.setWindowTitle("Создание правила")
         dialog.resize(QSize(800, 600))
@@ -165,8 +170,9 @@ class ConstructorTab(QWidget):
         dialog.setLayout(layout)
         dialog.exec()
 
+
+    # Сохраняет новое правило в базу данных и выводит результат пользователю
     def save_rule(self, dialog):
-        # Сохраняет новое правило в базу данных и выводит результат пользователю
         values = {key: self.inputs[key].text() for key in self.inputs}
         columns = ", ".join(values.keys())
         placeholders = ", ".join(["%s"] * len(values))

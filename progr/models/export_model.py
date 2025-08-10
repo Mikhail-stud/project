@@ -1,7 +1,7 @@
 import psycopg2
 from psycopg2.extras import RealDictCursor
-from config.db_config import DB_CONFIG
-from utils.logger import LOGGER
+from progr.config_app.db_config import DB_CONFIG
+from progr.utils_app.logger import LOGGER
 
 
 class ExportModel:

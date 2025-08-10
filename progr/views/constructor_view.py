@@ -3,12 +3,12 @@ from PyQt6.QtWidgets import (
     QComboBox, QLineEdit, QTableView, QMessageBox
 )
 from PyQt6.QtCore import QSortFilterProxyModel, Qt
-from controllers.constructor_controller import ConstructorController
-from models.logs_table_model import LogsTableModel
-from threads.file_loader_thread import FileLoaderThread
-from threads.log_parser_thread import LogParserThread
-from dialogs.create_rule_dialog import CreateRuleDialog
-from utils.logger import LOGGER
+from progr.controllers.constructor_controller import ConstructorController
+from progr.models.logs_table_model import LogsTableModel
+from progr.threads.file_loader_thread import FileLoaderThread
+from progr.threads.log_parser_thread import LogParserThread
+from progr.dialogs.create_rule_dialog import CreateRuleDialog
+from progr.utils_app.logger import LOGGER
 
 
 class ConstructorView(QWidget):
@@ -34,7 +34,7 @@ class ConstructorView(QWidget):
 
         # === Выбор типа парсера ===
         self.parser_selector = QComboBox()
-        self.parser_selector.addItems(["apache", "nginx", "wordpress", "bitrix"])
+        self.parser_selector.addItems(["Apache", "Nginx", "Wordpress", "Bitrix"])
         self.layout.addWidget(self.parser_selector)
 
         # === Кнопка парсинга ===

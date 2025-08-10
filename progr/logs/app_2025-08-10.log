@@ -5,3 +5,538 @@
 2025-08-10 12:20:02 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils/../logs/app_2025-08-10.log
 2025-08-10 12:22:02 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils/../logs/app_2025-08-10.log
 2025-08-10 12:22:54 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils/../logs/app_2025-08-10.log
+2025-08-10 13:54:44 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-10.log
+2025-08-10 13:55:33 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-10.log
+2025-08-10 13:55:46 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-10.log
+2025-08-10 13:56:57 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-10.log
+2025-08-10 13:57:38 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-10.log
+2025-08-10 13:58:36 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-10.log
+2025-08-10 14:01:29 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-10.log
+2025-08-10 14:03:44 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-10.log
+2025-08-10 14:03:45 [INFO] [IDS_IPS_Logger] === Запуск IDS/IPS Rule Manager ===
+2025-08-10 14:03:45 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=10
+2025-08-10 14:03:45 [ERROR] [IDS_IPS_Logger] [RuleModel] Ошибка получения правил: column "id" does not exist
+СТРОКА 2:         SELECT id, rules_action, rules_protocol, rules_ip_s,...
+                         ^
+Traceback (most recent call last):
+  File "/home/ubuntupc/my-proj/progr/models/rule_model.py", line 37, in get_rules
+    cur.execute(query, (offset, limit))
+  File "/home/ubuntupc/my-proj/.venv/lib/python3.12/site-packages/psycopg2/extras.py", line 236, in execute
+    return super().execute(query, vars)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedColumn: column "id" does not exist
+СТРОКА 2:         SELECT id, rules_action, rules_protocol, rules_ip_s,...
+                         ^
+
+2025-08-10 14:03:45 [ERROR] [IDS_IPS_Logger] [EditorController] Ошибка загрузки правил: column "id" does not exist
+СТРОКА 2:         SELECT id, rules_action, rules_protocol, rules_ip_s,...
+                         ^
+Traceback (most recent call last):
+  File "/home/ubuntupc/my-proj/progr/controllers/editor_controller.py", line 27, in get_rules
+    rules = RuleModel.get_rules(offset, limit)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntupc/my-proj/progr/models/rule_model.py", line 37, in get_rules
+    cur.execute(query, (offset, limit))
+  File "/home/ubuntupc/my-proj/.venv/lib/python3.12/site-packages/psycopg2/extras.py", line 236, in execute
+    return super().execute(query, vars)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedColumn: column "id" does not exist
+СТРОКА 2:         SELECT id, rules_action, rules_protocol, rules_ip_s,...
+                         ^
+
+2025-08-10 14:04:04 [ERROR] [IDS_IPS_Logger] [EditorView] Ошибка загрузки правил: column "id" does not exist
+СТРОКА 2:         SELECT id, rules_action, rules_protocol, rules_ip_s,...
+                         ^
+Traceback (most recent call last):
+  File "/home/ubuntupc/my-proj/progr/views/editor_view.py", line 60, in load_rules
+    rules = self.controller.get_rules(self.current_offset, self.limit)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntupc/my-proj/progr/controllers/editor_controller.py", line 27, in get_rules
+    rules = RuleModel.get_rules(offset, limit)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntupc/my-proj/progr/models/rule_model.py", line 37, in get_rules
+    cur.execute(query, (offset, limit))
+  File "/home/ubuntupc/my-proj/.venv/lib/python3.12/site-packages/psycopg2/extras.py", line 236, in execute
+    return super().execute(query, vars)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedColumn: column "id" does not exist
+СТРОКА 2:         SELECT id, rules_action, rules_protocol, rules_ip_s,...
+                         ^
+
+2025-08-10 14:19:46 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-10.log
+2025-08-10 14:19:47 [INFO] [IDS_IPS_Logger] === Запуск IDS/IPS Rule Manager ===
+2025-08-10 14:19:47 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=10
+2025-08-10 14:19:47 [ERROR] [IDS_IPS_Logger] [RuleModel] Ошибка получения правил: column "id" does not exist
+СТРОКА 2:         SELECT id, rules_action, rules_protocol, rules_ip_s,...
+                         ^
+Traceback (most recent call last):
+  File "/home/ubuntupc/my-proj/progr/models/rule_model.py", line 37, in get_rules
+    cur.execute(query, (offset, limit))
+  File "/home/ubuntupc/my-proj/.venv/lib/python3.12/site-packages/psycopg2/extras.py", line 236, in execute
+    return super().execute(query, vars)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedColumn: column "id" does not exist
+СТРОКА 2:         SELECT id, rules_action, rules_protocol, rules_ip_s,...
+                         ^
+
+2025-08-10 14:19:47 [ERROR] [IDS_IPS_Logger] [EditorController] Ошибка загрузки правил: column "id" does not exist
+СТРОКА 2:         SELECT id, rules_action, rules_protocol, rules_ip_s,...
+                         ^
+Traceback (most recent call last):
+  File "/home/ubuntupc/my-proj/progr/controllers/editor_controller.py", line 27, in get_rules
+    rules = RuleModel.get_rules(offset, limit)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntupc/my-proj/progr/models/rule_model.py", line 37, in get_rules
+    cur.execute(query, (offset, limit))
+  File "/home/ubuntupc/my-proj/.venv/lib/python3.12/site-packages/psycopg2/extras.py", line 236, in execute
+    return super().execute(query, vars)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedColumn: column "id" does not exist
+СТРОКА 2:         SELECT id, rules_action, rules_protocol, rules_ip_s,...
+                         ^
+
+2025-08-10 14:20:00 [ERROR] [IDS_IPS_Logger] [EditorView] Ошибка загрузки правил: column "id" does not exist
+СТРОКА 2:         SELECT id, rules_action, rules_protocol, rules_ip_s,...
+                         ^
+Traceback (most recent call last):
+  File "/home/ubuntupc/my-proj/progr/views/editor_view.py", line 60, in load_rules
+    rules = self.controller.get_rules(self.current_offset, self.limit)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntupc/my-proj/progr/controllers/editor_controller.py", line 27, in get_rules
+    rules = RuleModel.get_rules(offset, limit)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntupc/my-proj/progr/models/rule_model.py", line 37, in get_rules
+    cur.execute(query, (offset, limit))
+  File "/home/ubuntupc/my-proj/.venv/lib/python3.12/site-packages/psycopg2/extras.py", line 236, in execute
+    return super().execute(query, vars)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedColumn: column "id" does not exist
+СТРОКА 2:         SELECT id, rules_action, rules_protocol, rules_ip_s,...
+                         ^
+
+2025-08-10 14:20:21 [INFO] [IDS_IPS_Logger] === Завершение работы приложения ===
+2025-08-10 15:03:36 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-10.log
+2025-08-10 15:03:37 [INFO] [IDS_IPS_Logger] === Запуск IDS/IPS Rule Manager ===
+2025-08-10 15:03:37 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=10
+2025-08-10 15:03:37 [ERROR] [IDS_IPS_Logger] [RuleModel] Ошибка получения правил: column "positive_votes" does not exist
+СТРОКА 5:                positive_votes, negative_votes
+                         ^
+Traceback (most recent call last):
+  File "/home/ubuntupc/my-proj/progr/models/rule_model.py", line 37, in get_rules
+    cur.execute(query, (offset, limit))
+  File "/home/ubuntupc/my-proj/.venv/lib/python3.12/site-packages/psycopg2/extras.py", line 236, in execute
+    return super().execute(query, vars)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedColumn: column "positive_votes" does not exist
+СТРОКА 5:                positive_votes, negative_votes
+                         ^
+
+2025-08-10 15:03:37 [ERROR] [IDS_IPS_Logger] [EditorController] Ошибка загрузки правил: column "positive_votes" does not exist
+СТРОКА 5:                positive_votes, negative_votes
+                         ^
+Traceback (most recent call last):
+  File "/home/ubuntupc/my-proj/progr/controllers/editor_controller.py", line 27, in get_rules
+    rules = RuleModel.get_rules(offset, limit)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntupc/my-proj/progr/models/rule_model.py", line 37, in get_rules
+    cur.execute(query, (offset, limit))
+  File "/home/ubuntupc/my-proj/.venv/lib/python3.12/site-packages/psycopg2/extras.py", line 236, in execute
+    return super().execute(query, vars)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedColumn: column "positive_votes" does not exist
+СТРОКА 5:                positive_votes, negative_votes
+                         ^
+
+2025-08-10 15:03:44 [ERROR] [IDS_IPS_Logger] [EditorView] Ошибка загрузки правил: column "positive_votes" does not exist
+СТРОКА 5:                positive_votes, negative_votes
+                         ^
+Traceback (most recent call last):
+  File "/home/ubuntupc/my-proj/progr/views/editor_view.py", line 60, in load_rules
+    rules = self.controller.get_rules(self.current_offset, self.limit)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntupc/my-proj/progr/controllers/editor_controller.py", line 27, in get_rules
+    rules = RuleModel.get_rules(offset, limit)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntupc/my-proj/progr/models/rule_model.py", line 37, in get_rules
+    cur.execute(query, (offset, limit))
+  File "/home/ubuntupc/my-proj/.venv/lib/python3.12/site-packages/psycopg2/extras.py", line 236, in execute
+    return super().execute(query, vars)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedColumn: column "positive_votes" does not exist
+СТРОКА 5:                positive_votes, negative_votes
+                         ^
+
+2025-08-10 15:03:46 [INFO] [IDS_IPS_Logger] === Завершение работы приложения ===
+2025-08-10 15:04:25 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-10.log
+2025-08-10 15:04:26 [INFO] [IDS_IPS_Logger] === Запуск IDS/IPS Rule Manager ===
+2025-08-10 15:04:26 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=10
+2025-08-10 15:04:26 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 10 правил (offset=0, limit=10)
+2025-08-10 15:04:26 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 10
+2025-08-10 15:04:32 [ERROR] [IDS_IPS_Logger] [EditorView] Ошибка загрузки правил: 'id'
+Traceback (most recent call last):
+  File "/home/ubuntupc/my-proj/progr/views/editor_view.py", line 67, in load_rules
+    self.table.setItem(row_idx, 0, QTableWidgetItem(str(rule["id"])))
+                                                        ~~~~^^^^^^
+KeyError: 'id'
+2025-08-10 15:04:34 [INFO] [IDS_IPS_Logger] === Завершение работы приложения ===
+2025-08-10 15:07:04 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-10.log
+2025-08-10 15:07:05 [INFO] [IDS_IPS_Logger] === Запуск IDS/IPS Rule Manager ===
+2025-08-10 15:07:05 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=10
+2025-08-10 15:07:05 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 10 правил (offset=0, limit=10)
+2025-08-10 15:07:05 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 10
+2025-08-10 15:07:50 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=10, limit=10
+2025-08-10 15:07:50 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 5 правил (offset=10, limit=10)
+2025-08-10 15:07:50 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 5
+2025-08-10 15:07:55 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=10
+2025-08-10 15:07:55 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 10 правил (offset=0, limit=10)
+2025-08-10 15:07:55 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 10
+2025-08-10 15:08:02 [INFO] [IDS_IPS_Logger] [EditorController] Получение данных правила ID=1
+2025-08-10 15:08:02 [INFO] [IDS_IPS_Logger] [RuleModel] Получено правило ID=1
+2025-08-10 15:08:12 [ERROR] [IDS_IPS_Logger] [EditorView] Ошибка редактирования правила ID=1: 'create_rule'
+Traceback (most recent call last):
+  File "/home/ubuntupc/my-proj/progr/views/editor_view.py", line 101, in edit_rule
+    dialog = CreateRuleDialog(self, rule_data=rule_data)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntupc/my-proj/progr/dialogs/create_rule_dialog.py", line 23, in __init__
+    settings = UI_CONFIG["create_rule"]
+               ~~~~~~~~~^^^^^^^^^^^^^^^
+KeyError: 'create_rule'
+2025-08-10 15:08:23 [INFO] [IDS_IPS_Logger] === Завершение работы приложения ===
+2025-08-10 15:10:37 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-10.log
+2025-08-10 15:10:38 [INFO] [IDS_IPS_Logger] === Запуск IDS/IPS Rule Manager ===
+2025-08-10 15:10:38 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=10
+2025-08-10 15:10:38 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 10 правил (offset=0, limit=10)
+2025-08-10 15:10:38 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 10
+2025-08-10 15:10:48 [INFO] [IDS_IPS_Logger] [EditorController] Получение данных правила ID=1
+2025-08-10 15:10:48 [INFO] [IDS_IPS_Logger] [RuleModel] Получено правило ID=1
+2025-08-10 15:11:09 [INFO] [IDS_IPS_Logger] [EditorController] Получение данных правила ID=10
+2025-08-10 15:11:09 [INFO] [IDS_IPS_Logger] [RuleModel] Получено правило ID=10
+2025-08-10 15:11:13 [INFO] [IDS_IPS_Logger] [EditorController] Получение данных правила ID=6
+2025-08-10 15:11:13 [INFO] [IDS_IPS_Logger] [RuleModel] Получено правило ID=6
+2025-08-10 15:11:16 [INFO] [IDS_IPS_Logger] [EditorController] Получение данных правила ID=11
+2025-08-10 15:11:16 [INFO] [IDS_IPS_Logger] [RuleModel] Получено правило ID=11
+2025-08-10 15:11:26 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=10, limit=10
+2025-08-10 15:11:26 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 5 правил (offset=10, limit=10)
+2025-08-10 15:11:26 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 5
+2025-08-10 15:11:32 [INFO] [IDS_IPS_Logger] [EditorController] Получение данных правила ID=13
+2025-08-10 15:11:32 [INFO] [IDS_IPS_Logger] [RuleModel] Получено правило ID=13
+2025-08-10 15:11:38 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=10
+2025-08-10 15:11:38 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 10 правил (offset=0, limit=10)
+2025-08-10 15:11:38 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 10
+2025-08-10 15:11:42 [INFO] [IDS_IPS_Logger] [RuleModel] Голос добавлен для правила ID=6, positive=True
+2025-08-10 15:11:42 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=10
+2025-08-10 15:11:42 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 10 правил (offset=0, limit=10)
+2025-08-10 15:11:42 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 10
+2025-08-10 15:11:49 [INFO] [IDS_IPS_Logger] [EditorController] Сохранение 0 правил...
+2025-08-10 15:11:49 [INFO] [IDS_IPS_Logger] [EditorController] Все изменения успешно сохранены
+2025-08-10 15:11:50 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=10
+2025-08-10 15:11:50 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 10 правил (offset=0, limit=10)
+2025-08-10 15:11:50 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 10
+2025-08-10 15:11:54 [INFO] [IDS_IPS_Logger] [RuleModel] Голос добавлен для правила ID=7, positive=False
+2025-08-10 15:11:54 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=10
+2025-08-10 15:11:54 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 10 правил (offset=0, limit=10)
+2025-08-10 15:11:54 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 10
+2025-08-10 15:11:56 [INFO] [IDS_IPS_Logger] [RuleModel] Голос добавлен для правила ID=10, positive=True
+2025-08-10 15:11:56 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=10
+2025-08-10 15:11:56 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 10 правил (offset=0, limit=10)
+2025-08-10 15:11:56 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 10
+2025-08-10 15:11:58 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=10
+2025-08-10 15:11:58 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 10 правил (offset=0, limit=10)
+2025-08-10 15:11:58 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 10
+2025-08-10 15:12:01 [INFO] [IDS_IPS_Logger] [EditorController] Сохранение 0 правил...
+2025-08-10 15:12:01 [INFO] [IDS_IPS_Logger] [EditorController] Все изменения успешно сохранены
+2025-08-10 15:12:02 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=10
+2025-08-10 15:12:02 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 10 правил (offset=0, limit=10)
+2025-08-10 15:12:02 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 10
+2025-08-10 15:13:47 [INFO] [IDS_IPS_Logger] [ConstructorController] Попытка создания правила: {'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '->', 'rules_ip_d': '192.168.1.1', 'rules_port_d': 'any', 'rules_msg': 'New dis', 'rules_content': 'new rule dis test', 'rules_sid': '123', 'rules_rev': '1'}
+2025-08-10 15:13:47 [INFO] [IDS_IPS_Logger] [RuleModel] Новое правило добавлено ID=17
+2025-08-10 15:13:47 [INFO] [IDS_IPS_Logger] [ConstructorController] Новое правило создано: ID=17
+2025-08-10 15:13:57 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=10, limit=10
+2025-08-10 15:13:57 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 6 правил (offset=10, limit=10)
+2025-08-10 15:13:57 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 6
+2025-08-10 15:14:01 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=10
+2025-08-10 15:14:01 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 10 правил (offset=0, limit=10)
+2025-08-10 15:14:01 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 10
+2025-08-10 15:14:31 [INFO] [IDS_IPS_Logger] [ExportView] Запрошен экспорт правил: system_type=IDS, file=/home/ubuntupc/my-proj/test exp
+2025-08-10 15:21:29 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-10.log
+2025-08-10 15:21:40 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-10.log
+2025-08-10 15:21:40 [INFO] [IDS_IPS_Logger] === Запуск IDS/IPS Rule Manager ===
+2025-08-10 15:21:40 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=10
+2025-08-10 15:21:40 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 10 правил (offset=0, limit=10)
+2025-08-10 15:21:40 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 10
+2025-08-10 15:21:54 [INFO] [IDS_IPS_Logger] === Завершение работы приложения ===
+2025-08-10 15:23:51 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-10.log
+2025-08-10 15:23:52 [INFO] [IDS_IPS_Logger] === Запуск IDS/IPS Rule Manager ===
+2025-08-10 15:23:52 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=10
+2025-08-10 15:23:52 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 10 правил (offset=0, limit=10)
+2025-08-10 15:23:52 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 10
+2025-08-10 15:23:59 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=10, limit=10
+2025-08-10 15:23:59 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 6 правил (offset=10, limit=10)
+2025-08-10 15:23:59 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 6
+2025-08-10 15:24:02 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=10
+2025-08-10 15:24:02 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 10 правил (offset=0, limit=10)
+2025-08-10 15:24:02 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 10
+2025-08-10 15:24:08 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=10, limit=10
+2025-08-10 15:24:08 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 6 правил (offset=10, limit=10)
+2025-08-10 15:24:08 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 6
+2025-08-10 15:24:09 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=10
+2025-08-10 15:24:09 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 10 правил (offset=0, limit=10)
+2025-08-10 15:24:09 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 10
+2025-08-10 15:24:27 [INFO] [IDS_IPS_Logger] === Завершение работы приложения ===
+2025-08-10 15:26:55 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-10.log
+2025-08-10 15:26:56 [INFO] [IDS_IPS_Logger] === Запуск IDS/IPS Rule Manager ===
+2025-08-10 15:26:56 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=10
+2025-08-10 15:26:56 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 10 правил (offset=0, limit=10)
+2025-08-10 15:26:56 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 10
+2025-08-10 15:27:03 [INFO] [IDS_IPS_Logger] [EditorController] Получение данных правила ID=11
+2025-08-10 15:27:03 [INFO] [IDS_IPS_Logger] [RuleModel] Получено правило ID=11
+2025-08-10 15:27:29 [INFO] [IDS_IPS_Logger] [RuleModel] Голос добавлен для правила ID=1, positive=True
+2025-08-10 15:27:29 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=10
+2025-08-10 15:27:29 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 10 правил (offset=0, limit=10)
+2025-08-10 15:27:29 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 10
+2025-08-10 15:27:36 [INFO] [IDS_IPS_Logger] [RuleModel] Голос добавлен для правила ID=8, positive=False
+2025-08-10 15:27:36 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=10
+2025-08-10 15:27:36 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 10 правил (offset=0, limit=10)
+2025-08-10 15:27:36 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 10
+2025-08-10 15:27:50 [INFO] [IDS_IPS_Logger] [ExportView] Запрошен экспорт правил: system_type=IDS, file=/home/ubuntupc/my-proj/testov
+2025-08-10 15:31:56 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-10.log
+2025-08-10 15:31:57 [INFO] [IDS_IPS_Logger] === Запуск IDS/IPS Rule Manager ===
+2025-08-10 15:31:57 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=10
+2025-08-10 15:31:57 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 10 правил (offset=0, limit=10)
+2025-08-10 15:31:57 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 10
+2025-08-10 15:32:10 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=10, limit=10
+2025-08-10 15:32:10 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 6 правил (offset=10, limit=10)
+2025-08-10 15:32:10 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 6
+2025-08-10 15:32:15 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=10
+2025-08-10 15:32:16 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 10 правил (offset=0, limit=10)
+2025-08-10 15:32:16 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 10
+2025-08-10 15:33:03 [INFO] [IDS_IPS_Logger] [ConstructorController] Попытка создания правила: {'rules_action': 'drop', 'rules_protocol': 'udp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '<->', 'rules_ip_d': 'any', 'rules_port_d': 'any', 'rules_msg': 'test test test tes test tset st ts st stts', 'rules_content': 'vvvvvvvvvvvvvvv vvvvvvvvvvvvvvvvvvv gggggggggggggg aaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'rules_sid': '12', 'rules_rev': '1'}
+2025-08-10 15:33:03 [INFO] [IDS_IPS_Logger] [RuleModel] Новое правило добавлено ID=18
+2025-08-10 15:33:03 [INFO] [IDS_IPS_Logger] [ConstructorController] Новое правило создано: ID=18
+2025-08-10 15:33:10 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=10, limit=10
+2025-08-10 15:33:10 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 7 правил (offset=10, limit=10)
+2025-08-10 15:33:10 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 7
+2025-08-10 15:33:32 [INFO] [IDS_IPS_Logger] [RuleModel] Голос добавлен для правила ID=18, positive=True
+2025-08-10 15:33:32 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=10, limit=10
+2025-08-10 15:33:32 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 7 правил (offset=10, limit=10)
+2025-08-10 15:33:32 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 7
+2025-08-10 15:33:36 [INFO] [IDS_IPS_Logger] [EditorController] Получение данных правила ID=18
+2025-08-10 15:33:36 [INFO] [IDS_IPS_Logger] [RuleModel] Получено правило ID=18
+2025-08-10 15:33:44 [INFO] [IDS_IPS_Logger] [EditorController] Изменение правила ID=18: {'rules_action': 'drop', 'rules_protocol': 'udp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '<->', 'rules_ip_d': 'any', 'rules_port_d': 'any', 'rules_msg': 'test test test tes test tset st ts st stts', 'rules_content': 'vvvvvvvvvvvvvvv vvvvvvvvvvvvvvvvvvv', 'rules_sid': '12', 'rules_rev': '1'}
+2025-08-10 15:33:50 [INFO] [IDS_IPS_Logger] [EditorController] Получение данных правила ID=18
+2025-08-10 15:33:50 [INFO] [IDS_IPS_Logger] [RuleModel] Получено правило ID=18
+2025-08-10 15:33:54 [INFO] [IDS_IPS_Logger] [EditorController] Изменение правила ID=18: {'rules_action': 'drop', 'rules_protocol': 'udp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '<->', 'rules_ip_d': 'any', 'rules_port_d': 'any', 'rules_msg': 'test test test tes test tset st ts st stts', 'rules_content': 'vvvvvvvvvvvvvvv vvvvvvvvvvvvvvvvvvv gggggggggggggg', 'rules_sid': '12', 'rules_rev': '1'}
+2025-08-10 15:34:03 [INFO] [IDS_IPS_Logger] [EditorController] Сохранение 2 правил...
+2025-08-10 15:34:03 [ERROR] [IDS_IPS_Logger] [RuleModel] Ошибка обновления правила ID=18: 'id'
+Traceback (most recent call last):
+  File "/home/ubuntupc/my-proj/progr/models/rule_model.py", line 107, in update_rule
+    cur.execute(query, updated_data)
+KeyError: 'id'
+2025-08-10 15:34:03 [ERROR] [IDS_IPS_Logger] [EditorController] Ошибка при сохранении изменений: 'id'
+Traceback (most recent call last):
+  File "/home/ubuntupc/my-proj/progr/controllers/editor_controller.py", line 89, in commit_all
+    RuleModel.update_rule(rule_id, updated_data)
+  File "/home/ubuntupc/my-proj/progr/models/rule_model.py", line 107, in update_rule
+    cur.execute(query, updated_data)
+KeyError: 'id'
+2025-08-10 15:34:08 [ERROR] [IDS_IPS_Logger] [EditorView] Ошибка commit_all: 'id'
+Traceback (most recent call last):
+  File "/home/ubuntupc/my-proj/progr/views/editor_view.py", line 128, in commit_changes
+    self.controller.commit_all()
+  File "/home/ubuntupc/my-proj/progr/controllers/editor_controller.py", line 89, in commit_all
+    RuleModel.update_rule(rule_id, updated_data)
+  File "/home/ubuntupc/my-proj/progr/models/rule_model.py", line 107, in update_rule
+    cur.execute(query, updated_data)
+KeyError: 'id'
+2025-08-10 15:34:10 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=10, limit=10
+2025-08-10 15:34:10 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 7 правил (offset=10, limit=10)
+2025-08-10 15:34:10 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 7
+2025-08-10 15:34:15 [INFO] [IDS_IPS_Logger] [EditorController] Сохранение 2 правил...
+2025-08-10 15:34:15 [ERROR] [IDS_IPS_Logger] [RuleModel] Ошибка обновления правила ID=18: 'id'
+Traceback (most recent call last):
+  File "/home/ubuntupc/my-proj/progr/models/rule_model.py", line 107, in update_rule
+    cur.execute(query, updated_data)
+KeyError: 'id'
+2025-08-10 15:34:15 [ERROR] [IDS_IPS_Logger] [EditorController] Ошибка при сохранении изменений: 'id'
+Traceback (most recent call last):
+  File "/home/ubuntupc/my-proj/progr/controllers/editor_controller.py", line 89, in commit_all
+    RuleModel.update_rule(rule_id, updated_data)
+  File "/home/ubuntupc/my-proj/progr/models/rule_model.py", line 107, in update_rule
+    cur.execute(query, updated_data)
+KeyError: 'id'
+2025-08-10 15:34:17 [ERROR] [IDS_IPS_Logger] [EditorView] Ошибка commit_all: 'id'
+Traceback (most recent call last):
+  File "/home/ubuntupc/my-proj/progr/views/editor_view.py", line 128, in commit_changes
+    self.controller.commit_all()
+  File "/home/ubuntupc/my-proj/progr/controllers/editor_controller.py", line 89, in commit_all
+    RuleModel.update_rule(rule_id, updated_data)
+  File "/home/ubuntupc/my-proj/progr/models/rule_model.py", line 107, in update_rule
+    cur.execute(query, updated_data)
+KeyError: 'id'
+2025-08-10 15:34:19 [INFO] [IDS_IPS_Logger] === Завершение работы приложения ===
+2025-08-10 15:35:41 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-10.log
+2025-08-10 15:35:42 [INFO] [IDS_IPS_Logger] === Запуск IDS/IPS Rule Manager ===
+2025-08-10 15:35:42 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=10
+2025-08-10 15:35:42 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 10 правил (offset=0, limit=10)
+2025-08-10 15:35:42 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 10
+2025-08-10 15:35:46 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=10, limit=10
+2025-08-10 15:35:46 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 7 правил (offset=10, limit=10)
+2025-08-10 15:35:46 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 7
+2025-08-10 15:35:50 [INFO] [IDS_IPS_Logger] [EditorController] Сохранение 0 правил...
+2025-08-10 15:35:50 [INFO] [IDS_IPS_Logger] [EditorController] Все изменения успешно сохранены
+2025-08-10 15:35:52 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=10, limit=10
+2025-08-10 15:35:52 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 7 правил (offset=10, limit=10)
+2025-08-10 15:35:52 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 7
+2025-08-10 15:35:53 [INFO] [IDS_IPS_Logger] [EditorController] Получение данных правила ID=18
+2025-08-10 15:35:53 [INFO] [IDS_IPS_Logger] [RuleModel] Получено правило ID=18
+2025-08-10 15:35:56 [INFO] [IDS_IPS_Logger] [EditorController] Изменение правила ID=18: {'rules_action': 'drop', 'rules_protocol': 'udp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '<->', 'rules_ip_d': 'any', 'rules_port_d': 'any', 'rules_msg': 'test test test tes test tset st ts st stts', 'rules_content': 'vvvvvvvvvvvvvvv vvvvvvvvvvvvvvvvvvv gggggggggggggg', 'rules_sid': '12', 'rules_rev': '1'}
+2025-08-10 15:36:00 [INFO] [IDS_IPS_Logger] [EditorController] Сохранение 1 правил...
+2025-08-10 15:36:00 [INFO] [IDS_IPS_Logger] [RuleModel] Правило ID=18 обновлено
+2025-08-10 15:36:00 [INFO] [IDS_IPS_Logger] [EditorController] Все изменения успешно сохранены
+2025-08-10 15:36:01 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=10, limit=10
+2025-08-10 15:36:01 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 7 правил (offset=10, limit=10)
+2025-08-10 15:36:01 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 7
+2025-08-10 15:36:05 [INFO] [IDS_IPS_Logger] === Завершение работы приложения ===
+2025-08-10 15:43:35 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-10.log
+2025-08-10 15:43:36 [INFO] [IDS_IPS_Logger] === Запуск IDS/IPS Rule Manager ===
+2025-08-10 15:43:36 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=10
+2025-08-10 15:43:36 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 10 правил (offset=0, limit=10)
+2025-08-10 15:43:36 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 10
+2025-08-10 15:43:55 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=10, limit=10
+2025-08-10 15:43:55 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 7 правил (offset=10, limit=10)
+2025-08-10 15:43:55 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 7
+2025-08-10 15:44:00 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=10
+2025-08-10 15:44:00 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 10 правил (offset=0, limit=10)
+2025-08-10 15:44:00 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 10
+2025-08-10 15:44:05 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=10
+2025-08-10 15:44:05 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 10 правил (offset=0, limit=10)
+2025-08-10 15:44:05 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 10
+2025-08-10 15:44:12 [INFO] [IDS_IPS_Logger] === Завершение работы приложения ===
+2025-08-10 15:44:28 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-10.log
+2025-08-10 15:44:28 [INFO] [IDS_IPS_Logger] === Запуск IDS/IPS Rule Manager ===
+2025-08-10 15:44:28 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=10
+2025-08-10 15:44:28 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 10 правил (offset=0, limit=10)
+2025-08-10 15:44:28 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 10
+2025-08-10 15:44:33 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=10, limit=10
+2025-08-10 15:44:33 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 7 правил (offset=10, limit=10)
+2025-08-10 15:44:33 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 7
+2025-08-10 15:44:38 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=10
+2025-08-10 15:44:38 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 10 правил (offset=0, limit=10)
+2025-08-10 15:44:38 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 10
+2025-08-10 15:49:35 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-10.log
+2025-08-10 15:49:36 [INFO] [IDS_IPS_Logger] === Запуск IDS/IPS Rule Manager ===
+2025-08-10 15:49:36 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=10
+2025-08-10 15:49:36 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 10 правил (offset=0, limit=10)
+2025-08-10 15:49:36 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 10
+2025-08-10 15:49:49 [INFO] [IDS_IPS_Logger] [MainWindow] Обновление данных во вкладке 'Редактор'
+2025-08-10 15:49:49 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=10
+2025-08-10 15:49:50 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 10 правил (offset=0, limit=10)
+2025-08-10 15:49:50 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 10
+2025-08-10 15:49:57 [INFO] [IDS_IPS_Logger] [MainWindow] Обновление данных во вкладке 'Конструктор'
+2025-08-10 15:50:10 [INFO] [IDS_IPS_Logger] === Завершение работы приложения ===
+2025-08-10 15:50:25 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-10.log
+2025-08-10 15:50:26 [INFO] [IDS_IPS_Logger] === Запуск IDS/IPS Rule Manager ===
+2025-08-10 15:50:26 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=10
+2025-08-10 15:50:26 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 10 правил (offset=0, limit=10)
+2025-08-10 15:50:26 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 10
+2025-08-10 15:50:53 [INFO] [IDS_IPS_Logger] [ConstructorView] Выбран файл: /home/ubuntupc/Загрузки/edit/Переделанный код/config-db_config.txt
+2025-08-10 15:51:08 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-10.log
+2025-08-10 15:51:09 [INFO] [IDS_IPS_Logger] === Запуск IDS/IPS Rule Manager ===
+2025-08-10 15:51:09 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=10
+2025-08-10 15:51:09 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 10 правил (offset=0, limit=10)
+2025-08-10 15:51:09 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 10
+2025-08-10 15:51:17 [INFO] [IDS_IPS_Logger] [ConstructorView] Выбран файл: /home/ubuntupc/Загрузки/edit/Переделанный код/config-db_config.txt
+2025-08-10 15:52:00 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-10.log
+2025-08-10 15:52:01 [INFO] [IDS_IPS_Logger] === Запуск IDS/IPS Rule Manager ===
+2025-08-10 15:52:01 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=10
+2025-08-10 15:52:01 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 10 правил (offset=0, limit=10)
+2025-08-10 15:52:01 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 10
+2025-08-10 15:52:12 [INFO] [IDS_IPS_Logger] [ConstructorView] Выбран файл: /home/ubuntupc/Загрузки/edit/Переделанный код/config-conf_ui.txt
+2025-08-10 15:53:16 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-10.log
+2025-08-10 15:53:17 [INFO] [IDS_IPS_Logger] === Запуск IDS/IPS Rule Manager ===
+2025-08-10 15:53:17 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=10
+2025-08-10 15:53:17 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 10 правил (offset=0, limit=10)
+2025-08-10 15:53:17 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 10
+2025-08-10 15:53:43 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=10, limit=10
+2025-08-10 15:53:43 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 7 правил (offset=10, limit=10)
+2025-08-10 15:53:43 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 7
+2025-08-10 15:53:46 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=10
+2025-08-10 15:53:46 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 10 правил (offset=0, limit=10)
+2025-08-10 15:53:46 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 10
+2025-08-10 15:53:47 [INFO] [IDS_IPS_Logger] [EditorController] Получение данных правила ID=1
+2025-08-10 15:53:47 [INFO] [IDS_IPS_Logger] [RuleModel] Получено правило ID=1
+2025-08-10 15:53:59 [INFO] [IDS_IPS_Logger] [EditorController] Получение данных правила ID=6
+2025-08-10 15:53:59 [INFO] [IDS_IPS_Logger] [RuleModel] Получено правило ID=6
+2025-08-10 15:54:19 [INFO] [IDS_IPS_Logger] [EditorController] Получение данных правила ID=3
+2025-08-10 15:54:19 [INFO] [IDS_IPS_Logger] [RuleModel] Получено правило ID=3
+2025-08-10 15:54:54 [INFO] [IDS_IPS_Logger] [EditorController] Получение данных правила ID=1
+2025-08-10 15:54:54 [INFO] [IDS_IPS_Logger] [RuleModel] Получено правило ID=1
+2025-08-10 15:55:18 [INFO] [IDS_IPS_Logger] === Завершение работы приложения ===
+2025-08-10 16:03:25 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-10.log
+2025-08-10 16:03:26 [INFO] [IDS_IPS_Logger] === Запуск IDS/IPS Rule Manager ===
+2025-08-10 16:03:26 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=10
+2025-08-10 16:03:26 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 10 правил (offset=0, limit=10)
+2025-08-10 16:03:26 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 10
+2025-08-10 16:03:51 [INFO] [IDS_IPS_Logger] [ExportView] Запрошен экспорт правил: system_type=IDS, file=/home/ubuntupc/my-proj/hgva
+2025-08-10 16:07:41 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-10.log
+2025-08-10 16:07:41 [INFO] [IDS_IPS_Logger] === Запуск IDS/IPS Rule Manager ===
+2025-08-10 16:07:41 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=10
+2025-08-10 16:07:41 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 10 правил (offset=0, limit=10)
+2025-08-10 16:07:41 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 10
+2025-08-10 16:07:53 [INFO] [IDS_IPS_Logger] === Завершение работы приложения ===
+2025-08-10 16:08:16 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-10.log
+2025-08-10 16:08:17 [INFO] [IDS_IPS_Logger] === Запуск IDS/IPS Rule Manager ===
+2025-08-10 16:08:17 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=10
+2025-08-10 16:08:17 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 10 правил (offset=0, limit=10)
+2025-08-10 16:08:17 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 10
+2025-08-10 16:08:39 [INFO] [IDS_IPS_Logger] [EditorController] Получение данных правила ID=1
+2025-08-10 16:08:39 [INFO] [IDS_IPS_Logger] [RuleModel] Получено правило ID=1
+2025-08-10 16:08:45 [INFO] [IDS_IPS_Logger] [MainWindow] Обновление данных во вкладке 'Редактор'
+2025-08-10 16:08:45 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=10
+2025-08-10 16:08:45 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 10 правил (offset=0, limit=10)
+2025-08-10 16:08:45 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 10
+2025-08-10 16:08:52 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=10
+2025-08-10 16:08:52 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 10 правил (offset=0, limit=10)
+2025-08-10 16:08:52 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 10
+2025-08-10 16:08:55 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=10, limit=10
+2025-08-10 16:08:55 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 7 правил (offset=10, limit=10)
+2025-08-10 16:08:55 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 7
+2025-08-10 16:08:57 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=10
+2025-08-10 16:08:57 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 10 правил (offset=0, limit=10)
+2025-08-10 16:08:57 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 10
+2025-08-10 16:08:58 [INFO] [IDS_IPS_Logger] [EditorController] Сохранение 0 правил...
+2025-08-10 16:08:58 [INFO] [IDS_IPS_Logger] [EditorController] Все изменения успешно сохранены
+2025-08-10 16:08:59 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=10
+2025-08-10 16:09:00 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 10 правил (offset=0, limit=10)
+2025-08-10 16:09:00 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 10
+2025-08-10 16:09:01 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=10
+2025-08-10 16:09:01 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 10 правил (offset=0, limit=10)
+2025-08-10 16:09:01 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 10
+2025-08-10 16:09:12 [INFO] [IDS_IPS_Logger] === Завершение работы приложения ===
+2025-08-10 16:09:51 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-10.log
+2025-08-10 16:09:52 [INFO] [IDS_IPS_Logger] === Запуск IDS/IPS Rule Manager ===
+2025-08-10 16:09:52 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=10
+2025-08-10 16:09:52 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 10 правил (offset=0, limit=10)
+2025-08-10 16:09:52 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 10
+2025-08-10 16:10:03 [INFO] [IDS_IPS_Logger] === Завершение работы приложения ===
+2025-08-10 16:10:54 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-10.log
+2025-08-10 16:10:54 [INFO] [IDS_IPS_Logger] === Запуск IDS/IPS Rule Manager ===
+2025-08-10 16:10:54 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=10
+2025-08-10 16:10:54 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 10 правил (offset=0, limit=10)
+2025-08-10 16:10:54 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 10
+2025-08-10 16:11:07 [INFO] [IDS_IPS_Logger] [EditorController] Получение данных правила ID=2
+2025-08-10 16:11:07 [INFO] [IDS_IPS_Logger] [RuleModel] Получено правило ID=2
+2025-08-10 16:11:15 [INFO] [IDS_IPS_Logger] [EditorController] Получение данных правила ID=6
+2025-08-10 16:11:15 [INFO] [IDS_IPS_Logger] [RuleModel] Получено правило ID=6
+2025-08-10 16:11:29 [INFO] [IDS_IPS_Logger] [EditorController] Сохранение 0 правил...
+2025-08-10 16:11:29 [INFO] [IDS_IPS_Logger] [EditorController] Все изменения успешно сохранены
+2025-08-10 16:11:31 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=10
+2025-08-10 16:11:31 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 10 правил (offset=0, limit=10)
+2025-08-10 16:11:31 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 10
+2025-08-10 16:11:34 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=10
+2025-08-10 16:11:34 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 10 правил (offset=0, limit=10)
+2025-08-10 16:11:34 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 10
+2025-08-10 16:11:41 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=10
+2025-08-10 16:11:41 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 10 правил (offset=0, limit=10)
+2025-08-10 16:11:41 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 10
+2025-08-10 16:12:07 [INFO] [IDS_IPS_Logger] [ConstructorView] Выбран файл: /home/ubuntupc/my-proj/progr/logs/app_2025-08-08.log
