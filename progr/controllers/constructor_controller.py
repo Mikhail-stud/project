@@ -1,6 +1,6 @@
 from models.log_parser import LogParser
 from models.rule_model import RuleModel
-from utils.rule_validator import validate_rule
+from utils.rule_validator import validate
 from utils.logger import LOGGER
 
 
@@ -49,7 +49,7 @@ class ConstructorController:
         LOGGER.info(f"[ConstructorController] Попытка создания правила: {rule_data}")
 
         # Валидация
-        is_valid, errors = validate_rule(rule_data)
+        is_valid, errors = validate(rule_data)
         if not is_valid:
             LOGGER.warning(f"[ConstructorController] Ошибка валидации: {errors}")
             raise ValueError("\n".join(errors))
