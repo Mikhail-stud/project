@@ -29,12 +29,12 @@ class ExportModel:
             raise ValueError(f"Неизвестный тип СЗИ: {system_type}")
 
         query = """
-        SELECT id, rules_action, rules_protocol, rules_ip_s, rules_port_s,
+        SELECT rules_id, rules_action, rules_protocol, rules_ip_s, rules_port_s,
                rules_route, rules_ip_d, rules_port_d, rules_msg, rules_content,
                rules_sid, rules_rev
         FROM rules
         WHERE rules_action = ANY(%s)
-        ORDER BY id;
+        ORDER BY rules_id;
         """
 
         try:

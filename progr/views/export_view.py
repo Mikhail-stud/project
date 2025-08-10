@@ -12,10 +12,11 @@ class ExportView(QWidget):
 
     def __init__(self, thread_manager):
         """
-        :param thread_manager: объект, через который запускаем потоки (MainWindow.start)
+        :param thread_manager: объект, через который запускаем потоки (MainWindow.start_thread)
         """
         super().__init__()
         self.thread_manager = thread_manager
+        self.export_thread = None  # сильная ссылка на текущий поток
         self._setup_ui()
 
     def _setup_ui(self):
@@ -44,18 +45,40 @@ class ExportView(QWidget):
         LOGGER.info(f"[ExportView] Запрошен экспорт правил: system_type={system_type}, file={file_path}")
         self.export_button.setEnabled(False)
 
-        # Запуск потока
-        thread = ExportRulesThread(system_type, file_path)
-        thread.finished.connect(self._on_export_finished)
-        thread.error.connect(self._on_export_error)
-        self.thread_manager.start(thread)
+        # Запуск потока: держим ссылку и назначаем родителя главному окну, чтобы виджет-вкладка
+        # мог быть закрыт, не уничтожая поток.
+        self.export_thread = ExportRulesThread(system_type, file_path, parent=self.window())
+        self.export_thread.finished.connect(self._on_export_finished)
+        self.export_thread.error.connect(self._on_export_error)
+
+        # Предпочтительно новое имя метода, но оставлена обратная совместимость
+        if hasattr(self.thread_manager, "start_thread"):
+            self.thread_manager.start_thread(self.export_thread)
+        else:
+            self.thread_manager.start(self.export_thread)
 
     def _on_export_finished(self, msg):
         """Обработчик завершения экспорта."""
         QMessageBox.information(self, "Успех", msg)
         self.export_button.setEnabled(True)
+        self.export_thread = None
 
     def _on_export_error(self, msg):
         """Обработчик ошибки экспорта."""
         QMessageBox.critical(self, "Ошибка", msg)
         self.export_button.setEnabled(True)
+        self.export_thread = None
+
+    def closeEvent(self, e):
+        """Если вкладку закрывают во время экспорта — корректно дождёмся потока."""
+        try:
+            t = self.export_thread
+            if t and t.isRunning():
+                t.requestInterruption()
+                try:
+                    t.quit()
+                except Exception:
+                    pass
+                t.wait(5000)
+        finally:
+            super().closeEvent(e)

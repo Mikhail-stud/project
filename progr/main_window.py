@@ -18,6 +18,9 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
 
+        # Держим ссылки на активные потоки, чтобы их не уничтожало раньше времени
+        self._threads = set()
+
         # Настройки окна
         cfg = UI_CONFIG["main_window"]
         self.setWindowTitle(cfg["title"])
@@ -93,9 +96,48 @@ class MainWindow(QMainWindow):
             "IDS/IPS Rule Manager\nВерсия 1.0\nАвтор: Михаил\n© 2025"
         )
 
-    def start(self, thread):
+    # --- Новый безопасный менеджер потоков ---
+    def start_thread(self, thread):
         """
-        Запуск потоков из View.
-        Потоки автоматически завершаются после выполнения.
+        Унифицированный запуск QThread/наследников.
+        Держим сильную ссылку на поток и очищаем её по завершении,
+        чтобы не получить 'QThread: Destroyed while thread is still running'.
         """
+        try:
+            # Назначим родителя главному окну — Qt тоже удержит объект
+            thread.setParent(self)
+        except Exception:
+            pass
+
+        self._threads.add(thread)
+
+        # Чистим ссылки и отдаём объект Qt на удаление после завершения
+        thread.finished.connect(lambda: self._threads.discard(thread))
+        thread.finished.connect(thread.deleteLater)
+
         thread.start()
+
+    # --- Обратная совместимость: старое имя метода ---
+    def start(self, thread):
+        self.start_thread(thread)
+
+    # Корректное закрытие всех активных потоков
+    def closeEvent(self, e):
+        try:
+            for t in list(self._threads):
+                try:
+                    if hasattr(t, "abort"):
+                        t.abort()
+                except Exception:
+                    pass
+
+                if t.isRunning():
+                    t.requestInterruption()
+                    try:
+                        # quit() полезен, если поток использует цикл событий
+                        t.quit()
+                    except Exception:
+                        pass
+                    t.wait(5000)
+        finally:
+            super().closeEvent(e)
