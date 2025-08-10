@@ -8,7 +8,7 @@ def main():
     """Точка входа в приложение."""
     app = QApplication(sys.argv)
 
-    LOGGER.info("=== Запуск IDS/IPS Rule Manager ===")
+    LOGGER.info("=== Запуск Программа Х ===")
     window = MainWindow()
     window.show()
 

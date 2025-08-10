@@ -6,7 +6,7 @@
 UI_CONFIG = {
     # === Главное окно приложения ===
     "main_window": {
-        "title": "IDS/IPS Rule Manager",
+        "title": "Программа Х",
         "width": 1000,
         "height": 800
     },
@@ -29,6 +29,6 @@ UI_CONFIG = {
     "styles": {
         "font": "Arial",
         "font_size": 10,
-        "table_alternate_row_color": "#000000FF"
+        "table_alternate_row_color": "#918282FF"
     }
 }
