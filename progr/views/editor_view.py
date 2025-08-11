@@ -38,7 +38,7 @@ class EditorView(QWidget):
         self.next_button.clicked.connect(self.next_page)
         self.commit_button.clicked.connect(self.commit_changes)
 
-        controls_layout.addWidget(self.refresh_button)
+        #controls_layout.addWidget(self.refresh_button)
         controls_layout.addWidget(self.prev_button)
         controls_layout.addWidget(self.next_button)
         controls_layout.addWidget(self.commit_button)

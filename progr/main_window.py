@@ -61,7 +61,7 @@ class MainWindow(QMainWindow):
         file_menu.addAction(exit_action)
 
         # --- Меню Вид ---
-        view_menu = menubar.addMenu("Вид")
+        view_menu = menubar.addMenu("Обновить")
 
         reload_action = QAction("Обновить данные", self)
         reload_action.triggered.connect(self.reload_data)
@@ -93,7 +93,7 @@ class MainWindow(QMainWindow):
         QMessageBox.information(
             self,
             "О программе",
-            "IDS/IPS Rule Manager\nВерсия 1.0\nАвтор: Михаил\n© 2025"
+            "Программа Х\nВерсия 1.0\nАвтор: Михаил\n© 2025"
         )
 
     # --- Новый безопасный менеджер потоков ---
