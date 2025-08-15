@@ -22,23 +22,20 @@ class EditorView(QWidget):
         super().__init__()
         self.controller = EditorController()
         self.current_offset = 0
-        self.limit = 10
+        self.limit = 20
 
         self.layout = QVBoxLayout(self)
 
         # === Кнопки управления ===
         controls_layout = QHBoxLayout()
-        self.refresh_button = QPushButton("Обновить")
         self.prev_button = QPushButton("Предыдущие")
         self.next_button = QPushButton("Следующие")
         self.commit_button = QPushButton("Сохранить изменения")
 
-        self.refresh_button.clicked.connect(self.load_rules)
         self.prev_button.clicked.connect(self.prev_page)
         self.next_button.clicked.connect(self.next_page)
         self.commit_button.clicked.connect(self.commit_changes)
 
-        #controls_layout.addWidget(self.refresh_button)
         controls_layout.addWidget(self.prev_button)
         controls_layout.addWidget(self.next_button)
         controls_layout.addWidget(self.commit_button)
