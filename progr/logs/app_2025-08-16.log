@@ -37,3 +37,328 @@
 2025-08-16 01:46:44 [INFO] [IDS_IPS_Logger] [ExportModel] Получение правил для ids (actions=('alert', 'log', 'pass', 'activate', 'dynamic'))
 2025-08-16 01:46:44 [INFO] [IDS_IPS_Logger] [ExportModel] Получено 11 правил для ids
 2025-08-16 01:46:44 [INFO] [IDS_IPS_Logger] [ExportRulesThread] Экспортировано 11 правил в /home/ubuntupc/Загрузки/test
+2025-08-16 02:32:47 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-16.log
+2025-08-16 02:32:48 [INFO] [IDS_IPS_Logger] === Запуск Программа Х ===
+2025-08-16 02:34:52 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-16.log
+2025-08-16 02:34:52 [INFO] [IDS_IPS_Logger] === Запуск Программа Х ===
+2025-08-16 02:34:52 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-08-16 02:34:52 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 17 правил (offset=0, limit=20)
+2025-08-16 02:34:52 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 17
+2025-08-16 02:48:15 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-16.log
+2025-08-16 02:48:15 [INFO] [IDS_IPS_Logger] === Запуск Программа Х ===
+2025-08-16 02:48:20 [ERROR] [IDS_IPS_Logger] [EditorView] Ошибка загрузки правил: 'EditorController' object has no attribute 'get_rules'
+Traceback (most recent call last):
+  File "/home/ubuntupc/my-proj/progr/views/editor_view.py", line 56, in load_rules
+    rules = self.controller.get_rules(self.current_offset, self.limit)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'EditorController' object has no attribute 'get_rules'
+2025-08-16 02:48:25 [INFO] [IDS_IPS_Logger] === Завершение работы приложения ===
+2025-08-16 02:55:53 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-16.log
+2025-08-16 02:55:54 [INFO] [IDS_IPS_Logger] === Запуск Программа Х ===
+2025-08-16 02:56:04 [ERROR] [IDS_IPS_Logger] [EditorView] Ошибка загрузки правил: EditorController.get_rule_by_id() takes 2 positional arguments but 3 were given
+Traceback (most recent call last):
+  File "/home/ubuntupc/my-proj/progr/views/editor_view.py", line 55, in load_rules
+    rules = self.controller.get_rule_by_id(self.current_offset, self.limit)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: EditorController.get_rule_by_id() takes 2 positional arguments but 3 were given
+2025-08-16 02:56:07 [INFO] [IDS_IPS_Logger] === Завершение работы приложения ===
+2025-08-16 02:57:51 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-16.log
+2025-08-16 02:57:51 [INFO] [IDS_IPS_Logger] === Запуск Программа Х ===
+2025-08-16 02:57:51 [INFO] [IDS_IPS_Logger] [RulesFetcherThread] Загрузка правил: offset=0, limit=20
+2025-08-16 02:57:51 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 17 правил (offset=0, limit=20)
+2025-08-16 02:57:51 [INFO] [IDS_IPS_Logger] [RulesFetcherThread] Загружено правил: 17
+2025-08-16 02:57:58 [ERROR] [IDS_IPS_Logger] [EditorView] Ошибка загрузки правил: object of type 'NoneType' has no len()
+Traceback (most recent call last):
+  File "/home/ubuntupc/my-proj/progr/views/editor_view.py", line 59, in load_rules
+    self.table.setRowCount(len(rules))
+                           ^^^^^^^^^^
+TypeError: object of type 'NoneType' has no len()
+2025-08-16 02:58:05 [INFO] [IDS_IPS_Logger] === Завершение работы приложения ===
+2025-08-16 03:01:10 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-16.log
+2025-08-16 03:01:11 [INFO] [IDS_IPS_Logger] === Запуск Программа Х ===
+2025-08-16 03:01:11 [INFO] [IDS_IPS_Logger] [RulesFetcherThread] Загрузка правил: offset=0, limit=20
+2025-08-16 03:01:11 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 17 правил (offset=0, limit=20)
+2025-08-16 03:01:11 [INFO] [IDS_IPS_Logger] [RulesFetcherThread] Загружено правил: 17
+2025-08-16 03:01:13 [ERROR] [IDS_IPS_Logger] [EditorView] Ошибка загрузки правил: object of type 'NoneType' has no len()
+Traceback (most recent call last):
+  File "/home/ubuntupc/my-proj/progr/views/editor_view.py", line 59, in load_rules
+    self.table.setRowCount(len(rules))
+                           ^^^^^^^^^^
+TypeError: object of type 'NoneType' has no len()
+2025-08-16 03:01:15 [INFO] [IDS_IPS_Logger] === Завершение работы приложения ===
+2025-08-16 03:15:07 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-16.log
+2025-08-16 03:15:40 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-16.log
+2025-08-16 03:16:17 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-16.log
+2025-08-16 03:16:34 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-16.log
+2025-08-16 03:17:07 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-16.log
+2025-08-16 03:19:16 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-16.log
+2025-08-16 03:19:17 [INFO] [IDS_IPS_Logger] === Запуск Программа Х ===
+2025-08-16 03:19:17 [INFO] [IDS_IPS_Logger] [RulesFetcherThread] Загрузка правил: offset=0, limit=20
+2025-08-16 03:19:17 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 17 правил (offset=0, limit=20)
+2025-08-16 03:19:17 [INFO] [IDS_IPS_Logger] [RulesFetcherThread] Загружено правил: 17
+2025-08-16 03:19:19 [ERROR] [IDS_IPS_Logger] [EditorView] Ошибка загрузки правил: object of type 'NoneType' has no len()
+Traceback (most recent call last):
+  File "/home/ubuntupc/my-proj/progr/views/editor_view.py", line 59, in load_rules
+    self.table.setRowCount(len(rules))
+                           ^^^^^^^^^^
+TypeError: object of type 'NoneType' has no len()
+2025-08-16 03:19:26 [INFO] [IDS_IPS_Logger] === Завершение работы приложения ===
+2025-08-16 03:20:12 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-16.log
+2025-08-16 03:20:13 [INFO] [IDS_IPS_Logger] === Запуск Программа Х ===
+2025-08-16 03:20:13 [INFO] [IDS_IPS_Logger] [RulesFetcherThread] Загрузка правил: offset=0, limit=20
+2025-08-16 03:20:13 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 17 правил (offset=0, limit=20)
+2025-08-16 03:20:13 [INFO] [IDS_IPS_Logger] [RulesFetcherThread] Загружено правил: 17
+2025-08-16 03:21:50 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-16.log
+2025-08-16 03:21:51 [INFO] [IDS_IPS_Logger] === Запуск Программа Х ===
+2025-08-16 03:21:51 [INFO] [IDS_IPS_Logger] [RulesFetcherThread] Загрузка правил: offset=0, limit=20
+2025-08-16 03:21:51 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 17 правил (offset=0, limit=20)
+2025-08-16 03:21:51 [INFO] [IDS_IPS_Logger] [RulesFetcherThread] Загружено правил: 17
+2025-08-16 03:21:51 [INFO] [IDS_IPS_Logger] [RulesFetcherThread] Загружено правил: [RealDictRow({'rules_id': 1, 'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': '192.168.1.1', 'rules_port_s': '12', 'rules_route': '->', 'rules_ip_d': '123.12.12.2', 'rules_port_d': '45', 'rules_msg': 'new test', 'rules_content': 'test wen', 'rules_sid': 44, 'rules_rev': 55, 'rules_effpol': 6, 'rules_effotr': 2}), RealDictRow({'rules_id': 2, 'rules_action': 'alert', 'rules_protocol': 'udp', 'rules_ip_s': '8.8.8.8/32', 'rules_port_s': '53', 'rules_route': '->', 'rules_ip_d': '192.168.0.0/24', 'rules_port_d': '45', 'rules_msg': 'cdbchb', 'rules_content': 'djhfbvhj', 'rules_sid': 78, 'rules_rev': 2, 'rules_effpol': 2, 'rules_effotr': 1}), RealDictRow({'rules_id': 3, 'rules_action': 'drop', 'rules_protocol': 'tcp', 'rules_ip_s': '192.120.0.0', 'rules_port_s': '1000', 'rules_route': '->', 'rules_ip_d': '192.168.0.0', 'rules_port_d': '2000', 'rules_msg': 'test22 test22', 'rules_content': 'test22', 'rules_sid': 3001, 'rules_rev': 1, 'rules_effpol': 2, 'rules_effotr': 1}), RealDictRow({'rules_id': 4, 'rules_action': 'drop', 'rules_protocol': 'udp', 'rules_ip_s': '7.7.7.7', 'rules_port_s': '789', 'rules_route': '<-', 'rules_ip_d': '8.8.8.8', 'rules_port_d': '456', 'rules_msg': 'TEST 12', 'rules_content': 'TEST', 'rules_sid': 12, 'rules_rev': 5, 'rules_effpol': 4, 'rules_effotr': 2}), RealDictRow({'rules_id': 5, 'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': '18.18.18.1/32', 'rules_port_s': '123', 'rules_route': '->', 'rules_ip_d': '192.168.0.0/24', 'rules_port_d': '7895', 'rules_msg': 'Test create', 'rules_content': 'create', 'rules_sid': 7987, 'rules_rev': 45, 'rules_effpol': 1, 'rules_effotr': 0}), RealDictRow({'rules_id': 6, 'rules_action': 'drop', 'rules_protocol': 'udp', 'rules_ip_s': '192.168.0.0/24', 'rules_port_s': '53', 'rules_route': '->', 'rules_ip_d': '8.8.8.8/32', 'rules_port_d': '53', 'rules_msg': 'Dns test', 'rules_content': 'dns test', 'rules_sid': 789, 'rules_rev': 5, 'rules_effpol': 1, 'rules_effotr': 1}), RealDictRow({'rules_id': 7, 'rules_action': 'drop', 'rules_protocol': 'tcp', 'rules_ip_s': '15.15.15.15/32', 'rules_port_s': '15', 'rules_route': '->', 'rules_ip_d': '192.16.2.2/32', 'rules_port_d': '12', 'rules_msg': 'output test', 'rules_content': 'test', 'rules_sid': 12, 'rules_rev': 1, 'rules_effpol': 1, 'rules_effotr': 1}), RealDictRow({'rules_id': 8, 'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': '192.168.0.0/24', 'rules_port_s': '53', 'rules_route': '<-', 'rules_ip_d': '7.7.7.7/32', 'rules_port_d': '53', 'rules_msg': 'Test DNS req, req', 'rules_content': 'TEST request', 'rules_sid': 4004, 'rules_rev': 1, 'rules_effpol': 1, 'rules_effotr': 1}), RealDictRow({'rules_id': 10, 'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': '12.12.12.12', 'rules_port_s': '156', 'rules_route': '<->', 'rules_ip_d': '131.123.123.11', 'rules_port_d': '165', 'rules_msg': 'test123', 'rules_content': 'jhvbfqjhd', 'rules_sid': 12, 'rules_rev': 515, 'rules_effpol': 1, 'rules_effotr': 1}), RealDictRow({'rules_id': 11, 'rules_action': 'alert', 'rules_protocol': 'udp', 'rules_ip_s': '54.64.46.54', 'rules_port_s': '5616', 'rules_route': '<->', 'rules_ip_d': '45.44.45.4', 'rules_port_d': '561', 'rules_msg': 'mn dkjfdk', 'rules_content': 'dnf qd test', 'rules_sid': 77, 'rules_rev': 88, 'rules_effpol': 0, 'rules_effotr': 1}), RealDictRow({'rules_id': 12, 'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': '192.168.0.0/24', 'rules_port_s': '53', 'rules_route': '->', 'rules_ip_d': '7.7.7.7/32', 'rules_port_d': '53', 'rules_msg': 'New dns req test rule', 'rules_content': 'dns req', 'rules_sid': 1202, 'rules_rev': 1, 'rules_effpol': 1, 'rules_effotr': 0}), RealDictRow({'rules_id': 13, 'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': '192.168.0.0/24', 'rules_port_s': '22', 'rules_route': '->', 'rules_ip_d': '7.7.7.7/32', 'rules_port_d': '45', 'rules_msg': 'Test scan rule', 'rules_content': 'scan', 'rules_sid': 45, 'rules_rev': 1, 'rules_effpol': 0, 'rules_effotr': 0}), RealDictRow({'rules_id': 14, 'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': '192.168.0.0/24', 'rules_port_s': '22', 'rules_route': '->', 'rules_ip_d': '7.7.7.1/32', 'rules_port_d': '789', 'rules_msg': 'Tets rele scan out', 'rules_content': 'scan', 'rules_sid': 45, 'rules_rev': 1, 'rules_effpol': 0, 'rules_effotr': 0}), RealDictRow({'rules_id': 15, 'rules_action': 'drop', 'rules_protocol': 'tcp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '->', 'rules_ip_d': 'any', 'rules_port_d': 'any', 'rules_msg': 'Tets reu with any', 'rules_content': 'test rule any', 'rules_sid': 1001, 'rules_rev': 1, 'rules_effpol': 2, 'rules_effotr': 1}), RealDictRow({'rules_id': 16, 'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '->', 'rules_ip_d': '192.168.0.0/24', 'rules_port_d': 'any', 'rules_msg': 'Test rule', 'rules_content': 'test', 'rules_sid': 1001, 'rules_rev': 1, 'rules_effpol': 1, 'rules_effotr': 1}), RealDictRow({'rules_id': 17, 'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '->', 'rules_ip_d': '192.168.1.1', 'rules_port_d': 'any', 'rules_msg': 'New dis', 'rules_content': 'new rule dis test', 'rules_sid': 123, 'rules_rev': 1, 'rules_effpol': 0, 'rules_effotr': 0}), RealDictRow({'rules_id': 18, 'rules_action': 'drop', 'rules_protocol': 'udp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '<->', 'rules_ip_d': 'any', 'rules_port_d': 'any', 'rules_msg': 'test test test tes test tset st ts st stts', 'rules_content': 'vvvvvvvvvvvvvvv vvvvvvvvvvvvvvvvvvv gggggggggggggg', 'rules_sid': 12, 'rules_rev': 1, 'rules_effpol': 1, 'rules_effotr': 0})]
+2025-08-16 03:21:56 [ERROR] [IDS_IPS_Logger] [EditorView] Ошибка загрузки правил: object of type 'NoneType' has no len()
+Traceback (most recent call last):
+  File "/home/ubuntupc/my-proj/progr/views/editor_view.py", line 59, in load_rules
+    self.table.setRowCount(len(rules))
+                           ^^^^^^^^^^
+TypeError: object of type 'NoneType' has no len()
+2025-08-16 03:21:58 [INFO] [IDS_IPS_Logger] === Завершение работы приложения ===
+2025-08-16 03:24:56 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-16.log
+2025-08-16 03:24:57 [INFO] [IDS_IPS_Logger] === Запуск Программа Х ===
+2025-08-16 03:24:57 [INFO] [IDS_IPS_Logger] [RulesFetcherThread] Загрузка правил: offset=0, limit=20
+2025-08-16 03:24:57 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 17 правил (offset=0, limit=20)
+2025-08-16 03:24:57 [INFO] [IDS_IPS_Logger] [RulesFetcherThread] Загружено правил: 17
+2025-08-16 03:24:57 [INFO] [IDS_IPS_Logger] [RulesFetcherThread] Загружено правил: [RealDictRow({'rules_id': 1, 'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': '192.168.1.1', 'rules_port_s': '12', 'rules_route': '->', 'rules_ip_d': '123.12.12.2', 'rules_port_d': '45', 'rules_msg': 'new test', 'rules_content': 'test wen', 'rules_sid': 44, 'rules_rev': 55, 'rules_effpol': 6, 'rules_effotr': 2}), RealDictRow({'rules_id': 2, 'rules_action': 'alert', 'rules_protocol': 'udp', 'rules_ip_s': '8.8.8.8/32', 'rules_port_s': '53', 'rules_route': '->', 'rules_ip_d': '192.168.0.0/24', 'rules_port_d': '45', 'rules_msg': 'cdbchb', 'rules_content': 'djhfbvhj', 'rules_sid': 78, 'rules_rev': 2, 'rules_effpol': 2, 'rules_effotr': 1}), RealDictRow({'rules_id': 3, 'rules_action': 'drop', 'rules_protocol': 'tcp', 'rules_ip_s': '192.120.0.0', 'rules_port_s': '1000', 'rules_route': '->', 'rules_ip_d': '192.168.0.0', 'rules_port_d': '2000', 'rules_msg': 'test22 test22', 'rules_content': 'test22', 'rules_sid': 3001, 'rules_rev': 1, 'rules_effpol': 2, 'rules_effotr': 1}), RealDictRow({'rules_id': 4, 'rules_action': 'drop', 'rules_protocol': 'udp', 'rules_ip_s': '7.7.7.7', 'rules_port_s': '789', 'rules_route': '<-', 'rules_ip_d': '8.8.8.8', 'rules_port_d': '456', 'rules_msg': 'TEST 12', 'rules_content': 'TEST', 'rules_sid': 12, 'rules_rev': 5, 'rules_effpol': 4, 'rules_effotr': 2}), RealDictRow({'rules_id': 5, 'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': '18.18.18.1/32', 'rules_port_s': '123', 'rules_route': '->', 'rules_ip_d': '192.168.0.0/24', 'rules_port_d': '7895', 'rules_msg': 'Test create', 'rules_content': 'create', 'rules_sid': 7987, 'rules_rev': 45, 'rules_effpol': 1, 'rules_effotr': 0}), RealDictRow({'rules_id': 6, 'rules_action': 'drop', 'rules_protocol': 'udp', 'rules_ip_s': '192.168.0.0/24', 'rules_port_s': '53', 'rules_route': '->', 'rules_ip_d': '8.8.8.8/32', 'rules_port_d': '53', 'rules_msg': 'Dns test', 'rules_content': 'dns test', 'rules_sid': 789, 'rules_rev': 5, 'rules_effpol': 1, 'rules_effotr': 1}), RealDictRow({'rules_id': 7, 'rules_action': 'drop', 'rules_protocol': 'tcp', 'rules_ip_s': '15.15.15.15/32', 'rules_port_s': '15', 'rules_route': '->', 'rules_ip_d': '192.16.2.2/32', 'rules_port_d': '12', 'rules_msg': 'output test', 'rules_content': 'test', 'rules_sid': 12, 'rules_rev': 1, 'rules_effpol': 1, 'rules_effotr': 1}), RealDictRow({'rules_id': 8, 'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': '192.168.0.0/24', 'rules_port_s': '53', 'rules_route': '<-', 'rules_ip_d': '7.7.7.7/32', 'rules_port_d': '53', 'rules_msg': 'Test DNS req, req', 'rules_content': 'TEST request', 'rules_sid': 4004, 'rules_rev': 1, 'rules_effpol': 1, 'rules_effotr': 1}), RealDictRow({'rules_id': 10, 'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': '12.12.12.12', 'rules_port_s': '156', 'rules_route': '<->', 'rules_ip_d': '131.123.123.11', 'rules_port_d': '165', 'rules_msg': 'test123', 'rules_content': 'jhvbfqjhd', 'rules_sid': 12, 'rules_rev': 515, 'rules_effpol': 1, 'rules_effotr': 1}), RealDictRow({'rules_id': 11, 'rules_action': 'alert', 'rules_protocol': 'udp', 'rules_ip_s': '54.64.46.54', 'rules_port_s': '5616', 'rules_route': '<->', 'rules_ip_d': '45.44.45.4', 'rules_port_d': '561', 'rules_msg': 'mn dkjfdk', 'rules_content': 'dnf qd test', 'rules_sid': 77, 'rules_rev': 88, 'rules_effpol': 0, 'rules_effotr': 1}), RealDictRow({'rules_id': 12, 'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': '192.168.0.0/24', 'rules_port_s': '53', 'rules_route': '->', 'rules_ip_d': '7.7.7.7/32', 'rules_port_d': '53', 'rules_msg': 'New dns req test rule', 'rules_content': 'dns req', 'rules_sid': 1202, 'rules_rev': 1, 'rules_effpol': 1, 'rules_effotr': 0}), RealDictRow({'rules_id': 13, 'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': '192.168.0.0/24', 'rules_port_s': '22', 'rules_route': '->', 'rules_ip_d': '7.7.7.7/32', 'rules_port_d': '45', 'rules_msg': 'Test scan rule', 'rules_content': 'scan', 'rules_sid': 45, 'rules_rev': 1, 'rules_effpol': 0, 'rules_effotr': 0}), RealDictRow({'rules_id': 14, 'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': '192.168.0.0/24', 'rules_port_s': '22', 'rules_route': '->', 'rules_ip_d': '7.7.7.1/32', 'rules_port_d': '789', 'rules_msg': 'Tets rele scan out', 'rules_content': 'scan', 'rules_sid': 45, 'rules_rev': 1, 'rules_effpol': 0, 'rules_effotr': 0}), RealDictRow({'rules_id': 15, 'rules_action': 'drop', 'rules_protocol': 'tcp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '->', 'rules_ip_d': 'any', 'rules_port_d': 'any', 'rules_msg': 'Tets reu with any', 'rules_content': 'test rule any', 'rules_sid': 1001, 'rules_rev': 1, 'rules_effpol': 2, 'rules_effotr': 1}), RealDictRow({'rules_id': 16, 'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '->', 'rules_ip_d': '192.168.0.0/24', 'rules_port_d': 'any', 'rules_msg': 'Test rule', 'rules_content': 'test', 'rules_sid': 1001, 'rules_rev': 1, 'rules_effpol': 1, 'rules_effotr': 1}), RealDictRow({'rules_id': 17, 'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '->', 'rules_ip_d': '192.168.1.1', 'rules_port_d': 'any', 'rules_msg': 'New dis', 'rules_content': 'new rule dis test', 'rules_sid': 123, 'rules_rev': 1, 'rules_effpol': 0, 'rules_effotr': 0}), RealDictRow({'rules_id': 18, 'rules_action': 'drop', 'rules_protocol': 'udp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '<->', 'rules_ip_d': 'any', 'rules_port_d': 'any', 'rules_msg': 'test test test tes test tset st ts st stts', 'rules_content': 'vvvvvvvvvvvvvvv vvvvvvvvvvvvvvvvvvv gggggggggggggg', 'rules_sid': 12, 'rules_rev': 1, 'rules_effpol': 1, 'rules_effotr': 0})]
+2025-08-16 03:24:59 [ERROR] [IDS_IPS_Logger] [EditorView] Ошибка загрузки правил: object of type 'NoneType' has no len()
+Traceback (most recent call last):
+  File "/home/ubuntupc/my-proj/progr/views/editor_view.py", line 59, in load_rules
+    self.table.setRowCount(len(rules))
+                           ^^^^^^^^^^
+TypeError: object of type 'NoneType' has no len()
+2025-08-16 03:25:18 [INFO] [IDS_IPS_Logger] === Завершение работы приложения ===
+2025-08-16 03:26:31 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-16.log
+2025-08-16 03:26:32 [INFO] [IDS_IPS_Logger] === Запуск Программа Х ===
+2025-08-16 03:26:32 [INFO] [IDS_IPS_Logger] [RulesFetcherThread] Загрузка правил: offset=0, limit=20
+2025-08-16 03:26:32 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 17 правил (offset=0, limit=20)
+2025-08-16 03:26:32 [INFO] [IDS_IPS_Logger] [RulesFetcherThread] Загружено правил: 17
+2025-08-16 03:26:32 [INFO] [IDS_IPS_Logger] [RulesFetcherThread] Загружено правил: [RealDictRow({'rules_id': 1, 'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': '192.168.1.1', 'rules_port_s': '12', 'rules_route': '->', 'rules_ip_d': '123.12.12.2', 'rules_port_d': '45', 'rules_msg': 'new test', 'rules_content': 'test wen', 'rules_sid': 44, 'rules_rev': 55, 'rules_effpol': 6, 'rules_effotr': 2}), RealDictRow({'rules_id': 2, 'rules_action': 'alert', 'rules_protocol': 'udp', 'rules_ip_s': '8.8.8.8/32', 'rules_port_s': '53', 'rules_route': '->', 'rules_ip_d': '192.168.0.0/24', 'rules_port_d': '45', 'rules_msg': 'cdbchb', 'rules_content': 'djhfbvhj', 'rules_sid': 78, 'rules_rev': 2, 'rules_effpol': 2, 'rules_effotr': 1}), RealDictRow({'rules_id': 3, 'rules_action': 'drop', 'rules_protocol': 'tcp', 'rules_ip_s': '192.120.0.0', 'rules_port_s': '1000', 'rules_route': '->', 'rules_ip_d': '192.168.0.0', 'rules_port_d': '2000', 'rules_msg': 'test22 test22', 'rules_content': 'test22', 'rules_sid': 3001, 'rules_rev': 1, 'rules_effpol': 2, 'rules_effotr': 1}), RealDictRow({'rules_id': 4, 'rules_action': 'drop', 'rules_protocol': 'udp', 'rules_ip_s': '7.7.7.7', 'rules_port_s': '789', 'rules_route': '<-', 'rules_ip_d': '8.8.8.8', 'rules_port_d': '456', 'rules_msg': 'TEST 12', 'rules_content': 'TEST', 'rules_sid': 12, 'rules_rev': 5, 'rules_effpol': 4, 'rules_effotr': 2}), RealDictRow({'rules_id': 5, 'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': '18.18.18.1/32', 'rules_port_s': '123', 'rules_route': '->', 'rules_ip_d': '192.168.0.0/24', 'rules_port_d': '7895', 'rules_msg': 'Test create', 'rules_content': 'create', 'rules_sid': 7987, 'rules_rev': 45, 'rules_effpol': 1, 'rules_effotr': 0}), RealDictRow({'rules_id': 6, 'rules_action': 'drop', 'rules_protocol': 'udp', 'rules_ip_s': '192.168.0.0/24', 'rules_port_s': '53', 'rules_route': '->', 'rules_ip_d': '8.8.8.8/32', 'rules_port_d': '53', 'rules_msg': 'Dns test', 'rules_content': 'dns test', 'rules_sid': 789, 'rules_rev': 5, 'rules_effpol': 1, 'rules_effotr': 1}), RealDictRow({'rules_id': 7, 'rules_action': 'drop', 'rules_protocol': 'tcp', 'rules_ip_s': '15.15.15.15/32', 'rules_port_s': '15', 'rules_route': '->', 'rules_ip_d': '192.16.2.2/32', 'rules_port_d': '12', 'rules_msg': 'output test', 'rules_content': 'test', 'rules_sid': 12, 'rules_rev': 1, 'rules_effpol': 1, 'rules_effotr': 1}), RealDictRow({'rules_id': 8, 'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': '192.168.0.0/24', 'rules_port_s': '53', 'rules_route': '<-', 'rules_ip_d': '7.7.7.7/32', 'rules_port_d': '53', 'rules_msg': 'Test DNS req, req', 'rules_content': 'TEST request', 'rules_sid': 4004, 'rules_rev': 1, 'rules_effpol': 1, 'rules_effotr': 1}), RealDictRow({'rules_id': 10, 'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': '12.12.12.12', 'rules_port_s': '156', 'rules_route': '<->', 'rules_ip_d': '131.123.123.11', 'rules_port_d': '165', 'rules_msg': 'test123', 'rules_content': 'jhvbfqjhd', 'rules_sid': 12, 'rules_rev': 515, 'rules_effpol': 1, 'rules_effotr': 1}), RealDictRow({'rules_id': 11, 'rules_action': 'alert', 'rules_protocol': 'udp', 'rules_ip_s': '54.64.46.54', 'rules_port_s': '5616', 'rules_route': '<->', 'rules_ip_d': '45.44.45.4', 'rules_port_d': '561', 'rules_msg': 'mn dkjfdk', 'rules_content': 'dnf qd test', 'rules_sid': 77, 'rules_rev': 88, 'rules_effpol': 0, 'rules_effotr': 1}), RealDictRow({'rules_id': 12, 'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': '192.168.0.0/24', 'rules_port_s': '53', 'rules_route': '->', 'rules_ip_d': '7.7.7.7/32', 'rules_port_d': '53', 'rules_msg': 'New dns req test rule', 'rules_content': 'dns req', 'rules_sid': 1202, 'rules_rev': 1, 'rules_effpol': 1, 'rules_effotr': 0}), RealDictRow({'rules_id': 13, 'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': '192.168.0.0/24', 'rules_port_s': '22', 'rules_route': '->', 'rules_ip_d': '7.7.7.7/32', 'rules_port_d': '45', 'rules_msg': 'Test scan rule', 'rules_content': 'scan', 'rules_sid': 45, 'rules_rev': 1, 'rules_effpol': 0, 'rules_effotr': 0}), RealDictRow({'rules_id': 14, 'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': '192.168.0.0/24', 'rules_port_s': '22', 'rules_route': '->', 'rules_ip_d': '7.7.7.1/32', 'rules_port_d': '789', 'rules_msg': 'Tets rele scan out', 'rules_content': 'scan', 'rules_sid': 45, 'rules_rev': 1, 'rules_effpol': 0, 'rules_effotr': 0}), RealDictRow({'rules_id': 15, 'rules_action': 'drop', 'rules_protocol': 'tcp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '->', 'rules_ip_d': 'any', 'rules_port_d': 'any', 'rules_msg': 'Tets reu with any', 'rules_content': 'test rule any', 'rules_sid': 1001, 'rules_rev': 1, 'rules_effpol': 2, 'rules_effotr': 1}), RealDictRow({'rules_id': 16, 'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '->', 'rules_ip_d': '192.168.0.0/24', 'rules_port_d': 'any', 'rules_msg': 'Test rule', 'rules_content': 'test', 'rules_sid': 1001, 'rules_rev': 1, 'rules_effpol': 1, 'rules_effotr': 1}), RealDictRow({'rules_id': 17, 'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '->', 'rules_ip_d': '192.168.1.1', 'rules_port_d': 'any', 'rules_msg': 'New dis', 'rules_content': 'new rule dis test', 'rules_sid': 123, 'rules_rev': 1, 'rules_effpol': 0, 'rules_effotr': 0}), RealDictRow({'rules_id': 18, 'rules_action': 'drop', 'rules_protocol': 'udp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '<->', 'rules_ip_d': 'any', 'rules_port_d': 'any', 'rules_msg': 'test test test tes test tset st ts st stts', 'rules_content': 'vvvvvvvvvvvvvvv vvvvvvvvvvvvvvvvvvv gggggggggggggg', 'rules_sid': 12, 'rules_rev': 1, 'rules_effpol': 1, 'rules_effotr': 0})]
+2025-08-16 03:26:36 [ERROR] [IDS_IPS_Logger] [EditorView] Ошибка загрузки правил: 'NoneType' object is not iterable
+Traceback (most recent call last):
+  File "/home/ubuntupc/my-proj/progr/views/editor_view.py", line 61, in load_rules
+    for row_idx, rule in enumerate(rules):
+                         ^^^^^^^^^^^^^^^^
+TypeError: 'NoneType' object is not iterable
+2025-08-16 03:26:41 [INFO] [IDS_IPS_Logger] === Завершение работы приложения ===
+2025-08-16 03:32:03 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-16.log
+2025-08-16 03:32:04 [INFO] [IDS_IPS_Logger] === Запуск Программа Х ===
+2025-08-16 03:32:08 [ERROR] [IDS_IPS_Logger] [EditorView] Ошибка загрузки правил: 'EditorController' object has no attribute 'get_rules'
+Traceback (most recent call last):
+  File "/home/ubuntupc/my-proj/progr/views/editor_view.py", line 57, in load_rules
+    rules = self.controller.get_rules(self.current_offset, self.limit)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'EditorController' object has no attribute 'get_rules'
+2025-08-16 03:32:10 [INFO] [IDS_IPS_Logger] === Завершение работы приложения ===
+2025-08-16 03:32:34 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-16.log
+2025-08-16 03:32:35 [INFO] [IDS_IPS_Logger] === Запуск Программа Х ===
+2025-08-16 03:32:35 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-08-16 03:32:35 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 17 правил (offset=0, limit=20)
+2025-08-16 03:32:35 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 17
+2025-08-16 03:32:40 [INFO] [IDS_IPS_Logger] === Завершение работы приложения ===
+2025-08-16 03:38:09 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-16.log
+2025-08-16 03:38:10 [INFO] [IDS_IPS_Logger] === Запуск Программа Х ===
+2025-08-16 03:38:10 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-08-16 03:38:10 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 17 правил (offset=0, limit=20)
+2025-08-16 03:38:10 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 17
+2025-08-16 03:38:16 [INFO] [IDS_IPS_Logger] [RuleModel] Голос добавлен для правила ID=2, positive=True
+2025-08-16 03:38:16 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-08-16 03:38:16 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 17 правил (offset=0, limit=20)
+2025-08-16 03:38:16 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 17
+2025-08-16 03:38:30 [INFO] [IDS_IPS_Logger] [RuleModel] Голос добавлен для правила ID=18, positive=False
+2025-08-16 03:38:30 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-08-16 03:38:30 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 17 правил (offset=0, limit=20)
+2025-08-16 03:38:30 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 17
+2025-08-16 03:38:31 [INFO] [IDS_IPS_Logger] [RuleModel] Голос добавлен для правила ID=18, positive=False
+2025-08-16 03:38:31 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-08-16 03:38:31 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 17 правил (offset=0, limit=20)
+2025-08-16 03:38:31 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 17
+2025-08-16 03:38:32 [INFO] [IDS_IPS_Logger] [RuleModel] Голос добавлен для правила ID=18, positive=False
+2025-08-16 03:38:32 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-08-16 03:38:32 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 17 правил (offset=0, limit=20)
+2025-08-16 03:38:32 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 17
+2025-08-16 03:38:33 [INFO] [IDS_IPS_Logger] [RuleModel] Голос добавлен для правила ID=18, positive=False
+2025-08-16 03:38:33 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-08-16 03:38:33 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 17 правил (offset=0, limit=20)
+2025-08-16 03:38:33 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 17
+2025-08-16 03:38:34 [INFO] [IDS_IPS_Logger] === Завершение работы приложения ===
+2025-08-16 03:39:22 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-16.log
+2025-08-16 03:39:23 [INFO] [IDS_IPS_Logger] === Запуск Программа Х ===
+2025-08-16 03:39:23 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-08-16 03:39:23 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 17 правил (offset=0, limit=20)
+2025-08-16 03:39:23 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 17
+2025-08-16 03:39:27 [INFO] [IDS_IPS_Logger] [RuleModel] Голос добавлен для правила ID=1, positive=True
+2025-08-16 03:39:27 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-08-16 03:39:27 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 17 правил (offset=0, limit=20)
+2025-08-16 03:39:27 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 17
+2025-08-16 03:39:29 [INFO] [IDS_IPS_Logger] [RuleModel] Голос добавлен для правила ID=17, positive=False
+2025-08-16 03:39:29 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-08-16 03:39:29 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 17 правил (offset=0, limit=20)
+2025-08-16 03:39:29 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 17
+2025-08-16 03:39:30 [INFO] [IDS_IPS_Logger] [RuleModel] Голос добавлен для правила ID=17, positive=True
+2025-08-16 03:39:30 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-08-16 03:39:30 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 17 правил (offset=0, limit=20)
+2025-08-16 03:39:30 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 17
+2025-08-16 03:40:41 [INFO] [IDS_IPS_Logger] === Завершение работы приложения ===
+2025-08-16 05:07:04 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-16.log
+2025-08-16 05:07:05 [INFO] [IDS_IPS_Logger] === Запуск Программа Х ===
+2025-08-16 05:07:05 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-08-16 05:07:05 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 17 правил (offset=0, limit=20)
+2025-08-16 05:07:05 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 17
+2025-08-16 05:07:12 [INFO] [IDS_IPS_Logger] [EditorController] Получение данных правила ID=3
+2025-08-16 05:07:12 [INFO] [IDS_IPS_Logger] [RuleModel] Получено правило ID=3
+2025-08-16 05:07:35 [INFO] [IDS_IPS_Logger] [EditorController] Получение данных правила ID=4
+2025-08-16 05:07:35 [INFO] [IDS_IPS_Logger] [RuleModel] Получено правило ID=4
+2025-08-16 05:07:38 [INFO] [IDS_IPS_Logger] [EditorController] Получение данных правила ID=10
+2025-08-16 05:07:38 [INFO] [IDS_IPS_Logger] [RuleModel] Получено правило ID=10
+2025-08-16 05:07:40 [INFO] [IDS_IPS_Logger] [EditorController] Получение данных правила ID=12
+2025-08-16 05:07:40 [INFO] [IDS_IPS_Logger] [RuleModel] Получено правило ID=12
+2025-08-16 05:08:10 [INFO] [IDS_IPS_Logger] [EditorController] Изменение правила ID=12: {'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': 'any', 'rules_port_s': '53', 'rules_route': '->', 'rules_ip_d': '7.7.7.7', 'rules_port_d': '53', 'rules_msg': 'New dns req test rule', 'rules_content': 'dns req', 'rules_sid': '1202', 'rules_rev': '1'}
+2025-08-16 05:08:26 [INFO] [IDS_IPS_Logger] [EditorController] Получение данных правила ID=17
+2025-08-16 05:08:26 [INFO] [IDS_IPS_Logger] [RuleModel] Получено правило ID=17
+2025-08-16 05:08:29 [INFO] [IDS_IPS_Logger] [EditorController] Получение данных правила ID=15
+2025-08-16 05:08:29 [INFO] [IDS_IPS_Logger] [RuleModel] Получено правило ID=15
+2025-08-16 05:08:31 [INFO] [IDS_IPS_Logger] [EditorController] Получение данных правила ID=12
+2025-08-16 05:08:31 [INFO] [IDS_IPS_Logger] [RuleModel] Получено правило ID=12
+2025-08-16 05:08:40 [INFO] [IDS_IPS_Logger] [EditorController] Изменение правила ID=12: {'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': '192.168.0.0', 'rules_port_s': '53', 'rules_route': '->', 'rules_ip_d': '7.7.7.7', 'rules_port_d': '53', 'rules_msg': 'New dns req test rule', 'rules_content': 'dns req', 'rules_sid': '1202', 'rules_rev': '1'}
+2025-08-16 05:08:49 [INFO] [IDS_IPS_Logger] [BatchSaverThread] Сохранение 2 правил...
+2025-08-16 05:08:49 [DEBUG] [IDS_IPS_Logger] [BatchSaverThread] Сохранение правила ID=12: {'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': 'any', 'rules_port_s': '53', 'rules_route': '->', 'rules_ip_d': '7.7.7.7', 'rules_port_d': '53', 'rules_msg': 'New dns req test rule', 'rules_content': 'dns req', 'rules_sid': '1202', 'rules_rev': '1'}
+2025-08-16 05:08:49 [INFO] [IDS_IPS_Logger] [RuleModel] Правило ID=12 обновлено
+2025-08-16 05:08:49 [DEBUG] [IDS_IPS_Logger] [BatchSaverThread] Сохранение правила ID=12: {'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': '192.168.0.0', 'rules_port_s': '53', 'rules_route': '->', 'rules_ip_d': '7.7.7.7', 'rules_port_d': '53', 'rules_msg': 'New dns req test rule', 'rules_content': 'dns req', 'rules_sid': '1202', 'rules_rev': '1'}
+2025-08-16 05:08:49 [INFO] [IDS_IPS_Logger] [RuleModel] Правило ID=12 обновлено
+2025-08-16 05:08:49 [INFO] [IDS_IPS_Logger] [BatchSaverThread] Сохранение завершено успешно.
+2025-08-16 05:08:56 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-08-16 05:08:56 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 17 правил (offset=0, limit=20)
+2025-08-16 05:08:56 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 17
+2025-08-16 05:09:05 [INFO] [IDS_IPS_Logger] [RuleModel] Голос добавлен для правила ID=11, positive=True
+2025-08-16 05:09:05 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-08-16 05:09:05 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 17 правил (offset=0, limit=20)
+2025-08-16 05:09:05 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 17
+2025-08-16 05:09:21 [INFO] [IDS_IPS_Logger] [RuleModel] Голос добавлен для правила ID=11, positive=False
+2025-08-16 05:09:21 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-08-16 05:09:21 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 17 правил (offset=0, limit=20)
+2025-08-16 05:09:21 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 17
+2025-08-16 05:09:30 [INFO] [IDS_IPS_Logger] [MainWindow] Обновление данных во вкладке 'Редактор'
+2025-08-16 05:09:30 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-08-16 05:09:30 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 17 правил (offset=0, limit=20)
+2025-08-16 05:09:30 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 17
+2025-08-16 05:09:35 [INFO] [IDS_IPS_Logger] [MainWindow] Обновление данных во вкладке 'Конструктор'
+2025-08-16 05:09:41 [INFO] [IDS_IPS_Logger] === Завершение работы приложения ===
+2025-08-16 05:09:50 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-16.log
+2025-08-16 05:09:51 [INFO] [IDS_IPS_Logger] === Запуск Программа Х ===
+2025-08-16 05:09:51 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-08-16 05:09:51 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 17 правил (offset=0, limit=20)
+2025-08-16 05:09:51 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 17
+2025-08-16 05:10:17 [INFO] [IDS_IPS_Logger] === Завершение работы приложения ===
+2025-08-16 05:11:37 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-16.log
+2025-08-16 05:11:38 [INFO] [IDS_IPS_Logger] === Запуск Программа Х ===
+2025-08-16 05:11:38 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-08-16 05:11:38 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 17 правил (offset=0, limit=20)
+2025-08-16 05:11:38 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 17
+2025-08-16 05:11:43 [ERROR] [IDS_IPS_Logger] [RuleModel] Ошибка добавления голоса для ID=False: operator does not exist: integer = boolean
+СТРОКА 1: ... SET rules_effpol = rules_effpol + 1 WHERE rules_id = false;
+                                                                 ^
+ПОДСКАЗКА:  No operator matches the given name and argument types. You might need to add explicit type casts.
+Traceback (most recent call last):
+  File "/home/ubuntupc/my-proj/progr/models/rule_model.py", line 126, in add_vote
+    cur.execute(query, (rule_id,))
+psycopg2.errors.UndefinedFunction: operator does not exist: integer = boolean
+СТРОКА 1: ... SET rules_effpol = rules_effpol + 1 WHERE rules_id = false;
+                                                                 ^
+ПОДСКАЗКА:  No operator matches the given name and argument types. You might need to add explicit type casts.
+
+2025-08-16 05:11:45 [ERROR] [IDS_IPS_Logger] [EditorView] Ошибка оценки правила ID=5: operator does not exist: integer = boolean
+СТРОКА 1: ... SET rules_effpol = rules_effpol + 1 WHERE rules_id = false;
+                                                                 ^
+ПОДСКАЗКА:  No operator matches the given name and argument types. You might need to add explicit type casts.
+Traceback (most recent call last):
+  File "/home/ubuntupc/my-proj/progr/views/editor_view.py", line 113, in vote_rule
+    EditorController.rate_rule(rule_id, positive)  # метод в RuleModel
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntupc/my-proj/progr/controllers/editor_controller.py", line 123, in rate_rule
+    RuleModel.add_vote(rule_id, positive)  # метод в RuleModel
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntupc/my-proj/progr/models/rule_model.py", line 126, in add_vote
+    cur.execute(query, (rule_id,))
+psycopg2.errors.UndefinedFunction: operator does not exist: integer = boolean
+СТРОКА 1: ... SET rules_effpol = rules_effpol + 1 WHERE rules_id = false;
+                                                                 ^
+ПОДСКАЗКА:  No operator matches the given name and argument types. You might need to add explicit type casts.
+
+2025-08-16 05:11:49 [INFO] [IDS_IPS_Logger] === Завершение работы приложения ===
+2025-08-16 05:12:39 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-16.log
+2025-08-16 05:12:40 [INFO] [IDS_IPS_Logger] === Запуск Программа Х ===
+2025-08-16 05:12:40 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-08-16 05:12:40 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 17 правил (offset=0, limit=20)
+2025-08-16 05:12:40 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 17
+2025-08-16 05:12:43 [ERROR] [IDS_IPS_Logger] [RuleModel] Ошибка добавления голоса для ID=True: operator does not exist: integer = boolean
+СТРОКА 1: ...s SET rules_effpol = rules_effpol + 1 WHERE rules_id = true;
+                                                                  ^
+ПОДСКАЗКА:  No operator matches the given name and argument types. You might need to add explicit type casts.
+Traceback (most recent call last):
+  File "/home/ubuntupc/my-proj/progr/models/rule_model.py", line 126, in add_vote
+    cur.execute(query, (rule_id,))
+psycopg2.errors.UndefinedFunction: operator does not exist: integer = boolean
+СТРОКА 1: ...s SET rules_effpol = rules_effpol + 1 WHERE rules_id = true;
+                                                                  ^
+ПОДСКАЗКА:  No operator matches the given name and argument types. You might need to add explicit type casts.
+
+2025-08-16 05:12:45 [ERROR] [IDS_IPS_Logger] [EditorView] Ошибка оценки правила ID=5: operator does not exist: integer = boolean
+СТРОКА 1: ...s SET rules_effpol = rules_effpol + 1 WHERE rules_id = true;
+                                                                  ^
+ПОДСКАЗКА:  No operator matches the given name and argument types. You might need to add explicit type casts.
+Traceback (most recent call last):
+  File "/home/ubuntupc/my-proj/progr/views/editor_view.py", line 113, in vote_rule
+    EditorController.rate_rule(rule_id, positive)  # метод в RuleModel
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntupc/my-proj/progr/controllers/editor_controller.py", line 123, in rate_rule
+    RuleModel.add_vote(rule_id, positive)  # метод в RuleModel
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntupc/my-proj/progr/models/rule_model.py", line 126, in add_vote
+    cur.execute(query, (rule_id,))
+psycopg2.errors.UndefinedFunction: operator does not exist: integer = boolean
+СТРОКА 1: ...s SET rules_effpol = rules_effpol + 1 WHERE rules_id = true;
+                                                                  ^
+ПОДСКАЗКА:  No operator matches the given name and argument types. You might need to add explicit type casts.
+
+2025-08-16 05:12:46 [INFO] [IDS_IPS_Logger] === Завершение работы приложения ===
+2025-08-16 05:18:23 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-16.log
+2025-08-16 05:18:24 [INFO] [IDS_IPS_Logger] === Запуск Программа Х ===
+2025-08-16 05:18:24 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-08-16 05:18:24 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 17 правил (offset=0, limit=20)
+2025-08-16 05:18:24 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 17
+2025-08-16 05:18:30 [INFO] [IDS_IPS_Logger] [RuleModel] Голос добавлен для правила ID=5, positive=False
+2025-08-16 05:18:30 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-08-16 05:18:30 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 17 правил (offset=0, limit=20)
+2025-08-16 05:18:30 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 17
+2025-08-16 05:18:52 [INFO] [IDS_IPS_Logger] === Завершение работы приложения ===
+2025-08-16 05:22:20 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-16.log
+2025-08-16 05:22:21 [INFO] [IDS_IPS_Logger] === Запуск Программа Х ===
+2025-08-16 05:22:21 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-08-16 05:22:21 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 17 правил (offset=0, limit=20)
+2025-08-16 05:22:21 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 17
+2025-08-16 05:22:32 [INFO] [IDS_IPS_Logger] [RuleModel] Голос добавлен для правила ID=2, positive=True
+2025-08-16 05:22:32 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-08-16 05:22:32 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 17 правил (offset=0, limit=20)
+2025-08-16 05:22:32 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 17
+2025-08-16 05:22:59 [INFO] [IDS_IPS_Logger] === Завершение работы приложения ===
+2025-08-16 05:25:02 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-16.log
+2025-08-16 05:25:03 [INFO] [IDS_IPS_Logger] === Запуск Программа Х ===
+2025-08-16 05:25:03 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-08-16 05:25:03 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 17 правил (offset=0, limit=20)
+2025-08-16 05:25:03 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 17
+2025-08-16 05:25:16 [INFO] [IDS_IPS_Logger] [EditorViews] Happy
+2025-08-16 05:25:16 [INFO] [IDS_IPS_Logger] [EditorViews] Happy
+2025-08-16 05:25:17 [INFO] [IDS_IPS_Logger] [RuleModel] Голос добавлен для правила ID=3, positive=True
+2025-08-16 05:25:17 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-08-16 05:25:17 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 17 правил (offset=0, limit=20)
+2025-08-16 05:25:17 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 17
+2025-08-16 05:25:51 [INFO] [IDS_IPS_Logger] [EditorController] Получение данных правила ID=5
+2025-08-16 05:25:51 [INFO] [IDS_IPS_Logger] [RuleModel] Получено правило ID=5
+2025-08-16 05:26:07 [INFO] [IDS_IPS_Logger] === Завершение работы приложения ===

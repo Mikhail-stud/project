@@ -110,7 +110,8 @@ class EditorView(QWidget):
         Обновляет оценку правила.
         """
         try:
-            RuleModel.add_vote(rule_id, positive)  # метод в RuleModel
+            LOGGER.info("[EditorViews] Happy")
+            self.controller.rate_rule(rule_id, positive)  # метод в RuleModel
             self.load_rules()
         except Exception as e:
             QMessageBox.critical(self, "Ошибка", "Не удалось оценить правило")
@@ -118,15 +119,35 @@ class EditorView(QWidget):
 
     def commit_changes(self):
         """
-        Сохраняет все накопленные изменения в БД.
+        Сохранение всех накопленных изменений через контроллер.
+        Контроллер сам поднимет поток BatchSaverThread и свяжет сигналы.
         """
         try:
-            self.controller.commit_all()
-            QMessageBox.information(self, "Успех", "Все изменения сохранены в БД.")
-            self.load_rules()
+            # thread_starter — это метод главного окна, у нас MainWindow.start(thread)
+            # Получаем его через self.window() (MainWindow) и передаем ссылку на метод.
+            starter = getattr(self.window(), "start", None)
+            if starter is None:
+                QMessageBox.critical(self, "Ошибка", "Не найден thread-starter у главного окна.")
+                return
+
+            # Коллбек при успехе: показать сообщение и перезагрузить таблицу
+            def on_ok():
+                QMessageBox.information(self, "Успех", "Все изменения сохранены в БД.")
+                self.load_rules()  # обновим текущую страницу
+
+            # Коллбек ошибки: показать причину
+            def on_err(msg: str):
+                QMessageBox.critical(self, "Ошибка сохранения", msg)
+
+            # Просим контроллер запустить сохранение асинхронно
+            self.controller.commit_all_async(
+                thread_starter=starter,
+                on_finished=on_ok,
+                on_error=on_err,
+            )
+
         except Exception as e:
-            QMessageBox.critical(self, "Ошибка", f"Не удалось сохранить изменения: {e}")
-            LOGGER.error(f"[EditorView] Ошибка commit_all: {e}", exc_info=True)
+            QMessageBox.critical(self, "Ошибка", f"Не удалось запустить сохранение: {e}")
 
     def next_page(self):
         """

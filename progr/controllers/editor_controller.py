@@ -1,4 +1,6 @@
+from PyQt6.QtCore import QObject
 from progr.models.rule_model import RuleModel
+from progr.threads.saver_rules_db_thread import BatchSaverThread
 from progr.utils_app.rule_validator import validate_rule
 from progr.utils_app.logger import LOGGER
 
@@ -79,16 +81,45 @@ class EditorController:
             LOGGER.error(f"[EditorController] Ошибка при добавлении правила в очередь на сохранение: {e}", exc_info=True)
             raise
 
-    def commit_all(self):
+    def commit_all_async(self, thread_starter: callable, on_finished: callable, on_error: callable):
         """
-        Сохраняет все накопленные изменения в БД.
+        Запускает пакетное сохранение изменений в БД в отдельном потоке.
+        :param thread_starter: функция запуска потоков (например, MainWindow.start)
+        :param on_finished: коллбек после успешного сохранения (без аргументов)
+        :param on_error: коллбек при ошибке (str -> None)
         """
         try:
-            LOGGER.info(f"[EditorController] Сохранение {len(self._modified_rules)} правил...")
-            for rule_id, updated_data in self._modified_rules:
-                RuleModel.update_rule(rule_id, updated_data)
-            self._modified_rules.clear()
-            LOGGER.info("[EditorController] Все изменения успешно сохранены")
+            if not self._modified_rules:
+                # Нет изменений — считаем «успешно» и просто выходим
+                on_finished()
+                return
+
+            # Копируем очередь, чтобы не мутировать её во время работы потока
+            rules_batch = list(self._modified_rules)
+
+            self._saver_thread = BatchSaverThread(rules_batch)
+
+            # Когда поток завершится — чистим очередь и дергаем on_finished
+            def _done():
+                self._modified_rules.clear()
+                self._saver_thread = None
+                on_finished()
+
+            self._saver_thread.finished.connect(_done)
+            self._saver_thread.error.connect(lambda msg: on_error(msg))
+
+            # Стартуем поток через переданный стартер (обычно MainWindow.start)
+            thread_starter(self._saver_thread)
+
         except Exception as e:
-            LOGGER.error(f"[EditorController] Ошибка при сохранении изменений: {e}", exc_info=True)
-            raise
+            from progr.utils_app.logger import LOGGER
+            LOGGER.error(f"[EditorController] Ошибка запуска сохранения: {e}", exc_info=True)
+            on_error(str(e))
+
+    def rate_rule(self, rule_id, positive=True):
+        """
+        Обновляет оценку правила.
+        """
+        LOGGER.info("[EditorViews] Happy")
+        RuleModel.add_vote(rule_id, positive)  # метод в RuleModel
+            

@@ -35,9 +35,9 @@ class LogsTableModel(QAbstractTableModel):
                 if index.column() == code_index:
                     code = int(value)
                     if 200 <= code < 300:
-                        return QColor("#ccffcc")  # зелёный для 2xx
+                        return QColor("#0e990e")  # зелёный для 2xx
                     elif 400 <= code < 600:
-                        return QColor("#ffcccc")  # красный для 4xx/5xx
+                        return QColor("#e90707")  # красный для 4xx/5xx
             except (ValueError, TypeError):
                 pass
 
