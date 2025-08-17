@@ -2,7 +2,7 @@ from PyQt6.QtWidgets import (
     QWidget, QVBoxLayout, QHBoxLayout, QPushButton,
     QTableWidget, QTableWidgetItem, QMessageBox
 )
-from PyQt6.QtCore import Qt
+from PyQt6.QtCore import Qt, QTimer
 from progr.controllers.editor_controller import EditorController
 from progr.dialogs.create_rule_dialog import CreateRuleDialog
 from progr.threads.rules_fetcher_db_thread import RulesFetcherThread
@@ -48,7 +48,8 @@ class EditorView(QWidget):
         self.layout.addWidget(self.table)
 
         # Загружаем первую страницу
-        self.load_rules()
+        #self.load_rules()
+        QTimer.singleShot(0, self.load_rules_async)
 
     def load_rules_async(self):
             """
@@ -108,8 +109,7 @@ class EditorView(QWidget):
                 LOGGER.error(f"[EditorView] Ошибка отрисовки таблицы: {e}", exc_info=True)    
 
     def _on_rules_error(self, msg: str):
-        
-    	QMessageBox.critical(self, "Ошибка загрузки правил", msg)
+        QMessageBox.critical(self, "Ошибка загрузки правил", msg)
 
     def edit_rule(self, rule_id):
         try:

@@ -17,3 +17,64 @@
 2025-08-17 12:24:57 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-17.log
 2025-08-17 12:24:58 [INFO] [IDS_IPS_Logger] === Запуск Программа Х ===
 2025-08-17 12:25:26 [INFO] [IDS_IPS_Logger] === Завершение работы приложения ===
+2025-08-17 12:30:44 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-17.log
+2025-08-17 12:30:45 [INFO] [IDS_IPS_Logger] === Запуск Программа Х ===
+2025-08-17 12:30:50 [INFO] [IDS_IPS_Logger] === Завершение работы приложения ===
+2025-08-17 13:28:16 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-17.log
+2025-08-17 13:28:17 [INFO] [IDS_IPS_Logger] === Запуск Программа Х ===
+2025-08-17 13:28:17 [INFO] [IDS_IPS_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-08-17 13:28:17 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-08-17 13:28:17 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 17 правил (offset=0, limit=20)
+2025-08-17 13:28:17 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 17
+2025-08-17 13:28:17 [INFO] [IDS_IPS_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-08-17 13:28:35 [INFO] [IDS_IPS_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=20, limit=20
+2025-08-17 13:28:35 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=20, limit=20
+2025-08-17 13:28:35 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 0 правил (offset=20, limit=20)
+2025-08-17 13:28:35 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 0
+2025-08-17 13:28:35 [INFO] [IDS_IPS_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-08-17 13:28:45 [INFO] [IDS_IPS_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-08-17 13:28:45 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-08-17 13:28:45 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 17 правил (offset=0, limit=20)
+2025-08-17 13:28:45 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 17
+2025-08-17 13:28:45 [INFO] [IDS_IPS_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-08-17 13:28:49 [INFO] [IDS_IPS_Logger] [EditorController] Получение данных правила ID=1
+2025-08-17 13:28:49 [INFO] [IDS_IPS_Logger] [RuleModel] Получено правило ID=1
+2025-08-17 13:29:18 [INFO] [IDS_IPS_Logger] [ConstructorView] Выбран файл: /home/ubuntupc/file_tab.txt
+2025-08-17 13:29:18 [INFO] [IDS_IPS_Logger] [FileLoaderThread] Загрузка файла: /home/ubuntupc/file_tab.txt
+2025-08-17 13:29:18 [INFO] [IDS_IPS_Logger] [FileLoaderThread] Файл успешно загружен, строк: 242
+2025-08-17 13:29:27 [INFO] [IDS_IPS_Logger] [ConstructorView] Загружено строк: 242
+2025-08-17 13:29:37 [INFO] [IDS_IPS_Logger] [ConstructorView] Запуск парсинга: тип=Apache
+2025-08-17 13:29:37 [INFO] [IDS_IPS_Logger] [LogParser] Парсинг Apache/Nginx логов, строк=242
+2025-08-17 13:29:37 [INFO] [IDS_IPS_Logger] [LogParser] Получено 0 записей Apache/Nginx
+2025-08-17 13:29:37 [INFO] [IDS_IPS_Logger] [LogParserThread] Парсинг завершён, записей: 0.
+2025-08-17 13:29:37 [INFO] [IDS_IPS_Logger] [ConstructorView] Таблица логов сформирована: 0 записей
+2025-08-17 13:29:47 [INFO] [IDS_IPS_Logger] [ConstructorView] Запуск парсинга: тип=Wordpress
+2025-08-17 13:29:47 [INFO] [IDS_IPS_Logger] [LogParser] Парсинг WordPress логов, строк=242
+2025-08-17 13:29:47 [INFO] [IDS_IPS_Logger] [LogParser] Получено 0 записей WordPress
+2025-08-17 13:29:47 [INFO] [IDS_IPS_Logger] [LogParserThread] Парсинг завершён, записей: 0.
+2025-08-17 13:29:47 [INFO] [IDS_IPS_Logger] [ConstructorView] Таблица логов сформирована: 0 записей
+2025-08-17 13:29:54 [INFO] [IDS_IPS_Logger] === Завершение работы приложения ===
+2025-08-17 13:31:11 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-17.log
+2025-08-17 13:31:12 [INFO] [IDS_IPS_Logger] === Запуск Программа Х ===
+2025-08-17 13:31:12 [INFO] [IDS_IPS_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-08-17 13:31:12 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-08-17 13:31:12 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 17 правил (offset=0, limit=20)
+2025-08-17 13:31:12 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 17
+2025-08-17 13:31:12 [INFO] [IDS_IPS_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-08-17 13:31:15 [INFO] [IDS_IPS_Logger] === Завершение работы приложения ===
+2025-08-17 13:31:17 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-17.log
+2025-08-17 13:31:18 [INFO] [IDS_IPS_Logger] === Запуск Программа Х ===
+2025-08-17 13:31:18 [INFO] [IDS_IPS_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-08-17 13:31:18 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-08-17 13:31:18 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 17 правил (offset=0, limit=20)
+2025-08-17 13:31:18 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 17
+2025-08-17 13:31:18 [INFO] [IDS_IPS_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-08-17 13:31:22 [INFO] [IDS_IPS_Logger] === Завершение работы приложения ===
+2025-08-17 13:31:26 [INFO] [IDS_IPS_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-17.log
+2025-08-17 13:31:26 [INFO] [IDS_IPS_Logger] === Запуск Программа Х ===
+2025-08-17 13:31:26 [INFO] [IDS_IPS_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-08-17 13:31:26 [INFO] [IDS_IPS_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-08-17 13:31:26 [INFO] [IDS_IPS_Logger] [RuleModel] Получено 17 правил (offset=0, limit=20)
+2025-08-17 13:31:26 [INFO] [IDS_IPS_Logger] [EditorController] Загружено правил: 17
+2025-08-17 13:31:26 [INFO] [IDS_IPS_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-08-17 13:31:34 [INFO] [IDS_IPS_Logger] === Завершение работы приложения ===
