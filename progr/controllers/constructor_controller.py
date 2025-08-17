@@ -1,4 +1,4 @@
-from progr.models.log_parser import LogParser
+from progr.models.log_parser_model import LogParser
 from progr.models.logs_table_model import LogsTableModel
 from progr.models.rule_model import RuleModel
 from progr.utils_app.rule_validator import validate_rule

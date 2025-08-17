@@ -1,7 +1,7 @@
 
 from typing import Optional, List, Any
 from PyQt6.QtCore import QThread, pyqtSignal
-from progr.models.log_parser import LogParser
+from progr.models.log_parser_model import LogParser
 from progr.utils_app.logger import LOGGER
 
 
@@ -22,6 +22,7 @@ class LogParserThread(QThread):
 
     def run(self) -> None:
         try:
+            LOGGER.info("[LogParserThread]  Запущен.")
             if not self._log_lines:
                 LOGGER.warning("[LogParserThread] Пустые данные лога.")
                 self.finished.emit(None)  # для совместимости
