@@ -5,6 +5,7 @@ from PyQt6.QtWidgets import (
 from PyQt6.QtCore import Qt
 from progr.controllers.editor_controller import EditorController
 from progr.dialogs.create_rule_dialog import CreateRuleDialog
+from progr.threads.rules_fetcher_db_thread import RulesFetcherThread
 from progr.models.rule_model import RuleModel
 from progr.utils_app.logger import LOGGER
 
@@ -49,49 +50,68 @@ class EditorView(QWidget):
         # Загружаем первую страницу
         self.load_rules()
 
+    def load_rules_async(self):
+            """
+            Асинхронно запускает загрузку правил через поток, не блокируя UI.
+            """
+            try:
+                starter = getattr(self.window(), "start", None)#MainWindow.start(thread)
+                if starter is None:
+                    QMessageBox.critical(self, "Ошибка", "Не найден thread-starter у главного окна.")
+                    return
+                thread = RulesFetcherThread(self.controller, offset=self.current_offset, limit=self.limit)
+                thread.finished.connect(self._on_rules_loaded)  # отрисовка
+                thread.error.connect(lambda msg: self._on_rules_error(msg))
+                starter(thread)  # запускаем; по окончании run() поток завершится сам
+            except Exception as e:
+                QMessageBox.critical(self, "Ошибка", f"Не удалось запустить загрузку правил: {e}")
+                LOGGER.error(f"[EditorView] Старт load_rules_async упал: {e}", exc_info=True)
+
     def load_rules(self):
-        """
-        Загружает правила из БД и отображает их в таблице.
-        """
-        try:
-            rules = self.controller.get_rules(self.current_offset, self.limit)
-            self.table.clear()
-            self.table.setColumnCount(4)  # Название, Оценки, Редактировать, Оценить
-            self.table.setHorizontalHeaderLabels([ "Название", "Оценки", "Редактирование", "Оценить"])
-            self.table.setRowCount(len(rules))
+        self.load_rules_async()
+             
+    def _on_rules_loaded(self, rules: list):
+            """
+            Загружает правила из БД и отображает их в таблице.
+            """
+            try:
+                self.table.clear()
+                self.table.setColumnCount(4)  # Название, Оценки, Редактировать, Оценить
+                self.table.setHorizontalHeaderLabels([ "Название", "Оценки", "Редактирование", "Оценить"])
+                self.table.setRowCount(len(rules))
+                for row_idx, rule in enumerate(rules):
+                    self.table.setItem(row_idx, 0, QTableWidgetItem(str(rule["rules_msg"])))
+                    self.table.setItem(row_idx, 1, QTableWidgetItem(f"✅  {rule.get('rules_effpol', 0)} / ❌ {rule.get('rules_effotr', 0)}"))
 
-            for row_idx, rule in enumerate(rules):
-                self.table.setItem(row_idx, 0, QTableWidgetItem(str(rule["rules_msg"])))
-                self.table.setItem(row_idx, 1, QTableWidgetItem(f"✅  {rule.get('rules_effpol', 0)} / ❌ {rule.get('rules_effotr', 0)}"))
+                    # Кнопка редактирования
+                    edit_button = QPushButton("✍️")
+                    edit_button.clicked.connect(lambda _, rid=rule["rules_id"]: self.edit_rule(rid))
+                    self.table.setCellWidget(row_idx, 2, edit_button)
 
-                # Кнопка редактирования
-                edit_button = QPushButton("✍️")
-                edit_button.clicked.connect(lambda _, rid=rule["rules_id"]: self.edit_rule(rid))
-                self.table.setCellWidget(row_idx, 2, edit_button)
+                    # Кнопки оценки
+                    vote_layout = QHBoxLayout()
+                    upvote_btn = QPushButton("✅ ")
+                    downvote_btn = QPushButton("❌")
+                    upvote_btn.clicked.connect(lambda _, rid=rule["rules_id"]: self.vote_rule(rid, True))
+                    downvote_btn.clicked.connect(lambda _, rid=rule["rules_id"]: self.vote_rule(rid, False))
 
-                # Кнопки оценки
-                vote_layout = QHBoxLayout()
-                upvote_btn = QPushButton("✅ ")
-                downvote_btn = QPushButton("❌")
-                upvote_btn.clicked.connect(lambda _, rid=rule["rules_id"]: self.vote_rule(rid, True))
-                downvote_btn.clicked.connect(lambda _, rid=rule["rules_id"]: self.vote_rule(rid, False))
+                    vote_layout.addWidget(upvote_btn)
+                    vote_layout.addWidget(downvote_btn)
+                    vote_widget = QWidget()
+                    vote_widget.setLayout(vote_layout)
+                    self.table.setCellWidget(row_idx, 3, vote_widget)
 
-                vote_layout.addWidget(upvote_btn)
-                vote_layout.addWidget(downvote_btn)
-                vote_widget = QWidget()
-                vote_widget.setLayout(vote_layout)
-                self.table.setCellWidget(row_idx, 3, vote_widget)
+                self.table.resizeColumnsToContents()
 
-            self.table.resizeColumnsToContents()
+            except Exception as e:
+                QMessageBox.critical(self, "Ошибка", f"Не удалось отобразить правила: {e}")
+                LOGGER.error(f"[EditorView] Ошибка отрисовки таблицы: {e}", exc_info=True)    
 
-        except Exception as e:
-            QMessageBox.critical(self, "Ошибка", f"Не удалось загрузить правила: {e}")
-            LOGGER.error(f"[EditorView] Ошибка загрузки правил: {e}", exc_info=True)
+    def _on_rules_error(self, msg: str):
+        
+    	QMessageBox.critical(self, "Ошибка загрузки правил", msg)
 
     def edit_rule(self, rule_id):
-        """
-        Открывает диалог редактирования правила.
-        """
         try:
             rule_data = self.controller.get_rule_by_id(rule_id)
             dialog = CreateRuleDialog(self, rule_data=rule_data)
@@ -110,8 +130,7 @@ class EditorView(QWidget):
         Обновляет оценку правила.
         """
         try:
-            LOGGER.info("[EditorViews] Happy")
-            self.controller.rate_rule(rule_id, positive)  # метод в RuleModel
+            RuleModel.add_vote(rule_id, positive)  # метод в RuleModel
             self.load_rules()
         except Exception as e:
             QMessageBox.critical(self, "Ошибка", "Не удалось оценить правило")
@@ -123,7 +142,7 @@ class EditorView(QWidget):
         Контроллер сам поднимет поток BatchSaverThread и свяжет сигналы.
         """
         try:
-            # thread_starter — это метод главного окна, у нас MainWindow.start(thread)
+            # start_thread — это метод главного окна, у нас MainWindow.start(thread)
             # Получаем его через self.window() (MainWindow) и передаем ссылку на метод.
             starter = getattr(self.window(), "start", None)
             if starter is None:
@@ -141,7 +160,7 @@ class EditorView(QWidget):
 
             # Просим контроллер запустить сохранение асинхронно
             self.controller.commit_all_async(
-                thread_starter=starter,
+                start_thread=starter,
                 on_finished=on_ok,
                 on_error=on_err,
             )

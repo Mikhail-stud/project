@@ -1,4 +1,5 @@
 from PyQt6.QtWidgets import QMainWindow, QTabWidget, QStatusBar, QMenuBar, QMessageBox
+from PyQt6.QtCore import QThread, pyqtSignal
 from PyQt6.QtGui import QAction
 from progr.config_app.ui_config import UI_CONFIG
 from progr.utils_app.logger import LOGGER
@@ -95,7 +96,7 @@ class MainWindow(QMainWindow):
             "О программе",
             "Программа Х\nВерсия 1.0\nАвтор: Михаил\n© 2025"
         )
-
+        
     # --- Новый безопасный менеджер потоков ---
     def start_thread(self, thread):
         """
@@ -107,6 +108,7 @@ class MainWindow(QMainWindow):
             # Назначим родителя главному окну — Qt тоже удержит объект
             thread.setParent(self)
         except Exception:
+
             pass
 
         self._threads.add(thread)
@@ -117,9 +119,11 @@ class MainWindow(QMainWindow):
 
         thread.start()
 
+
     # --- Обратная совместимость: старое имя метода ---
     def start(self, thread):
         self.start_thread(thread)
+
 
     # Корректное закрытие всех активных потоков
     def closeEvent(self, e):
