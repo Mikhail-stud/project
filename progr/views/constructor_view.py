@@ -4,7 +4,6 @@ from PyQt6.QtWidgets import (
 )
 from PyQt6.QtCore import QSortFilterProxyModel, Qt
 from progr.controllers.constructor_controller import ConstructorController
-from progr.models.logs_table_model import LogsTableModel
 from progr.threads.file_loader_thread import FileLoaderThread
 from progr.threads.log_parser_thread import LogParserThread
 from progr.dialogs.create_rule_dialog import CreateRuleDialog
@@ -20,6 +19,7 @@ class ConstructorView(QWidget):
     """
 
     def __init__(self, thread_manager):
+        controller = ConstructorController()
         super().__init__()
         self.thread_manager = thread_manager
         self.controller = ConstructorController()
@@ -90,7 +90,7 @@ class ConstructorView(QWidget):
         headers = list(df.columns)
         rows = df.values.tolist()
 
-        model = LogsTableModel(rows, headers)
+        model = self.controller.table_logs(rows, headers)
         proxy_model = QSortFilterProxyModel()
         proxy_model.setSourceModel(model)
         proxy_model.setFilterCaseSensitivity(Qt.CaseSensitivity.CaseInsensitive)
@@ -114,7 +114,13 @@ class ConstructorView(QWidget):
             try:
                 rule_id = self.controller.create_rule(rule_data)
                 QMessageBox.information(self, "Успех", f"Правило успешно создано (ID: {rule_id})")
+                LOGGER.info(f"[ConstructorView] Правило успешно создано (ID: {rule_id})")
+
             except ValueError as ve:
-                QMessageBox.warning(self, "Ошибка валидации", str(ve))
+                QMessageBox.warning(self, "Ошибка валидации", {ve})
+                LOGGER.warning(f"[ConstructorView] Ошибка валидации str(ve)")
+
+                
             except Exception as e:
                 QMessageBox.critical(self, "Ошибка", f"Не удалось создать правило: {e}")
+                LOGGER.critical(f"[ConstructorView] Не удалось создать правило: {e}")

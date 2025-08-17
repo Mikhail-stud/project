@@ -7,7 +7,7 @@ LOG_DIR = os.path.join(os.path.dirname(__file__), "..", "logs")
 os.makedirs(LOG_DIR, exist_ok=True)
 
 # === Создаём логгер ===
-LOGGER = logging.getLogger("IDS_IPS_Logger")
+LOGGER = logging.getLogger("Programm_X_Logger")
 LOGGER.setLevel(logging.DEBUG)  # Логируем всё, фильтрация на хендлерах
 
 # === Имя файла лога с датой ===

@@ -1,4 +1,5 @@
 from progr.models.log_parser import LogParser
+from progr.models.logs_table_model import LogsTableModel
 from progr.models.rule_model import RuleModel
 from progr.utils_app.rule_validator import validate_rule
 from progr.utils_app.logger import LOGGER
@@ -62,3 +63,9 @@ class ConstructorController:
         except Exception as e:
             LOGGER.error(f"[ConstructorController] Ошибка сохранения правила в БД: {e}", exc_info=True)
             raise
+
+
+    def table_logs(self, rows, headers):
+
+        LOGGER.info("[ConstructorController] Запуск создания таблицы логов")
+        LogsTableModel(rows, headers)

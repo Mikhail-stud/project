@@ -112,7 +112,6 @@ class EditorController:
             thread_starter(self._saver_thread)
 
         except Exception as e:
-            from progr.utils_app.logger import LOGGER
             LOGGER.error(f"[EditorController] Ошибка запуска сохранения: {e}", exc_info=True)
             on_error(str(e))
 
@@ -120,6 +119,7 @@ class EditorController:
         """
         Обновляет оценку правила.
         """
-        LOGGER.info("[EditorViews] Happy")
+        LOGGER.info("[EditorController] Запущен для оценки")
         RuleModel.add_vote(rule_id, positive)  # метод в RuleModel
+
             

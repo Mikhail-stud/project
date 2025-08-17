@@ -27,7 +27,7 @@ class EditorView(QWidget):
 
         self.layout = QVBoxLayout(self)
 
-        # === Кнопки управления ===
+        #  Кнопки управления 
         controls_layout = QHBoxLayout()
         self.prev_button = QPushButton("Предыдущие")
         self.next_button = QPushButton("Следующие")
@@ -43,12 +43,11 @@ class EditorView(QWidget):
 
         self.layout.addLayout(controls_layout)
 
-        # === Таблица правил ===
+        #  Таблица правил 
         self.table = QTableWidget()
         self.layout.addWidget(self.table)
 
-        # Загружаем первую страницу
-        #self.load_rules()
+        # Загружаем первую страницу с задержкой
         QTimer.singleShot(0, self.load_rules_async)
 
     def load_rules_async(self):
@@ -130,7 +129,7 @@ class EditorView(QWidget):
         Обновляет оценку правила.
         """
         try:
-            RuleModel.add_vote(rule_id, positive)  # метод в RuleModel
+            self.controller.rate_rule(rule_id, positive)  
             self.load_rules()
         except Exception as e:
             QMessageBox.critical(self, "Ошибка", "Не удалось оценить правило")
@@ -142,7 +141,7 @@ class EditorView(QWidget):
         Контроллер сам поднимет поток BatchSaverThread и свяжет сигналы.
         """
         try:
-            # start_thread — это метод главного окна, у нас MainWindow.start(thread)
+            # thread_starter — это метод главного окна, у нас MainWindow.start(thread)
             # Получаем его через self.window() (MainWindow) и передаем ссылку на метод.
             starter = getattr(self.window(), "start", None)
             if starter is None:
@@ -160,7 +159,7 @@ class EditorView(QWidget):
 
             # Просим контроллер запустить сохранение асинхронно
             self.controller.commit_all_async(
-                start_thread=starter,
+                thread_starter=starter,
                 on_finished=on_ok,
                 on_error=on_err,
             )
