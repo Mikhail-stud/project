@@ -17,6 +17,7 @@ class MainWindow(QMainWindow):
     """
 
     def __init__(self):
+        self.view = EditorView()
         super().__init__()
 
         # Держим ссылки на активные потоки, чтобы их не уничтожало раньше времени
@@ -80,7 +81,7 @@ class MainWindow(QMainWindow):
         current_widget = self.tabs.currentWidget()
         if hasattr(current_widget, "load_rules"):
             LOGGER.info("[MainWindow] Обновление данных во вкладке 'Редактор'")
-            current_widget.load_rules()
+            current_widget.self.view.load_rules_async()
             self.status_bar.showMessage("Данные обновлены", 3000)
         elif hasattr(current_widget, "process_logs"):
             LOGGER.info("[MainWindow] Обновление данных во вкладке 'Конструктор'")

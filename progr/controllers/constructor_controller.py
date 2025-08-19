@@ -69,3 +69,4 @@ class ConstructorController:
 
         LOGGER.info("[ConstructorController] Запуск создания таблицы логов")
         LogsTableModel(rows, headers)
+        LOGGER.info("[ConstructorController]  Создание таблицы логов закончено")

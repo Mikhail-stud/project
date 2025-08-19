@@ -1,4 +1,5 @@
 from PyQt6.QtCore import QAbstractTableModel, Qt, QVariant
+from progr.utils_app.logger import LOGGER
 from PyQt6.QtGui import QColor
 
 
@@ -9,6 +10,7 @@ class LogsTableModel(QAbstractTableModel):
     """
 
     def __init__(self, rows, headers, parent=None):
+        LOGGER.info("[LogTableModel] Запущен")
         super().__init__(parent)
         self._rows = rows
         self._headers = headers
