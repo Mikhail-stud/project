@@ -86,9 +86,9 @@ class MainWindow(QMainWindow):
             return
 
         # Для вкладки 'Конструктор'
-        if hasattr(current_widget, "process_logs"):
+        if hasattr(current_widget, "_on_click_parse"):
             LOGGER.info("[MainWindow] Обновление данных во вкладке 'Конструктор'")
-            current_widget.process_logs()
+            current_widget._on_click_parse()
             self.status_bar.showMessage("Логи обновлены", 3000)
             return
 

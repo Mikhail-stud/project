@@ -1,53 +1,51 @@
-
-from typing import Optional, List, Any
+# threads/log_parser_thread.py
 from PyQt6.QtCore import QThread, pyqtSignal
-from progr.models.log_parser_model import LogParser
 from progr.utils_app.logger import LOGGER
+from progr.models.log_parser_model import LogParser  
+import pandas as pd
 
 
 class LogParserThread(QThread):
     """
-    Поток для парсинга логов в DataFrame без блокировки UI.
-    Совместим по интерфейсу: finished(object), error(str).
+    Поток для парсинга логов.
+    На вход получает сырые строки и тип парсера, на выход отдаёт pandas.DataFrame.
     """
-
     finished = pyqtSignal(object)  # pandas.DataFrame
     error = pyqtSignal(str)
 
-    def __init__(self, log_lines: List[str], log_type: str, parent: Optional[object] = None) -> None:
-        super().__init__(parent)
-        self._log_lines = list(log_lines) if log_lines is not None else []
-        self._log_type = str(log_type or "").strip().lower()
-        self._parser = LogParser()
+    def __init__(self, log_lines, log_type):
+        super().__init__()
+        self.log_lines = log_lines
+        self.log_type = log_type
 
-    def run(self) -> None:
+    def run(self):
         try:
-            LOGGER.info("[LogParserThread]  Запущен.")
-            if not self._log_lines:
-                LOGGER.warning("[LogParserThread] Пустые данные лога.")
-                self.finished.emit(None)  # для совместимости
-                return
+            LOGGER.info(f"[LogParserThread] Запуск парсинга: type={self.log_type}, lines={len(self.log_lines)}")
+            parser = LogParser()
 
-            if self.isInterruptionRequested():
-                LOGGER.info("[LogParserThread] Прервано по requestInterruption() до старта.")
-                return
-
-            if self._log_type in ("apache", "nginx", "apache/nginx", "apache_nginx"):
-                df = self._parser.parse_apache_nginx(self._log_lines)
-            elif self._log_type == "wordpress":
-                df = self._parser.parse_wordpress(self._log_lines)
-            elif self._log_type == "bitrix":
-                df = self._parser.parse_bitrix(self._log_lines)
+            # Унифицированная точка — если в модели есть общий parse(), используем её.
+            # Иначе — ветвим по типу.
+            if hasattr(parser, "parse"):
+                df = parser.parse(self.log_lines, self.log_type)
             else:
-                raise ValueError(f"Неизвестный тип логов: {self._log_type}")
+                if self.log_type == "Apache":
+                    df = parser.parse_apache_nginx(self.log_lines)
+                elif self.log_type == "Nginx":
+                    df = parser.parse_apache_nginx(self.log_lines)
+                elif self.log_type == "Wordpress":
+                    df = parser.parse_wordpress(self.log_lines)
+                elif self.log_type == "Bitrix":
+                    df = parser.parse_bitrix(self.log_lines)
+                else:
+                    raise ValueError(f"Неизвестный тип парсера: {self.log_type}")
 
-            if self.isInterruptionRequested():
-                LOGGER.info("[LogParserThread] Прервано по requestInterruption() после парсинга.")
-                return
+            if df is None:
+                df = pd.DataFrame()
 
-            LOGGER.info(f"[LogParserThread] Парсинг завершён, записей: {len(df) if df is not None else 0}.")
             self.finished.emit(df)
-        except Exception as e:  # noqa: BLE001
-            error_msg = f"Ошибка парсинга логов ({self._log_type}): {e}"
-            LOGGER.error(f"[LogParserThread] {error_msg}", exc_info=True)
-            self.error.emit(error_msg)
+            LOGGER.info("[LogParserThread] Парсинг завершён, поток завершается.")
+
+        except Exception as e:
+            msg = f"Ошибка парсинга: {e}"
+            LOGGER.error(f"[LogParserThread] {msg}", exc_info=True)
+            self.error.emit(msg)

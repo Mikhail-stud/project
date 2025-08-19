@@ -1,72 +1,55 @@
-from progr.models.log_parser_model import LogParser
-from progr.models.logs_table_model import LogsTableModel
-from progr.models.rule_model import RuleModel
-from progr.utils_app.rule_validator import validate_rule
+from progr.threads.log_parser_thread import LogParserThread
+from progr.models.logs_table_model import  LogsTableModel
 from progr.utils_app.logger import LOGGER
 
 
 class ConstructorController:
     """
-    Контроллер вкладки 'Конструктор'.
-    Отвечает за парсинг логов и создание новых правил IDS/IPS.
+    Контроллер вкладки 'Конструктор':
+    - Асинхронный парсинг логов (создаёт LogParserThread)
+    - View НЕ знает о потоках и модели — только отдаёт стартер и коллбеки
     """
 
     def __init__(self):
-        self.parser = LogParser()
+        self._parser_thread = None
 
-    def parse_logs(self, lines, log_type):
+    def start_log_parse(self, log_lines, log_type, thread_starter, on_finished, on_error):
         """
-        Парсит логи в DataFrame по выбранному типу.
-        :param lines: список строк логов
-        :param log_type: тип логов (apache, nginx, wordpress, bitrix)
-        :return: pandas DataFrame
+        Запускает парсинг логов в отдельном потоке.
+        :param log_lines: список строк логов
+        :param log_type: 'apache' | 'nginx' | 'wordpress' | 'bitrix' (или др.)
+        :param thread_starter: функция запуска потоков (обычно MainWindow.start)
+        :param on_finished: коллбек pandas.DataFrame -> None
+        :param on_error: коллбек str -> None
         """
         try:
-            LOGGER.info(f"[ConstructorController] Парсинг логов: тип={log_type}, строк={len(lines)}")
+            LOGGER.info(f"[ConstructorController] start_log_parse: type={log_type}, lines={len(log_lines)}")
+            self._parser_thread = LogParserThread(log_lines, log_type)
 
-            if log_type in ("apache", "nginx"):
-                df = self.parser.parse_apache_nginx(lines)
-            elif log_type == "wordpress":
-                df = self.parser.parse_wordpress(lines)
-            elif log_type == "bitrix":
-                df = self.parser.parse_bitrix(lines)
-            else:
-                raise ValueError(f"Неизвестный тип логов: {log_type}")
+            def _done(df):
+                LOGGER.info(f"[ConstructorController] Парсинг завершён, записей: {len(df)}")
+                self._parser_thread = None
+                on_finished(df)
 
-            LOGGER.info(f"[ConstructorController] Парсинг завершён: записей={len(df)}")
-            return df
+            def _err(msg):
+                LOGGER.error(f"[ConstructorController] Ошибка парсинга: {msg}")
+                self._parser_thread = None
+                on_error(msg)
 
-        except Exception as e:
-            LOGGER.error(f"[ConstructorController] Ошибка при парсинге логов: {e}", exc_info=True)
-            raise
+            self._parser_thread.finished.connect(_done)
+            self._parser_thread.error.connect(_err)
 
-    def create_rule(self, rule_data):
-        """
-        Создаёт новое правило в БД с предварительной валидацией.
-        :param rule_data: словарь с данными правила (ключи = поля БД)
-        :return: ID нового правила
-        :raises ValueError: если валидация не пройдена
-        """
-        LOGGER.info(f"[ConstructorController] Попытка создания правила: {rule_data}")
-
-        # Валидация
-        is_valid, errors = validate_rule(rule_data)
-        if not is_valid:
-            LOGGER.warning(f"[ConstructorController] Ошибка валидации: {errors}")
-            raise ValueError("\n".join(errors))
-
-        try:
-            rule_id = RuleModel.add_rule(rule_data)
-            LOGGER.info(f"[ConstructorController] Новое правило создано: ID={rule_id}")
-            return rule_id
+            # ВАЖНО: поток запускает ИМЕННО контроллер, а не view
+            thread_starter(self._parser_thread)
 
         except Exception as e:
-            LOGGER.error(f"[ConstructorController] Ошибка сохранения правила в БД: {e}", exc_info=True)
-            raise
-
+            LOGGER.error(f"[ConstructorController] Не удалось запустить LogParserThread: {e}", exc_info=True)
+            on_error(str(e))
 
     def table_logs(self, rows, headers):
 
         LOGGER.info("[ConstructorController] Запуск создания таблицы логов")
         LogsTableModel(rows, headers)
         LOGGER.info("[ConstructorController]  Создание таблицы логов закончено")
+
+

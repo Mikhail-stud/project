@@ -5,7 +5,6 @@ from PyQt6.QtWidgets import (
 from PyQt6.QtCore import QSortFilterProxyModel, Qt
 from progr.controllers.constructor_controller import ConstructorController
 from progr.threads.file_loader_thread import FileLoaderThread
-from progr.threads.log_parser_thread import LogParserThread
 from progr.dialogs.create_rule_dialog import CreateRuleDialog
 from progr.utils_app.logger import LOGGER
 
@@ -24,6 +23,7 @@ class ConstructorView(QWidget):
         self.thread_manager = thread_manager
         self.controller = ConstructorController()
         self.log_lines = []
+        self.df = None
 
         self.layout = QVBoxLayout(self)
 
@@ -39,7 +39,7 @@ class ConstructorView(QWidget):
 
         # === Кнопка парсинга ===
         self.process_button = QPushButton("Сформировать таблицу логов")
-        self.process_button.clicked.connect(self.process_logs)
+        self.process_button.clicked.connect(self._on_click_parse)
         self.layout.addWidget(self.process_button)
 
         # === Поле поиска ===
@@ -74,33 +74,49 @@ class ConstructorView(QWidget):
         LOGGER.info(f"[ConstructorView] Загружено строк: {len(lines)}")
 
     # === Парсинг логов ===
-    def process_logs(self):
-        log_type = self.parser_selector.currentText()
+    def _on_click_parse(self):
         if not self.log_lines:
-            QMessageBox.warning(self, "Ошибка", "Сначала загрузите файл логов.")
+            QMessageBox.warning(self, "Нет данных", "Сначала загрузите файл логов.")
             return
-        LOGGER.info(f"[ConstructorView] Запуск парсинга: тип={log_type}")
-        thread = LogParserThread(self.log_lines, log_type)
-        thread.finished.connect(self.display_logs)
-        thread.error.connect(lambda msg: QMessageBox.critical(self, "Ошибка парсинга", msg))
-        self.thread_manager.start(thread)
 
-    def display_logs(self, df):
-        """Отображает DataFrame в QTableView с поиском и сортировкой."""
-        headers = list(df.columns)
-        rows = df.values.tolist()
+        log_type = self.parser_selector.currentText()
 
-        model = self.controller.table_logs(rows, headers)
-        proxy_model = QSortFilterProxyModel()
-        proxy_model.setSourceModel(model)
-        proxy_model.setFilterCaseSensitivity(Qt.CaseSensitivity.CaseInsensitive)
+        # Берём стартер потоков из MainWindow, переданный в конструктор
+        starter = getattr(self.thread_manager, "start", None)
+        if starter is None:
+            QMessageBox.critical(self, "Ошибка", "Не найден thread-starter у главного окна Parse.")
+            return
 
-        self.search_field.textChanged.connect(proxy_model.setFilterFixedString)
+        self.process_button.setEnabled(False)
 
-        self.table_view.setModel(proxy_model)
-        self.table_view.setSortingEnabled(True)
-        self.table_view.resizeColumnsToContents()
-        LOGGER.info(f"[ConstructorView] Таблица логов сформирована: {len(rows)} записей")
+        def on_ok(df):
+            self.process_button.setEnabled(True)
+            self.df = df
+            headers = ["time", "ip", "method", "object", "protocol", "code", "referer", "user_agent"]
+            rows = df[headers].values.tolist() if (df is not None and not df.empty) else []
+            model = self.controller.table_logs(rows, headers)
+            proxy_model = QSortFilterProxyModel()
+            proxy_model.setSourceModel(model)
+            proxy_model.setFilterCaseSensitivity(Qt.CaseSensitivity.CaseInsensitive)
+
+            self.search_field.textChanged.connect(proxy_model.setFilterFixedString)
+
+            self.table_view.setModel(proxy_model)
+            self.table_view.setSortingEnabled(True)
+            self.table_view.resizeColumnsToContents()
+            LOGGER.info(f"[ConstructorView] Таблица логов сформирована: {len(rows)} записей")
+
+        def on_err(msg):
+            self.process_button.setEnabled(True)
+            QMessageBox.critical(self, "Ошибка парсинга", msg)
+
+        self.controller.start_log_parse(
+            log_lines=self.log_lines,
+            log_type=log_type,
+            thread_starter=starter,
+            on_finished=on_ok,
+            on_error=on_err,
+        )
 
     # === Создание нового правила ===
     def show_create_rule_dialog(self):
