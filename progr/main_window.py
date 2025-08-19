@@ -1,5 +1,4 @@
 from PyQt6.QtWidgets import QMainWindow, QTabWidget, QStatusBar, QMenuBar, QMessageBox
-from PyQt6.QtCore import QThread, pyqtSignal
 from PyQt6.QtGui import QAction
 from progr.config_app.ui_config import UI_CONFIG
 from progr.utils_app.logger import LOGGER
@@ -17,8 +16,7 @@ class MainWindow(QMainWindow):
     """
 
     def __init__(self):
-        self.view = EditorView()
-        super().__init__()
+        super().__init__()  # порядок важен: сначала инициализируем окно
 
         # Держим ссылки на активные потоки, чтобы их не уничтожало раньше времени
         self._threads = set()
@@ -79,16 +77,22 @@ class MainWindow(QMainWindow):
     def reload_data(self):
         """Перезагружает данные на активной вкладке."""
         current_widget = self.tabs.currentWidget()
-        if hasattr(current_widget, "load_rules"):
+
+        # Для вкладки 'Редактор'
+        if hasattr(current_widget, "load_rules_async"):
             LOGGER.info("[MainWindow] Обновление данных во вкладке 'Редактор'")
-            current_widget.self.view.load_rules_async()
+            current_widget.load_rules_async()
             self.status_bar.showMessage("Данные обновлены", 3000)
-        elif hasattr(current_widget, "process_logs"):
+            return
+
+        # Для вкладки 'Конструктор'
+        if hasattr(current_widget, "process_logs"):
             LOGGER.info("[MainWindow] Обновление данных во вкладке 'Конструктор'")
             current_widget.process_logs()
             self.status_bar.showMessage("Логи обновлены", 3000)
-        else:
-            self.status_bar.showMessage("Эта вкладка не поддерживает обновление", 3000)
+            return
+
+        self.status_bar.showMessage("Эта вкладка не поддерживает обновление", 3000)
 
     def show_about(self):
         """Показывает информацию о программе."""
@@ -97,8 +101,8 @@ class MainWindow(QMainWindow):
             "О программе",
             "Программа Х\nВерсия 1.0\nАвтор: Михаил\n© 2025"
         )
-        
-    # --- Новый безопасный менеджер потоков ---
+
+    # --- Унифицированный менеджер потоков ---
     def start_thread(self, thread):
         """
         Унифицированный запуск QThread/наследников.
@@ -106,10 +110,8 @@ class MainWindow(QMainWindow):
         чтобы не получить 'QThread: Destroyed while thread is still running'.
         """
         try:
-            # Назначим родителя главному окну — Qt тоже удержит объект
-            thread.setParent(self)
+            thread.setParent(self)  # Qt тоже удержит объект
         except Exception:
-
             pass
 
         self._threads.add(thread)
@@ -120,11 +122,9 @@ class MainWindow(QMainWindow):
 
         thread.start()
 
-
     # --- Обратная совместимость: старое имя метода ---
     def start(self, thread):
         self.start_thread(thread)
-
 
     # Корректное закрытие всех активных потоков
     def closeEvent(self, e):
@@ -139,7 +139,6 @@ class MainWindow(QMainWindow):
                 if t.isRunning():
                     t.requestInterruption()
                     try:
-                        # quit() полезен, если поток использует цикл событий
                         t.quit()
                     except Exception:
                         pass
