@@ -37,7 +37,7 @@ class MainWindow(QMainWindow):
         self.editor_tab = EditorView()
         self.tabs.addTab(self.editor_tab, "Редактор")
 
-        self.export_tab = ExportView(thread_manager=self)
+        self.export_tab = ExportView()
         self.tabs.addTab(self.export_tab, "Экспорт")
 
         # Статус-бар

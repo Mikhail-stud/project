@@ -27,36 +27,36 @@ class ConstructorView(QWidget):
 
         self.layout = QVBoxLayout(self)
 
-        # === Кнопка загрузки файла логов ===
+        #  Кнопка загрузки файла логов 
         self.load_button = QPushButton("Загрузить файл логов")
         self.load_button.clicked.connect(self.load_logs)
         self.layout.addWidget(self.load_button)
 
-        # === Выбор типа парсера ===
+        #  Выбор типа парсера 
         self.parser_selector = QComboBox()
         self.parser_selector.addItems(["Apache", "Nginx", "Wordpress", "Bitrix"])
         self.layout.addWidget(self.parser_selector)
 
-        # === Кнопка парсинга ===
+        #  Кнопка парсинга 
         self.process_button = QPushButton("Сформировать таблицу логов")
         self.process_button.clicked.connect(self._on_click_parse)
         self.layout.addWidget(self.process_button)
 
-        # === Поле поиска ===
+        #  Поле поиска 
         self.search_field = QLineEdit()
         self.search_field.setPlaceholderText("Поиск по логам...")
         self.layout.addWidget(self.search_field)
 
-        # === Таблица логов ===
+        # Таблица логов 
         self.table_view = QTableView()
         self.layout.addWidget(self.table_view)
 
-        # === Кнопка создания правила ===
+        # Кнопка создания правила 
         self.create_rule_button = QPushButton("Создать правило")
         self.create_rule_button.clicked.connect(self.show_create_rule_dialog)
         self.layout.addWidget(self.create_rule_button)
 
-    # === Загрузка файла ===
+    #  Загрузка файла 
     def load_logs(self):
         file_path, _ = QFileDialog.getOpenFileName(
             self, "Выбери лог-файл", "", "Log files (*.log *.txt)"
@@ -118,7 +118,7 @@ class ConstructorView(QWidget):
             on_error=on_err,
         )
 
-    # === Создание нового правила ===
+    #  Создание нового правила 
     def show_create_rule_dialog(self):
         """
         Открывает диалоговое окно для создания нового правила.
@@ -128,9 +128,9 @@ class ConstructorView(QWidget):
         if dialog.exec():
             rule_data = dialog.get_data()
             try:
-                rule_id = self.controller.create_rule(rule_data)
-                QMessageBox.information(self, "Успех", f"Правило успешно создано (ID: {rule_id})")
-                LOGGER.info(f"[ConstructorView] Правило успешно создано (ID: {rule_id})")
+                self.controller.create_rule(rule_data)
+                QMessageBox.information(self, "Успех", "Правило успешно создано ")
+                LOGGER.info("[ConstructorView] Правило успешно создано")
 
             except ValueError as ve:
                 QMessageBox.warning(self, "Ошибка валидации", {ve})

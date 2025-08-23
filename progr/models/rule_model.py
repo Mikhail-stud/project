@@ -9,12 +9,12 @@ class RuleModel:
     Модель для работы с таблицей правил IDS/IPS.
     """
 
-    @staticmethod
+    #@staticmethod
     def _get_connection():
         """Создаёт подключение к базе данных PostgreSQL."""
         return psycopg2.connect(**DB_CONFIG)
 
-    @staticmethod
+    #@staticmethod
     def get_rules(offset=0, limit=10):
         """
         Возвращает список правил с пагинацией.
@@ -41,7 +41,7 @@ class RuleModel:
             LOGGER.error(f"[RuleModel] Ошибка получения правил: {e}", exc_info=True)
             raise
 
-    @staticmethod
+    #@staticmethod
     def get_rule_by_id(rule_id):
         """
         Возвращает одно правило по ID.
@@ -60,7 +60,7 @@ class RuleModel:
             LOGGER.error(f"[RuleModel] Ошибка получения правила ID={rule_id}: {e}", exc_info=True)
             raise
 
-    @staticmethod
+    #@staticmethod
     def add_rule(rule_data):
         """
         Добавляет новое правило.
@@ -90,7 +90,7 @@ class RuleModel:
             LOGGER.error(f"[RuleModel] Ошибка добавления правила: {e}", exc_info=True)
             raise
 
-    @staticmethod
+    #@staticmethod
     def update_rule(rule_id, updated_data):
         """
         Обновляет существующее правило.
@@ -111,7 +111,7 @@ class RuleModel:
             LOGGER.error(f"[RuleModel] Ошибка обновления правила ID={rule_id}: {e}", exc_info=True)
             raise
 
-    @staticmethod
+    #@staticmethod
     def add_vote(rule_id, positive=True):
         """
         Добавляет голос (положительный или отрицательный) для правила.

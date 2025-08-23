@@ -6,7 +6,6 @@ from PyQt6.QtCore import QTimer
 from progr.controllers.editor_controller import EditorController
 from progr.dialogs.create_rule_dialog import CreateRuleDialog
 from progr.threads.rules_fetcher_db_thread import RulesFetcherThread
-from progr.models.rule_model import RuleModel
 from progr.utils_app.logger import LOGGER
 
 
@@ -131,7 +130,7 @@ class EditorView(QWidget):
         Обновляет оценку правила.
         """
         try:
-            RuleModel.add_vote(rule_id, positive)  # метод в RuleModel
+            self.controller.rate_rule(rule_id, positive)  # метод в RuleModel
             self.load_rules_async()
         except Exception as e:
             QMessageBox.critical(self, "Ошибка", "Не удалось оценить правило")

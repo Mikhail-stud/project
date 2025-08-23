@@ -28,9 +28,7 @@ class LogParserThread(QThread):
             if hasattr(parser, "parse"):
                 df = parser.parse(self.log_lines, self.log_type)
             else:
-                if self.log_type == "Apache":
-                    df = parser.parse_apache_nginx(self.log_lines)
-                elif self.log_type == "Nginx":
+                if self.log_type in ("Apache", "Nginx"):
                     df = parser.parse_apache_nginx(self.log_lines)
                 elif self.log_type == "Wordpress":
                     df = parser.parse_wordpress(self.log_lines)

@@ -1,5 +1,6 @@
 from progr.threads.log_parser_thread import LogParserThread
 from progr.models.logs_table_model import  LogsTableModel
+from progr.models.rule_model import RuleModel
 from progr.utils_app.logger import LOGGER
 
 
@@ -7,7 +8,6 @@ class ConstructorController:
     """
     Контроллер вкладки 'Конструктор':
     - Асинхронный парсинг логов (создаёт LogParserThread)
-    - View НЕ знает о потоках и модели — только отдаёт стартер и коллбеки
     """
 
     def __init__(self):
@@ -39,7 +39,7 @@ class ConstructorController:
             self._parser_thread.finished.connect(_done)
             self._parser_thread.error.connect(_err)
 
-            # ВАЖНО: поток запускает ИМЕННО контроллер, а не view
+            # поток запускает контроллер
             thread_starter(self._parser_thread)
 
         except Exception as e:
@@ -52,4 +52,10 @@ class ConstructorController:
         LogsTableModel(rows, headers)
         LOGGER.info("[ConstructorController]  Создание таблицы логов закончено")
 
+
+
+    def create_rule(self, rule_data):
+
+        LOGGER.info("[ConstructorController] Запуск создания нового правила")
+        RuleModel.add_rule(rule_data)
 

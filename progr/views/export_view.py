@@ -10,12 +10,11 @@ class ExportView(QWidget):
     - Выгрузка правил в .rules файл через контроллер (контроллер создает поток)
     """
 
-    def __init__(self, thread_manager):
+    def __init__(self):
         """
         :param thread_manager: объект, через который запускаем потоки (MainWindow.start)
         """
         super().__init__()
-        self.thread_manager = thread_manager
         self.controller = ExportController()
         self._setup_ui()
 
@@ -68,3 +67,5 @@ class ExportView(QWidget):
             on_finished=on_finished,
             on_error=on_error,
         )
+        
+

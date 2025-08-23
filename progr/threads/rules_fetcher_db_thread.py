@@ -1,5 +1,4 @@
 
-from typing import Optional
 from PyQt6.QtCore import QThread, pyqtSignal
 from progr.controllers.editor_controller import EditorController
 from progr.utils_app.logger import LOGGER
