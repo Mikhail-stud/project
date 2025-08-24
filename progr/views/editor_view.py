@@ -26,7 +26,7 @@ class EditorView(QWidget):
 
         self.layout = QVBoxLayout(self)
 
-        # === Кнопки управления ===
+        # Кнопки управления 
         controls_layout = QHBoxLayout()
         self.prev_button = QPushButton("Предыдущие")
         self.next_button = QPushButton("Следующие")
@@ -42,7 +42,7 @@ class EditorView(QWidget):
 
         self.layout.addLayout(controls_layout)
 
-        # === Таблица правил ===
+        #  Таблица правил 
         self.table = QTableWidget()
         self.layout.addWidget(self.table)
 
@@ -52,14 +52,16 @@ class EditorView(QWidget):
     def load_rules_async(self):
         """Асинхронно запускает загрузку правил через поток, не блокируя UI."""
         try:
+            # thread_starter — это метод главного окна, у нас MainWindow.start(thread)
+            # Получаем его через self.window() (MainWindow) и передаем ссылку на метод.
             starter = getattr(self.window(), "start", None)   # MainWindow.start(thread)
             if starter is None:
                 QMessageBox.critical(self, "Ошибка", "Не найден thread-starter у главного окна Load.")
                 return
             thread = RulesFetcherThread(self.controller, offset=self.current_offset, limit=self.limit)
-            thread.finished.connect(self._on_rules_loaded)  # отрисовка
+            thread.finished.connect(self._on_rules_loaded)  
             thread.error.connect(lambda msg: self._on_rules_error(msg))
-            starter(thread)  # запускаем; по окончании run() поток завершится сам
+            starter(thread) 
 
         except Exception as e:
             QMessageBox.critical(self, "Ошибка", f"Не удалось запустить загрузку правил: {e}")
@@ -130,7 +132,7 @@ class EditorView(QWidget):
         Обновляет оценку правила.
         """
         try:
-            self.controller.rate_rule(rule_id, positive)  # метод в RuleModel
+            self.controller.rate_rule(rule_id, positive)  
             self.load_rules_async()
         except Exception as e:
             QMessageBox.critical(self, "Ошибка", "Не удалось оценить правило")
@@ -142,8 +144,7 @@ class EditorView(QWidget):
         Контроллер сам поднимет поток BatchSaverThread и свяжет сигналы.
         """
         try:
-            # thread_starter — это метод главного окна, у нас MainWindow.start(thread)
-            # Получаем его через self.window() (MainWindow) и передаем ссылку на метод.
+
             starter = getattr(self.window(), "start", None)
             if starter is None:
                 QMessageBox.critical(self, "Ошибка", "Не найден thread-starter у главного окна Commit.")

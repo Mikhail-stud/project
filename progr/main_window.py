@@ -102,7 +102,7 @@ class MainWindow(QMainWindow):
             "Программа Х\nВерсия 1.0\nАвтор: Михаил\n© 2025"
         )
 
-    # --- Унифицированный менеджер потоков ---
+    #  Унифицированный менеджер потоков 
     def start_thread(self, thread):
         """
         Унифицированный запуск QThread/наследников.
@@ -122,7 +122,7 @@ class MainWindow(QMainWindow):
 
         thread.start()
 
-    # --- Обратная совместимость: старое имя метода ---
+    #  Обратная совместимость: старое имя метода 
     def start(self, thread):
         self.start_thread(thread)
 

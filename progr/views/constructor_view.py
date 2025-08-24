@@ -18,7 +18,6 @@ class ConstructorView(QWidget):
     """
 
     def __init__(self, thread_manager):
-        controller = ConstructorController()
         super().__init__()
         self.thread_manager = thread_manager
         self.controller = ConstructorController()
@@ -48,8 +47,9 @@ class ConstructorView(QWidget):
         self.layout.addWidget(self.search_field)
 
         # Таблица логов 
-        self.table_view = QTableView()
-        self.layout.addWidget(self.table_view)
+        self.table = QTableView()
+        self.layout.addWidget(self.table)
+
 
         # Кнопка создания правила 
         self.create_rule_button = QPushButton("Создать правило")
@@ -90,21 +90,24 @@ class ConstructorView(QWidget):
         self.process_button.setEnabled(False)
 
         def on_ok(df):
-            self.process_button.setEnabled(True)
-            self.df = df
-            headers = ["time", "ip", "method", "object", "protocol", "code", "referer", "user_agent"]
-            rows = df[headers].values.tolist() if (df is not None and not df.empty) else []
-            model = self.controller.table_logs(rows, headers)
-            proxy_model = QSortFilterProxyModel()
-            proxy_model.setSourceModel(model)
-            proxy_model.setFilterCaseSensitivity(Qt.CaseSensitivity.CaseInsensitive)
+            try:
+                self.logs_model, self.df = self.controller.create_logs_model(df, parent=self)
+                # View только устанавливает готовую модель на таблицу
+                self.proxy_model = QSortFilterProxyModel()
+                self.proxy_model.setSourceModel(self.logs_model)
+                self.proxy_model.setFilterCaseSensitivity(Qt.CaseSensitivity.CaseInsensitive)
+                self.search_field.textChanged.connect(self.proxy_model.setFilterFixedString)
 
-            self.search_field.textChanged.connect(proxy_model.setFilterFixedString)
 
-            self.table_view.setModel(proxy_model)
-            self.table_view.setSortingEnabled(True)
-            self.table_view.resizeColumnsToContents()
-            LOGGER.info(f"[ConstructorView] Таблица логов сформирована: {len(rows)} записей")
+                self.table.setModel(self.proxy_model)
+                self.table.setSortingEnabled(True)
+                self.table.resizeColumnsToContents()
+            
+            except Exception as e:
+                LOGGER.error(f"[ConstructorView] table render error: {e}", exc_info=True)
+                QMessageBox.critical(self, "Ошибка", f"Не удалось отобразить таблицу: {e}")
+            finally:
+                self.process_button.setEnabled(True)
 
         def on_err(msg):
             self.process_button.setEnabled(True)

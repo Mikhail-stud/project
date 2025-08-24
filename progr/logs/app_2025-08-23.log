@@ -194,3 +194,118 @@ TypeError: RulesFetcherThread.__init__() got multiple values for argument 'offse
 2025-08-23 18:41:08 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
 2025-08-23 18:41:08 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
 2025-08-23 18:41:11 [INFO] [Programm_X_Logger] === Завершение работы приложения ===
+2025-08-23 18:42:43 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-23.log
+2025-08-23 18:42:43 [INFO] [Programm_X_Logger] === Запуск Программа Х ===
+2025-08-23 18:42:44 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-08-23 18:42:44 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-08-23 18:42:44 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-08-23 18:42:44 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-08-23 18:42:44 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-08-23 18:42:49 [INFO] [Programm_X_Logger] [ConstructorView] Выбран файл: /home/ubuntupc/file_constr.txt
+2025-08-23 18:42:49 [INFO] [Programm_X_Logger] [FileLoaderThread] Загрузка файла: /home/ubuntupc/file_constr.txt
+2025-08-23 18:42:49 [INFO] [Programm_X_Logger] [FileLoaderThread] Файл успешно загружен, строк: 172
+2025-08-23 18:42:50 [INFO] [Programm_X_Logger] [ConstructorView] Загружено строк: 172
+2025-08-23 18:42:59 [INFO] [Programm_X_Logger] [ConstructorController] start_log_parse: type=Apache, lines=172
+2025-08-23 18:42:59 [INFO] [Programm_X_Logger] [LogParserThread] Запуск парсинга: type=Apache, lines=172
+2025-08-23 18:42:59 [INFO] [Programm_X_Logger] [LogParser] Парсинг Apache/Nginx логов, строк=172
+2025-08-23 18:42:59 [INFO] [Programm_X_Logger] [LogParser] Получено 0 записей Apache/Nginx
+2025-08-23 18:42:59 [INFO] [Programm_X_Logger] [LogParserThread] Парсинг завершён, поток завершается.
+2025-08-23 18:42:59 [INFO] [Programm_X_Logger] [ConstructorController] Парсинг завершён, записей: 0
+2025-08-23 18:42:59 [INFO] [Programm_X_Logger] [ConstructorController] Запуск создания таблицы логов
+2025-08-23 18:42:59 [INFO] [Programm_X_Logger] [LogTableModel] Запущен
+2025-08-23 18:42:59 [INFO] [Programm_X_Logger] [ConstructorController]  Создание таблицы логов закончено
+2025-08-23 18:42:59 [INFO] [Programm_X_Logger] [ConstructorView] Таблица логов сформирована: 0 записей
+2025-08-23 18:43:35 [INFO] [Programm_X_Logger] [ConstructorController] Запуск создания нового правила
+2025-08-23 18:43:35 [INFO] [Programm_X_Logger] [RuleModel] Новое правило добавлено ID=24
+2025-08-23 18:43:36 [INFO] [Programm_X_Logger] [ConstructorView] Правило успешно создано
+2025-08-23 18:43:39 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=20, limit=20
+2025-08-23 18:43:39 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=20, limit=20
+2025-08-23 18:43:39 [INFO] [Programm_X_Logger] [RuleModel] Получено 3 правил (offset=20, limit=20)
+2025-08-23 18:43:39 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 3
+2025-08-23 18:43:39 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-08-23 18:43:44 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=24
+2025-08-23 18:43:44 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=24
+2025-08-23 18:43:47 [INFO] [Programm_X_Logger] [EditorController] Изменение правила ID=24: {'rules_action': 'alert', 'rules_protocol': 'udp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '<-', 'rules_ip_d': 'any', 'rules_port_d': 'any', 'rules_msg': 'any any test any', 'rules_content': 'any, any, any', 'rules_sid': '64', 'rules_rev': '8'}
+2025-08-23 18:43:50 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=22
+2025-08-23 18:43:50 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=22
+2025-08-23 18:43:52 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=23
+2025-08-23 18:43:52 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=23
+2025-08-23 18:43:54 [INFO] [Programm_X_Logger] [BatchSaverThread] Сохранение 1 правил...
+2025-08-23 18:43:54 [DEBUG] [Programm_X_Logger] [BatchSaverThread] Сохранение правила ID=24: {'rules_action': 'alert', 'rules_protocol': 'udp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '<-', 'rules_ip_d': 'any', 'rules_port_d': 'any', 'rules_msg': 'any any test any', 'rules_content': 'any, any, any', 'rules_sid': '64', 'rules_rev': '8'}
+2025-08-23 18:43:54 [INFO] [Programm_X_Logger] [RuleModel] Правило ID=24 обновлено
+2025-08-23 18:43:54 [INFO] [Programm_X_Logger] [BatchSaverThread] Сохранение завершено успешно.
+2025-08-23 18:43:56 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=20, limit=20
+2025-08-23 18:43:56 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=20, limit=20
+2025-08-23 18:43:56 [INFO] [Programm_X_Logger] [RuleModel] Получено 3 правил (offset=20, limit=20)
+2025-08-23 18:43:56 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 3
+2025-08-23 18:43:56 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-08-23 18:43:57 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-08-23 18:43:57 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-08-23 18:43:57 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-08-23 18:43:57 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-08-23 18:43:57 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-08-23 18:44:10 [INFO] [Programm_X_Logger] [ExportView] Запрошен экспорт: system=IDS, path=/home/ubuntupc/Загрузки/45678hdfa
+2025-08-23 18:44:10 [INFO] [Programm_X_Logger] [ExportController] export_rules_async: type=IDS, path=/home/ubuntupc/Загрузки/45678hdfa
+2025-08-23 18:44:10 [INFO] [Programm_X_Logger] [ExportRulesThread] Экспорт правил: system_type=ids, file=/home/ubuntupc/Загрузки/45678hdfa
+2025-08-23 18:44:10 [INFO] [Programm_X_Logger] [ExportModel] Получение правил для ids (actions=('alert', 'log', 'pass', 'activate', 'dynamic'))
+2025-08-23 18:44:10 [INFO] [Programm_X_Logger] [ExportModel] Получено 16 правил для ids
+2025-08-23 18:44:10 [INFO] [Programm_X_Logger] [ExportRulesThread] Экспортировано 16 правил в /home/ubuntupc/Загрузки/45678hdfa
+2025-08-23 18:44:10 [INFO] [Programm_X_Logger] [ExportController] Экспорт завершён: Экспортировано 16 правил в /home/ubuntupc/Загрузки/45678hdfa
+2025-08-23 18:44:14 [INFO] [Programm_X_Logger] === Завершение работы приложения ===
+2025-08-23 23:34:56 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-23.log
+2025-08-23 23:34:57 [INFO] [Programm_X_Logger] === Запуск Программа Х ===
+2025-08-23 23:34:57 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-08-23 23:34:57 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-08-23 23:34:57 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-08-23 23:34:57 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-08-23 23:34:57 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-08-23 23:35:25 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=20, limit=20
+2025-08-23 23:35:25 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=20, limit=20
+2025-08-23 23:35:25 [INFO] [Programm_X_Logger] [RuleModel] Получено 3 правил (offset=20, limit=20)
+2025-08-23 23:35:25 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 3
+2025-08-23 23:35:25 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-08-23 23:35:28 [INFO] [Programm_X_Logger] === Завершение работы приложения ===
+2025-08-23 23:35:53 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-23.log
+2025-08-23 23:35:54 [INFO] [Programm_X_Logger] === Запуск Программа Х ===
+2025-08-23 23:36:09 [INFO] [Programm_X_Logger] [MainWindow] Обновление данных во вкладке 'Редактор'
+2025-08-23 23:36:09 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-08-23 23:36:09 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-08-23 23:36:09 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-08-23 23:36:09 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-08-23 23:36:09 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-08-23 23:36:16 [INFO] [Programm_X_Logger] === Завершение работы приложения ===
+2025-08-23 23:36:18 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-23.log
+2025-08-23 23:36:19 [INFO] [Programm_X_Logger] === Запуск Программа Х ===
+2025-08-23 23:36:24 [INFO] [Programm_X_Logger] === Завершение работы приложения ===
+2025-08-23 23:36:26 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-23.log
+2025-08-23 23:36:27 [INFO] [Programm_X_Logger] === Запуск Программа Х ===
+2025-08-23 23:36:31 [INFO] [Programm_X_Logger] [MainWindow] Обновление данных во вкладке 'Редактор'
+2025-08-23 23:36:31 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-08-23 23:36:31 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-08-23 23:36:31 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-08-23 23:36:31 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-08-23 23:36:31 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-08-23 23:36:34 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=20, limit=20
+2025-08-23 23:36:34 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=20, limit=20
+2025-08-23 23:36:34 [INFO] [Programm_X_Logger] [RuleModel] Получено 3 правил (offset=20, limit=20)
+2025-08-23 23:36:34 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 3
+2025-08-23 23:36:34 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-08-23 23:36:36 [INFO] [Programm_X_Logger] === Завершение работы приложения ===
+2025-08-23 23:37:19 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-08-23.log
+2025-08-23 23:37:20 [INFO] [Programm_X_Logger] === Запуск Программа Х ===
+2025-08-23 23:37:20 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-08-23 23:37:20 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-08-23 23:37:20 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-08-23 23:37:20 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-08-23 23:37:20 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-08-23 23:37:23 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=20, limit=20
+2025-08-23 23:37:23 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=20, limit=20
+2025-08-23 23:37:24 [INFO] [Programm_X_Logger] [RuleModel] Получено 3 правил (offset=20, limit=20)
+2025-08-23 23:37:24 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 3
+2025-08-23 23:37:24 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-08-23 23:37:24 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-08-23 23:37:24 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-08-23 23:37:24 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-08-23 23:37:24 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-08-23 23:37:24 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-08-23 23:37:30 [INFO] [Programm_X_Logger] === Завершение работы приложения ===

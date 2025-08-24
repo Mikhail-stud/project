@@ -2,6 +2,8 @@ from progr.threads.log_parser_thread import LogParserThread
 from progr.models.logs_table_model import  LogsTableModel
 from progr.models.rule_model import RuleModel
 from progr.utils_app.logger import LOGGER
+import pandas as pd
+
 
 
 class ConstructorController:
@@ -46,11 +48,28 @@ class ConstructorController:
             LOGGER.error(f"[ConstructorController] Не удалось запустить LogParserThread: {e}", exc_info=True)
             on_error(str(e))
 
-    def table_logs(self, rows, headers):
+    def create_logs_model(self, df: pd.DataFrame, parent=None):
+        """
+        Создаёт и возвращает модель таблицы логов (LogsTableModel).
+        Контроллер нормализует столбцы и формирует rows/headers.
 
-        LOGGER.info("[ConstructorController] Запуск создания таблицы логов")
-        LogsTableModel(rows, headers)
-        LOGGER.info("[ConstructorController]  Создание таблицы логов закончено")
+        :param df: pandas.DataFrame с результатом парсинга
+        :param parent: родитель для Qt-модели (обычно self из View), чтобы модель не собрал GC
+        :return: (model, safe_df)
+        """
+        if df is None:
+            df = pd.DataFrame()
+
+        headers = ["time", "ip", "method", "object", "protocol", "code", "referer", "user_agent"]
+        # безопасное выравнивание нужных колонок
+        safe_df = df.reindex(columns=headers, fill_value="")
+
+        rows = safe_df.values.tolist()
+        model = LogsTableModel(rows, headers, parent=parent)
+
+        LOGGER.info("[ConstructorController] Создана LogsTableModel: rows=%s, cols=%s",
+                    len(rows), len(headers))
+        return model, safe_df
 
 
 
