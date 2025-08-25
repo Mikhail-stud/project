@@ -1,6 +1,6 @@
 from PyQt6.QtCore import QAbstractTableModel, Qt, QModelIndex
 from PyQt6.QtGui import QColor
-from typing import Any, Iterable, List, Sequence, Union
+from typing import Any, List, Sequence, Union
 
 
 class LogsTableModel(QAbstractTableModel):
@@ -28,9 +28,9 @@ class LogsTableModel(QAbstractTableModel):
         # Кеш позиции столбца с кодом, если он есть
         self._code_col = self._find_code_column(self._headers)
 
-    # -------------------------------
+    
     # Базовые размеры модели
-    # -------------------------------
+    
     def rowCount(self, parent: QModelIndex = QModelIndex()) -> int:
         if parent.isValid():
             return 0
@@ -41,9 +41,7 @@ class LogsTableModel(QAbstractTableModel):
             return 0
         return len(self._headers)
 
-    # -------------------------------
     # Данные
-    # -------------------------------
     def data(self, index: QModelIndex, role: int = Qt.ItemDataRole.DisplayRole) -> Any:
         if not index.isValid():
             return None
@@ -86,9 +84,7 @@ class LogsTableModel(QAbstractTableModel):
 
         return None
 
-    # -------------------------------
     # Заголовки
-    # -------------------------------
     def headerData(self, section: int, orientation: Qt.Orientation, role: int = Qt.ItemDataRole.DisplayRole) -> Any:
         if role != Qt.ItemDataRole.DisplayRole:
             return None
@@ -104,18 +100,15 @@ class LogsTableModel(QAbstractTableModel):
 
         return None
 
-    # -------------------------------
     # Флаги редактирования
-    # -------------------------------
     def flags(self, index: QModelIndex) -> Qt.ItemFlag:
         if not index.isValid():
             return Qt.ItemFlag.NoItemFlags
         # По умолчанию — только выбор (не редактируем в таблице логов)
         return Qt.ItemFlag.ItemIsSelectable | Qt.ItemFlag.ItemIsEnabled
 
-    # -------------------------------
+
     # Сортировка
-    # -------------------------------
     def sort(self, column: int, order: Qt.SortOrder = Qt.SortOrder.AscendingOrder) -> None:
         if not (0 <= column < len(self._headers)):
             return
@@ -136,9 +129,8 @@ class LogsTableModel(QAbstractTableModel):
         finally:
             self.layoutChanged.emit()
 
-    # -------------------------------
+
     # Публичные методы обновления
-    # -------------------------------
     def update(self, rows: Union[List[Sequence[Any]], List[dict]], headers: List[str] | None = None) -> None:
         """
         Полная замена данных в модели.
@@ -151,9 +143,7 @@ class LogsTableModel(QAbstractTableModel):
         self._code_col = self._find_code_column(self._headers)
         self.endResetModel()
 
-    # -------------------------------
     # Вспомогательные
-    # -------------------------------
     @staticmethod
     def _as_int(val: Any) -> int | None:
         try:
