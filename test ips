@@ -1,0 +1,7 @@
+drop tcp 192.120.0.0 1000 -> 192.168.0.0 2000 (msg:"test22 test22"; content:"test22"; sid:3001; rev:1;)
+drop udp 7.7.7.7 789 <- 8.8.8.8 456 (msg:"TEST 123"; content:"TEST"; sid:12; rev:5;)
+drop udp 192.168.0.0 53 -> 8.8.8.8 53 (msg:"Dns test"; content:"dns"; content:"test"; sid:789; rev:5;)
+drop tcp 15.15.15.15 15 -> 192.16.2.2 12 (msg:"output test"; content:"test"; sid:12; rev:1;)
+drop tcp any any -> any any (msg:"Tets reu with any"; content:"test"; content:"rule"; content:"any"; sid:1001; rev:1;)
+drop udp any any <-> any any (msg:"test test test tes test tset st ts st stts"; content:"vvvvvvvvvvvvvvv"; content:"vvvvvvvvvvvvvvvvvvv"; content:"gggggggggggggg"; sid:12; rev:1;)
+reject tcp any any -> any any (msg:"any test pravilo"; content:"any"; content:"test"; content:"pravilo"; content:"any"; sid:123; rev:12;)

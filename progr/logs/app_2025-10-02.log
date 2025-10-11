@@ -1,0 +1,214 @@
+2025-10-02 00:05:52 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-10-02.log
+2025-10-02 00:05:52 [INFO] [Programm_X_Logger] === Запуск Программа Х ===
+2025-10-02 00:05:52 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-10-02 00:05:52 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-10-02 00:05:52 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-10-02 00:05:52 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-10-02 00:05:52 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-02 00:06:01 [INFO] [Programm_X_Logger] [ConstructorView] Выбран файл: /home/ubuntupc/my-proj/access.log
+2025-10-02 00:06:01 [INFO] [Programm_X_Logger] [FileLoaderThread] Загрузка файла: /home/ubuntupc/my-proj/access.log
+2025-10-02 00:06:01 [INFO] [Programm_X_Logger] [FileLoaderThread] Файл успешно загружен, строк: 5
+2025-10-02 00:06:02 [INFO] [Programm_X_Logger] [ConstructorView] Загружено строк: 5
+2025-10-02 00:06:03 [INFO] [Programm_X_Logger] [ConstructorController] start_log_parse: type=Apache, lines=5
+2025-10-02 00:06:03 [INFO] [Programm_X_Logger] [LogParserThread] Запуск парсинга: type=Apache, lines=5
+2025-10-02 00:06:03 [INFO] [Programm_X_Logger] [LogParser] Парсинг Apache/Nginx логов, строк=5
+2025-10-02 00:06:03 [INFO] [Programm_X_Logger] [LogParser] Получено 5 записей Apache/Nginx
+2025-10-02 00:06:03 [INFO] [Programm_X_Logger] [LogParserThread] Парсинг завершён, поток завершается.
+2025-10-02 00:06:03 [INFO] [Programm_X_Logger] [ConstructorController] Парсинг завершён, записей: 5
+2025-10-02 00:06:03 [INFO] [Programm_X_Logger] [ConstructorController] Создана LogsTableModel: rows=5, cols=8
+2025-10-02 00:06:20 [INFO] [Programm_X_Logger] [ConstructorController] start_log_parse: type=Bitrix, lines=5
+2025-10-02 00:06:20 [INFO] [Programm_X_Logger] [LogParserThread] Запуск парсинга: type=Bitrix, lines=5
+2025-10-02 00:06:20 [INFO] [Programm_X_Logger] [LogParser] Парсинг Bitrix логов, строк=5
+2025-10-02 00:06:20 [INFO] [Programm_X_Logger] [LogParser] Получено 0 записей Bitrix
+2025-10-02 00:06:20 [INFO] [Programm_X_Logger] [LogParserThread] Парсинг завершён, поток завершается.
+2025-10-02 00:06:20 [INFO] [Programm_X_Logger] [ConstructorController] Парсинг завершён, записей: 0
+2025-10-02 00:06:20 [INFO] [Programm_X_Logger] [ConstructorController] Создана LogsTableModel: rows=0, cols=8
+2025-10-02 00:06:23 [INFO] [Programm_X_Logger] === Завершение работы приложения ===
+2025-10-02 00:57:50 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-10-02.log
+2025-10-02 00:57:50 [INFO] [Programm_X_Logger] === Запуск Программа Х ===
+2025-10-02 00:57:50 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-10-02 00:57:50 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-10-02 00:57:50 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-10-02 00:57:50 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-10-02 00:57:50 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-02 00:57:56 [INFO] [Programm_X_Logger] [ConstructorView] Выбран файл: /home/ubuntupc/my-proj/access.log
+2025-10-02 00:57:56 [INFO] [Programm_X_Logger] [FileLoaderThread] Загрузка файла: /home/ubuntupc/my-proj/access.log
+2025-10-02 00:57:56 [INFO] [Programm_X_Logger] [FileLoaderThread] Файл успешно загружен, строк: 5
+2025-10-02 00:57:57 [INFO] [Programm_X_Logger] [ConstructorView] Загружено строк: 5
+2025-10-02 00:57:58 [INFO] [Programm_X_Logger] [ConstructorController] start_log_parse: type=Apache, lines=5
+2025-10-02 00:57:58 [INFO] [Programm_X_Logger] [LogParserThread] Запуск парсинга: type=Apache, lines=5
+2025-10-02 00:57:58 [INFO] [Programm_X_Logger] [LogParser] Парсинг Apache/Nginx логов, строк=5
+2025-10-02 00:57:58 [INFO] [Programm_X_Logger] [LogParser] Получено 5 записей Apache/Nginx
+2025-10-02 00:57:58 [INFO] [Programm_X_Logger] [LogParserThread] Парсинг завершён, поток завершается.
+2025-10-02 00:57:58 [INFO] [Programm_X_Logger] [ConstructorController] Парсинг завершён, записей: 5
+2025-10-02 00:57:58 [INFO] [Programm_X_Logger] [ConstructorController] Создана LogsTableModel: rows=5, cols=8
+2025-10-02 00:58:38 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-10-02.log
+2025-10-02 00:58:39 [INFO] [Programm_X_Logger] === Запуск Программа Х ===
+2025-10-02 00:58:39 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-10-02 00:58:39 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-10-02 00:58:39 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-10-02 00:58:39 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-10-02 00:58:39 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-02 00:58:48 [INFO] [Programm_X_Logger] [ConstructorView] Выбран файл: /home/ubuntupc/my-proj/access.log
+2025-10-02 00:58:48 [INFO] [Programm_X_Logger] [FileLoaderThread] Загрузка файла: /home/ubuntupc/my-proj/access.log
+2025-10-02 00:58:48 [INFO] [Programm_X_Logger] [FileLoaderThread] Файл успешно загружен, строк: 5
+2025-10-02 00:58:49 [INFO] [Programm_X_Logger] [ConstructorView] Загружено строк: 5
+2025-10-02 00:58:50 [INFO] [Programm_X_Logger] [ConstructorController] start_log_parse: type=Apache, lines=5
+2025-10-02 00:58:50 [INFO] [Programm_X_Logger] [LogParserThread] Запуск парсинга: type=Apache, lines=5
+2025-10-02 00:58:50 [INFO] [Programm_X_Logger] [LogParser] Парсинг Apache/Nginx логов, строк=5
+2025-10-02 00:58:50 [INFO] [Programm_X_Logger] [LogParser] Получено 5 записей Apache/Nginx
+2025-10-02 00:58:50 [INFO] [Programm_X_Logger] [LogParserThread] Парсинг завершён, поток завершается.
+2025-10-02 00:58:50 [INFO] [Programm_X_Logger] [ConstructorController] Парсинг завершён, записей: 5
+2025-10-02 00:58:50 [INFO] [Programm_X_Logger] [ConstructorController] Создана LogsTableModel: rows=5, cols=8
+2025-10-02 01:01:50 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-10-02.log
+2025-10-02 01:01:51 [INFO] [Programm_X_Logger] === Запуск Программа Х ===
+2025-10-02 01:01:51 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-10-02 01:01:51 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-10-02 01:01:51 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-10-02 01:01:51 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-10-02 01:01:51 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-02 01:01:54 [INFO] [Programm_X_Logger] [ConstructorView] Выбран файл: /home/ubuntupc/my-proj/access.log
+2025-10-02 01:01:54 [INFO] [Programm_X_Logger] [FileLoaderThread] Загрузка файла: /home/ubuntupc/my-proj/access.log
+2025-10-02 01:01:54 [INFO] [Programm_X_Logger] [FileLoaderThread] Файл успешно загружен, строк: 5
+2025-10-02 01:01:55 [INFO] [Programm_X_Logger] [ConstructorView] Загружено строк: 5
+2025-10-02 01:01:56 [INFO] [Programm_X_Logger] [ConstructorController] start_log_parse: type=Apache, lines=5
+2025-10-02 01:01:56 [INFO] [Programm_X_Logger] [LogParserThread] Запуск парсинга: type=Apache, lines=5
+2025-10-02 01:01:56 [INFO] [Programm_X_Logger] [LogParser] Парсинг Apache/Nginx логов, строк=5
+2025-10-02 01:01:56 [INFO] [Programm_X_Logger] [LogParser] Получено 5 записей Apache/Nginx
+2025-10-02 01:01:56 [INFO] [Programm_X_Logger] [LogParserThread] Парсинг завершён, поток завершается.
+2025-10-02 01:01:56 [INFO] [Programm_X_Logger] [ConstructorController] Парсинг завершён, записей: 5
+2025-10-02 01:01:56 [INFO] [Programm_X_Logger] [ConstructorController] Создана LogsTableModel: rows=5, cols=8
+2025-10-02 02:30:17 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-10-02.log
+2025-10-02 02:30:18 [INFO] [Programm_X_Logger] === Запуск Программа Х ===
+2025-10-02 02:30:38 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-10-02.log
+2025-10-02 02:30:39 [INFO] [Programm_X_Logger] === Запуск Программа Х ===
+2025-10-02 02:30:39 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-10-02 02:30:39 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-10-02 02:30:39 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-10-02 02:30:39 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-10-02 02:30:39 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-02 02:30:52 [INFO] [Programm_X_Logger] [ConstructorView] Выбран файл: /home/ubuntupc/my-proj/access.log
+2025-10-02 02:30:52 [INFO] [Programm_X_Logger] [FileLoaderThread] Загрузка файла: /home/ubuntupc/my-proj/access.log
+2025-10-02 02:30:52 [INFO] [Programm_X_Logger] [FileLoaderThread] Файл успешно загружен, строк: 5
+2025-10-02 02:30:53 [INFO] [Programm_X_Logger] [ConstructorView] Загружено строк: 5
+2025-10-02 02:30:54 [INFO] [Programm_X_Logger] [ConstructorController] start_log_parse: type=Apache, lines=5
+2025-10-02 02:30:54 [INFO] [Programm_X_Logger] [LogParserThread] Запуск парсинга: type=Apache, lines=5
+2025-10-02 02:30:54 [INFO] [Programm_X_Logger] [LogParser] Парсинг Apache/Nginx логов, строк=5
+2025-10-02 02:30:54 [INFO] [Programm_X_Logger] [LogParser] Получено 5 записей Apache/Nginx
+2025-10-02 02:30:54 [INFO] [Programm_X_Logger] [LogParserThread] Парсинг завершён, поток завершается.
+2025-10-02 02:30:54 [INFO] [Programm_X_Logger] [ConstructorController] Парсинг завершён, записей: 5
+2025-10-02 02:30:54 [INFO] [Programm_X_Logger] [ConstructorController] Создана LogsTableModel: rows=5, cols=8
+2025-10-02 02:31:25 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-10-02.log
+2025-10-02 02:31:26 [INFO] [Programm_X_Logger] === Запуск Программа Х ===
+2025-10-02 02:31:26 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-10-02 02:31:26 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-10-02 02:31:26 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-10-02 02:31:26 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-10-02 02:31:26 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-02 02:31:36 [INFO] [Programm_X_Logger] [ConstructorView] Выбран файл: /home/ubuntupc/my-proj/access.log
+2025-10-02 02:31:36 [INFO] [Programm_X_Logger] [FileLoaderThread] Загрузка файла: /home/ubuntupc/my-proj/access.log
+2025-10-02 02:31:36 [INFO] [Programm_X_Logger] [FileLoaderThread] Файл успешно загружен, строк: 5
+2025-10-02 02:31:37 [INFO] [Programm_X_Logger] [ConstructorView] Загружено строк: 5
+2025-10-02 02:31:38 [INFO] [Programm_X_Logger] [ConstructorController] start_log_parse: type=Apache, lines=5
+2025-10-02 02:31:38 [INFO] [Programm_X_Logger] [LogParserThread] Запуск парсинга: type=Apache, lines=5
+2025-10-02 02:31:38 [INFO] [Programm_X_Logger] [LogParser] Парсинг Apache/Nginx логов, строк=5
+2025-10-02 02:31:38 [INFO] [Programm_X_Logger] [LogParser] Получено 5 записей Apache/Nginx
+2025-10-02 02:31:38 [INFO] [Programm_X_Logger] [LogParserThread] Парсинг завершён, поток завершается.
+2025-10-02 02:31:38 [INFO] [Programm_X_Logger] [ConstructorController] Парсинг завершён, записей: 5
+2025-10-02 02:31:38 [INFO] [Programm_X_Logger] [ConstructorController] Создана LogsTableModel: rows=5, cols=8
+2025-10-02 02:32:13 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-10-02.log
+2025-10-02 02:32:13 [INFO] [Programm_X_Logger] === Запуск Программа Х ===
+2025-10-02 02:32:13 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-10-02 02:32:13 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-10-02 02:32:13 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-10-02 02:32:13 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-10-02 02:32:13 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-02 02:32:16 [INFO] [Programm_X_Logger] [ConstructorView] Выбран файл: /home/ubuntupc/my-proj/access.log
+2025-10-02 02:32:16 [INFO] [Programm_X_Logger] [FileLoaderThread] Загрузка файла: /home/ubuntupc/my-proj/access.log
+2025-10-02 02:32:16 [INFO] [Programm_X_Logger] [FileLoaderThread] Файл успешно загружен, строк: 5
+2025-10-02 02:32:17 [INFO] [Programm_X_Logger] [ConstructorView] Загружено строк: 5
+2025-10-02 02:32:18 [INFO] [Programm_X_Logger] [ConstructorController] start_log_parse: type=Apache, lines=5
+2025-10-02 02:32:18 [INFO] [Programm_X_Logger] [LogParserThread] Запуск парсинга: type=Apache, lines=5
+2025-10-02 02:32:18 [INFO] [Programm_X_Logger] [LogParser] Парсинг Apache/Nginx логов, строк=5
+2025-10-02 02:32:18 [INFO] [Programm_X_Logger] [LogParser] Получено 5 записей Apache/Nginx
+2025-10-02 02:32:18 [INFO] [Programm_X_Logger] [LogParserThread] Парсинг завершён, поток завершается.
+2025-10-02 02:32:18 [INFO] [Programm_X_Logger] [ConstructorController] Парсинг завершён, записей: 5
+2025-10-02 02:32:18 [INFO] [Programm_X_Logger] [ConstructorController] Создана LogsTableModel: rows=5, cols=8
+2025-10-02 02:35:23 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-10-02.log
+2025-10-02 02:35:23 [INFO] [Programm_X_Logger] === Запуск Программа Х ===
+2025-10-02 02:35:23 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-10-02 02:35:23 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-10-02 02:35:23 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-10-02 02:35:23 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-10-02 02:35:23 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-02 02:35:28 [INFO] [Programm_X_Logger] === Завершение работы приложения ===
+2025-10-02 02:36:23 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-10-02.log
+2025-10-02 02:36:23 [INFO] [Programm_X_Logger] === Запуск Программа Х ===
+2025-10-02 02:36:24 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-10-02 02:36:24 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-10-02 02:36:24 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-10-02 02:36:24 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-10-02 02:36:24 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-02 02:36:27 [INFO] [Programm_X_Logger] === Завершение работы приложения ===
+2025-10-02 02:36:53 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-10-02.log
+2025-10-02 02:36:54 [INFO] [Programm_X_Logger] === Запуск Программа Х ===
+2025-10-02 02:36:54 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-10-02 02:36:54 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-10-02 02:36:54 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-10-02 02:36:54 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-10-02 02:36:54 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-02 02:37:00 [INFO] [Programm_X_Logger] === Завершение работы приложения ===
+2025-10-02 02:37:07 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-10-02.log
+2025-10-02 02:37:07 [INFO] [Programm_X_Logger] === Запуск Программа Х ===
+2025-10-02 02:37:08 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-10-02 02:37:08 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-10-02 02:37:08 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-10-02 02:37:08 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-10-02 02:37:08 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-02 02:37:14 [INFO] [Programm_X_Logger] [ConstructorView] Выбран файл: /home/ubuntupc/my-proj/access.log
+2025-10-02 02:37:14 [INFO] [Programm_X_Logger] [FileLoaderThread] Загрузка файла: /home/ubuntupc/my-proj/access.log
+2025-10-02 02:37:14 [INFO] [Programm_X_Logger] [FileLoaderThread] Файл успешно загружен, строк: 5
+2025-10-02 02:37:14 [INFO] [Programm_X_Logger] [ConstructorView] Загружено строк: 5
+2025-10-02 02:37:15 [INFO] [Programm_X_Logger] [ConstructorController] start_log_parse: type=Apache, lines=5
+2025-10-02 02:37:15 [INFO] [Programm_X_Logger] [LogParserThread] Запуск парсинга: type=Apache, lines=5
+2025-10-02 02:37:15 [INFO] [Programm_X_Logger] [LogParser] Парсинг Apache/Nginx логов, строк=5
+2025-10-02 02:37:15 [INFO] [Programm_X_Logger] [LogParser] Получено 5 записей Apache/Nginx
+2025-10-02 02:37:15 [INFO] [Programm_X_Logger] [LogParserThread] Парсинг завершён, поток завершается.
+2025-10-02 02:37:15 [INFO] [Programm_X_Logger] [ConstructorController] Парсинг завершён, записей: 5
+2025-10-02 02:37:15 [INFO] [Programm_X_Logger] [ConstructorController] Создана LogsTableModel: rows=5, cols=8
+2025-10-02 02:38:10 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-10-02.log
+2025-10-02 02:38:10 [INFO] [Programm_X_Logger] === Запуск Программа Х ===
+2025-10-02 02:38:10 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-10-02 02:38:10 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-10-02 02:38:10 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-10-02 02:38:10 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-10-02 02:38:10 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-02 02:38:13 [INFO] [Programm_X_Logger] [ConstructorView] Выбран файл: /home/ubuntupc/my-proj/access.log
+2025-10-02 02:38:13 [INFO] [Programm_X_Logger] [FileLoaderThread] Загрузка файла: /home/ubuntupc/my-proj/access.log
+2025-10-02 02:38:13 [INFO] [Programm_X_Logger] [FileLoaderThread] Файл успешно загружен, строк: 5
+2025-10-02 02:38:14 [INFO] [Programm_X_Logger] [ConstructorView] Загружено строк: 5
+2025-10-02 02:38:15 [INFO] [Programm_X_Logger] [ConstructorController] start_log_parse: type=Apache, lines=5
+2025-10-02 02:38:15 [INFO] [Programm_X_Logger] [LogParserThread] Запуск парсинга: type=Apache, lines=5
+2025-10-02 02:38:15 [INFO] [Programm_X_Logger] [LogParser] Парсинг Apache/Nginx логов, строк=5
+2025-10-02 02:38:15 [INFO] [Programm_X_Logger] [LogParser] Получено 5 записей Apache/Nginx
+2025-10-02 02:38:15 [INFO] [Programm_X_Logger] [LogParserThread] Парсинг завершён, поток завершается.
+2025-10-02 02:38:15 [INFO] [Programm_X_Logger] [ConstructorController] Парсинг завершён, записей: 5
+2025-10-02 02:38:15 [INFO] [Programm_X_Logger] [ConstructorController] Создана LogsTableModel: rows=5, cols=8
+2025-10-02 02:39:56 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-10-02.log
+2025-10-02 02:39:56 [INFO] [Programm_X_Logger] === Запуск Программа Х ===
+2025-10-02 02:39:56 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-10-02 02:39:56 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-10-02 02:39:56 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-10-02 02:39:56 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-10-02 02:39:56 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-02 02:40:00 [INFO] [Programm_X_Logger] [ConstructorView] Выбран файл: /home/ubuntupc/my-proj/access.log
+2025-10-02 02:40:00 [INFO] [Programm_X_Logger] [FileLoaderThread] Загрузка файла: /home/ubuntupc/my-proj/access.log
+2025-10-02 02:40:00 [INFO] [Programm_X_Logger] [FileLoaderThread] Файл успешно загружен, строк: 5
+2025-10-02 02:40:01 [INFO] [Programm_X_Logger] [ConstructorView] Загружено строк: 5
+2025-10-02 02:40:02 [INFO] [Programm_X_Logger] [ConstructorController] start_log_parse: type=Apache, lines=5
+2025-10-02 02:40:02 [INFO] [Programm_X_Logger] [LogParserThread] Запуск парсинга: type=Apache, lines=5
+2025-10-02 02:40:02 [INFO] [Programm_X_Logger] [LogParser] Парсинг Apache/Nginx логов, строк=5
+2025-10-02 02:40:02 [INFO] [Programm_X_Logger] [LogParser] Получено 5 записей Apache/Nginx
+2025-10-02 02:40:02 [INFO] [Programm_X_Logger] [LogParserThread] Парсинг завершён, поток завершается.
+2025-10-02 02:40:02 [INFO] [Programm_X_Logger] [ConstructorController] Парсинг завершён, записей: 5
+2025-10-02 02:40:02 [INFO] [Programm_X_Logger] [ConstructorController] Создана LogsTableModel: rows=5, cols=8

@@ -3,6 +3,7 @@ from progr.models.logs_table_model import  LogsTableModel
 from progr.models.rule_model import RuleModel
 from progr.utils_app.logger import LOGGER
 import pandas as pd
+from PyQt6.QtCore import Qt
 
 
 
@@ -10,6 +11,8 @@ class ConstructorController:
     """
     Контроллер вкладки 'Конструктор':
     - Асинхронный парсинг логов (создаёт LogParserThread)
+    - Создаёт табличную модель логов с чекбоксами.
+    - Формирует prefill-словарь для диалога создания правила по отмеченным колонкам/строкам.
     """
 
     def __init__(self):
@@ -56,6 +59,10 @@ class ConstructorController:
         :param df: pandas.DataFrame с результатом парсинга
         :param parent: родитель для Qt-модели (обычно self из View), чтобы модель не собрал GC
         :return: (model, safe_df)
+        Нормализует df под нужные колонки и создаёт LogsTableModel (с чекбоксами).
+        КАК МЕНЯТЬ НАЗВАНИЯ/ДОБАВЛЯТЬ СТОЛБЦЫ:
+          — редактируй список headers ниже. Порядок в таблице = порядок в этом списке.
+          — добавил новый столбец => добавь его в mapping (ниже) для предзаполнения, если нужно.
         """
         if df is None:
             df = pd.DataFrame()
@@ -69,12 +76,78 @@ class ConstructorController:
 
         LOGGER.info("[ConstructorController] Создана LogsTableModel: rows=%s, cols=%s",
                     len(rows), len(headers))
-        return model, safe_df
+        return model
+    
+    def build_prefill_from_selection(self, model: LogsTableModel) -> dict:
+        """
+        На основе отмеченных столбцов и строк формирует prefill-данные для диалога:
+        - Берём выбранные столбцы (по заголовкам).
+        - Берём выбранные строки (индексы).
+        - Для каждого выбранного столбца и строки — значение из ячейки.
+        - Значения записываем в поля диалога по маппингу ниже.
+        Если для столбца нет соответствующего поля — пропускаем.
+        """
+        selected_cols = model.checked_columns()
+        selected_rows = model.checked_rows()
+        headers = model.headers()
+
+        # МАППИНГ: название столбца -> поле диалога
+        # Добавляй здесь соответствия новых столбцов полям диалога (если нужно автозаполнение).
+        col_to_field = {
+            "ip": "rules_ip_s",         # например, ip источника
+            "protocol": "rules_protocol",
+            "method": "rules_content",      # это пример; подставь правильно под свой диалог
+            "object": None,  # сюда может собираться content
+            "time": None,               # None — значит пропускаем (нет поля)
+            "code": None,
+            "referer": None,
+            "user_agent": None,
+        }
+
+        prefill: dict = {}
+
+        for c in selected_cols:
+            if not (0 <= c < len(headers)):
+                continue
+            col_name = headers[c]
+            field_key = col_to_field.get(col_name)
+            if not field_key:
+                continue
+
+            # собираем значения по отмеченным строкам
+            values = []
+            for r in selected_rows:
+                # вытаскиваем то, что показывает модель (DisplayRole)
+                idx = model.index(r, c)
+                val = model.data(idx, Qt.ItemDataRole.DisplayRole)
+                if val is None:
+                    val = ""
+                val = str(val).strip()
+                if val:
+                    values.append(val)
+
+            if not values:
+                continue
+
+            # Правило заполнения:
+            # - для rules_content склеим через ', ' (потом твой парсер content разнесёт)
+            # - для остальных полей возьмём первое значение
+            if field_key == "rules_content":
+                prefill[field_key] = ", ".join(values)
+            else:
+                prefill[field_key] = values[0]
+
+        LOGGER.info("[ConstructorController] Prefill из выбора: %s", prefill)
+        return prefill
 
 
 
     def create_rule(self, rule_data):
-
+        
+        """
+        Запускает модель для создания нового правила.
+        """
+                
         LOGGER.info("[ConstructorController] Запуск создания нового правила")
         RuleModel.add_rule(rule_data)
 

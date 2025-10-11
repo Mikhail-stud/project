@@ -12,13 +12,13 @@ class CreateRuleDialog(QDialog):
     Поля отображаются на русском, но при сохранении возвращаются ключи БД.
     """
 
-    def __init__(self, parent=None, rule_data=None):
+    def __init__(self, parent=None,  controller=None, rule_data: dict | None = None):
         """
         :param parent: родительский виджет
         :param rule_data: словарь с данными для редактирования (ключи = поля БД)
         """
         super().__init__(parent)
-
+        self.controller = controller
         # Настройки окна
         settings = UI_CONFIG["create_rule_dialog"]
         self.setWindowTitle(settings["title_create"] if rule_data is None else settings["title_edit"])
