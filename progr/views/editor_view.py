@@ -74,18 +74,19 @@ class EditorView(QWidget):
         try:
            
             self.table.clear()
-            self.table.setColumnCount(4)  # Название, Оценки, Редактировать, Оценить
-            self.table.setHorizontalHeaderLabels([ "Название", "Оценки", "Редактирование", "Оценить"])
+            self.table.setColumnCount(5)  # Название, Оценки, Редактировать, Оценить
+            self.table.setHorizontalHeaderLabels([ "Название", "SID", "Оценки", "Редактирование", "Оценить"])
             self.table.setRowCount(len(rules))
 
             for row_idx, rule in enumerate(rules):
                 self.table.setItem(row_idx, 0, QTableWidgetItem(str(rule["rules_msg"])))
-                self.table.setItem(row_idx, 1, QTableWidgetItem(f"✅  {rule.get('rules_effpol', 0)} / ❌ {rule.get('rules_effotr', 0)}"))
+                self.table.setItem(row_idx, 1, QTableWidgetItem(str(rule["rules_sid"])))
+                self.table.setItem(row_idx, 2, QTableWidgetItem(f"✅  {rule.get('rules_effpol', 0)} / ❌ {rule.get('rules_effotr', 0)}"))
 
                 # Кнопка редактирования
                 edit_button = QPushButton("✍️")
                 edit_button.clicked.connect(lambda _, rid=rule["rules_id"]: self.edit_rule(rid))
-                self.table.setCellWidget(row_idx, 2, edit_button)
+                self.table.setCellWidget(row_idx, 3, edit_button)
 
                 # Кнопки оценки
                 vote_layout = QHBoxLayout()
@@ -98,7 +99,7 @@ class EditorView(QWidget):
                 vote_layout.addWidget(downvote_btn)
                 vote_widget = QWidget()
                 vote_widget.setLayout(vote_layout)
-                self.table.setCellWidget(row_idx, 3, vote_widget)
+                self.table.setCellWidget(row_idx, 4, vote_widget)
 
             self.table.resizeColumnsToContents()
 

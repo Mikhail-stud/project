@@ -122,13 +122,19 @@ class CreateRuleDialog(QDialog):
     # ДАЛЬШЕ КОД ВАЛИДАЦИИ (без изменений)
     # ─────────────────────────────────────────────────────────────
     def _on_save_clicked(self):
+        """
+        Проверка данных перед сохранением + попытка создать правило.
+        Если SID занят — показываем предупреждение и НЕ закрываем диалог.
+        """
         rule_data = self.get_data()
         is_valid, errors = validate_rule(rule_data)
 
+    # Сбрасываем подсветку
         for field in self.fields.values():
             field.setStyleSheet("")
 
         if not is_valid:
+        # Подсветка неверных полей
             error_keys = self._get_error_keys(errors)
             for key in error_keys:
                 if key in self.fields:
@@ -140,7 +146,24 @@ class CreateRuleDialog(QDialog):
             )
             return
 
-        # Если всё ок, закрываем диалог
+    # === НОВОЕ: пытаемся создать правило через контроллер ===
+        if self.controller is not None:
+            ok = self.controller.create_rule(rule_data)
+            if not ok:
+            # Скорее всего, SID уже существует
+                QMessageBox.warning(
+                    self,
+                    "Невозможно создать правило",
+                    "Правило с таким SID уже существует.\n"
+                    "Пожалуйста, измените поле SID и повторите попытку."
+                )
+            # Дополнительно подсветим поле SID
+                sid_key = "rules_sid"
+                if sid_key in self.fields:
+                    self.fields[sid_key].setStyleSheet("background-color: #ffefc6;")
+                return
+
+    # Если всё ок — закрываем диалог с accept()
         self.accept()
 
     def _get_error_keys(self, errors_list):

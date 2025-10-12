@@ -175,9 +175,9 @@ class ConstructorController:
 
     def create_rule(self, rule_data: dict) -> bool:
         """
-        Создание/обновление правила по SID:
-        - если SID новый -> создаём с rules_rev = 1
-        - если SID существует -> увеличиваем rules_rev
+    Создание правила:
+    - если SID уже существует -> не создаём, возвращаем False
+    - если SID новый         -> создаём с rules_rev = 1
         """
         sid = rule_data.get("rules_sid") or rule_data.get("sid")
         if sid is None or str(sid).strip() == "":
@@ -185,9 +185,19 @@ class ConstructorController:
             return False
 
         try:
-            res = RuleModel.add_or_bump_rule(rule_data)
-            LOGGER.info("[ConstructorController] Результат сохранения: %s", res)
+            # 1) Проверяем наличие правила с таким SID
+            existing = RuleModel.get_rule_by_sid(sid)
+            if existing:
+                LOGGER.warning("[ConstructorController] Правило с SID=%s уже существует -> отмена создания", sid)
+                return False
+
+        # 2) Вставляем новое правило с версией 1 (явно)
+            rule_data = dict(rule_data)  # не трогаем исходный словарь
+            rule_data["rules_rev"] = 1
+            new_id = RuleModel.add_rule(rule_data)
+            LOGGER.info("[ConstructorController] Создано правило ID=%s с SID=%s, rev=1", new_id, sid)
             return True
+
         except Exception as e:
-            LOGGER.error(f"[ConstructorController] Ошибка при сохранении правила: {e}", exc_info=True)
+            LOGGER.error(f"[ConstructorController] Ошибка при создании правила: {e}", exc_info=True)
             return False

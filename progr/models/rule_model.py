@@ -110,6 +110,7 @@ class RuleModel:
         """
         set_clause = ", ".join([f"{key} = %({key})s" for key in updated_data.keys()])
         query = f"UPDATE rules SET {set_clause} WHERE rules_id = %(rules_id)s;"
+        query2 = f"UPDATE rules SET rules_rev = rules_rev + 1 WHERE rules_id = %s;"
         updated_data = dict(updated_data)
         updated_data["rules_id"] = rule_id
 
@@ -117,6 +118,7 @@ class RuleModel:
             with RuleModel._get_connection() as conn:
                 with conn.cursor() as cur:
                     cur.execute(query, updated_data)
+                    cur.execute(query2, (rule_id,))
                     conn.commit()
                     LOGGER.info(f"[RuleModel] Правило ID={rule_id} обновлено")
         except Exception as e:
@@ -162,92 +164,4 @@ class RuleModel:
             raise
 
     # ---------- ОСНОВНАЯ ЛОГИКА ВЕРСИОНИРОВАНИЯ ПО SID ----------
-    def add_or_bump_rule(rule_data: dict):
-        """
-        Если правила с таким SID нет — создаём с rules_rev = 1.
-        Если есть — увеличиваем rules_rev на 1.
-
-        Реализация:
-          1) Пытаемся сделать UPSERT (ON CONFLICT (rules_sid) DO UPDATE ...).
-             НУЖЕН уникальный индекс/ограничение по rules_sid:
-               CREATE UNIQUE INDEX IF NOT EXISTS ux_rules_sid ON rules (rules_sid);
-             Если его нет, будет исключение — перейдём к п.2 (fallback).
-          2) Fallback: SELECT ... FOR UPDATE -> UPDATE (rev+1) ИЛИ INSERT (rev=1).
-        Возвращает dict c keys: rules_id, rules_rev, existed (bool).
-        """
-        if not rule_data or "rules_sid" not in rule_data:
-            raise ValueError("rule_data должен содержать ключ 'rules_sid'")
-
-        sid = rule_data["rules_sid"]
-        # гарантируем, что при вставке rev=1 (если не передан)
-        data_to_insert = dict(rule_data)
-        data_to_insert.setdefault("rules_rev", 1)
-
-        # ПОЛНЫЙ список столбцов для INSERT/UPSERT
-        insert_cols = (
-            "rules_action, rules_protocol, rules_ip_s, rules_port_s, "
-            "rules_route, rules_ip_d, rules_port_d, rules_msg, rules_content, "
-            "rules_sid, rules_rev, rules_effpol, rules_effotr"
-        )
-
-        upsert_sql = f"""
-        INSERT INTO rules ({insert_cols})
-        VALUES (
-            %(rules_action)s, %(rules_protocol)s, %(rules_ip_s)s, %(rules_port_s)s,
-            %(rules_route)s, %(rules_ip_d)s, %(rules_port_d)s, %(rules_msg)s, %(rules_content)s,
-            %(rules_sid)s, 1, 0, 0
-        )
-        ON CONFLICT (rules_sid) DO UPDATE
-           SET rules_rev = rules.rules_rev + 1
-        RETURNING rules_id, rules_rev;
-        """
-
-        try:
-            with RuleModel._get_connection() as conn:
-                with conn.cursor(cursor_factory=RealDictCursor) as cur:
-                    try:
-                        # Путь 1: UPSERT (требуется уникальный индекс rules_sid)
-                        cur.execute(upsert_sql, data_to_insert)
-                        row = cur.fetchone()
-                        conn.commit()
-                        existed = (row["rules_rev"] > 1)
-                        LOGGER.info(f"[RuleModel] UPSERT по SID={sid}: rules_id={row['rules_id']}, rev={row['rules_rev']}, existed={existed}")
-                        return {"rules_id": row["rules_id"], "rules_rev": row["rules_rev"], "existed": existed}
-                    except Exception as upsert_err:
-                        # Если нет unique по rules_sid — идём fallback-путём
-                        LOGGER.warning(f"[RuleModel] UPSERT не выполнен (возможно, нет уникального индекса по rules_sid). "
-                                       f"Перехожу к fallback. Причина: {upsert_err}")
-                        conn.rollback()
-
-                    # Путь 2 (fallback): транзакционно блокируем строку по SID
-                    cur.execute("BEGIN;")
-                    cur.execute("SELECT rules_id, rules_rev FROM rules WHERE rules_sid = %s FOR UPDATE;", (sid,))
-                    row = cur.fetchone()
-
-                    if row:
-                        new_rev = int(row["rules_rev"] or 0) + 1
-                        cur.execute("UPDATE rules SET rules_rev = %s WHERE rules_id = %s RETURNING rules_rev;",
-                                    (new_rev, row["rules_id"]))
-                        upd = cur.fetchone()
-                        cur.execute("COMMIT;")
-                        LOGGER.info(f"[RuleModel] REV++ по SID={sid}: rules_id={row['rules_id']}, rev={upd['rules_rev']}")
-                        return {"rules_id": row["rules_id"], "rules_rev": upd["rules_rev"], "existed": True}
-                    else:
-                        # вставляем новую запись с rev=1
-                        insert_sql = f"""
-                        INSERT INTO rules ({insert_cols})
-                        VALUES (
-                            %(rules_action)s, %(rules_protocol)s, %(rules_ip_s)s, %(rules_port_s)s,
-                            %(rules_route)s, %(rules_ip_d)s, %(rules_port_d)s, %(rules_msg)s, %(rules_content)s,
-                            %(rules_sid)s, 1, 0, 0
-                        )
-                        RETURNING rules_id, rules_rev;
-                        """
-                        cur.execute(insert_sql, data_to_insert)
-                        ins = cur.fetchone()
-                        cur.execute("COMMIT;")
-                        LOGGER.info(f"[RuleModel] Вставлено новое правило по SID={sid}: rules_id={ins['rules_id']}, rev={ins['rules_rev']}")
-                        return {"rules_id": ins["rules_id"], "rules_rev": ins["rules_rev"], "existed": False}
-        except Exception as e:
-            LOGGER.error(f"[RuleModel] Ошибка add_or_bump_rule SID={sid}: {e}", exc_info=True)
-            raise
+   

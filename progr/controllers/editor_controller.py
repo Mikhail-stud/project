@@ -110,15 +110,3 @@ class EditorController:
     # Вставь вызов этого метода там, где получаешь данные из диалога
     # редактирования по SID (если такой сценарий у тебя нужен).
     # ─────────────────────────────────────────────────────────────
-    def create_or_bump_by_sid(self, rule_data: dict) -> bool:
-        sid = rule_data.get("rules_sid") or rule_data.get("sid")
-        if sid is None or str(sid).strip() == "":
-            LOGGER.error("[EditorController] SID пуст — операция отменена")
-            return False
-        try:
-            res = RuleModel.add_or_bump_rule(rule_data)
-            LOGGER.info("[EditorController] add_or_bump по SID=%s -> %s", sid, res)
-            return True
-        except Exception as e:
-            LOGGER.error(f"[EditorController] Ошибка add_or_bump по SID={sid}: {e}", exc_info=True)
-            return False
