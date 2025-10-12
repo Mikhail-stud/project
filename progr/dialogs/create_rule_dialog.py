@@ -1,7 +1,7 @@
 from PyQt6.QtWidgets import (
-    QDialog, QVBoxLayout, QHBoxLayout, QLabel, QLineEdit, QPushButton, QMessageBox
+    QDialog, QVBoxLayout, QHBoxLayout, QLabel, QLineEdit, QPushButton, QMessageBox, QStyle, QToolTip
 )
-from PyQt6.QtCore import Qt
+from PyQt6.QtCore import Qt, QPoint
 from progr.config_app.ui_config import UI_CONFIG
 from progr.utils_app.rule_validator import validate_rule
 
@@ -10,23 +10,46 @@ class CreateRuleDialog(QDialog):
     """
     Универсальный диалог для создания или редактирования правила IDS/IPS.
     Поля отображаются на русском, но при сохранении возвращаются ключи БД.
+    Также добавлены всплывающие подсказки-иконки справа от полей ввода.
     """
 
-    def __init__(self, parent=None,  controller=None, rule_data: dict | None = None):
+    # ─────────────────────────────────────────────────────────────
+    # TODO: СЛОВАРЬ ПОДСКАЗОК (менять только здесь!)
+    #
+    # Ключ = ключ поля БД (как в self.field_map)
+    # Значение = текст или HTML-подсказка, которая будет показана при клике
+    # на иконку "i" справа от поля ввода.
+    #
+    # Чтобы добавить/изменить подсказку — просто допиши сюда пару "ключ: текст".
+    # ─────────────────────────────────────────────────────────────
+    HELP_TEXTS = {
+        "rules_action": "<b>Действие</b> — тип реакции: <i>alert</i>, <i>drop</i> и т.д.",
+        "rules_protocol": "<b>Протокол</b> — например: TCP, UDP, HTTP.",
+        "rules_ip_s": "<b>IP источника</b> — одиночный адрес или подсеть (10.0.0.0/8).",
+        "rules_port_s": "<b>Порт источника</b> — число 1–65535, диапазон (80:443) или any.",
+        "rules_route": "<b>Направление</b> — стрелка <code>-></code> или <code><-</code>.",
+        "rules_ip_d": "<b>IP получателя</b> — одиночный адрес или маска.",
+        "rules_port_d": "<b>Порт получателя</b> — аналогично портам источника.",
+        "rules_msg": "<b>Название правила</b> — краткое описание события.",
+        "rules_content": "<b>Содержимое</b> — ключевые слова, сигнатуры, фразы для поиска.",
+        "rules_sid": "<b>SID</b> — уникальный числовой идентификатор правила.",
+        "rules_rev": "<b>Версия</b> — увеличивается автоматически при изменении правила."
+    }
+
+    def __init__(self, parent=None, controller=None, rule_data: dict | None = None):
         """
         :param parent: родительский виджет
         :param rule_data: словарь с данными для редактирования (ключи = поля БД)
         """
         super().__init__(parent)
         self.controller = controller
-        # Настройки окна
         settings = UI_CONFIG["create_rule_dialog"]
         self.setWindowTitle(settings["title_create"] if rule_data is None else settings["title_edit"])
         self.setMinimumSize(settings["min_width"], settings["min_height"])
 
         self.layout = QVBoxLayout(self)
 
-        # Соответствие "Отображаемое имя" -> "ключ в БД"
+        # Отображаемое имя -> ключ БД
         self.field_map = {
             "Действие": "rules_action",
             "Протокол": "rules_protocol",
@@ -41,10 +64,11 @@ class CreateRuleDialog(QDialog):
             "Версия": "rules_rev"
         }
 
-        # Поля ввода
         self.fields = {}
 
+        # ─────────────────────────────────────────────────────────────
         # Создаём форму
+        # ─────────────────────────────────────────────────────────────
         for label_text, db_key in self.field_map.items():
             row = QHBoxLayout()
             label = QLabel(label_text)
@@ -55,12 +79,18 @@ class CreateRuleDialog(QDialog):
             if rule_data and db_key in rule_data:
                 input_field.setText(str(rule_data[db_key]))
 
+            # >>> Добавляем иконку-подсказку справа от поля, если есть текст для неё
+            if db_key in self.HELP_TEXTS:
+                self._add_help_icon(input_field, self.HELP_TEXTS[db_key])
+
             row.addWidget(label)
             row.addWidget(input_field)
             self.layout.addLayout(row)
             self.fields[db_key] = input_field
 
+        # ─────────────────────────────────────────────────────────────
         # Кнопки управления
+        # ─────────────────────────────────────────────────────────────
         buttons_layout = QHBoxLayout()
         save_btn = QPushButton("Создать" if rule_data is None else "Сохранить")
         cancel_btn = QPushButton("Отмена")
@@ -68,28 +98,41 @@ class CreateRuleDialog(QDialog):
         cancel_btn.clicked.connect(self.reject)
         buttons_layout.addWidget(save_btn)
         buttons_layout.addWidget(cancel_btn)
-
         self.layout.addLayout(buttons_layout)
 
+    # ─────────────────────────────────────────────────────────────
+    # ВСПОМОГАТЕЛЬНЫЙ МЕТОД: добавляет иконку "i" в QLineEdit
+    # ─────────────────────────────────────────────────────────────
+    def _add_help_icon(self, lineedit: QLineEdit, tooltip_text: str):
+        """
+        Добавляет иконку справа внутри поля.
+        По клику — показывает QToolTip с подсказкой.
+        """
+        icon = lineedit.style().standardIcon(QStyle.StandardPixmap.SP_MessageBoxInformation)
+        action = lineedit.addAction(icon, QLineEdit.ActionPosition.TrailingPosition)
+        action.setToolTip("Показать подсказку")
+
+        def _show_tooltip():
+            global_pos = lineedit.mapToGlobal(lineedit.rect().bottomRight() + QPoint(-10, 10))
+            QToolTip.showText(global_pos, tooltip_text, lineedit)
+
+        action.triggered.connect(_show_tooltip)
+
+    # ─────────────────────────────────────────────────────────────
+    # ДАЛЬШЕ КОД ВАЛИДАЦИИ (без изменений)
+    # ─────────────────────────────────────────────────────────────
     def _on_save_clicked(self):
-        """
-        Проверка данных перед сохранением.
-        Подсвечивает ошибочные поля и показывает список ошибок.
-        """
         rule_data = self.get_data()
         is_valid, errors = validate_rule(rule_data)
 
-        # Сбрасываем подсветку
         for field in self.fields.values():
             field.setStyleSheet("")
 
         if not is_valid:
-            # Подсветка неверных полей
             error_keys = self._get_error_keys(errors)
             for key in error_keys:
                 if key in self.fields:
                     self.fields[key].setStyleSheet("background-color: #ffcccc;")
-            # Показ сообщений
             QMessageBox.warning(
                 self,
                 "Ошибка валидации",
@@ -97,12 +140,10 @@ class CreateRuleDialog(QDialog):
             )
             return
 
+        # Если всё ок, закрываем диалог
         self.accept()
 
     def _get_error_keys(self, errors_list):
-        """
-        Определяет, какие поля вызвали ошибки, на основе текста ошибки.
-        """
         mapping = {
             "Действие": "rules_action",
             "Протокол": "rules_protocol",
@@ -124,7 +165,4 @@ class CreateRuleDialog(QDialog):
         return matched_keys
 
     def get_data(self):
-        """
-        Возвращает словарь {ключ_БД: значение} из формы.
-        """
         return {db_key: widget.text().strip() for db_key, widget in self.fields.items()}

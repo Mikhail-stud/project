@@ -1,239 +1,242 @@
-from PyQt6.QtCore import QAbstractTableModel, Qt, QModelIndex, QVariant
+# models/logs_table_model.py
+from __future__ import annotations
 from PyQt6.QtGui import QColor
-from typing import Any, List, Sequence, Union
+from PyQt6.QtCore import (
+    Qt,
+    QAbstractTableModel,
+    QModelIndex,
+    QVariant,
+)
 
 
 class LogsTableModel(QAbstractTableModel):
     """
-    Универсальная модель для таблицы логов.
-    Поддерживает:
-      - rows как список списков ИЛИ список словарей (второе — авто-нормализация по headers)
-      - безопасные DisplayRole / EditRole
-      - сортировку (override sort) c begin/endResetModel()
-      - подсветку HTTP-кодов (2xx — зелёный, 4xx/5xx — красный)
-      - обновление данных без пересоздания модели (update())
-      Табличная модель логов с чекбоксами:
-      • Горизонтальный заголовок (столбцы) — чекбоксы для выбора колонок.
-      • Вертикальный заголовок (строки) — чекбоксы для выбора строк.
-    Публичное API:
-      - toggle_column_checked(col: int), is_column_checked(col: int)
-      - toggle_row_checked(row: int), is_row_checked(row: int)
-      - checked_columns() -> list[int], checked_rows() -> list[int]
-      - headers() -> list[str]
-      - update(rows, headers=None)
-    Подсветка: HTTP code — 2xx зелёный, 4xx/5xx красный.
+    Модель таблицы логов с чекбоксами в КАЖДОЙ ячейке.
+
+    Основные моменты:
+    - Чекбоксы реализованы через ItemIsUserCheckable + CheckStateRole в data/setData.
+    - Стандартный делегат Qt сам рисует чекбокс + текст и меняет состояние по клику.
+    - Никаких чекбоксов в заголовках: headerData возвращает только текст.
+    - Есть удобные хелперы для сборки отмеченных значений.
+    - Добавлены совместимые заглушки (checked_columns/rows и т.п.), чтобы ничего не сломалось,
+      если где-то остались вызовы из старого кода.
     """
 
-    def __init__(
-        self,
-        rows: Union[List[Sequence[Any]], List[dict]],
-        headers: List[str],
-        parent=None
-    ):
+    def __init__(self, rows: list[list], headers: list[str], parent=None):
         super().__init__(parent)
-        self._headers: List[str] = list(headers or [])
-        # Нормализуем строки (списки/словари -> список списков по headers)
-        self._rows: List[List[Any]] = self._normalize_rows(rows, self._headers)
+        self._rows: list[list] = list(rows or [])
+        self._headers: list[str] = list(headers or [])
 
-        # состояния чекбоксов
-        self._col_checked = [False] * len(self._headers)
-        self._row_checked = [False] * len(self._rows)
-
-        # Кеш позиции столбца с кодом, если он есть
-        self._code_col = self._find_code_column(self._headers)
-
+        # матрица состояний чекбоксов для каждой ячейки
+        r, c = self.rowCount(), self.columnCount()
+        self._checked: list[list[bool]] = [[False for _ in range(c)] for __ in range(r)]
     
-    # Базовые размеры модели
-    
-    def rowCount(self, parent = QModelIndex()) -> int:
-        return 0 if parent.isValid() else len(self._rows)
-
-    def columnCount(self, parent = QModelIndex()) -> int:
-        return 0 if parent.isValid() else len(self._headers)
-
-    # Данные ячеек
-    def data(self, index: QModelIndex, role: int = Qt.ItemDataRole.DisplayRole) -> Any:
-        if not index.isValid():
-            return None
-
-        r = index.row()
-        c = index.column()
-
-        # Безопасные границы
-        if r < 0 or r >= len(self._rows) or c < 0 or c >= len(self._headers):
-            return None
-
-        value = self._rows[r][c] if c < len(self._rows[r]) else ""
-
-        # Что показываем в ячейке
-        if role in (Qt.ItemDataRole.DisplayRole, Qt.ItemDataRole.EditRole):
-            # Преобразуем None к пустой строке, чтобы не показывать "None"
-            return "" if value is None else str(value)
-
-        # Выравнивание — по желанию: метод, код — по центру
-        if role == Qt.ItemDataRole.TextAlignmentRole:
-            header = self._headers[c].lower()
-            if header in ("method", "code"):
-                return int(Qt.AlignmentFlag.AlignCenter)
-            return int(Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignVCenter)
-
-        # Подсветка по HTTP-коду
-        if role == Qt.ItemDataRole.BackgroundRole and self._code_col is not None and c == self._code_col:
-            code = self._as_int(value)
-            if code is not None:
-                if 200 <= code <= 299:
-                    return QColor(210, 255, 210)  # зелёный для 2xx
-                if 400 <= code <= 599:
-                    return QColor(255, 220, 220)  # красный для 4xx/5xx
-
-        # Можно добавить ToolTip на ячейки user_agent/object
-        if role == Qt.ItemDataRole.ToolTipRole:
-            header = self._headers[c].lower()
-            if header in ("object", "user_agent", "referer"):
-                return "" if value is None else str(value)
-
-        return None
-
-    # Заголовки
-    def headerData(self, section, orientation, role=Qt.ItemDataRole.DisplayRole):
-        print(f"headerData called {section} {orientation.name if hasattr(orientation, 'name') else orientation} {int(role)}")
-        if role == Qt.ItemDataRole.DisplayRole:
-            if orientation == Qt.Orientation.Horizontal:
-                return self._headers[section]
-            else:
-                return str(section + 1)
-        if role == Qt.ItemDataRole.CheckStateRole:
-            state = Qt.CheckState.Checked if (0 <= section < len(self._col_checked) and self._col_checked[section]) else Qt.CheckState.Unchecked
-            print(f"->returning CheckStateRole for section ={section}, orientation={'H' if orientation==Qt.Orientation.Horizontal else 'V'} => {state.value}")
-            return state
-            #if orientation == Qt.Orientation.Horizontal:
-            # вернёт Qt.CheckState.Checked или Qt.CheckState.Unchecked
-                #return Qt.CheckState.Checked if self._col_checked[section] else Qt.CheckState.Unchecked
-            #else:
-                #return Qt.CheckState.Checked if self._row_checked[section] else Qt.CheckState.Unchecked
-        return None
-
-    def setHeaderData(self, section, orientation, value, role=Qt.ItemDataRole.EditRole):
-        # Обработка установки CheckState из заголовка (CheckableHeaderView вызывает это)
-        if role == Qt.ItemDataRole.CheckStateRole:
-            new_state = (value == Qt.CheckState.Checked)
-            if orientation == Qt.Orientation.Horizontal:
-                if 0 <= section < len(self._col_checked):
-                    if self._col_checked[section] != new_state:
-                        self._col_checked[section] = new_state
-                        print(f"setHeaderData: horizontal section {section} set to {new_state}")
-                        self.headerDataChanged.emit(Qt.Orientation.Horizontal, section, section)
-                        return True
-            else:
-                if 0 <= section < len(self._row_checked):
-                    if self._row_checked[section] != new_state:
-                        self._row_checked[section] = new_state
-                        print(f"setHeaderData: vertical section {section} set to {new_state}")
-                        self.headerDataChanged.emit(Qt.Orientation.Vertical, section, section)
-                        return True
-        return False
-
-
-
-    # Флаги редактирования
-    def flags(self, index: QModelIndex) -> Qt.ItemFlag:
-        if not index.isValid():
-            return Qt.ItemFlag.NoItemFlags
-        # По умолчанию — только выбор (не редактируем в таблице логов)
-        return Qt.ItemFlag.ItemIsSelectable | Qt.ItemFlag.ItemIsEnabled
-
-
-    # Сортировка
-    def sort(self, column: int, order: Qt.SortOrder = Qt.SortOrder.AscendingOrder) -> None:
-        if not (0 <= column < len(self._headers)):
-            return
-
-        self.layoutAboutToBeChanged.emit()
-        reverse = order == Qt.SortOrder.DescendingOrder
-        
-
-        def key_func(row):
-            val = row[column] if column < len(row) else ""
-            # Пытаемся сортировать код как число
-            if column == self._code_col:
-                ival = self._as_int(val)
-                return (ival if ival is not None else -1)
-            return str(val) if val is not None else ""
-
-        self._rows.sort(key=key_func, reverse=reverse)
-        # сортировка меняет порядок строк: синхронизируем чекбоксы строк
-        self._row_checked = self._row_checked[:len(self._rows)]
-        self.layoutChanged.emit()
-
-
-    #  публичное API 
-    def toggle_column_checked(self, col: int) -> None:
-        if 0 <= col < len(self._col_checked):
-            self._col_checked[col] = not self._col_checked[col]
-            # уведомим заголовок
-            self.headerDataChanged.emit(Qt.Orientation.Horizontal, col, col)
-
-    def toggle_row_checked(self, row: int) -> None:
-        if 0 <= row < len(self._row_checked):
-            self._row_checked[row] = not self._row_checked[row]
-            self.headerDataChanged.emit(Qt.Orientation.Vertical, row, row)
-
-    def is_column_checked(self, col: int) -> bool:
-        return 0 <= col < len(self._col_checked) and self._col_checked[col]
-
-    def is_row_checked(self, row: int) -> bool:
-        return 0 <= row < len(self._row_checked) and self._row_checked[row]
-
-    def checked_columns(self) -> List[int]:
-        return [i for i, v in enumerate(self._col_checked) if v]
-
-    def checked_rows(self) -> List[int]:
-        return [i for i, v in enumerate(self._row_checked) if v]
-
-    def headers(self) -> List[str]:
+    def headers(self):
+        """Совместимость со старым кодом: возврат списка заголовков как атрибут."""
         return list(self._headers)
 
-    def update(self, rows: Union[List[Sequence[Any]], List[dict]], headers: List[str] | None = None) -> None:
-        self.beginResetModel()
-        if headers is not None:
-            self._headers = list(headers)
-        self._rows = self._normalize_rows(rows, self._headers)
-        self._code_col = self._find_code_column(self._headers)
-        self._col_checked = [False] * len(self._headers)
-        self._row_checked = [False] * len(self._rows)
-        self.endResetModel()
+    # ------------- базовый интерфейс модели -------------
+    def rowCount(self, parent: QModelIndex = QModelIndex()) -> int:
+        return len(self._rows)
 
-    # -------- utils --------
-    @staticmethod
-    def _as_int(val: Any) -> int | None:
-        try:
-            return int(str(val).strip())
-        except Exception:
-            return None
+    def columnCount(self, parent: QModelIndex = QModelIndex()) -> int:
+        return len(self._headers)
 
-    @staticmethod
-    def _normalize_rows(rows: Union[List[Sequence[Any]], List[dict]], headers: List[str]) -> List[List[Any]]:
-        if not rows:
-            return []
-        if rows and not isinstance(rows[0], dict):
-            out = []
-            for r in rows:
-                r = list(r)
-                if len(r) < len(headers):
-                    r = r + [""] * (len(headers) - len(r))
-                out.append(r[: len(headers)])
-            return out
-        out = []
-        for d in rows:
-            out.append([d.get(h, "") for h in headers])
-        return out
-
-    @staticmethod
-    def _find_code_column(headers: List[str]) -> int | None:
-        for i, h in enumerate(headers):
-            if str(h).lower() == "code":
-                return i
+    def headerData(self, section: int, orientation: Qt.Orientation, role: int = Qt.ItemDataRole.DisplayRole):
+        if role == Qt.ItemDataRole.DisplayRole:
+            if orientation == Qt.Orientation.Horizontal:
+                if 0 <= section < len(self._headers):
+                    return self._headers[section]
+                return ""
+            else:
+                # нумерация строк (по желанию)
+                return str(section + 1)
         return None
 
-    # models/logs_table_model.py (внутри класса LogsTableModel)
+    def data(self, index: QModelIndex, role: int = Qt.ItemDataRole.DisplayRole):
+        if not index.isValid():
+            return None
 
+        r, c = index.row(), index.column()
+
+        if role == Qt.ItemDataRole.DisplayRole:
+            # Текст рядом с чекбоксом
+            try:
+                return str(self._rows[r][c])
+            except Exception:
+                return ""
+
+        if role == Qt.ItemDataRole.CheckStateRole:
+            # Состояние чекбокса в ячейке
+            return Qt.CheckState.Checked if self._checked[r][c] else Qt.CheckState.Unchecked
+
+        if role == Qt.ItemDataRole.ForegroundRole:
+            try:
+                col_name = self._headers[c].lower()
+            except Exception:
+                col_name = ""
+            if col_name == "code":
+            # аккуратно парсим число
+                val = str(self._rows[r][c]).strip()
+                try:
+                    code = int(val)
+                except Exception:
+                    code = None
+                if code is not None:
+                    if 200 <= code <= 299:
+                        return QColor(0, 128, 0)   # зелёный
+                    if 400 <= code <= 599:
+                        return QColor(200, 0, 0)   # красный
+
+        return None
+
+    def flags(self, index: QModelIndex):
+        if not index.isValid():
+            return Qt.ItemFlag.NoItemFlags
+        # чекбокс в ячейке + обычная селекция
+        return (Qt.ItemFlag.ItemIsEnabled |
+                Qt.ItemFlag.ItemIsSelectable |
+                Qt.ItemFlag.ItemIsUserCheckable)
+
+    def setData(self, index: QModelIndex, value, role: int = Qt.ItemDataRole.EditRole) -> bool:
+        if not index.isValid():
+            return False
+
+        if role == Qt.ItemDataRole.CheckStateRole:
+            r, c = index.row(), index.column()
+            try:
+                state = Qt.CheckState(value)
+            except Exception:
+                state = Qt.CheckState.Unchecked
+
+            new_val = (state == Qt.CheckState.Checked)
+            if self._checked[r][c] != new_val:
+                self._checked[r][c] = new_val
+                self.dataChanged.emit(index, index, [Qt.ItemDataRole.CheckStateRole])
+            return True
+
+        return False
+
+    # ------------- служебные методы -------------
+    def set_rows(self, rows: list[list], headers: list[str] | None = None):
+        """
+        Полная замена данных модели (например, после загрузки/фильтрации).
+        Корректно пересоздаёт матрицу чекбоксов нужного размера.
+        """
+        self.beginResetModel()
+        self._rows = list(rows or [])
+        if headers is not None:
+            self._headers = list(headers or [])
+        r, c = self.rowCount(), self.columnCount()
+        self._checked = [[False for _ in range(c)] for __ in range(r)]
+        self.endResetModel()
+
+    def clear_checks(self):
+        """Снять все отметки чекбоксов и обновить вид."""
+        if not self._checked:
+            return
+        for r in range(len(self._checked)):
+            for c in range(len(self._checked[r])):
+                if self._checked[r][c]:
+                    self._checked[r][c] = False
+                    idx = self.index(r, c)
+                    self.dataChanged.emit(idx, idx, [Qt.ItemDataRole.CheckStateRole])
+
+    # ------------- хелперы для «Создать правило» -------------
+    def get_checked_cells(self) -> list[tuple[int, int]]:
+        """Список координат (row, col) всех отмеченных ячеек."""
+        out = []
+        for r, row in enumerate(self._checked):
+            for c, v in enumerate(row):
+                if v:
+                    out.append((r, c))
+        return out
+
+    def get_checked_values(self) -> list:
+        """Список значений (текстов) всех отмеченных ячеек."""
+        out = []
+        for r, c in self.get_checked_cells():
+            try:
+                out.append(self._rows[r][c])
+            except Exception:
+                pass
+        return out
+
+    def get_checked_values_by_column(self, col: int) -> list:
+        """Список значений отмеченных ячеек только из колонки col."""
+        out = []
+        if not (0 <= col < self.columnCount()):
+            return out
+        for r in range(self.rowCount()):
+            if self._checked[r][col]:
+                out.append(self._rows[r][col])
+        return out
+
+    # ------------- сортировка (по тексту) -------------
+    def sort(self, column: int, order: Qt.SortOrder = Qt.SortOrder.AscendingOrder) -> None:
+        """
+        Простейшая сортировка по значению DisplayRole.
+        Матрица чекбоксов переупорядочивается вместе со строками.
+        """
+        if not (0 <= column < self.columnCount()):
+            return
+        self.layoutAboutToBeChanged.emit()
+
+        # подготавливаем пары (строка, чек-строка), чтобы сортировать синхронно
+        paired = list(zip(self._rows, self._checked))
+        reverse = (order == Qt.SortOrder.DescendingOrder)
+
+        def key_func(pair):
+            row, _chk = pair
+            val = row[column] if 0 <= column < len(row) else ""
+            return str(val).lower()
+
+        paired.sort(key=key_func, reverse=reverse)
+
+        # распаковываем обратно
+        if paired:
+            self._rows, self._checked = map(list, zip(*paired))
+        else:
+            self._rows, self._checked = [], []
+
+        self.layoutChanged.emit()
+
+    # ------------- совместимость со старым API (заглушки) -------------
+    # Ниже методы, которые могли вызываться старым кодом, когда галки были в заголовках.
+    # Теперь они просто вычисляются из текущей матрицы _checked, чтобы ничего не падало.
+
+    def checked_columns(self) -> list[int]:
+        """Список индексов колонок, где есть хотя бы одна отмеченная ячейка."""
+        res = []
+        for c in range(self.columnCount()):
+            if any(self._checked[r][c] for r in range(self.rowCount())):
+                res.append(c)
+        return res
+
+    def checked_rows(self) -> list[int]:
+        """Список индексов строк, где есть хотя бы одна отмеченная ячейка."""
+        res = []
+        for r in range(self.rowCount()):
+            if any(self._checked[r]):
+                res.append(r)
+        return res
+
+    def is_column_checked(self, col: int) -> bool:
+        """Считалось ранее как «галка в заголовке колонки». Теперь — есть ли отмеченные ячейки в колонке."""
+        if not (0 <= col < self.columnCount()):
+            return False
+        return any(self._checked[r][col] for r in range(self.rowCount()))
+
+    def is_row_checked(self, row: int) -> bool:
+        """Считалось ранее как «галка в заголовке строки». Теперь — есть ли отмеченные ячейки в строке."""
+        if not (0 <= row < self.rowCount()):
+            return False
+        return any(self._checked[row])
+
+    # Управляющие методы «переключить галку в заголовке ...» больше не имеют смысла.
+    # Оставим их как no-op, чтобы старые вызовы не падали.
+    def toggle_column_checked(self, col: int):
+        return
+
+    def toggle_row_checked(self, row: int):
+        return

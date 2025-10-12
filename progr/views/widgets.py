@@ -16,6 +16,16 @@ class CheckableHeaderView(QHeaderView):
         super().__init__(orientation, parent)
         self.setSectionsClickable(True)
 
+
+    def sizeHint(self):
+        sh = super().sizeHint()
+        if sh.height() < 24:
+            sh.setHeight(24)  # 24px обычно достаточно, чтобы индикатор не резался
+        return sh
+
+
+
+
     def _section_rect(self, section: int) -> QRect:
         """
         Возвращает QRect полной секции (в координатах заголовка).
@@ -77,18 +87,27 @@ class CheckableHeaderView(QHeaderView):
         x = sec_rect.left() + self._MARGIN
         y = sec_rect.top() + (sec_rect.height() - indicator_size.height()) // 2
         cb_rect = QRect(x,y, indicator_size.width(), indicator_size.height())
-        #cb_rect = self._checkbox_rect(logicalIndex)
         print("-> checkbox rect", cb_rect)
+        painter.save()
+        painter.setPen(Qt.GlobalColor.red)
+        painter.drawRect(cb_rect)  # 🔴 нарисует рамку вокруг области чекбокса
+        painter.restore()
         opt = QStyleOptionButton()
         opt.rect = cb_rect
         opt.state = QStyle.StateFlag.State_Enabled
-        if state == Qt.CheckState.Checked:
+        try:
+            cs = Qt.CheckState(state)
+        except Exception:
+            cs = Qt.CheckState.Unchecked
+
+        if cs == Qt.CheckState.Checked:
             opt.state |= QStyle.StateFlag.State_On
+        elif cs == Qt.CheckState.PartiallyChecked:
+            opt.state |= QStyle.StateFlag.State_NoChange
         else:
             opt.state |= QStyle.StateFlag.State_Off
-
-        # drawControl с CE_CheckBox безопасен и переносим отрисовку на стиль
-        self.style().drawControl(QStyle.ControlElement.CE_CheckBox, opt, painter, self)
+ 
+        self.style().drawPrimitive(QStyle.PrimitiveElement.PE_IndicatorCheckBox, opt, painter, self)
 
     def mousePressEvent(self, event):
         pos = event.pos()

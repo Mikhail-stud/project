@@ -1,18 +1,18 @@
+# constructor_controller.py
 from progr.threads.log_parser_thread import LogParserThread
-from progr.models.logs_table_model import  LogsTableModel
+from progr.models.logs_table_model import LogsTableModel
 from progr.models.rule_model import RuleModel
 from progr.utils_app.logger import LOGGER
 import pandas as pd
 from PyQt6.QtCore import Qt
 
 
-
 class ConstructorController:
     """
     Контроллер вкладки 'Конструктор':
     - Асинхронный парсинг логов (создаёт LogParserThread)
-    - Создаёт табличную модель логов с чекбоксами.
-    - Формирует prefill-словарь для диалога создания правила по отмеченным колонкам/строкам.
+    - Создаёт табличную модель логов с чекбоксами В ЯЧЕЙКАХ.
+    - Формирует prefill-словарь для диалога создания правила по отмеченным ячейкам.
     """
 
     def __init__(self):
@@ -56,19 +56,17 @@ class ConstructorController:
         Создаёт и возвращает модель таблицы логов (LogsTableModel).
         Контроллер нормализует столбцы и формирует rows/headers.
 
-        :param df: pandas.DataFrame с результатом парсинга
-        :param parent: родитель для Qt-модели (обычно self из View), чтобы модель не собрал GC
-        :return: (model, safe_df)
-        Нормализует df под нужные колонки и создаёт LogsTableModel (с чекбоксами).
-        КАК МЕНЯТЬ НАЗВАНИЯ/ДОБАВЛЯТЬ СТОЛБЦЫ:
-          — редактируй список headers ниже. Порядок в таблице = порядок в этом списке.
-          — добавил новый столбец => добавь его в mapping (ниже) для предзаполнения, если нужно.
+        КАК МЕНЯТЬ/ДОБАВЛЯТЬ СТОЛБЦЫ:
+          1) Измени список headers ниже (порядок = порядок в таблице).
+          2) В build_prefill_from_selection НИЖЕ поправь словарь col_to_field.
         """
         if df is None:
             df = pd.DataFrame()
 
-        headers = ["time", "ip", "method", "object", "protocol", "code", "referer", "user_agent"]
-        # безопасное выравнивание нужных колонок
+        # ВАЖНО: названия колонок в DataFrame должны совпадать со списком headers
+        headers = ["date", "time", "ip", "method", "object", "protocol", "code", "referer", "user_agent"]
+
+        # безопасно выровняем нужные колонки (отсутствующие заполним пустыми строками)
         safe_df = df.reindex(columns=headers, fill_value="")
 
         rows = safe_df.values.tolist()
@@ -77,28 +75,79 @@ class ConstructorController:
         LOGGER.info("[ConstructorController] Создана LogsTableModel: rows=%s, cols=%s",
                     len(rows), len(headers))
         return model
-    
+
+    def _headers_from_model(self, model: LogsTableModel) -> list[str]:
+        """
+        Универсально достаём список заголовков из модели, вне зависимости от реализации.
+        """
+        cols = model.columnCount()
+        headers = []
+        for c in range(cols):
+            h = model.headerData(c, Qt.Orientation.Horizontal, Qt.ItemDataRole.DisplayRole)
+            headers.append(str(h) if h is not None else "")
+        return headers
+
+    def _get_checked_values_by_column(self, model: LogsTableModel, col: int) -> list[str]:
+        """
+        Универсально получаем отмеченные значения в колонке:
+        - Если у модели есть метод get_checked_values_by_column — используем его.
+        - Иначе делаем безопасный обход вручную по CheckStateRole.
+        """
+        if hasattr(model, "get_checked_values_by_column"):
+            try:
+                return [str(v) for v in model.get_checked_values_by_column(col)]
+            except Exception:
+                pass
+
+        # Фолбэк: проходим все строки и смотрим CheckStateRole каждой ячейки
+        values = []
+        rows = model.rowCount()
+        for r in range(rows):
+            idx = model.index(r, col)
+            state = model.data(idx, Qt.ItemDataRole.CheckStateRole)
+            try:
+                state = Qt.CheckState(state)
+            except Exception:
+                state = Qt.CheckState.Unchecked
+            if state == Qt.CheckState.Checked:
+                val = model.data(idx, Qt.ItemDataRole.DisplayRole)
+                val = "" if val is None else str(val).strip()
+                if val:
+                    values.append(val)
+        return values
+
     def build_prefill_from_selection(self, model: LogsTableModel) -> dict:
         """
-        На основе отмеченных столбцов и строк формирует prefill-данные для диалога:
-        - Берём выбранные столбцы (по заголовкам).
-        - Берём выбранные строки (индексы).
-        - Для каждого выбранного столбца и строки — значение из ячейки.
-        - Значения записываем в поля диалога по маппингу ниже.
-        Если для столбца нет соответствующего поля — пропускаем.
-        """
-        selected_cols = model.checked_columns()
-        selected_rows = model.checked_rows()
-        headers = model.headers()
+        Формирует данные для предзаполнения диалога «Создать правило»
+        ИСПОЛЬЗУЯ ОТМЕЧЕННЫЕ ЧЕКБОКСЫ В ЯЧЕЙКАХ.
 
-        # МАППИНГ: название столбца -> поле диалога
-        # Добавляй здесь соответствия новых столбцов полям диалога (если нужно автозаполнение).
-        col_to_field = {
-            "ip": "rules_ip_s",         # например, ip источника
+        КАК ПРИВЯЗАТЬ КОЛОНКУ К ПОЛЮ ДИАЛОГА:
+          - Правь словарь col_to_field ниже:
+              ключ  = имя столбца (как в headers / в таблице),
+              значение = ключ/имя поля в диалоговом окне.
+          - Если поле для этой колонки не требуется — ставь None.
+        """
+        # --- НАДЁЖНО ПОЛУЧАЕМ СПИСОК ЗАГОЛОВКОВ ---
+        headers = []
+        if hasattr(model, "headers"):
+            h = getattr(model, "headers")
+            try:
+                # если это метод
+                headers = list(h()) if callable(h) else list(h)
+            except Exception:
+                headers = []
+        if not headers:
+            # запасной путь — всегда сработает
+            headers = self._headers_from_model(model)
+
+        # === МАППИНГ: колонка таблицы -> поле диалога ===
+        col_to_field: dict[str, str | None] = {
+            "ip": "rules_ip_s",
             "protocol": "rules_protocol",
-            "method": "rules_content",      # это пример; подставь правильно под свой диалог
-            "object": None,  # сюда может собираться content
-            "time": None,               # None — значит пропускаем (нет поля)
+            "method": "rules_method",   # ← при необходимости замени на фактическое имя поля в диалоге
+            "object": "rules_content",
+            "date": None,
+            "time": None,
             "code": None,
             "referer": None,
             "user_agent": None,
@@ -106,48 +155,39 @@ class ConstructorController:
 
         prefill: dict = {}
 
-        for c in selected_cols:
-            if not (0 <= c < len(headers)):
-                continue
-            col_name = headers[c]
+        for col_index, col_name in enumerate(headers):
             field_key = col_to_field.get(col_name)
             if not field_key:
                 continue
 
-            # собираем значения по отмеченным строкам
-            values = []
-            for r in selected_rows:
-                # вытаскиваем то, что показывает модель (DisplayRole)
-                idx = model.index(r, c)
-                val = model.data(idx, Qt.ItemDataRole.DisplayRole)
-                if val is None:
-                    val = ""
-                val = str(val).strip()
-                if val:
-                    values.append(val)
-
+            values = self._get_checked_values_by_column(model, col_index)
             if not values:
                 continue
 
-            # Правило заполнения:
-            # - для rules_content склеим через ', ' (потом твой парсер content разнесёт)
-            # - для остальных полей возьмём первое значение
-            if field_key == "rules_content":
-                prefill[field_key] = ", ".join(values)
+            # списковые поля склеиваем, для одиночных берём первое
+            if field_key in {"rules_content"}:
+                prefill[field_key] = ", ".join(map(str, values))
             else:
-                prefill[field_key] = values[0]
+                prefill[field_key] = str(values[0])
 
-        LOGGER.info("[ConstructorController] Prefill из выбора: %s", prefill)
+        LOGGER.info("[ConstructorController] Prefill из отмеченных ячеек: %s", prefill)
         return prefill
 
-
-
-    def create_rule(self, rule_data):
-        
+    def create_rule(self, rule_data: dict) -> bool:
         """
-        Запускает модель для создания нового правила.
+        Создание/обновление правила по SID:
+        - если SID новый -> создаём с rules_rev = 1
+        - если SID существует -> увеличиваем rules_rev
         """
-                
-        LOGGER.info("[ConstructorController] Запуск создания нового правила")
-        RuleModel.add_rule(rule_data)
+        sid = rule_data.get("rules_sid") or rule_data.get("sid")
+        if sid is None or str(sid).strip() == "":
+            LOGGER.error("[ConstructorController] SID пуст — правило не создано")
+            return False
 
+        try:
+            res = RuleModel.add_or_bump_rule(rule_data)
+            LOGGER.info("[ConstructorController] Результат сохранения: %s", res)
+            return True
+        except Exception as e:
+            LOGGER.error(f"[ConstructorController] Ошибка при сохранении правила: {e}", exc_info=True)
+            return False

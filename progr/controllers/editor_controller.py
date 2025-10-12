@@ -18,12 +18,6 @@ class EditorController:
         self._modified_rules = []  # Список кортежей (rule_id, updated_data)
 
     def get_rules(self, offset=0, limit=10):
-        """
-        Загружает список правил с пагинацией.
-        :param offset: смещение для выборки
-        :param limit: количество правил
-        :return: список словарей с данными правил
-        """
         try:
             LOGGER.info(f"[EditorController] Загрузка правил: offset={offset}, limit={limit}")
             rules = RuleModel.get_rules(offset, limit)
@@ -35,15 +29,13 @@ class EditorController:
 
     def get_rule_by_id(self, rule_id):
         """
-        Получает данные одного правила по ID в формате, готовом для CreateRuleDialog.
-        :param rule_id: ID правила
-        :return: словарь с данными (ключи = поля БД)
+        Возвращает данные для CreateRuleDialog / редактирования.
         """
         try:
             LOGGER.info(f"[EditorController] Получение данных правила ID={rule_id}")
             rule = RuleModel.get_rule_by_id(rule_id)
             if not rule:
-                raise ValueError(f"Правило не найдено")
+                raise ValueError("Правило не найдено")
 
             return {
                 "rules_action": rule.get("rules_action", ""),
@@ -64,11 +56,9 @@ class EditorController:
 
     def update_rule(self, rule_id, updated_data):
         """
-        Добавляет правило в список на сохранение после валидации.
-        :param rule_id: ID правила
-        :param updated_data: словарь с изменёнными данными (ключи = поля БД)
+        Копит изменения для пакетного сохранения (через BatchSaverThread).
+        Здесь НЕ увеличиваем версию — это обычное обновление по ID.
         """
-        # Валидация данных
         is_valid, errors = validate_rule(updated_data)
         if not is_valid:
             LOGGER.warning(f"[EditorController] Ошибка валидации правила ID={rule_id}: {errors}")
@@ -78,28 +68,21 @@ class EditorController:
             LOGGER.info(f"[EditorController] Изменение правила ID={rule_id}: {updated_data}")
             self._modified_rules.append((rule_id, updated_data))
         except Exception as e:
-            LOGGER.error(f"[EditorController] Ошибка при добавлении правила в очередь на сохранение: {e}", exc_info=True)
+            LOGGER.error(f"[EditorController] Ошибка при добавлении в очередь на сохранение: {e}", exc_info=True)
             raise
 
     def commit_all_async(self, thread_starter: callable, on_finished: callable, on_error: callable):
         """
         Запускает пакетное сохранение изменений в БД в отдельном потоке.
-        :param thread_starter: функция запуска потоков (например, MainWindow.start)
-        :param on_finished: коллбек после успешного сохранения (без аргументов)
-        :param on_error: коллбек при ошибке (str -> None)
         """
         try:
             if not self._modified_rules:
-                # Нет изменений — считаем «успешно» и просто выходим
                 on_finished()
                 return
 
-            # Копируем очередь, чтобы не мутировать её во время работы потока
             rules_batch = list(self._modified_rules)
-
             self._saver_thread = BatchSaverThread(rules_batch)
 
-            # Когда поток завершится — чистим очередь и дергаем on_finished
             def _done():
                 self._modified_rules.clear()
                 self._saver_thread = None
@@ -108,7 +91,6 @@ class EditorController:
             self._saver_thread.finished.connect(_done)
             self._saver_thread.error.connect(lambda msg: on_error(msg))
 
-            # Стартуем поток через переданный стартер (обычно MainWindow.start)
             thread_starter(self._saver_thread)
 
         except Exception as e:
@@ -116,10 +98,27 @@ class EditorController:
             on_error(str(e))
 
     def rate_rule(self, rule_id, positive=True):
-        """
-        Обновляет оценку правила.
-        """
         LOGGER.info("[EditorController] Запущен для оценки")
-        RuleModel.add_vote(rule_id, positive)  # метод в RuleModel
+        RuleModel.add_vote(rule_id, positive)
 
-            
+    # ─────────────────────────────────────────────────────────────
+    # ДОПОЛНИТЕЛЬНО: метод для «Редактора», чтобы по кнопке «Сохранить»
+    # можно было сделать ту же логику, что и в Конструкторе:
+    #   - если SID новый -> вставка с rules_rev=1
+    #   - если SID есть -> инкрементировать rules_rev
+    #
+    # Вставь вызов этого метода там, где получаешь данные из диалога
+    # редактирования по SID (если такой сценарий у тебя нужен).
+    # ─────────────────────────────────────────────────────────────
+    def create_or_bump_by_sid(self, rule_data: dict) -> bool:
+        sid = rule_data.get("rules_sid") or rule_data.get("sid")
+        if sid is None or str(sid).strip() == "":
+            LOGGER.error("[EditorController] SID пуст — операция отменена")
+            return False
+        try:
+            res = RuleModel.add_or_bump_rule(rule_data)
+            LOGGER.info("[EditorController] add_or_bump по SID=%s -> %s", sid, res)
+            return True
+        except Exception as e:
+            LOGGER.error(f"[EditorController] Ошибка add_or_bump по SID={sid}: {e}", exc_info=True)
+            return False

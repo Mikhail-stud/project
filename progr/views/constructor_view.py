@@ -3,12 +3,11 @@ from PyQt6.QtWidgets import (
     QComboBox, QMenu, QTableView, QMessageBox, QToolButton, QStyle
 )
 from PyQt6.QtCore import Qt
-#from PyQt6.QtGui import QAction
 from progr.controllers.constructor_controller import ConstructorController
 from progr.threads.file_loader_thread import FileLoaderThread
 from progr.dialogs.create_rule_dialog import CreateRuleDialog
 from progr.utils_app.logger import LOGGER
-from progr.views.widgets import CheckableHeaderView
+
 
 
 class ConstructorView(QWidget):
@@ -61,9 +60,7 @@ class ConstructorView(QWidget):
 
         # Таблица логов 
         self.table = QTableView()
-        #self.table.setSortingEnabled(True)
-        self.table.setHorizontalHeader(CheckableHeaderView(Qt.Orientation.Horizontal, self.table))
-        self.table.setVerticalHeader(CheckableHeaderView(Qt.Orientation.Vertical, self.table))
+        self.table.setSortingEnabled(True)
         self.layout.addWidget(self.table)
 
         # Кнопка создания правила 
@@ -155,16 +152,6 @@ class ConstructorView(QWidget):
         # ПОДСКАЗКА: чтобы добавить новый столбец или переименовать —
         # см. controllers/constructor_controller.py -> create_logs_model(headers)
 
-    # ---------------- Клики по заголовкам для (де)выбора ----------------
-    def _on_header_column_clicked(self, section: int):
-        if not self.logs_model:
-            return
-        self.logs_model.toggle_column_checked(section)
-
-    def _on_header_row_clicked(self, section: int):
-        if not self.logs_model:
-            return
-        self.logs_model.toggle_row_checked(section)
 
     # ---------------- Создать правило с автоподстановкой из выбора ----------------
     def _on_click_create_rule(self):
@@ -179,5 +166,17 @@ class ConstructorView(QWidget):
         dlg = CreateRuleDialog(self, controller=self.controller, rule_data=prefill)
         if dlg.exec():
             rule_data = dlg.get_data()
-            QMessageBox.information(self, "Ок", "Данные для правила приняты (можно передать в БД контроллеру).")
 
+            try:
+                self.controller.create_rule(rule_data)
+                QMessageBox.information(self, "Успех", "Правило успешно создано ")
+                LOGGER.info("[ConstructorView] Правило успешно создано")
+
+            except ValueError as ve:
+                QMessageBox.warning(self, "Ошибка валидации", {ve})
+                LOGGER.warning(f"[ConstructorView] Ошибка валидации str(ve)")
+
+                
+            except Exception as e:
+                QMessageBox.critical(self, "Ошибка", f"Не удалось создать правило: {e}")
+                LOGGER.critical(f"[ConstructorView] Не удалось создать правило: {e}")
