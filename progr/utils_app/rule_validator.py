@@ -2,7 +2,7 @@ import ipaddress
 
 # Допустимые значения для проверки
 VALID_ACTIONS = {"alert", "log", "pass", "activate", "dynamic", "drop", "reject", "sdrop"}
-VALID_PROTOCOLS = {"tcp", "udp"}
+VALID_PROTOCOLS = {"tcp", "udp", "icmp", "http"}
 VALID_DIRECTIONS = {"->", "<-", "<->"}  # Направления
 
 def validate_rule(rule_data: dict):

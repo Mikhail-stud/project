@@ -163,5 +163,4 @@ class RuleModel:
             LOGGER.error(f"[RuleModel] Ошибка добавления голоса для ID={rule_id}: {e}", exc_info=True)
             raise
 
-    # ---------- ОСНОВНАЯ ЛОГИКА ВЕРСИОНИРОВАНИЯ ПО SID ----------
    

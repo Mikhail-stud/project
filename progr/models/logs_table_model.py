@@ -85,6 +85,8 @@ class LogsTableModel(QAbstractTableModel):
                 if code is not None:
                     if 200 <= code <= 299:
                         return QColor(0, 128, 0)   # зелёный
+                    if 300 <= code <= 399:
+                        return QColor(255, 165, 0)   # оранжевый
                     if 400 <= code <= 599:
                         return QColor(200, 0, 0)   # красный
 

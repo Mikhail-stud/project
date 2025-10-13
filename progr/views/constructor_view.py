@@ -1,12 +1,15 @@
 from PyQt6.QtWidgets import (
     QWidget, QVBoxLayout, QPushButton, QFileDialog,
-    QComboBox, QMenu, QTableView, QMessageBox, QToolButton, QStyle
+    QComboBox, QMenu, QTableView, QMessageBox, QToolButton, QStyle, QHBoxLayout
 )
 from PyQt6.QtCore import Qt
+import pandas as pd
 from progr.controllers.constructor_controller import ConstructorController
 from progr.threads.file_loader_thread import FileLoaderThread
 from progr.dialogs.create_rule_dialog import CreateRuleDialog
 from progr.utils_app.logger import LOGGER
+from progr.config_app.ui_helpers import fix_widget_wigths
+
 
 
 
@@ -28,10 +31,12 @@ class ConstructorView(QWidget):
 
         self.layout = QVBoxLayout(self)
 
-        #  Кнопка загрузки файла логов 
+        #  Кнопка загрузки файла логов
         self.load_button = QPushButton("Загрузить файл логов")
         self.load_button.clicked.connect(self.load_logs)
+
         self.layout.addWidget(self.load_button)
+
 
         #  Выбор типа парсера 
         self.parser_selector = QComboBox()
@@ -41,19 +46,19 @@ class ConstructorView(QWidget):
         #  Кнопка парсинга 
         self.process_button = QPushButton("Сформировать таблицу логов")
         self.process_button.clicked.connect(self._on_click_parse)
-        self.layout.addWidget(self.process_button)
-        #self.layout.addStretch()
+        self.clear_btn = QPushButton("Очистить таблицу логов")
+        self.clear_btn.clicked.connect(self._on_clear_clicked)
+        btn_row = QHBoxLayout()
+        btn_row.addWidget(self.process_button, 1)
+        btn_row.addWidget(self.clear_btn)
+        
+        self.layout.addLayout(btn_row)
 
         # Кнопка с тремя точками (меню)
         self.btn_menu = QToolButton()
-        #self.btn_menu.setAutoRaise(True)
         self.btn_menu.setText("⋮")
-        #self.btn_menu.setObjectName("columnsMenuButton")
         self.btn_menu.setToolTip("Настройка столбцов")
         self.btn_menu.setPopupMode(QToolButton.ToolButtonPopupMode.InstantPopup)
-        #self.btn_menu.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonIconOnly)
-        #self.btn_menu.setIcon(self.style().standardIcon(QStyle.StandardPixmap.SP_TitleBarMenuButton))
-        #self.btn_menu.setFixedSize(28, 24)
         self.columns_menu = QMenu(self)
         self.btn_menu.setMenu(self.columns_menu)
         self.layout.addWidget(self.btn_menu, 0, Qt.AlignmentFlag.AlignRight)
@@ -67,6 +72,8 @@ class ConstructorView(QWidget):
         self.create_rule_button = QPushButton("Создать правило")
         self.create_rule_button.clicked.connect(self._on_click_create_rule)
         self.layout.addWidget(self.create_rule_button)
+
+        fix_widget_wigths(self, width=250)
 
        
 
@@ -105,24 +112,32 @@ class ConstructorView(QWidget):
 
         def on_ok(df):
             try:
-                # Модель создаёт КОНТРОЛЛЕР (с чекбоксами в заголовках)
-                self.logs_model = self.controller.create_logs_model(df, parent=self)
+        # Если уже что-то было — склеиваем старое и новое
+                if self.df is not None:
+                    try:
+                        self.df = pd.concat([self.df, df], ignore_index=True)
+                    except Exception:
+                # На случай несовпадения столбцов — выравниваем
+                        self.df = pd.concat([self.df, df.reindex(columns=self.df.columns)], ignore_index=True)
+                else:
+                    self.df = df
+
+        # Пересобираем модель по совокупным данным
+                self.logs_model = self.controller.create_logs_model(self.df, parent=self)
                 self.table.setModel(self.logs_model)
                 self.table.horizontalHeader().viewport().update()
                 self.table.verticalHeader().viewport().update()
                 self.table.resizeColumnsToContents()
-                print("horizontal header type:", type(self.table.horizontalHeader()))
-                print("vertical header type:", type(self.table.verticalHeader()))
 
-             # Создаём меню столбцов (показать/скрыть) на основе headers
+        # Обновляем меню столбцов
                 self._rebuild_columns_menu()
-                self.df = df
 
             except Exception as e:
-                LOGGER.error(f"[ConstructorView] table render error: {e}", exc_info=True)
+                LOGGER.error(f"[ConstructorView] Ошибка отображения таблицы: {e}", exc_info=True)
                 QMessageBox.critical(self, "Ошибка", f"Не удалось отобразить таблицу: {e}")
             finally:
                 self.process_button.setEnabled(True)
+
 
         def on_err(msg):
             self.process_button.setEnabled(True)
@@ -180,3 +195,25 @@ class ConstructorView(QWidget):
             except Exception as e:
                 QMessageBox.critical(self, "Ошибка", f"Не удалось создать правило: {e}")
                 LOGGER.critical(f"[ConstructorView] Не удалось создать правило: {e}")
+
+
+
+    def _on_clear_clicked(self):
+        """
+        Полностью очищает таблицу логов и внутреннее состояние.
+        """
+        model = self.table.model()
+        try:
+            if model and hasattr(model, "clear"):
+                model.clear()
+            elif model and hasattr(model, "set_rows"):
+                model.set_rows([])
+            else:
+                self.table.setModel(None)
+        # Сбросим внутренние ссылки/данные
+            self.logs_model = None
+            self.df = None
+        # Почистим меню столбцов
+            self.columns_menu.clear()
+        except Exception as e:
+            LOGGER.error(f"[ConstructorView] Ошибка очистки: {e}", exc_info=True)

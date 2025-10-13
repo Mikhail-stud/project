@@ -12,7 +12,19 @@ class LogParser:
     - WordPress
     - Bitrix
     """
-
+    @staticmethod
+    def _split_protocol(proto_raw: str) -> tuple[str, str]:
+        """
+        'HTTP/1.1' -> ('HTTP', '1.1'), 'HTTP/2' -> ('HTTP', '2'), иначе ('', '')
+        """
+        if not proto_raw:
+            return "", ""
+        parts = str(proto_raw).split("/", 1)
+        if len(parts) == 2:
+            return parts[0], parts[1]
+        return str(proto_raw), ""
+    
+    
     # Регулярка для Apache/Nginx access log (Common Log Format + User-Agent)
     apache_nginx_pattern = re.compile(
         r'(?P<ip>\S+) \S+ \S+ \[(?P<time>[^\]]+)\] '
@@ -33,6 +45,8 @@ class LogParser:
             if match:
                 raw_time = match.group("time")
                 date_str, time_str = self._split_apache_time(raw_time)
+                protocol = match.group("protocol")
+                proto, proto_ver = self._split_protocol(protocol)
 
                 parsed_data.append([
                     date_str,                         # 'date'  <-- НОВОЕ
@@ -40,14 +54,16 @@ class LogParser:
                     match.group("ip"),
                     match.group("method"),
                     match.group("object"),
-                    match.group("protocol"),
+                    protocol,
+                    proto,
+                    proto_ver,
                     int(match.group("code")),
                     match.group("referer"),
                     match.group("agent")
                 ])
 
         df = pd.DataFrame(parsed_data, columns=[
-            "date", "time", "ip", "method", "object", "protocol", "code", "referer", "user_agent"
+            "date", "time", "ip", "method", "object", "protocol", "proto", "proto_ver", "code", "referer", "user_agent"
         ])
         LOGGER.info(f"[LogParser] Получено {len(df)} записей Apache/Nginx")
         return df
@@ -66,20 +82,24 @@ class LogParser:
                 if match:
                     raw_time = match.group("time")
                     date_str, time_str = self._split_apache_time(raw_time)
+                    protocol = match.group("protocol")
+                    proto, proto_ver = self._split_protocol(protocol)
 
                     parsed_data.append([
                         date_str, time_str,
                         match.group("ip"),
                         match.group("method"),
                         match.group("object"),
-                        match.group("protocol"),
+                        protocol,
+                        proto,
+                        proto_ver,
                         int(match.group("code")),
                         match.group("referer"),
                         match.group("agent")
                     ])
 
         df = pd.DataFrame(parsed_data, columns=[
-            "date", "time", "ip", "method", "object", "protocol", "code", "referer", "user_agent"
+            "date", "time", "ip", "method", "object", "protocol", "proto", "proto_ver", "code", "referer", "user_agent"
         ])
         LOGGER.info(f"[LogParser] Получено {len(df)} записей WordPress")
         return df
@@ -99,20 +119,24 @@ class LogParser:
                 if match:
                     raw_time = match.group("time")
                     date_str, time_str = self._split_apache_time(raw_time)
+                    protocol = match.group("protocol")
+                    proto, proto_ver = self._split_protocol(protocol)
 
                     parsed_data.append([
                         date_str, time_str,
                         match.group("ip"),
                         match.group("method"),
                         match.group("object"),
-                        match.group("protocol"),
+                        protocol,
+                        proto,
+                        proto_ver,
                         int(match.group("code")),
                         match.group("referer"),
                         match.group("agent")
                     ])
 
         df = pd.DataFrame(parsed_data, columns=[
-            "date", "time", "ip", "method", "object", "protocol", "code", "referer", "user_agent"
+            "date", "time", "ip", "method", "object", "protocol", "proto", "proto_ver", "code", "referer", "user_agent"
         ])
         LOGGER.info(f"[LogParser] Получено {len(df)} записей Bitrix")
         return df
@@ -161,3 +185,5 @@ class LogParser:
         except Exception:
         # Фолбэк: не ломаемся — вернём исходную строку во 'time', а 'date' оставим пустой
             return "", s
+    
+

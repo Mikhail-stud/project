@@ -7,6 +7,8 @@ from progr.controllers.editor_controller import EditorController
 from progr.dialogs.create_rule_dialog import CreateRuleDialog
 from progr.threads.rules_fetcher_db_thread import RulesFetcherThread
 from progr.utils_app.logger import LOGGER
+from progr.config_app.ui_helpers import fix_widget_wigths
+
 
 
 class EditorView(QWidget):
@@ -48,6 +50,8 @@ class EditorView(QWidget):
 
         # Загружаем первую страницу с задержкой
         QTimer.singleShot(0, self.load_rules_async)
+
+        fix_widget_wigths(self, width=250)
 
     def load_rules_async(self):
         """Асинхронно запускает загрузку правил через поток, не блокируя UI."""

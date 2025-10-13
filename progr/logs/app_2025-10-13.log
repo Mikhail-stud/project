@@ -1,0 +1,770 @@
+2025-10-13 17:59:15 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-10-13.log
+2025-10-13 17:59:27 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-10-13.log
+2025-10-13 17:59:40 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-10-13.log
+2025-10-13 17:59:41 [INFO] [Programm_X_Logger] === Запуск Программа Х ===
+2025-10-13 17:59:41 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-10-13 17:59:41 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-10-13 17:59:41 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-10-13 17:59:41 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-10-13 17:59:41 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-13 17:59:47 [INFO] [Programm_X_Logger] [ConstructorView] Выбран файл: /home/ubuntupc/my-proj/access.log
+2025-10-13 17:59:47 [INFO] [Programm_X_Logger] [FileLoaderThread] Загрузка файла: /home/ubuntupc/my-proj/access.log
+2025-10-13 17:59:47 [INFO] [Programm_X_Logger] [FileLoaderThread] Файл успешно загружен, строк: 5
+2025-10-13 17:59:49 [INFO] [Programm_X_Logger] [ConstructorView] Загружено строк: 5
+2025-10-13 17:59:51 [INFO] [Programm_X_Logger] [ConstructorController] start_log_parse: type=Apache, lines=5
+2025-10-13 17:59:51 [INFO] [Programm_X_Logger] [LogParserThread] Запуск парсинга: type=Apache, lines=5
+2025-10-13 17:59:51 [INFO] [Programm_X_Logger] [LogParser] Парсинг Apache/Nginx логов, строк=5
+2025-10-13 17:59:51 [INFO] [Programm_X_Logger] [LogParser] Получено 5 записей Apache/Nginx
+2025-10-13 17:59:51 [INFO] [Programm_X_Logger] [LogParserThread] Парсинг завершён, поток завершается.
+2025-10-13 17:59:51 [INFO] [Programm_X_Logger] [ConstructorController] Парсинг завершён, записей: 5
+2025-10-13 17:59:51 [INFO] [Programm_X_Logger] [ConstructorController] Создана LogsTableModel: rows=5, cols=9
+2025-10-13 18:00:37 [INFO] [Programm_X_Logger] [ConstructorView] Выбран файл: /home/ubuntupc/Загрузки/access (2).log
+2025-10-13 18:00:37 [INFO] [Programm_X_Logger] [FileLoaderThread] Загрузка файла: /home/ubuntupc/Загрузки/access (2).log
+2025-10-13 18:00:37 [INFO] [Programm_X_Logger] [FileLoaderThread] Файл успешно загружен, строк: 302
+2025-10-13 18:00:39 [INFO] [Programm_X_Logger] [ConstructorView] Загружено строк: 302
+2025-10-13 18:00:40 [INFO] [Programm_X_Logger] [ConstructorController] start_log_parse: type=Apache, lines=302
+2025-10-13 18:00:40 [INFO] [Programm_X_Logger] [LogParserThread] Запуск парсинга: type=Apache, lines=302
+2025-10-13 18:00:40 [INFO] [Programm_X_Logger] [LogParser] Парсинг Apache/Nginx логов, строк=302
+2025-10-13 18:00:40 [INFO] [Programm_X_Logger] [LogParser] Получено 302 записей Apache/Nginx
+2025-10-13 18:00:40 [INFO] [Programm_X_Logger] [LogParserThread] Парсинг завершён, поток завершается.
+2025-10-13 18:00:40 [INFO] [Programm_X_Logger] [ConstructorController] Парсинг завершён, записей: 302
+2025-10-13 18:00:40 [INFO] [Programm_X_Logger] [ConstructorController] Создана LogsTableModel: rows=302, cols=9
+2025-10-13 18:02:48 [INFO] [Programm_X_Logger] [ConstructorController] Prefill из отмеченных ячеек: {'rules_content': '/wp-cron.php?doing_wp_cron=1754141090.4961240291595458984375'}
+2025-10-13 18:03:06 [INFO] [Programm_X_Logger] [ConstructorView] Выбран файл: /home/ubuntupc/Загрузки/access.log
+2025-10-13 18:03:06 [INFO] [Programm_X_Logger] [FileLoaderThread] Загрузка файла: /home/ubuntupc/Загрузки/access.log
+2025-10-13 18:03:06 [INFO] [Programm_X_Logger] [FileLoaderThread] Файл успешно загружен, строк: 5
+2025-10-13 18:03:08 [INFO] [Programm_X_Logger] [ConstructorView] Загружено строк: 5
+2025-10-13 18:03:09 [INFO] [Programm_X_Logger] [ConstructorController] start_log_parse: type=Apache, lines=5
+2025-10-13 18:03:09 [INFO] [Programm_X_Logger] [LogParserThread] Запуск парсинга: type=Apache, lines=5
+2025-10-13 18:03:09 [INFO] [Programm_X_Logger] [LogParser] Парсинг Apache/Nginx логов, строк=5
+2025-10-13 18:03:09 [INFO] [Programm_X_Logger] [LogParser] Получено 5 записей Apache/Nginx
+2025-10-13 18:03:09 [INFO] [Programm_X_Logger] [LogParserThread] Парсинг завершён, поток завершается.
+2025-10-13 18:03:10 [INFO] [Programm_X_Logger] [ConstructorController] Парсинг завершён, записей: 5
+2025-10-13 18:03:10 [INFO] [Programm_X_Logger] [ConstructorController] Создана LogsTableModel: rows=5, cols=9
+2025-10-13 18:03:15 [INFO] [Programm_X_Logger] [ConstructorController] Prefill из отмеченных ячеек: {'rules_content': '/icons/ubuntu-logo.png'}
+2025-10-13 18:03:22 [INFO] [Programm_X_Logger] === Завершение работы приложения ===
+2025-10-13 18:04:40 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-10-13.log
+2025-10-13 18:04:41 [INFO] [Programm_X_Logger] === Запуск Программа Х ===
+2025-10-13 18:04:41 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-10-13 18:04:41 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-10-13 18:04:41 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-10-13 18:04:41 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-10-13 18:04:41 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-13 18:04:52 [INFO] [Programm_X_Logger] [ConstructorView] Выбран файл: /home/ubuntupc/Загрузки/access (2).log
+2025-10-13 18:04:52 [INFO] [Programm_X_Logger] [FileLoaderThread] Загрузка файла: /home/ubuntupc/Загрузки/access (2).log
+2025-10-13 18:04:52 [INFO] [Programm_X_Logger] [FileLoaderThread] Файл успешно загружен, строк: 302
+2025-10-13 18:04:53 [INFO] [Programm_X_Logger] [ConstructorView] Загружено строк: 302
+2025-10-13 18:04:54 [INFO] [Programm_X_Logger] [ConstructorController] start_log_parse: type=Apache, lines=302
+2025-10-13 18:04:54 [INFO] [Programm_X_Logger] [LogParserThread] Запуск парсинга: type=Apache, lines=302
+2025-10-13 18:04:54 [INFO] [Programm_X_Logger] [LogParser] Парсинг Apache/Nginx логов, строк=302
+2025-10-13 18:04:54 [INFO] [Programm_X_Logger] [LogParser] Получено 302 записей Apache/Nginx
+2025-10-13 18:04:54 [INFO] [Programm_X_Logger] [LogParserThread] Парсинг завершён, поток завершается.
+2025-10-13 18:04:54 [INFO] [Programm_X_Logger] [ConstructorController] Парсинг завершён, записей: 302
+2025-10-13 18:04:54 [INFO] [Programm_X_Logger] [ConstructorController] Создана LogsTableModel: rows=302, cols=9
+2025-10-13 18:05:52 [INFO] [Programm_X_Logger] === Завершение работы приложения ===
+2025-10-13 18:06:04 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-10-13.log
+2025-10-13 18:06:05 [INFO] [Programm_X_Logger] === Запуск Программа Х ===
+2025-10-13 18:06:05 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-10-13 18:06:05 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-10-13 18:06:05 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-10-13 18:06:05 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-10-13 18:06:05 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-13 18:06:08 [INFO] [Programm_X_Logger] [ConstructorView] Выбран файл: /home/ubuntupc/my-proj/access.log
+2025-10-13 18:06:08 [INFO] [Programm_X_Logger] [FileLoaderThread] Загрузка файла: /home/ubuntupc/my-proj/access.log
+2025-10-13 18:06:08 [INFO] [Programm_X_Logger] [FileLoaderThread] Файл успешно загружен, строк: 5
+2025-10-13 18:06:09 [INFO] [Programm_X_Logger] [ConstructorView] Загружено строк: 5
+2025-10-13 18:06:14 [INFO] [Programm_X_Logger] [ConstructorView] Выбран файл: /home/ubuntupc/Загрузки/access (2).log
+2025-10-13 18:06:14 [INFO] [Programm_X_Logger] [FileLoaderThread] Загрузка файла: /home/ubuntupc/Загрузки/access (2).log
+2025-10-13 18:06:14 [INFO] [Programm_X_Logger] [FileLoaderThread] Файл успешно загружен, строк: 302
+2025-10-13 18:06:15 [INFO] [Programm_X_Logger] [ConstructorView] Загружено строк: 302
+2025-10-13 18:06:16 [INFO] [Programm_X_Logger] [ConstructorController] start_log_parse: type=Apache, lines=302
+2025-10-13 18:06:16 [INFO] [Programm_X_Logger] [LogParserThread] Запуск парсинга: type=Apache, lines=302
+2025-10-13 18:06:16 [INFO] [Programm_X_Logger] [LogParser] Парсинг Apache/Nginx логов, строк=302
+2025-10-13 18:06:16 [INFO] [Programm_X_Logger] [LogParser] Получено 302 записей Apache/Nginx
+2025-10-13 18:06:16 [INFO] [Programm_X_Logger] [LogParserThread] Парсинг завершён, поток завершается.
+2025-10-13 18:06:16 [INFO] [Programm_X_Logger] [ConstructorController] Парсинг завершён, записей: 302
+2025-10-13 18:06:16 [INFO] [Programm_X_Logger] [ConstructorController] Создана LogsTableModel: rows=302, cols=9
+2025-10-13 18:06:39 [INFO] [Programm_X_Logger] === Завершение работы приложения ===
+2025-10-13 19:46:19 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-10-13.log
+2025-10-13 19:46:20 [INFO] [Programm_X_Logger] === Запуск Программа Х ===
+2025-10-13 19:46:20 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-10-13 19:46:20 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-10-13 19:46:20 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-10-13 19:46:20 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-10-13 19:46:20 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-13 19:46:29 [INFO] [Programm_X_Logger] [ConstructorView] Выбран файл: /home/ubuntupc/my-proj/access.log
+2025-10-13 19:46:29 [INFO] [Programm_X_Logger] [FileLoaderThread] Загрузка файла: /home/ubuntupc/my-proj/access.log
+2025-10-13 19:46:29 [INFO] [Programm_X_Logger] [FileLoaderThread] Файл успешно загружен, строк: 5
+2025-10-13 19:46:30 [INFO] [Programm_X_Logger] [ConstructorView] Загружено строк: 5
+2025-10-13 19:46:31 [INFO] [Programm_X_Logger] [ConstructorController] start_log_parse: type=Apache, lines=5
+2025-10-13 19:46:31 [INFO] [Programm_X_Logger] [LogParserThread] Запуск парсинга: type=Apache, lines=5
+2025-10-13 19:46:31 [INFO] [Programm_X_Logger] [LogParser] Парсинг Apache/Nginx логов, строк=5
+2025-10-13 19:46:31 [ERROR] [Programm_X_Logger] [LogParserThread] Ошибка парсинга: LogParser._split_protocol() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "/home/ubuntupc/my-proj/progr/threads/log_parser_thread.py", line 32, in run
+    df = parser.parse_apache_nginx(self.log_lines)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntupc/my-proj/progr/models/log_parser_model.py", line 37, in parse_apache_nginx
+    proto, proto_ver = self._split_protocol(protocol)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: LogParser._split_protocol() takes 1 positional argument but 2 were given
+2025-10-13 19:46:31 [ERROR] [Programm_X_Logger] [ConstructorController] Ошибка парсинга: Ошибка парсинга: LogParser._split_protocol() takes 1 positional argument but 2 were given
+2025-10-13 19:46:54 [INFO] [Programm_X_Logger] [ConstructorController] start_log_parse: type=Apache, lines=5
+2025-10-13 19:46:54 [INFO] [Programm_X_Logger] [LogParserThread] Запуск парсинга: type=Apache, lines=5
+2025-10-13 19:46:54 [INFO] [Programm_X_Logger] [LogParser] Парсинг Apache/Nginx логов, строк=5
+2025-10-13 19:46:54 [ERROR] [Programm_X_Logger] [LogParserThread] Ошибка парсинга: LogParser._split_protocol() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "/home/ubuntupc/my-proj/progr/threads/log_parser_thread.py", line 32, in run
+    df = parser.parse_apache_nginx(self.log_lines)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntupc/my-proj/progr/models/log_parser_model.py", line 37, in parse_apache_nginx
+    proto, proto_ver = self._split_protocol(protocol)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: LogParser._split_protocol() takes 1 positional argument but 2 were given
+2025-10-13 19:46:54 [ERROR] [Programm_X_Logger] [ConstructorController] Ошибка парсинга: Ошибка парсинга: LogParser._split_protocol() takes 1 positional argument but 2 were given
+2025-10-13 19:46:56 [INFO] [Programm_X_Logger] === Завершение работы приложения ===
+2025-10-13 19:49:40 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-10-13.log
+2025-10-13 19:49:41 [INFO] [Programm_X_Logger] === Запуск Программа Х ===
+2025-10-13 19:49:41 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-10-13 19:49:41 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-10-13 19:49:41 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-10-13 19:49:41 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-10-13 19:49:41 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-13 19:49:43 [INFO] [Programm_X_Logger] [ConstructorView] Выбран файл: /home/ubuntupc/my-proj/access.log
+2025-10-13 19:49:43 [INFO] [Programm_X_Logger] [FileLoaderThread] Загрузка файла: /home/ubuntupc/my-proj/access.log
+2025-10-13 19:49:43 [INFO] [Programm_X_Logger] [FileLoaderThread] Файл успешно загружен, строк: 5
+2025-10-13 19:49:44 [INFO] [Programm_X_Logger] [ConstructorView] Загружено строк: 5
+2025-10-13 19:49:45 [INFO] [Programm_X_Logger] [ConstructorController] start_log_parse: type=Apache, lines=5
+2025-10-13 19:49:45 [INFO] [Programm_X_Logger] [LogParserThread] Запуск парсинга: type=Apache, lines=5
+2025-10-13 19:49:45 [INFO] [Programm_X_Logger] [LogParser] Парсинг Apache/Nginx логов, строк=5
+2025-10-13 19:49:45 [ERROR] [Programm_X_Logger] [LogParserThread] Ошибка парсинга: LogParser._split_protocol() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "/home/ubuntupc/my-proj/progr/threads/log_parser_thread.py", line 32, in run
+    df = parser.parse_apache_nginx(self.log_lines)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntupc/my-proj/progr/models/log_parser_model.py", line 48, in parse_apache_nginx
+    proto, proto_ver = self._split_protocol(protocol)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: LogParser._split_protocol() takes 1 positional argument but 2 were given
+2025-10-13 19:49:45 [ERROR] [Programm_X_Logger] [ConstructorController] Ошибка парсинга: Ошибка парсинга: LogParser._split_protocol() takes 1 positional argument but 2 were given
+2025-10-13 19:50:21 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=2
+2025-10-13 19:50:21 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=2
+2025-10-13 19:50:46 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=3
+2025-10-13 19:50:46 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=3
+2025-10-13 19:50:57 [INFO] [Programm_X_Logger] [EditorController] Изменение правила ID=3: {'rules_action': 'drop', 'rules_protocol': 'tcp', 'rules_ip_s': '192.120.0.0', 'rules_port_s': '1000', 'rules_route': '->', 'rules_ip_d': '192.168.0.0', 'rules_port_d': '2000', 'rules_msg': 'test22 test22', 'rules_content': 'test22', 'rules_sid': '70010', 'rules_rev': '1'}
+2025-10-13 19:51:01 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=4
+2025-10-13 19:51:01 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=4
+2025-10-13 19:51:08 [INFO] [Programm_X_Logger] [EditorController] Изменение правила ID=4: {'rules_action': 'drop', 'rules_protocol': 'udp', 'rules_ip_s': '7.7.7.7', 'rules_port_s': '789', 'rules_route': '<-', 'rules_ip_d': '8.8.8.8', 'rules_port_d': '456', 'rules_msg': 'TEST 123', 'rules_content': 'TEST', 'rules_sid': '70012', 'rules_rev': '5'}
+2025-10-13 19:51:10 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=5
+2025-10-13 19:51:11 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=5
+2025-10-13 19:51:16 [INFO] [Programm_X_Logger] [EditorController] Изменение правила ID=5: {'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': '18.18.18.1', 'rules_port_s': '123', 'rules_route': '->', 'rules_ip_d': '192.168.0.0', 'rules_port_d': '7895', 'rules_msg': 'Test create 13254', 'rules_content': 'create', 'rules_sid': '70087', 'rules_rev': '45'}
+2025-10-13 19:51:21 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=6
+2025-10-13 19:51:21 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=6
+2025-10-13 19:51:23 [INFO] [Programm_X_Logger] [EditorController] Изменение правила ID=6: {'rules_action': 'drop', 'rules_protocol': 'udp', 'rules_ip_s': '192.168.0.0', 'rules_port_s': '53', 'rules_route': '->', 'rules_ip_d': '8.8.8.8', 'rules_port_d': '53', 'rules_msg': 'Dns test', 'rules_content': 'dns, test', 'rules_sid': '70089', 'rules_rev': '5'}
+2025-10-13 19:51:27 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=7
+2025-10-13 19:51:27 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=7
+2025-10-13 19:51:39 [INFO] [Programm_X_Logger] [EditorController] Изменение правила ID=7: {'rules_action': 'drop', 'rules_protocol': 'tcp', 'rules_ip_s': '15.15.15.15', 'rules_port_s': '15', 'rules_route': '->', 'rules_ip_d': '192.16.2.2', 'rules_port_d': '12', 'rules_msg': 'output test', 'rules_content': 'test', 'rules_sid': '700102', 'rules_rev': '1'}
+2025-10-13 19:51:41 [INFO] [Programm_X_Logger] [BatchSaverThread] Сохранение 5 правил...
+2025-10-13 19:51:41 [DEBUG] [Programm_X_Logger] [BatchSaverThread] Сохранение правила ID=3: {'rules_action': 'drop', 'rules_protocol': 'tcp', 'rules_ip_s': '192.120.0.0', 'rules_port_s': '1000', 'rules_route': '->', 'rules_ip_d': '192.168.0.0', 'rules_port_d': '2000', 'rules_msg': 'test22 test22', 'rules_content': 'test22', 'rules_sid': '70010', 'rules_rev': '1'}
+2025-10-13 19:51:41 [INFO] [Programm_X_Logger] [RuleModel] Правило ID=3 обновлено
+2025-10-13 19:51:41 [DEBUG] [Programm_X_Logger] [BatchSaverThread] Сохранение правила ID=4: {'rules_action': 'drop', 'rules_protocol': 'udp', 'rules_ip_s': '7.7.7.7', 'rules_port_s': '789', 'rules_route': '<-', 'rules_ip_d': '8.8.8.8', 'rules_port_d': '456', 'rules_msg': 'TEST 123', 'rules_content': 'TEST', 'rules_sid': '70012', 'rules_rev': '5'}
+2025-10-13 19:51:41 [INFO] [Programm_X_Logger] [RuleModel] Правило ID=4 обновлено
+2025-10-13 19:51:41 [DEBUG] [Programm_X_Logger] [BatchSaverThread] Сохранение правила ID=5: {'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': '18.18.18.1', 'rules_port_s': '123', 'rules_route': '->', 'rules_ip_d': '192.168.0.0', 'rules_port_d': '7895', 'rules_msg': 'Test create 13254', 'rules_content': 'create', 'rules_sid': '70087', 'rules_rev': '45'}
+2025-10-13 19:51:41 [INFO] [Programm_X_Logger] [RuleModel] Правило ID=5 обновлено
+2025-10-13 19:51:41 [DEBUG] [Programm_X_Logger] [BatchSaverThread] Сохранение правила ID=6: {'rules_action': 'drop', 'rules_protocol': 'udp', 'rules_ip_s': '192.168.0.0', 'rules_port_s': '53', 'rules_route': '->', 'rules_ip_d': '8.8.8.8', 'rules_port_d': '53', 'rules_msg': 'Dns test', 'rules_content': 'dns, test', 'rules_sid': '70089', 'rules_rev': '5'}
+2025-10-13 19:51:41 [INFO] [Programm_X_Logger] [RuleModel] Правило ID=6 обновлено
+2025-10-13 19:51:41 [DEBUG] [Programm_X_Logger] [BatchSaverThread] Сохранение правила ID=7: {'rules_action': 'drop', 'rules_protocol': 'tcp', 'rules_ip_s': '15.15.15.15', 'rules_port_s': '15', 'rules_route': '->', 'rules_ip_d': '192.16.2.2', 'rules_port_d': '12', 'rules_msg': 'output test', 'rules_content': 'test', 'rules_sid': '700102', 'rules_rev': '1'}
+2025-10-13 19:51:41 [INFO] [Programm_X_Logger] [RuleModel] Правило ID=7 обновлено
+2025-10-13 19:51:41 [INFO] [Programm_X_Logger] [BatchSaverThread] Сохранение завершено успешно.
+2025-10-13 19:51:42 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-10-13 19:51:42 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-10-13 19:51:42 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-10-13 19:51:42 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-10-13 19:51:42 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-13 19:51:51 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=8
+2025-10-13 19:51:51 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=8
+2025-10-13 19:51:58 [INFO] [Programm_X_Logger] [EditorController] Изменение правила ID=8: {'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': 'any', 'rules_port_s': '53', 'rules_route': '<-', 'rules_ip_d': '7.7.7.7', 'rules_port_d': '53', 'rules_msg': 'Test DNS req, req', 'rules_content': 'TEST, request', 'rules_sid': '7004004', 'rules_rev': '1'}
+2025-10-13 19:52:01 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=3
+2025-10-13 19:52:02 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=3
+2025-10-13 19:52:04 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=2
+2025-10-13 19:52:04 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=2
+2025-10-13 19:52:12 [INFO] [Programm_X_Logger] [EditorController] Изменение правила ID=2: {'rules_action': 'alert', 'rules_protocol': 'udp', 'rules_ip_s': '8.8.8.8', 'rules_port_s': '53', 'rules_route': '->', 'rules_ip_d': '192.168.0.0', 'rules_port_d': '45', 'rules_msg': 'cdbchb', 'rules_content': 'djhfbvhj', 'rules_sid': '70078', 'rules_rev': '2'}
+2025-10-13 19:52:15 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=10
+2025-10-13 19:52:16 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=10
+2025-10-13 19:52:22 [INFO] [Programm_X_Logger] [EditorController] Изменение правила ID=10: {'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': '12.12.12.12', 'rules_port_s': '156', 'rules_route': '<->', 'rules_ip_d': '131.123.123.11', 'rules_port_d': '165', 'rules_msg': 'test12', 'rules_content': 'jhvbfqjhd', 'rules_sid': '700112', 'rules_rev': '515'}
+2025-10-13 19:52:24 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=11
+2025-10-13 19:52:24 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=11
+2025-10-13 19:52:27 [INFO] [Programm_X_Logger] [EditorController] Изменение правила ID=11: {'rules_action': 'alert', 'rules_protocol': 'udp', 'rules_ip_s': '54.64.46.54', 'rules_port_s': '5616', 'rules_route': '<->', 'rules_ip_d': '45.44.45.4', 'rules_port_d': '561', 'rules_msg': 'mn dkjfdk', 'rules_content': 'dnf, qd, test', 'rules_sid': '70077', 'rules_rev': '88'}
+2025-10-13 19:52:29 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=12
+2025-10-13 19:52:29 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=12
+2025-10-13 19:52:31 [INFO] [Programm_X_Logger] [EditorController] Изменение правила ID=12: {'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': '192.168.0.0', 'rules_port_s': '50', 'rules_route': '->', 'rules_ip_d': '7.7.7.7', 'rules_port_d': '53', 'rules_msg': 'New dns req test rule', 'rules_content': 'dns. req', 'rules_sid': '7001202', 'rules_rev': '1'}
+2025-10-13 19:52:33 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=13
+2025-10-13 19:52:33 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=13
+2025-10-13 19:52:41 [INFO] [Programm_X_Logger] [EditorController] Изменение правила ID=13: {'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': '192.168.0.0', 'rules_port_s': '22', 'rules_route': '->', 'rules_ip_d': '7.7.7.7', 'rules_port_d': '45', 'rules_msg': 'Test scan rule', 'rules_content': 'scan', 'rules_sid': '70045', 'rules_rev': '1'}
+2025-10-13 19:52:44 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=14
+2025-10-13 19:52:44 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=14
+2025-10-13 19:52:52 [INFO] [Programm_X_Logger] [EditorController] Изменение правила ID=14: {'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': '192.168.0.0', 'rules_port_s': '22', 'rules_route': '->', 'rules_ip_d': '7.7.7.1', 'rules_port_d': '789', 'rules_msg': 'Tets rele scan out', 'rules_content': 'scan', 'rules_sid': '700445', 'rules_rev': '1'}
+2025-10-13 19:52:57 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=15
+2025-10-13 19:52:57 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=15
+2025-10-13 19:52:59 [INFO] [Programm_X_Logger] [EditorController] Изменение правила ID=15: {'rules_action': 'drop', 'rules_protocol': 'tcp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '->', 'rules_ip_d': 'any', 'rules_port_d': 'any', 'rules_msg': 'Tets reu with any', 'rules_content': 'test, rule, any', 'rules_sid': '7001001', 'rules_rev': '1'}
+2025-10-13 19:53:03 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=16
+2025-10-13 19:53:03 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=16
+2025-10-13 19:53:09 [INFO] [Programm_X_Logger] [EditorController] Изменение правила ID=16: {'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '->', 'rules_ip_d': '192.168.0.0', 'rules_port_d': 'any', 'rules_msg': 'Test rule', 'rules_content': 'test', 'rules_sid': '7001002', 'rules_rev': '12'}
+2025-10-13 19:53:12 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=17
+2025-10-13 19:53:12 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=17
+2025-10-13 19:53:16 [INFO] [Programm_X_Logger] [EditorController] Изменение правила ID=17: {'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '->', 'rules_ip_d': '192.168.1.1', 'rules_port_d': 'any', 'rules_msg': 'New dis', 'rules_content': 'new, rule, dis, test', 'rules_sid': '700123', 'rules_rev': '1'}
+2025-10-13 19:53:18 [INFO] [Programm_X_Logger] [BatchSaverThread] Сохранение 10 правил...
+2025-10-13 19:53:18 [DEBUG] [Programm_X_Logger] [BatchSaverThread] Сохранение правила ID=8: {'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': 'any', 'rules_port_s': '53', 'rules_route': '<-', 'rules_ip_d': '7.7.7.7', 'rules_port_d': '53', 'rules_msg': 'Test DNS req, req', 'rules_content': 'TEST, request', 'rules_sid': '7004004', 'rules_rev': '1'}
+2025-10-13 19:53:18 [INFO] [Programm_X_Logger] [RuleModel] Правило ID=8 обновлено
+2025-10-13 19:53:18 [DEBUG] [Programm_X_Logger] [BatchSaverThread] Сохранение правила ID=2: {'rules_action': 'alert', 'rules_protocol': 'udp', 'rules_ip_s': '8.8.8.8', 'rules_port_s': '53', 'rules_route': '->', 'rules_ip_d': '192.168.0.0', 'rules_port_d': '45', 'rules_msg': 'cdbchb', 'rules_content': 'djhfbvhj', 'rules_sid': '70078', 'rules_rev': '2'}
+2025-10-13 19:53:18 [INFO] [Programm_X_Logger] [RuleModel] Правило ID=2 обновлено
+2025-10-13 19:53:18 [DEBUG] [Programm_X_Logger] [BatchSaverThread] Сохранение правила ID=10: {'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': '12.12.12.12', 'rules_port_s': '156', 'rules_route': '<->', 'rules_ip_d': '131.123.123.11', 'rules_port_d': '165', 'rules_msg': 'test12', 'rules_content': 'jhvbfqjhd', 'rules_sid': '700112', 'rules_rev': '515'}
+2025-10-13 19:53:19 [INFO] [Programm_X_Logger] [RuleModel] Правило ID=10 обновлено
+2025-10-13 19:53:19 [DEBUG] [Programm_X_Logger] [BatchSaverThread] Сохранение правила ID=11: {'rules_action': 'alert', 'rules_protocol': 'udp', 'rules_ip_s': '54.64.46.54', 'rules_port_s': '5616', 'rules_route': '<->', 'rules_ip_d': '45.44.45.4', 'rules_port_d': '561', 'rules_msg': 'mn dkjfdk', 'rules_content': 'dnf, qd, test', 'rules_sid': '70077', 'rules_rev': '88'}
+2025-10-13 19:53:19 [INFO] [Programm_X_Logger] [RuleModel] Правило ID=11 обновлено
+2025-10-13 19:53:19 [DEBUG] [Programm_X_Logger] [BatchSaverThread] Сохранение правила ID=12: {'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': '192.168.0.0', 'rules_port_s': '50', 'rules_route': '->', 'rules_ip_d': '7.7.7.7', 'rules_port_d': '53', 'rules_msg': 'New dns req test rule', 'rules_content': 'dns. req', 'rules_sid': '7001202', 'rules_rev': '1'}
+2025-10-13 19:53:19 [INFO] [Programm_X_Logger] [RuleModel] Правило ID=12 обновлено
+2025-10-13 19:53:19 [DEBUG] [Programm_X_Logger] [BatchSaverThread] Сохранение правила ID=13: {'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': '192.168.0.0', 'rules_port_s': '22', 'rules_route': '->', 'rules_ip_d': '7.7.7.7', 'rules_port_d': '45', 'rules_msg': 'Test scan rule', 'rules_content': 'scan', 'rules_sid': '70045', 'rules_rev': '1'}
+2025-10-13 19:53:19 [INFO] [Programm_X_Logger] [RuleModel] Правило ID=13 обновлено
+2025-10-13 19:53:19 [DEBUG] [Programm_X_Logger] [BatchSaverThread] Сохранение правила ID=14: {'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': '192.168.0.0', 'rules_port_s': '22', 'rules_route': '->', 'rules_ip_d': '7.7.7.1', 'rules_port_d': '789', 'rules_msg': 'Tets rele scan out', 'rules_content': 'scan', 'rules_sid': '700445', 'rules_rev': '1'}
+2025-10-13 19:53:19 [INFO] [Programm_X_Logger] [RuleModel] Правило ID=14 обновлено
+2025-10-13 19:53:19 [DEBUG] [Programm_X_Logger] [BatchSaverThread] Сохранение правила ID=15: {'rules_action': 'drop', 'rules_protocol': 'tcp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '->', 'rules_ip_d': 'any', 'rules_port_d': 'any', 'rules_msg': 'Tets reu with any', 'rules_content': 'test, rule, any', 'rules_sid': '7001001', 'rules_rev': '1'}
+2025-10-13 19:53:19 [INFO] [Programm_X_Logger] [RuleModel] Правило ID=15 обновлено
+2025-10-13 19:53:19 [DEBUG] [Programm_X_Logger] [BatchSaverThread] Сохранение правила ID=16: {'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '->', 'rules_ip_d': '192.168.0.0', 'rules_port_d': 'any', 'rules_msg': 'Test rule', 'rules_content': 'test', 'rules_sid': '7001002', 'rules_rev': '12'}
+2025-10-13 19:53:19 [INFO] [Programm_X_Logger] [RuleModel] Правило ID=16 обновлено
+2025-10-13 19:53:19 [DEBUG] [Programm_X_Logger] [BatchSaverThread] Сохранение правила ID=17: {'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '->', 'rules_ip_d': '192.168.1.1', 'rules_port_d': 'any', 'rules_msg': 'New dis', 'rules_content': 'new, rule, dis, test', 'rules_sid': '700123', 'rules_rev': '1'}
+2025-10-13 19:53:19 [INFO] [Programm_X_Logger] [RuleModel] Правило ID=17 обновлено
+2025-10-13 19:53:19 [INFO] [Programm_X_Logger] [BatchSaverThread] Сохранение завершено успешно.
+2025-10-13 19:53:20 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-10-13 19:53:20 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-10-13 19:53:20 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-10-13 19:53:20 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-10-13 19:53:20 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-13 19:53:24 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=18
+2025-10-13 19:53:24 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=18
+2025-10-13 19:53:30 [INFO] [Programm_X_Logger] [EditorController] Изменение правила ID=18: {'rules_action': 'drop', 'rules_protocol': 'udp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '<->', 'rules_ip_d': 'any', 'rules_port_d': 'any', 'rules_msg': 'test test test tes test tset st ts st stts', 'rules_content': 'vvvvvvvvvvvvvvv, vvvvvvvvvvvvvvvvvvv, gggggggggggggg', 'rules_sid': '700312', 'rules_rev': '1'}
+2025-10-13 19:53:34 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=19
+2025-10-13 19:53:34 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=19
+2025-10-13 19:53:37 [INFO] [Programm_X_Logger] [EditorController] Изменение правила ID=19: {'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '<->', 'rules_ip_d': 'any', 'rules_port_d': 'any', 'rules_msg': 'any test', 'rules_content': 'any, test', 'rules_sid': '7001234', 'rules_rev': '2'}
+2025-10-13 19:53:39 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=20
+2025-10-13 19:53:39 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=20
+2025-10-13 19:53:43 [INFO] [Programm_X_Logger] [EditorController] Изменение правила ID=20: {'rules_action': 'pass', 'rules_protocol': 'tcp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '->', 'rules_ip_d': 'any', 'rules_port_d': 'any', 'rules_msg': 'pass 156', 'rules_content': 're, je, ct, ru, le', 'rules_sid': '700512', 'rules_rev': '1'}
+2025-10-13 19:53:45 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=21
+2025-10-13 19:53:45 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=21
+2025-10-13 19:53:49 [INFO] [Programm_X_Logger] [EditorController] Изменение правила ID=21: {'rules_action': 'alert', 'rules_protocol': 'udp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '<-', 'rules_ip_d': 'any', 'rules_port_d': 'any', 'rules_msg': 'anyanyanyanyanyany', 'rules_content': 'any, any, any, any, any', 'rules_sid': '70012313', 'rules_rev': '111'}
+2025-10-13 19:53:51 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=20, limit=20
+2025-10-13 19:53:51 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=20, limit=20
+2025-10-13 19:53:51 [INFO] [Programm_X_Logger] [RuleModel] Получено 9 правил (offset=20, limit=20)
+2025-10-13 19:53:51 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 9
+2025-10-13 19:53:51 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-13 19:53:52 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=22
+2025-10-13 19:53:52 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=22
+2025-10-13 19:53:56 [INFO] [Programm_X_Logger] [EditorController] Изменение правила ID=22: {'rules_action': 'reject', 'rules_protocol': 'tcp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '->', 'rules_ip_d': 'any', 'rules_port_d': 'any', 'rules_msg': 'any test pravilo', 'rules_content': 'any, test, pravilo, any', 'rules_sid': '7004123', 'rules_rev': '12'}
+2025-10-13 19:53:58 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-10-13 19:53:58 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-10-13 19:53:58 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-10-13 19:53:58 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-10-13 19:53:58 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-13 19:54:00 [INFO] [Programm_X_Logger] [BatchSaverThread] Сохранение 5 правил...
+2025-10-13 19:54:00 [DEBUG] [Programm_X_Logger] [BatchSaverThread] Сохранение правила ID=18: {'rules_action': 'drop', 'rules_protocol': 'udp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '<->', 'rules_ip_d': 'any', 'rules_port_d': 'any', 'rules_msg': 'test test test tes test tset st ts st stts', 'rules_content': 'vvvvvvvvvvvvvvv, vvvvvvvvvvvvvvvvvvv, gggggggggggggg', 'rules_sid': '700312', 'rules_rev': '1'}
+2025-10-13 19:54:00 [INFO] [Programm_X_Logger] [RuleModel] Правило ID=18 обновлено
+2025-10-13 19:54:00 [DEBUG] [Programm_X_Logger] [BatchSaverThread] Сохранение правила ID=19: {'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '<->', 'rules_ip_d': 'any', 'rules_port_d': 'any', 'rules_msg': 'any test', 'rules_content': 'any, test', 'rules_sid': '7001234', 'rules_rev': '2'}
+2025-10-13 19:54:00 [INFO] [Programm_X_Logger] [RuleModel] Правило ID=19 обновлено
+2025-10-13 19:54:00 [DEBUG] [Programm_X_Logger] [BatchSaverThread] Сохранение правила ID=20: {'rules_action': 'pass', 'rules_protocol': 'tcp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '->', 'rules_ip_d': 'any', 'rules_port_d': 'any', 'rules_msg': 'pass 156', 'rules_content': 're, je, ct, ru, le', 'rules_sid': '700512', 'rules_rev': '1'}
+2025-10-13 19:54:00 [INFO] [Programm_X_Logger] [RuleModel] Правило ID=20 обновлено
+2025-10-13 19:54:00 [DEBUG] [Programm_X_Logger] [BatchSaverThread] Сохранение правила ID=21: {'rules_action': 'alert', 'rules_protocol': 'udp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '<-', 'rules_ip_d': 'any', 'rules_port_d': 'any', 'rules_msg': 'anyanyanyanyanyany', 'rules_content': 'any, any, any, any, any', 'rules_sid': '70012313', 'rules_rev': '111'}
+2025-10-13 19:54:00 [INFO] [Programm_X_Logger] [RuleModel] Правило ID=21 обновлено
+2025-10-13 19:54:00 [DEBUG] [Programm_X_Logger] [BatchSaverThread] Сохранение правила ID=22: {'rules_action': 'reject', 'rules_protocol': 'tcp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '->', 'rules_ip_d': 'any', 'rules_port_d': 'any', 'rules_msg': 'any test pravilo', 'rules_content': 'any, test, pravilo, any', 'rules_sid': '7004123', 'rules_rev': '12'}
+2025-10-13 19:54:00 [INFO] [Programm_X_Logger] [RuleModel] Правило ID=22 обновлено
+2025-10-13 19:54:00 [INFO] [Programm_X_Logger] [BatchSaverThread] Сохранение завершено успешно.
+2025-10-13 19:54:01 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-10-13 19:54:01 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-10-13 19:54:01 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-10-13 19:54:01 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-10-13 19:54:01 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-13 19:54:03 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=20, limit=20
+2025-10-13 19:54:03 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=20, limit=20
+2025-10-13 19:54:03 [INFO] [Programm_X_Logger] [RuleModel] Получено 9 правил (offset=20, limit=20)
+2025-10-13 19:54:03 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 9
+2025-10-13 19:54:03 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-13 19:54:04 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=23
+2025-10-13 19:54:04 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=23
+2025-10-13 19:54:08 [INFO] [Programm_X_Logger] [EditorController] Изменение правила ID=23: {'rules_action': 'log', 'rules_protocol': 'tcp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '->', 'rules_ip_d': 'any', 'rules_port_d': 'any', 'rules_msg': 'any any any', 'rules_content': 'any, any, any, any', 'rules_sid': '7001467', 'rules_rev': '567'}
+2025-10-13 19:54:11 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=23
+2025-10-13 19:54:11 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=23
+2025-10-13 19:54:12 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=24
+2025-10-13 19:54:12 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=24
+2025-10-13 19:54:15 [INFO] [Programm_X_Logger] [EditorController] Изменение правила ID=24: {'rules_action': 'alert', 'rules_protocol': 'udp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '<-', 'rules_ip_d': 'any', 'rules_port_d': 'any', 'rules_msg': 'any any test any', 'rules_content': 'any, any, any', 'rules_sid': '70064', 'rules_rev': '8'}
+2025-10-13 19:54:16 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=25
+2025-10-13 19:54:16 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=25
+2025-10-13 19:54:20 [INFO] [Programm_X_Logger] [EditorController] Изменение правила ID=25: {'rules_action': 'log', 'rules_protocol': 'tcp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '->', 'rules_ip_d': 'any', 'rules_port_d': 'any', 'rules_msg': 'any', 'rules_content': 'any, any', 'rules_sid': '70078', 'rules_rev': '87'}
+2025-10-13 19:54:22 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=26
+2025-10-13 19:54:22 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=26
+2025-10-13 19:54:25 [INFO] [Programm_X_Logger] [EditorController] Изменение правила ID=26: {'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '->', 'rules_ip_d': '192.168.0.0', 'rules_port_d': 'any', 'rules_msg': 'Test rules num 2', 'rules_content': 'num, rules, 12', 'rules_sid': '70010001', 'rules_rev': '1'}
+2025-10-13 19:54:27 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=27
+2025-10-13 19:54:28 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=27
+2025-10-13 19:54:34 [INFO] [Programm_X_Logger] [EditorController] Изменение правила ID=27: {'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '->', 'rules_ip_d': 'any', 'rules_port_d': 'any', 'rules_msg': 'Test for rec', 'rules_content': 'rec, test', 'rules_sid': '7003123', 'rules_rev': '5'}
+2025-10-13 19:54:36 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=28
+2025-10-13 19:54:36 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=28
+2025-10-13 19:54:40 [INFO] [Programm_X_Logger] [EditorController] Изменение правила ID=28: {'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '->', 'rules_ip_d': 'any', 'rules_port_d': 'any', 'rules_msg': 'Test for rec', 'rules_content': 'rec, test', 'rules_sid': '7006123', 'rules_rev': '747'}
+2025-10-13 19:54:45 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-10-13 19:54:45 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-10-13 19:54:45 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-10-13 19:54:45 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-10-13 19:54:45 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-13 19:54:53 [INFO] [Programm_X_Logger] [BatchSaverThread] Сохранение 6 правил...
+2025-10-13 19:54:53 [DEBUG] [Programm_X_Logger] [BatchSaverThread] Сохранение правила ID=23: {'rules_action': 'log', 'rules_protocol': 'tcp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '->', 'rules_ip_d': 'any', 'rules_port_d': 'any', 'rules_msg': 'any any any', 'rules_content': 'any, any, any, any', 'rules_sid': '7001467', 'rules_rev': '567'}
+2025-10-13 19:54:53 [INFO] [Programm_X_Logger] [RuleModel] Правило ID=23 обновлено
+2025-10-13 19:54:53 [DEBUG] [Programm_X_Logger] [BatchSaverThread] Сохранение правила ID=24: {'rules_action': 'alert', 'rules_protocol': 'udp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '<-', 'rules_ip_d': 'any', 'rules_port_d': 'any', 'rules_msg': 'any any test any', 'rules_content': 'any, any, any', 'rules_sid': '70064', 'rules_rev': '8'}
+2025-10-13 19:54:53 [INFO] [Programm_X_Logger] [RuleModel] Правило ID=24 обновлено
+2025-10-13 19:54:53 [DEBUG] [Programm_X_Logger] [BatchSaverThread] Сохранение правила ID=25: {'rules_action': 'log', 'rules_protocol': 'tcp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '->', 'rules_ip_d': 'any', 'rules_port_d': 'any', 'rules_msg': 'any', 'rules_content': 'any, any', 'rules_sid': '70078', 'rules_rev': '87'}
+2025-10-13 19:54:53 [INFO] [Programm_X_Logger] [RuleModel] Правило ID=25 обновлено
+2025-10-13 19:54:53 [DEBUG] [Programm_X_Logger] [BatchSaverThread] Сохранение правила ID=26: {'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '->', 'rules_ip_d': '192.168.0.0', 'rules_port_d': 'any', 'rules_msg': 'Test rules num 2', 'rules_content': 'num, rules, 12', 'rules_sid': '70010001', 'rules_rev': '1'}
+2025-10-13 19:54:53 [INFO] [Programm_X_Logger] [RuleModel] Правило ID=26 обновлено
+2025-10-13 19:54:53 [DEBUG] [Programm_X_Logger] [BatchSaverThread] Сохранение правила ID=27: {'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '->', 'rules_ip_d': 'any', 'rules_port_d': 'any', 'rules_msg': 'Test for rec', 'rules_content': 'rec, test', 'rules_sid': '7003123', 'rules_rev': '5'}
+2025-10-13 19:54:53 [INFO] [Programm_X_Logger] [RuleModel] Правило ID=27 обновлено
+2025-10-13 19:54:53 [DEBUG] [Programm_X_Logger] [BatchSaverThread] Сохранение правила ID=28: {'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '->', 'rules_ip_d': 'any', 'rules_port_d': 'any', 'rules_msg': 'Test for rec', 'rules_content': 'rec, test', 'rules_sid': '7006123', 'rules_rev': '747'}
+2025-10-13 19:54:53 [INFO] [Programm_X_Logger] [RuleModel] Правило ID=28 обновлено
+2025-10-13 19:54:53 [INFO] [Programm_X_Logger] [BatchSaverThread] Сохранение завершено успешно.
+2025-10-13 19:54:54 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-10-13 19:54:54 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-10-13 19:54:54 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-10-13 19:54:54 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-10-13 19:54:54 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-13 19:54:55 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=20, limit=20
+2025-10-13 19:54:55 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=20, limit=20
+2025-10-13 19:54:55 [INFO] [Programm_X_Logger] [RuleModel] Получено 9 правил (offset=20, limit=20)
+2025-10-13 19:54:55 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 9
+2025-10-13 19:54:55 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-13 19:55:01 [INFO] [Programm_X_Logger] [EditorController] Запущен для оценки
+2025-10-13 19:55:01 [INFO] [Programm_X_Logger] [RuleModel] Голос добавлен для правила ID=22, positive=True
+2025-10-13 19:55:01 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=20, limit=20
+2025-10-13 19:55:01 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=20, limit=20
+2025-10-13 19:55:01 [INFO] [Programm_X_Logger] [RuleModel] Получено 9 правил (offset=20, limit=20)
+2025-10-13 19:55:01 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 9
+2025-10-13 19:55:01 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-13 19:55:02 [INFO] [Programm_X_Logger] [EditorController] Запущен для оценки
+2025-10-13 19:55:02 [INFO] [Programm_X_Logger] [RuleModel] Голос добавлен для правила ID=22, positive=False
+2025-10-13 19:55:02 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=20, limit=20
+2025-10-13 19:55:02 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=20, limit=20
+2025-10-13 19:55:02 [INFO] [Programm_X_Logger] [RuleModel] Получено 9 правил (offset=20, limit=20)
+2025-10-13 19:55:02 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 9
+2025-10-13 19:55:02 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-13 19:55:04 [INFO] [Programm_X_Logger] [EditorController] Запущен для оценки
+2025-10-13 19:55:04 [INFO] [Programm_X_Logger] [RuleModel] Голос добавлен для правила ID=23, positive=False
+2025-10-13 19:55:04 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=20, limit=20
+2025-10-13 19:55:04 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=20, limit=20
+2025-10-13 19:55:04 [INFO] [Programm_X_Logger] [RuleModel] Получено 9 правил (offset=20, limit=20)
+2025-10-13 19:55:04 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 9
+2025-10-13 19:55:04 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-13 19:55:04 [INFO] [Programm_X_Logger] [EditorController] Запущен для оценки
+2025-10-13 19:55:04 [INFO] [Programm_X_Logger] [RuleModel] Голос добавлен для правила ID=23, positive=False
+2025-10-13 19:55:04 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=20, limit=20
+2025-10-13 19:55:04 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=20, limit=20
+2025-10-13 19:55:04 [INFO] [Programm_X_Logger] [RuleModel] Получено 9 правил (offset=20, limit=20)
+2025-10-13 19:55:04 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 9
+2025-10-13 19:55:04 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-13 19:55:04 [INFO] [Programm_X_Logger] [EditorController] Запущен для оценки
+2025-10-13 19:55:04 [INFO] [Programm_X_Logger] [RuleModel] Голос добавлен для правила ID=23, positive=False
+2025-10-13 19:55:04 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=20, limit=20
+2025-10-13 19:55:04 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=20, limit=20
+2025-10-13 19:55:05 [INFO] [Programm_X_Logger] [RuleModel] Получено 9 правил (offset=20, limit=20)
+2025-10-13 19:55:05 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 9
+2025-10-13 19:55:05 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-13 19:55:08 [INFO] [Programm_X_Logger] [MainWindow] Обновление данных во вкладке 'Редактор'
+2025-10-13 19:55:08 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=20, limit=20
+2025-10-13 19:55:08 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=20, limit=20
+2025-10-13 19:55:08 [INFO] [Programm_X_Logger] [RuleModel] Получено 9 правил (offset=20, limit=20)
+2025-10-13 19:55:08 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 9
+2025-10-13 19:55:08 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-13 19:55:08 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-10-13 19:55:08 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-10-13 19:55:08 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-10-13 19:55:08 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-10-13 19:55:08 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-13 19:55:11 [INFO] [Programm_X_Logger] [MainWindow] Обновление данных во вкладке 'Конструктор'
+2025-10-13 19:55:11 [INFO] [Programm_X_Logger] [ConstructorController] start_log_parse: type=Apache, lines=5
+2025-10-13 19:55:11 [INFO] [Programm_X_Logger] [LogParserThread] Запуск парсинга: type=Apache, lines=5
+2025-10-13 19:55:11 [INFO] [Programm_X_Logger] [LogParser] Парсинг Apache/Nginx логов, строк=5
+2025-10-13 19:55:11 [ERROR] [Programm_X_Logger] [LogParserThread] Ошибка парсинга: LogParser._split_protocol() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "/home/ubuntupc/my-proj/progr/threads/log_parser_thread.py", line 32, in run
+    df = parser.parse_apache_nginx(self.log_lines)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntupc/my-proj/progr/models/log_parser_model.py", line 48, in parse_apache_nginx
+    proto, proto_ver = self._split_protocol(protocol)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: LogParser._split_protocol() takes 1 positional argument but 2 were given
+2025-10-13 19:55:11 [ERROR] [Programm_X_Logger] [ConstructorController] Ошибка парсинга: Ошибка парсинга: LogParser._split_protocol() takes 1 positional argument but 2 were given
+2025-10-13 19:55:17 [INFO] [Programm_X_Logger] [MainWindow] Обновление данных во вкладке 'Конструктор'
+2025-10-13 19:55:17 [INFO] [Programm_X_Logger] [ConstructorController] start_log_parse: type=Apache, lines=5
+2025-10-13 19:55:17 [INFO] [Programm_X_Logger] [LogParserThread] Запуск парсинга: type=Apache, lines=5
+2025-10-13 19:55:17 [INFO] [Programm_X_Logger] [LogParser] Парсинг Apache/Nginx логов, строк=5
+2025-10-13 19:55:17 [ERROR] [Programm_X_Logger] [LogParserThread] Ошибка парсинга: LogParser._split_protocol() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "/home/ubuntupc/my-proj/progr/threads/log_parser_thread.py", line 32, in run
+    df = parser.parse_apache_nginx(self.log_lines)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntupc/my-proj/progr/models/log_parser_model.py", line 48, in parse_apache_nginx
+    proto, proto_ver = self._split_protocol(protocol)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: LogParser._split_protocol() takes 1 positional argument but 2 were given
+2025-10-13 19:55:17 [ERROR] [Programm_X_Logger] [ConstructorController] Ошибка парсинга: Ошибка парсинга: LogParser._split_protocol() takes 1 positional argument but 2 were given
+2025-10-13 19:55:26 [INFO] [Programm_X_Logger] === Завершение работы приложения ===
+2025-10-13 22:45:19 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-10-13.log
+2025-10-13 22:45:20 [INFO] [Programm_X_Logger] === Запуск Программа Х ===
+2025-10-13 22:45:20 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-10-13 22:45:20 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-10-13 22:45:20 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-10-13 22:45:20 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-10-13 22:45:20 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-13 22:45:28 [INFO] [Programm_X_Logger] === Завершение работы приложения ===
+2025-10-13 22:46:44 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-10-13.log
+2025-10-13 22:46:45 [INFO] [Programm_X_Logger] === Запуск Программа Х ===
+2025-10-13 22:46:45 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-10-13 22:46:45 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-10-13 22:46:45 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-10-13 22:46:45 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-10-13 22:46:45 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-13 22:46:50 [INFO] [Programm_X_Logger] === Завершение работы приложения ===
+2025-10-13 22:47:13 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-10-13.log
+2025-10-13 22:47:14 [INFO] [Programm_X_Logger] === Запуск Программа Х ===
+2025-10-13 22:47:14 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-10-13 22:47:14 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-10-13 22:47:14 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-10-13 22:47:14 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-10-13 22:47:14 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-13 22:47:18 [INFO] [Programm_X_Logger] [ConstructorView] Выбран файл: /home/ubuntupc/my-proj/access.log
+2025-10-13 22:47:18 [INFO] [Programm_X_Logger] [FileLoaderThread] Загрузка файла: /home/ubuntupc/my-proj/access.log
+2025-10-13 22:47:18 [INFO] [Programm_X_Logger] [FileLoaderThread] Файл успешно загружен, строк: 5
+2025-10-13 22:47:19 [INFO] [Programm_X_Logger] [ConstructorView] Загружено строк: 5
+2025-10-13 22:47:20 [INFO] [Programm_X_Logger] [ConstructorController] start_log_parse: type=Apache, lines=5
+2025-10-13 22:47:20 [INFO] [Programm_X_Logger] [LogParserThread] Запуск парсинга: type=Apache, lines=5
+2025-10-13 22:47:20 [INFO] [Programm_X_Logger] [LogParser] Парсинг Apache/Nginx логов, строк=5
+2025-10-13 22:47:20 [INFO] [Programm_X_Logger] [LogParser] Получено 5 записей Apache/Nginx
+2025-10-13 22:47:20 [INFO] [Programm_X_Logger] [LogParserThread] Парсинг завершён, поток завершается.
+2025-10-13 22:47:20 [INFO] [Programm_X_Logger] [ConstructorController] Парсинг завершён, записей: 5
+2025-10-13 22:47:20 [INFO] [Programm_X_Logger] [ConstructorController] Создана LogsTableModel: rows=5, cols=9
+2025-10-13 22:47:31 [INFO] [Programm_X_Logger] [ConstructorView] Выбран файл: /home/ubuntupc/Загрузки/access (2).log
+2025-10-13 22:47:31 [INFO] [Programm_X_Logger] [FileLoaderThread] Загрузка файла: /home/ubuntupc/Загрузки/access (2).log
+2025-10-13 22:47:31 [INFO] [Programm_X_Logger] [FileLoaderThread] Файл успешно загружен, строк: 302
+2025-10-13 22:47:34 [INFO] [Programm_X_Logger] [ConstructorView] Загружено строк: 302
+2025-10-13 22:47:36 [INFO] [Programm_X_Logger] [ConstructorController] start_log_parse: type=Apache, lines=302
+2025-10-13 22:47:36 [INFO] [Programm_X_Logger] [LogParserThread] Запуск парсинга: type=Apache, lines=302
+2025-10-13 22:47:36 [INFO] [Programm_X_Logger] [LogParser] Парсинг Apache/Nginx логов, строк=302
+2025-10-13 22:47:36 [INFO] [Programm_X_Logger] [LogParser] Получено 302 записей Apache/Nginx
+2025-10-13 22:47:36 [INFO] [Programm_X_Logger] [LogParserThread] Парсинг завершён, поток завершается.
+2025-10-13 22:47:36 [INFO] [Programm_X_Logger] [ConstructorController] Парсинг завершён, записей: 302
+2025-10-13 22:47:36 [INFO] [Programm_X_Logger] [ConstructorController] Создана LogsTableModel: rows=302, cols=9
+2025-10-13 22:47:44 [INFO] [Programm_X_Logger] [ConstructorView] Выбран файл: /home/ubuntupc/Загрузки/access.log
+2025-10-13 22:47:44 [INFO] [Programm_X_Logger] [FileLoaderThread] Загрузка файла: /home/ubuntupc/Загрузки/access.log
+2025-10-13 22:47:44 [INFO] [Programm_X_Logger] [FileLoaderThread] Файл успешно загружен, строк: 5
+2025-10-13 22:47:46 [INFO] [Programm_X_Logger] [ConstructorView] Загружено строк: 5
+2025-10-13 22:47:47 [INFO] [Programm_X_Logger] [ConstructorController] start_log_parse: type=Apache, lines=5
+2025-10-13 22:47:47 [INFO] [Programm_X_Logger] [LogParserThread] Запуск парсинга: type=Apache, lines=5
+2025-10-13 22:47:47 [INFO] [Programm_X_Logger] [LogParser] Парсинг Apache/Nginx логов, строк=5
+2025-10-13 22:47:47 [INFO] [Programm_X_Logger] [LogParser] Получено 5 записей Apache/Nginx
+2025-10-13 22:47:47 [INFO] [Programm_X_Logger] [LogParserThread] Парсинг завершён, поток завершается.
+2025-10-13 22:47:47 [INFO] [Programm_X_Logger] [ConstructorController] Парсинг завершён, записей: 5
+2025-10-13 22:47:47 [INFO] [Programm_X_Logger] [ConstructorController] Создана LogsTableModel: rows=5, cols=9
+2025-10-13 22:47:50 [INFO] [Programm_X_Logger] [ConstructorView] Выбран файл: /home/ubuntupc/Загрузки/access (2).log
+2025-10-13 22:47:50 [INFO] [Programm_X_Logger] [FileLoaderThread] Загрузка файла: /home/ubuntupc/Загрузки/access (2).log
+2025-10-13 22:47:50 [INFO] [Programm_X_Logger] [FileLoaderThread] Файл успешно загружен, строк: 302
+2025-10-13 22:47:51 [INFO] [Programm_X_Logger] [ConstructorView] Загружено строк: 302
+2025-10-13 22:47:53 [INFO] [Programm_X_Logger] [ConstructorController] start_log_parse: type=Apache, lines=302
+2025-10-13 22:47:53 [INFO] [Programm_X_Logger] [LogParserThread] Запуск парсинга: type=Apache, lines=302
+2025-10-13 22:47:53 [INFO] [Programm_X_Logger] [LogParser] Парсинг Apache/Nginx логов, строк=302
+2025-10-13 22:47:53 [INFO] [Programm_X_Logger] [LogParser] Получено 302 записей Apache/Nginx
+2025-10-13 22:47:53 [INFO] [Programm_X_Logger] [LogParserThread] Парсинг завершён, поток завершается.
+2025-10-13 22:47:53 [INFO] [Programm_X_Logger] [ConstructorController] Парсинг завершён, записей: 302
+2025-10-13 22:47:53 [INFO] [Programm_X_Logger] [ConstructorController] Создана LogsTableModel: rows=307, cols=9
+2025-10-13 22:48:10 [INFO] [Programm_X_Logger] [ConstructorView] Выбран файл: /home/ubuntupc/Загрузки/access (2).log
+2025-10-13 22:48:10 [INFO] [Programm_X_Logger] [FileLoaderThread] Загрузка файла: /home/ubuntupc/Загрузки/access (2).log
+2025-10-13 22:48:10 [INFO] [Programm_X_Logger] [FileLoaderThread] Файл успешно загружен, строк: 302
+2025-10-13 22:48:12 [INFO] [Programm_X_Logger] [ConstructorView] Загружено строк: 302
+2025-10-13 22:48:13 [INFO] [Programm_X_Logger] [ConstructorController] start_log_parse: type=Apache, lines=302
+2025-10-13 22:48:13 [INFO] [Programm_X_Logger] [LogParserThread] Запуск парсинга: type=Apache, lines=302
+2025-10-13 22:48:13 [INFO] [Programm_X_Logger] [LogParser] Парсинг Apache/Nginx логов, строк=302
+2025-10-13 22:48:13 [INFO] [Programm_X_Logger] [LogParser] Получено 302 записей Apache/Nginx
+2025-10-13 22:48:13 [INFO] [Programm_X_Logger] [LogParserThread] Парсинг завершён, поток завершается.
+2025-10-13 22:48:13 [INFO] [Programm_X_Logger] [ConstructorController] Парсинг завершён, записей: 302
+2025-10-13 22:48:13 [INFO] [Programm_X_Logger] [ConstructorController] Создана LogsTableModel: rows=302, cols=9
+2025-10-13 22:48:23 [INFO] [Programm_X_Logger] [ConstructorView] Выбран файл: /home/ubuntupc/Загрузки/access.log
+2025-10-13 22:48:23 [INFO] [Programm_X_Logger] [FileLoaderThread] Загрузка файла: /home/ubuntupc/Загрузки/access.log
+2025-10-13 22:48:23 [INFO] [Programm_X_Logger] [FileLoaderThread] Файл успешно загружен, строк: 5
+2025-10-13 22:48:24 [INFO] [Programm_X_Logger] [ConstructorView] Загружено строк: 5
+2025-10-13 22:48:26 [INFO] [Programm_X_Logger] [ConstructorController] start_log_parse: type=Apache, lines=5
+2025-10-13 22:48:26 [INFO] [Programm_X_Logger] [LogParserThread] Запуск парсинга: type=Apache, lines=5
+2025-10-13 22:48:26 [INFO] [Programm_X_Logger] [LogParser] Парсинг Apache/Nginx логов, строк=5
+2025-10-13 22:48:26 [INFO] [Programm_X_Logger] [LogParser] Получено 5 записей Apache/Nginx
+2025-10-13 22:48:26 [INFO] [Programm_X_Logger] [LogParserThread] Парсинг завершён, поток завершается.
+2025-10-13 22:48:26 [INFO] [Programm_X_Logger] [ConstructorController] Парсинг завершён, записей: 5
+2025-10-13 22:48:26 [INFO] [Programm_X_Logger] [ConstructorController] Создана LogsTableModel: rows=307, cols=9
+2025-10-13 22:48:39 [INFO] [Programm_X_Logger] [ConstructorController] Prefill из отмеченных ячеек: {'rules_content': '/wp-includes/js/tinymce/tinymce.min.js?ver=49110-20250317, /, /favicon.ico'}
+2025-10-13 22:48:47 [INFO] [Programm_X_Logger] === Завершение работы приложения ===
+2025-10-13 22:49:24 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-10-13.log
+2025-10-13 22:49:25 [INFO] [Programm_X_Logger] === Запуск Программа Х ===
+2025-10-13 22:49:25 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-10-13 22:49:25 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-10-13 22:49:25 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-10-13 22:49:25 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-10-13 22:49:25 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-13 22:49:29 [INFO] [Programm_X_Logger] [ConstructorView] Выбран файл: /home/ubuntupc/my-proj/access.log
+2025-10-13 22:49:29 [INFO] [Programm_X_Logger] [FileLoaderThread] Загрузка файла: /home/ubuntupc/my-proj/access.log
+2025-10-13 22:49:29 [INFO] [Programm_X_Logger] [FileLoaderThread] Файл успешно загружен, строк: 5
+2025-10-13 22:49:30 [INFO] [Programm_X_Logger] [ConstructorView] Загружено строк: 5
+2025-10-13 22:49:31 [INFO] [Programm_X_Logger] [ConstructorController] start_log_parse: type=Apache, lines=5
+2025-10-13 22:49:31 [INFO] [Programm_X_Logger] [LogParserThread] Запуск парсинга: type=Apache, lines=5
+2025-10-13 22:49:31 [INFO] [Programm_X_Logger] [LogParser] Парсинг Apache/Nginx логов, строк=5
+2025-10-13 22:49:31 [INFO] [Programm_X_Logger] [LogParser] Получено 5 записей Apache/Nginx
+2025-10-13 22:49:31 [INFO] [Programm_X_Logger] [LogParserThread] Парсинг завершён, поток завершается.
+2025-10-13 22:49:31 [INFO] [Programm_X_Logger] [ConstructorController] Парсинг завершён, записей: 5
+2025-10-13 22:49:31 [INFO] [Programm_X_Logger] [ConstructorController] Создана LogsTableModel: rows=5, cols=9
+2025-10-13 22:49:46 [INFO] [Programm_X_Logger] [ConstructorController] start_log_parse: type=Apache, lines=5
+2025-10-13 22:49:46 [INFO] [Programm_X_Logger] [LogParserThread] Запуск парсинга: type=Apache, lines=5
+2025-10-13 22:49:46 [INFO] [Programm_X_Logger] [LogParser] Парсинг Apache/Nginx логов, строк=5
+2025-10-13 22:49:46 [INFO] [Programm_X_Logger] [LogParser] Получено 5 записей Apache/Nginx
+2025-10-13 22:49:46 [INFO] [Programm_X_Logger] [LogParserThread] Парсинг завершён, поток завершается.
+2025-10-13 22:49:46 [INFO] [Programm_X_Logger] [ConstructorController] Парсинг завершён, записей: 5
+2025-10-13 22:49:46 [INFO] [Programm_X_Logger] [ConstructorController] Создана LogsTableModel: rows=5, cols=9
+2025-10-13 22:49:54 [INFO] [Programm_X_Logger] [ConstructorController] start_log_parse: type=Apache, lines=5
+2025-10-13 22:49:54 [INFO] [Programm_X_Logger] [LogParserThread] Запуск парсинга: type=Apache, lines=5
+2025-10-13 22:49:54 [INFO] [Programm_X_Logger] [LogParser] Парсинг Apache/Nginx логов, строк=5
+2025-10-13 22:49:54 [INFO] [Programm_X_Logger] [LogParser] Получено 5 записей Apache/Nginx
+2025-10-13 22:49:54 [INFO] [Programm_X_Logger] [LogParserThread] Парсинг завершён, поток завершается.
+2025-10-13 22:49:54 [INFO] [Programm_X_Logger] [ConstructorController] Парсинг завершён, записей: 5
+2025-10-13 22:49:54 [INFO] [Programm_X_Logger] [ConstructorController] Создана LogsTableModel: rows=10, cols=9
+2025-10-13 22:49:57 [INFO] [Programm_X_Logger] [ConstructorController] start_log_parse: type=Apache, lines=5
+2025-10-13 22:49:57 [INFO] [Programm_X_Logger] [LogParserThread] Запуск парсинга: type=Apache, lines=5
+2025-10-13 22:49:57 [INFO] [Programm_X_Logger] [LogParser] Парсинг Apache/Nginx логов, строк=5
+2025-10-13 22:49:57 [INFO] [Programm_X_Logger] [LogParser] Получено 5 записей Apache/Nginx
+2025-10-13 22:49:57 [INFO] [Programm_X_Logger] [LogParserThread] Парсинг завершён, поток завершается.
+2025-10-13 22:49:57 [INFO] [Programm_X_Logger] [ConstructorController] Парсинг завершён, записей: 5
+2025-10-13 22:49:57 [INFO] [Programm_X_Logger] [ConstructorController] Создана LogsTableModel: rows=15, cols=9
+2025-10-13 22:50:07 [INFO] [Programm_X_Logger] [ConstructorController] Prefill из отмеченных ячеек: {'rules_content': '/icons/ubuntu-logo.png, /favicon.ico, /icons/ubuntu-logo.png'}
+2025-10-13 22:50:58 [INFO] [Programm_X_Logger] [RuleModel] Получено правило по SID=7003: нет
+2025-10-13 22:50:58 [INFO] [Programm_X_Logger] [RuleModel] Новое правило добавлено ID=31
+2025-10-13 22:50:58 [INFO] [Programm_X_Logger] [ConstructorController] Создано правило ID=31 с SID=7003, rev=1
+2025-10-13 22:50:58 [INFO] [Programm_X_Logger] [RuleModel] Получено правило по SID=7003: нашлось
+2025-10-13 22:50:58 [WARNING] [Programm_X_Logger] [ConstructorController] Правило с SID=7003 уже существует -> отмена создания
+2025-10-13 22:50:59 [INFO] [Programm_X_Logger] [ConstructorView] Правило успешно создано
+2025-10-13 22:51:03 [INFO] [Programm_X_Logger] [MainWindow] Обновление данных во вкладке 'Конструктор'
+2025-10-13 22:51:03 [INFO] [Programm_X_Logger] [ConstructorController] start_log_parse: type=Apache, lines=5
+2025-10-13 22:51:03 [INFO] [Programm_X_Logger] [LogParserThread] Запуск парсинга: type=Apache, lines=5
+2025-10-13 22:51:03 [INFO] [Programm_X_Logger] [LogParser] Парсинг Apache/Nginx логов, строк=5
+2025-10-13 22:51:03 [INFO] [Programm_X_Logger] [LogParser] Получено 5 записей Apache/Nginx
+2025-10-13 22:51:03 [INFO] [Programm_X_Logger] [LogParserThread] Парсинг завершён, поток завершается.
+2025-10-13 22:51:03 [INFO] [Programm_X_Logger] [ConstructorController] Парсинг завершён, записей: 5
+2025-10-13 22:51:03 [INFO] [Programm_X_Logger] [ConstructorController] Создана LogsTableModel: rows=20, cols=9
+2025-10-13 22:51:11 [INFO] [Programm_X_Logger] [MainWindow] Обновление данных во вкладке 'Конструктор'
+2025-10-13 22:51:11 [INFO] [Programm_X_Logger] [ConstructorController] start_log_parse: type=Apache, lines=5
+2025-10-13 22:51:11 [INFO] [Programm_X_Logger] [LogParserThread] Запуск парсинга: type=Apache, lines=5
+2025-10-13 22:51:11 [INFO] [Programm_X_Logger] [LogParser] Парсинг Apache/Nginx логов, строк=5
+2025-10-13 22:51:11 [INFO] [Programm_X_Logger] [LogParser] Получено 5 записей Apache/Nginx
+2025-10-13 22:51:11 [INFO] [Programm_X_Logger] [LogParserThread] Парсинг завершён, поток завершается.
+2025-10-13 22:51:11 [INFO] [Programm_X_Logger] [ConstructorController] Парсинг завершён, записей: 5
+2025-10-13 22:51:11 [INFO] [Programm_X_Logger] [ConstructorController] Создана LogsTableModel: rows=5, cols=9
+2025-10-13 22:51:21 [INFO] [Programm_X_Logger] [ConstructorView] Выбран файл: /home/ubuntupc/Загрузки/access (2).log
+2025-10-13 22:51:21 [INFO] [Programm_X_Logger] [FileLoaderThread] Загрузка файла: /home/ubuntupc/Загрузки/access (2).log
+2025-10-13 22:51:21 [INFO] [Programm_X_Logger] [FileLoaderThread] Файл успешно загружен, строк: 302
+2025-10-13 22:51:21 [INFO] [Programm_X_Logger] [ConstructorView] Загружено строк: 302
+2025-10-13 22:51:24 [INFO] [Programm_X_Logger] [MainWindow] Обновление данных во вкладке 'Конструктор'
+2025-10-13 22:51:24 [INFO] [Programm_X_Logger] [ConstructorController] start_log_parse: type=Apache, lines=302
+2025-10-13 22:51:24 [INFO] [Programm_X_Logger] [LogParserThread] Запуск парсинга: type=Apache, lines=302
+2025-10-13 22:51:24 [INFO] [Programm_X_Logger] [LogParser] Парсинг Apache/Nginx логов, строк=302
+2025-10-13 22:51:24 [INFO] [Programm_X_Logger] [LogParser] Получено 302 записей Apache/Nginx
+2025-10-13 22:51:24 [INFO] [Programm_X_Logger] [LogParserThread] Парсинг завершён, поток завершается.
+2025-10-13 22:51:24 [INFO] [Programm_X_Logger] [ConstructorController] Парсинг завершён, записей: 302
+2025-10-13 22:51:24 [INFO] [Programm_X_Logger] [ConstructorController] Создана LogsTableModel: rows=302, cols=9
+2025-10-13 22:51:28 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=20, limit=20
+2025-10-13 22:51:28 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=20, limit=20
+2025-10-13 22:51:28 [INFO] [Programm_X_Logger] [RuleModel] Получено 10 правил (offset=20, limit=20)
+2025-10-13 22:51:28 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 10
+2025-10-13 22:51:28 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-13 22:51:30 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=31
+2025-10-13 22:51:30 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=31
+2025-10-13 22:51:40 [INFO] [Programm_X_Logger] === Завершение работы приложения ===
+2025-10-13 23:00:38 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-10-13.log
+2025-10-13 23:00:39 [INFO] [Programm_X_Logger] === Запуск Программа Х ===
+2025-10-13 23:00:39 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-10-13 23:00:39 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-10-13 23:00:39 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-10-13 23:00:39 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-10-13 23:00:39 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-13 23:00:44 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=1
+2025-10-13 23:00:44 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=1
+2025-10-13 23:01:39 [INFO] [Programm_X_Logger] === Завершение работы приложения ===
+2025-10-13 23:01:55 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-10-13.log
+2025-10-13 23:01:55 [INFO] [Programm_X_Logger] === Запуск Программа Х ===
+2025-10-13 23:01:55 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-10-13 23:01:55 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-10-13 23:01:55 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-10-13 23:01:55 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-10-13 23:01:55 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-13 23:01:59 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=1
+2025-10-13 23:01:59 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=1
+2025-10-13 23:02:07 [INFO] [Programm_X_Logger] === Завершение работы приложения ===
+2025-10-13 23:02:24 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-10-13.log
+2025-10-13 23:02:25 [INFO] [Programm_X_Logger] === Запуск Программа Х ===
+2025-10-13 23:02:25 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-10-13 23:02:25 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-10-13 23:02:25 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-10-13 23:02:25 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-10-13 23:02:25 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-13 23:02:28 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=1
+2025-10-13 23:02:28 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=1
+2025-10-13 23:02:45 [INFO] [Programm_X_Logger] === Завершение работы приложения ===
+2025-10-13 23:03:05 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-10-13.log
+2025-10-13 23:03:06 [INFO] [Programm_X_Logger] === Запуск Программа Х ===
+2025-10-13 23:03:06 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-10-13 23:03:06 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-10-13 23:03:06 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-10-13 23:03:06 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-10-13 23:03:06 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-13 23:03:08 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=1
+2025-10-13 23:03:08 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=1
+2025-10-13 23:03:21 [INFO] [Programm_X_Logger] === Завершение работы приложения ===
+2025-10-13 23:04:00 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-10-13.log
+2025-10-13 23:04:01 [INFO] [Programm_X_Logger] === Запуск Программа Х ===
+2025-10-13 23:04:02 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-10-13 23:04:02 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-10-13 23:04:02 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-10-13 23:04:02 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-10-13 23:04:02 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-13 23:04:05 [INFO] [Programm_X_Logger] [ConstructorView] Выбран файл: /home/ubuntupc/my-proj/access.log
+2025-10-13 23:04:05 [INFO] [Programm_X_Logger] [FileLoaderThread] Загрузка файла: /home/ubuntupc/my-proj/access.log
+2025-10-13 23:04:05 [INFO] [Programm_X_Logger] [FileLoaderThread] Файл успешно загружен, строк: 5
+2025-10-13 23:04:06 [INFO] [Programm_X_Logger] [ConstructorView] Загружено строк: 5
+2025-10-13 23:04:07 [INFO] [Programm_X_Logger] [ConstructorController] start_log_parse: type=Apache, lines=5
+2025-10-13 23:04:07 [INFO] [Programm_X_Logger] [LogParserThread] Запуск парсинга: type=Apache, lines=5
+2025-10-13 23:04:07 [INFO] [Programm_X_Logger] [LogParser] Парсинг Apache/Nginx логов, строк=5
+2025-10-13 23:04:07 [INFO] [Programm_X_Logger] [LogParser] Получено 5 записей Apache/Nginx
+2025-10-13 23:04:07 [INFO] [Programm_X_Logger] [LogParserThread] Парсинг завершён, поток завершается.
+2025-10-13 23:04:07 [INFO] [Programm_X_Logger] [ConstructorController] Парсинг завершён, записей: 5
+2025-10-13 23:04:07 [INFO] [Programm_X_Logger] [ConstructorController] Создана LogsTableModel: rows=5, cols=9
+2025-10-13 23:04:15 [INFO] [Programm_X_Logger] === Завершение работы приложения ===
+2025-10-13 23:05:19 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-10-13.log
+2025-10-13 23:05:20 [INFO] [Programm_X_Logger] === Запуск Программа Х ===
+2025-10-13 23:05:20 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-10-13 23:05:20 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-10-13 23:05:20 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-10-13 23:05:20 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-10-13 23:05:20 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-13 23:05:23 [INFO] [Programm_X_Logger] [ConstructorView] Выбран файл: /home/ubuntupc/my-proj/access.log
+2025-10-13 23:05:23 [INFO] [Programm_X_Logger] [FileLoaderThread] Загрузка файла: /home/ubuntupc/my-proj/access.log
+2025-10-13 23:05:23 [INFO] [Programm_X_Logger] [FileLoaderThread] Файл успешно загружен, строк: 5
+2025-10-13 23:05:24 [INFO] [Programm_X_Logger] [ConstructorView] Загружено строк: 5
+2025-10-13 23:05:25 [INFO] [Programm_X_Logger] [ConstructorController] start_log_parse: type=Apache, lines=5
+2025-10-13 23:05:25 [INFO] [Programm_X_Logger] [LogParserThread] Запуск парсинга: type=Apache, lines=5
+2025-10-13 23:05:25 [INFO] [Programm_X_Logger] [LogParser] Парсинг Apache/Nginx логов, строк=5
+2025-10-13 23:05:25 [INFO] [Programm_X_Logger] [LogParser] Получено 5 записей Apache/Nginx
+2025-10-13 23:05:25 [INFO] [Programm_X_Logger] [LogParserThread] Парсинг завершён, поток завершается.
+2025-10-13 23:05:25 [INFO] [Programm_X_Logger] [ConstructorController] Парсинг завершён, записей: 5
+2025-10-13 23:05:25 [INFO] [Programm_X_Logger] [ConstructorController] Создана LogsTableModel: rows=5, cols=9
+2025-10-13 23:05:34 [INFO] [Programm_X_Logger] === Завершение работы приложения ===
+2025-10-13 23:18:14 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-10-13.log
+2025-10-13 23:18:15 [INFO] [Programm_X_Logger] === Запуск Программа Х ===
+2025-10-13 23:18:15 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-10-13 23:18:15 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-10-13 23:18:15 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-10-13 23:18:15 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-10-13 23:18:15 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-13 23:18:21 [INFO] [Programm_X_Logger] === Завершение работы приложения ===
+2025-10-13 23:20:25 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-10-13.log
+2025-10-13 23:20:26 [INFO] [Programm_X_Logger] === Запуск Программа Х ===
+2025-10-13 23:21:45 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-10-13.log
+2025-10-13 23:21:46 [INFO] [Programm_X_Logger] === Запуск Программа Х ===
+2025-10-13 23:22:48 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-10-13.log
+2025-10-13 23:22:49 [INFO] [Programm_X_Logger] === Запуск Программа Х ===
+2025-10-13 23:22:49 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-10-13 23:22:49 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-10-13 23:22:49 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-10-13 23:22:49 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-10-13 23:22:49 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-13 23:23:18 [INFO] [Programm_X_Logger] === Завершение работы приложения ===
+2025-10-13 23:24:52 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-10-13.log
+2025-10-13 23:24:53 [INFO] [Programm_X_Logger] === Запуск Программа Х ===
+2025-10-13 23:24:53 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-10-13 23:24:53 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-10-13 23:24:53 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-10-13 23:24:53 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-10-13 23:24:53 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-13 23:26:26 [INFO] [Programm_X_Logger] === Завершение работы приложения ===
+2025-10-13 23:26:44 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-10-13.log
+2025-10-13 23:26:45 [INFO] [Programm_X_Logger] === Запуск Программа Х ===
+2025-10-13 23:26:45 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-10-13 23:26:45 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-10-13 23:26:45 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-10-13 23:26:45 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-10-13 23:26:45 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-13 23:26:47 [INFO] [Programm_X_Logger] === Завершение работы приложения ===
+2025-10-13 23:29:35 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-10-13.log
+2025-10-13 23:29:35 [INFO] [Programm_X_Logger] === Запуск Программа Х ===
+2025-10-13 23:29:36 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-10-13 23:29:36 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-10-13 23:29:36 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-10-13 23:29:36 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-10-13 23:29:36 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-13 23:29:39 [INFO] [Programm_X_Logger] === Завершение работы приложения ===
+2025-10-13 23:32:52 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-10-13.log
+2025-10-13 23:32:53 [INFO] [Programm_X_Logger] === Запуск Программа Х ===
+2025-10-13 23:32:53 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-10-13 23:32:53 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-10-13 23:32:53 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-10-13 23:32:53 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-10-13 23:32:53 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-13 23:32:58 [INFO] [Programm_X_Logger] === Завершение работы приложения ===
+2025-10-13 23:35:36 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-10-13.log
+2025-10-13 23:35:37 [INFO] [Programm_X_Logger] === Запуск Программа Х ===
+2025-10-13 23:36:02 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-10-13.log
+2025-10-13 23:36:03 [INFO] [Programm_X_Logger] === Запуск Программа Х ===
+2025-10-13 23:36:38 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-10-13.log
+2025-10-13 23:36:39 [INFO] [Programm_X_Logger] === Запуск Программа Х ===
+2025-10-13 23:36:39 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-10-13 23:36:39 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-10-13 23:36:39 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-10-13 23:36:39 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-10-13 23:36:39 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-13 23:37:06 [INFO] [Programm_X_Logger] === Завершение работы приложения ===
+2025-10-13 23:37:23 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-10-13.log
+2025-10-13 23:37:24 [INFO] [Programm_X_Logger] === Запуск Программа Х ===
+2025-10-13 23:37:35 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-10-13.log
+2025-10-13 23:37:36 [INFO] [Programm_X_Logger] === Запуск Программа Х ===
+2025-10-13 23:37:36 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-10-13 23:37:36 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-10-13 23:37:36 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-10-13 23:37:36 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-10-13 23:37:36 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-13 23:37:38 [INFO] [Programm_X_Logger] === Завершение работы приложения ===
+2025-10-13 23:39:04 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-10-13.log
+2025-10-13 23:39:05 [INFO] [Programm_X_Logger] === Запуск Программа Х ===
+2025-10-13 23:39:05 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-10-13 23:39:05 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-10-13 23:39:05 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-10-13 23:39:05 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-10-13 23:39:05 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-13 23:39:06 [INFO] [Programm_X_Logger] === Завершение работы приложения ===
+2025-10-13 23:44:27 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-10-13.log
+2025-10-13 23:44:28 [INFO] [Programm_X_Logger] === Запуск Программа Х ===
+2025-10-13 23:44:28 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-10-13 23:44:28 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-10-13 23:44:28 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-10-13 23:44:28 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-10-13 23:44:28 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-13 23:44:35 [INFO] [Programm_X_Logger] === Завершение работы приложения ===
+2025-10-13 23:44:58 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-10-13.log
+2025-10-13 23:44:59 [INFO] [Programm_X_Logger] === Запуск Программа Х ===
+2025-10-13 23:44:59 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-10-13 23:44:59 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-10-13 23:44:59 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-10-13 23:44:59 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-10-13 23:44:59 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-13 23:45:21 [INFO] [Programm_X_Logger] === Завершение работы приложения ===
+2025-10-13 23:46:27 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-10-13.log
+2025-10-13 23:46:28 [INFO] [Programm_X_Logger] === Запуск Программа Х ===
+2025-10-13 23:46:28 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-10-13 23:46:28 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-10-13 23:46:28 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-10-13 23:46:28 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-10-13 23:46:28 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-13 23:46:55 [INFO] [Programm_X_Logger] === Завершение работы приложения ===

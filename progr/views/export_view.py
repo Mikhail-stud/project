@@ -1,6 +1,8 @@
 from PyQt6.QtWidgets import QWidget, QVBoxLayout, QPushButton, QComboBox, QFileDialog, QMessageBox
 from progr.controllers.export_controller import ExportController
 from progr.utils_app.logger import LOGGER
+from progr.config_app.ui_helpers import fix_widget_wigths
+
 
 
 class ExportView(QWidget):
@@ -17,6 +19,8 @@ class ExportView(QWidget):
         super().__init__()
         self.controller = ExportController()
         self._setup_ui()
+
+        fix_widget_wigths(self, width=250)
 
     def _setup_ui(self):
         layout = QVBoxLayout()
