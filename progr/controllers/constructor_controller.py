@@ -64,7 +64,7 @@ class ConstructorController:
             df = pd.DataFrame()
 
         # ВАЖНО: названия колонок в DataFrame должны совпадать со списком headers
-        headers = ["date", "time", "ip", "method", "object", "protocol", "code", "referer", "user_agent"]
+        headers = ["date", "time", "ip", "method", "object", "protocol", "code", "referer", "user_agent", "audit_type_id", "site_id", "user_id", "guest_id"]
 
         # безопасно выровняем нужные колонки (отсутствующие заполним пустыми строками)
         safe_df = df.reindex(columns=headers, fill_value="")
@@ -143,14 +143,18 @@ class ConstructorController:
         # === МАППИНГ: колонка таблицы -> поле диалога ===
         col_to_field: dict[str, str | None] = {
             "ip": "rules_ip_s",
-            "protocol": "rules_protocol",
-            "method": "rules_method",   # ← при необходимости замени на фактическое имя поля в диалоге
+            "protocol": "rules_content",
+            "method": "rules_content",   # ← при необходимости замени на фактическое имя поля в диалоге
             "object": "rules_content",
             "date": None,
             "time": None,
-            "code": None,
-            "referer": None,
+            "code": "rules_content",
+            "referer": "rules_content",
             "user_agent": None,
+            "audit_type_id": None, 
+            "site_id": None, 
+            "user_id": None, 
+            "guest_id": None,
         }
 
         prefill: dict = {}
@@ -167,8 +171,8 @@ class ConstructorController:
             # списковые поля склеиваем, для одиночных берём первое
             if field_key in {"rules_content"}:
                 prefill[field_key] = ", ".join(map(str, values))
-            else:
-                prefill[field_key] = str(values[0])
+            #else:
+            #    prefill[field_key] = str(values[0])
 
         LOGGER.info("[ConstructorController] Prefill из отмеченных ячеек: %s", prefill)
         return prefill

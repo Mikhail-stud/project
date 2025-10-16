@@ -1,4 +1,3 @@
-# threads/log_parser_thread.py
 from PyQt6.QtCore import QThread, pyqtSignal
 from progr.utils_app.logger import LOGGER
 from progr.models.log_parser_model import LogParser  
@@ -23,8 +22,6 @@ class LogParserThread(QThread):
             LOGGER.info(f"[LogParserThread] Запуск парсинга: type={self.log_type}, lines={len(self.log_lines)}")
             parser = LogParser()
 
-            # Унифицированная точка — если в модели есть общий parse(), используем её.
-            # Иначе — ветвим по типу.
             if hasattr(parser, "parse"):
                 df = parser.parse(self.log_lines, self.log_type)
             else:
@@ -33,7 +30,7 @@ class LogParserThread(QThread):
                 elif self.log_type == "Wordpress":
                     df = parser.parse_wordpress(self.log_lines)
                 elif self.log_type == "Bitrix":
-                    df = parser.parse_bitrix(self.log_lines)
+                    df = parser.parse_bitrix_eventlog(self.log_lines)
                 else:
                     raise ValueError(f"Неизвестный тип парсера: {self.log_type}")
 
