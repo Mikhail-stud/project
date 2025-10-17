@@ -64,7 +64,8 @@ class ConstructorController:
             df = pd.DataFrame()
 
         # ВАЖНО: названия колонок в DataFrame должны совпадать со списком headers
-        headers = ["date", "time", "ip", "method", "object", "protocol", "code", "referer", "user_agent", "audit_type_id", "site_id", "user_id", "guest_id"]
+        headers = ["date", "time", "source_ip", "method", "object", "protocol", "code", "referer", "user_agent", "audit_type_id", "site_id",
+                    "user_id", "guest_id", "event_type", "user_roles", "username"]
 
         # безопасно выровняем нужные колонки (отсутствующие заполним пустыми строками)
         safe_df = df.reindex(columns=headers, fill_value="")
@@ -118,61 +119,72 @@ class ConstructorController:
 
     def build_prefill_from_selection(self, model: LogsTableModel) -> dict:
         """
-        Формирует данные для предзаполнения диалога «Создать правило»
-        ИСПОЛЬЗУЯ ОТМЕЧЕННЫЕ ЧЕКБОКСЫ В ЯЧЕЙКАХ.
-
-        КАК ПРИВЯЗАТЬ КОЛОНКУ К ПОЛЮ ДИАЛОГА:
-          - Правь словарь col_to_field ниже:
-              ключ  = имя столбца (как в headers / в таблице),
-              значение = ключ/имя поля в диалоговом окне.
-          - Если поле для этой колонки не требуется — ставь None.
-        """
-        # --- НАДЁЖНО ПОЛУЧАЕМ СПИСОК ЗАГОЛОВКОВ ---
+         Формирует данные для предзаполнения диалога «Создать правило»
+         из ОТМЕЧЕННЫХ чекбоксов в ячейках.
+ 
+         ВАЖНО: если несколько колонок маппятся в одно поле диалога
+         (например, code и user_agent → rules_content), значения
+         НАКАПЛИВАЮТСЯ, а не перезаписываются.
+         """
+         # --- надёжно получаем список заголовков ---
         headers = []
         if hasattr(model, "headers"):
             h = getattr(model, "headers")
             try:
-                # если это метод
                 headers = list(h()) if callable(h) else list(h)
             except Exception:
                 headers = []
         if not headers:
-            # запасной путь — всегда сработает
             headers = self._headers_from_model(model)
-
-        # === МАППИНГ: колонка таблицы -> поле диалога ===
+ 
+          # === МАППИНГ: колонка таблицы -> поле диалога ===
         col_to_field: dict[str, str | None] = {
-            "ip": "rules_ip_s",
-            "protocol": "rules_content",
-            "method": "rules_content",   # ← при необходимости замени на фактическое имя поля в диалоге
-            "object": "rules_content",
-            "date": None,
-            "time": None,
-            "code": "rules_content",
-            "referer": "rules_content",
-            "user_agent": None,
-            "audit_type_id": None, 
-            "site_id": None, 
-            "user_id": None, 
-            "guest_id": None,
+             "source_ip": "rules_ip_s",
+             "protocol": "rules_content",
+             "method": "rules_content",
+             "object": "rules_content",
+             "date": None,
+             "time": None,
+             "code": "rules_content",
+             "referer": "rules_content",
+             "user_agent": "rules_content",   # ← ВАЖНО: включаем user_agent
+             "audit_type_id": None,
+             "site_id": None,
+             "user_id": None,
+             "guest_id": None,
+             "event_type": None,
+             "user_roles": None,
+             "username": None,
         }
-
-        prefill: dict = {}
-
+ 
+         # накапливаем значения по каждому полю диалога
+        buckets: dict[str, list[str]] = {}
+ 
         for col_index, col_name in enumerate(headers):
             field_key = col_to_field.get(col_name)
             if not field_key:
                 continue
-
             values = self._get_checked_values_by_column(model, col_index)
             if not values:
                 continue
+            buckets.setdefault(field_key, [])
+             # приводим к строке и добавляем
+            buckets[field_key].extend(str(v).strip() for v in values if str(v).strip())
+ 
+         # формируем итоговый prefill: для списковых полей склеиваем,
+         # для одиночных — берём первый элемент
+        prefill: dict = {}
+        MULTI_FIELDS = {"rules_content", "rules_ip_s"}
+        for field_key, vals in buckets.items():
+             # убираем дубликаты, сохраняя порядок
+            seen = set()
+            uniq = [v for v in vals if not (v in seen or seen.add(v))]
+            if field_key in MULTI_FIELDS:
+                prefill[field_key] = ", ".join(uniq)
+            else:
+                prefill[field_key] = uniq[0] if uniq else ""
 
-            # списковые поля склеиваем, для одиночных берём первое
-            if field_key in {"rules_content"}:
-                prefill[field_key] = ", ".join(map(str, values))
-            #else:
-            #    prefill[field_key] = str(values[0])
+
 
         LOGGER.info("[ConstructorController] Prefill из отмеченных ячеек: %s", prefill)
         return prefill

@@ -27,7 +27,7 @@ class CreateRuleDialog(QDialog):
         "rules_protocol": "<b>Протокол</b> — например: TCP, UDP, HTTP, ICMP.",
         "rules_ip_s": "<b>IP источника</b> — одиночный адрес или any.",
         "rules_port_s": "<b>Порт источника</b> — число 1–65535 или any.",
-        "rules_route": "<b>Направление</b> — стрелка <code>-></code> или -> <->!",
+        "rules_route": "<b>Направление</b> — стрелка <code>-&gt;</code> или <code>&lt;-</code> или <code>&lt;-&gt;</code>.",
         "rules_ip_d": "<b>IP получателя</b> — одиночный адрес или any.",
         "rules_port_d": "<b>Порт получателя</b> — число 1–65535 или any.",
         "rules_msg": "<b>Название правила</b> — краткое описание события.",

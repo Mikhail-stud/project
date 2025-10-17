@@ -28,7 +28,7 @@ class LogParserThread(QThread):
                 if self.log_type in ("Apache", "Nginx"):
                     df = parser.parse_apache_nginx(self.log_lines)
                 elif self.log_type == "Wordpress":
-                    df = parser.parse_wordpress(self.log_lines)
+                    df = parser.parse_wordpress_activitylog(self.log_lines)
                 elif self.log_type == "Bitrix":
                     df = parser.parse_bitrix_eventlog(self.log_lines)
                 else:
