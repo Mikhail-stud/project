@@ -16,10 +16,8 @@ class LogsTableModel(QAbstractTableModel):
     Основные моменты:
     - Чекбоксы реализованы через ItemIsUserCheckable + CheckStateRole в data/setData.
     - Стандартный делегат Qt сам рисует чекбокс + текст и меняет состояние по клику.
-    - Никаких чекбоксов в заголовках: headerData возвращает только текст.
     - Есть удобные хелперы для сборки отмеченных значений.
-    - Добавлены совместимые заглушки (checked_columns/rows и т.п.), чтобы ничего не сломалось,
-      если где-то остались вызовы из старого кода.
+
     """
 
     def __init__(self, rows: list[list], headers: list[str], parent=None):
@@ -32,7 +30,7 @@ class LogsTableModel(QAbstractTableModel):
         self._checked: list[list[bool]] = [[False for _ in range(c)] for __ in range(r)]
     
     def headers(self):
-        """Совместимость со старым кодом: возврат списка заголовков как атрибут."""
+
         return list(self._headers)
 
     # ------------- базовый интерфейс модели -------------
@@ -49,7 +47,7 @@ class LogsTableModel(QAbstractTableModel):
                     return self._headers[section]
                 return ""
             else:
-                # нумерация строк (по желанию)
+                # нумерация строк 
                 return str(section + 1)
         return None
 
@@ -76,7 +74,7 @@ class LogsTableModel(QAbstractTableModel):
             except Exception:
                 col_name = ""
             if col_name == "code":
-            # аккуратно парсим число
+
                 val = str(self._rows[r][c]).strip()
                 try:
                     code = int(val)
@@ -95,7 +93,7 @@ class LogsTableModel(QAbstractTableModel):
     def flags(self, index: QModelIndex):
         if not index.isValid():
             return Qt.ItemFlag.NoItemFlags
-        # чекбокс в ячейке + обычная селекция
+
         return (Qt.ItemFlag.ItemIsEnabled |
                 Qt.ItemFlag.ItemIsSelectable |
                 Qt.ItemFlag.ItemIsUserCheckable)
@@ -119,7 +117,7 @@ class LogsTableModel(QAbstractTableModel):
 
         return False
 
-    # ------------- служебные методы -------------
+
     def set_rows(self, rows: list[list], headers: list[str] | None = None):
         """
         Полная замена данных модели (например, после загрузки/фильтрации).
@@ -144,7 +142,7 @@ class LogsTableModel(QAbstractTableModel):
                     idx = self.index(r, c)
                     self.dataChanged.emit(idx, idx, [Qt.ItemDataRole.CheckStateRole])
 
-    # ------------- хелперы для «Создать правило» -------------
+
     def get_checked_cells(self) -> list[tuple[int, int]]:
         """Список координат (row, col) всех отмеченных ячеек."""
         out = []
@@ -203,9 +201,7 @@ class LogsTableModel(QAbstractTableModel):
 
         self.layoutChanged.emit()
 
-    # ------------- совместимость со старым API (заглушки) -------------
-    # Ниже методы, которые могли вызываться старым кодом, когда галки были в заголовках.
-    # Теперь они просто вычисляются из текущей матрицы _checked, чтобы ничего не падало.
+
 
     def checked_columns(self) -> list[int]:
         """Список индексов колонок, где есть хотя бы одна отмеченная ячейка."""
@@ -235,8 +231,7 @@ class LogsTableModel(QAbstractTableModel):
             return False
         return any(self._checked[row])
 
-    # Управляющие методы «переключить галку в заголовке ...» больше не имеют смысла.
-    # Оставим их как no-op, чтобы старые вызовы не падали.
+
     def toggle_column_checked(self, col: int):
         return
 

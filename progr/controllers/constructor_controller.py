@@ -67,7 +67,6 @@ class ConstructorController:
         headers = ["date", "time", "source_ip", "method", "object", "protocol", "code", "referer", "user_agent", "audit_type_id", "site_id",
                     "user_id", "guest_id", "event_type", "user_roles", "username"]
 
-        # безопасно выровняем нужные колонки (отсутствующие заполним пустыми строками)
         safe_df = df.reindex(columns=headers, fill_value="")
 
         rows = safe_df.values.tolist()
@@ -121,12 +120,7 @@ class ConstructorController:
         """
          Формирует данные для предзаполнения диалога «Создать правило»
          из ОТМЕЧЕННЫХ чекбоксов в ячейках.
- 
-         ВАЖНО: если несколько колонок маппятся в одно поле диалога
-         (например, code и user_agent → rules_content), значения
-         НАКАПЛИВАЮТСЯ, а не перезаписываются.
          """
-         # --- надёжно получаем список заголовков ---
         headers = []
         if hasattr(model, "headers"):
             h = getattr(model, "headers")
@@ -147,7 +141,7 @@ class ConstructorController:
              "time": None,
              "code": "rules_content",
              "referer": "rules_content",
-             "user_agent": "rules_content",   # ← ВАЖНО: включаем user_agent
+             "user_agent": "rules_content",   
              "audit_type_id": None,
              "site_id": None,
              "user_id": None,

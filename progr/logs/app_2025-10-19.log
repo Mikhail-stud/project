@@ -105,3 +105,175 @@
 2025-10-19 21:44:29 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
 2025-10-19 21:44:43 [INFO] [Programm_X_Logger] [ConstructorController] Prefill из отмеченных ячеек: {'rules_ip_s': '127.0.0.1, 192.168.232.131', 'rules_content': 'GET, /bitrix/tools/autosave.php?bxsender=core_autosave&sessid=054e497b06b3ea86c53df90170f101be, 200'}
 2025-10-19 21:45:24 [INFO] [Programm_X_Logger] === Завершение работы приложения ===
+2025-10-19 22:12:56 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-10-19.log
+2025-10-19 22:12:57 [INFO] [Programm_X_Logger] === Запуск Программа Х ===
+2025-10-19 22:12:57 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-10-19 22:12:57 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-10-19 22:12:57 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-10-19 22:12:57 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-10-19 22:12:57 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-19 22:13:02 [INFO] [Programm_X_Logger] [ConstructorView] Выбран файл: /home/ubuntupc/my-proj/bitrix.txt
+2025-10-19 22:13:02 [INFO] [Programm_X_Logger] [FileLoaderThread] Загрузка файла: /home/ubuntupc/my-proj/bitrix.txt
+2025-10-19 22:13:02 [INFO] [Programm_X_Logger] [FileLoaderThread] Файл успешно загружен, строк: 2
+2025-10-19 22:13:04 [INFO] [Programm_X_Logger] [ConstructorView] Загружено строк: 2
+2025-10-19 22:13:09 [INFO] [Programm_X_Logger] [ConstructorView] Выбран файл: /home/ubuntupc/my-proj/apache.log
+2025-10-19 22:13:09 [INFO] [Programm_X_Logger] [FileLoaderThread] Загрузка файла: /home/ubuntupc/my-proj/apache.log
+2025-10-19 22:13:09 [INFO] [Programm_X_Logger] [FileLoaderThread] Файл успешно загружен, строк: 5
+2025-10-19 22:13:09 [INFO] [Programm_X_Logger] [ConstructorView] Загружено строк: 5
+2025-10-19 22:13:10 [INFO] [Programm_X_Logger] [ConstructorController] start_log_parse: type=Apache, lines=5
+2025-10-19 22:13:10 [INFO] [Programm_X_Logger] [LogParserThread] Запуск парсинга: type=Apache, lines=5
+2025-10-19 22:13:10 [INFO] [Programm_X_Logger] [LogParser] Парсинг Apache/Nginx логов, строк=5
+2025-10-19 22:13:10 [INFO] [Programm_X_Logger] [LogParser] Получено 5 записей Apache/Nginx
+2025-10-19 22:13:10 [INFO] [Programm_X_Logger] [LogParserThread] Парсинг завершён, поток завершается.
+2025-10-19 22:13:10 [INFO] [Programm_X_Logger] [ConstructorController] Парсинг завершён, записей: 5
+2025-10-19 22:13:10 [INFO] [Programm_X_Logger] [ConstructorController] Создана LogsTableModel: rows=5, cols=16
+2025-10-19 22:13:14 [INFO] [Programm_X_Logger] [ConstructorView] Выбран файл: /home/ubuntupc/my-proj/bitrix.txt
+2025-10-19 22:13:14 [INFO] [Programm_X_Logger] [FileLoaderThread] Загрузка файла: /home/ubuntupc/my-proj/bitrix.txt
+2025-10-19 22:13:14 [INFO] [Programm_X_Logger] [FileLoaderThread] Файл успешно загружен, строк: 2
+2025-10-19 22:13:15 [INFO] [Programm_X_Logger] [ConstructorView] Загружено строк: 2
+2025-10-19 22:13:17 [INFO] [Programm_X_Logger] [ConstructorController] start_log_parse: type=Apache, lines=2
+2025-10-19 22:13:17 [INFO] [Programm_X_Logger] [LogParserThread] Запуск парсинга: type=Apache, lines=2
+2025-10-19 22:13:17 [INFO] [Programm_X_Logger] [LogParser] Парсинг Apache/Nginx логов, строк=2
+2025-10-19 22:13:17 [INFO] [Programm_X_Logger] [LogParser] Получено 0 записей Apache/Nginx
+2025-10-19 22:13:17 [INFO] [Programm_X_Logger] [LogParserThread] Парсинг завершён, поток завершается.
+2025-10-19 22:13:17 [INFO] [Programm_X_Logger] [ConstructorController] Парсинг завершён, записей: 0
+2025-10-19 22:13:17 [INFO] [Programm_X_Logger] [ConstructorController] Создана LogsTableModel: rows=5, cols=16
+2025-10-19 22:13:23 [INFO] [Programm_X_Logger] [ConstructorController] start_log_parse: type=Bitrix, lines=2
+2025-10-19 22:13:23 [INFO] [Programm_X_Logger] [LogParserThread] Запуск парсинга: type=Bitrix, lines=2
+2025-10-19 22:13:23 [INFO] [Programm_X_Logger] [LogParser] Получено 24 записей Bitrix
+2025-10-19 22:13:23 [INFO] [Programm_X_Logger] [LogParserThread] Парсинг завершён, поток завершается.
+2025-10-19 22:13:23 [INFO] [Programm_X_Logger] [ConstructorController] Парсинг завершён, записей: 24
+2025-10-19 22:13:23 [INFO] [Programm_X_Logger] [ConstructorController] Создана LogsTableModel: rows=29, cols=16
+2025-10-19 22:13:30 [INFO] [Programm_X_Logger] [ConstructorView] Выбран файл: /home/ubuntupc/my-proj/nginx.txt
+2025-10-19 22:13:30 [INFO] [Programm_X_Logger] [FileLoaderThread] Загрузка файла: /home/ubuntupc/my-proj/nginx.txt
+2025-10-19 22:13:30 [INFO] [Programm_X_Logger] [FileLoaderThread] Файл успешно загружен, строк: 60
+2025-10-19 22:13:31 [INFO] [Programm_X_Logger] [ConstructorView] Загружено строк: 60
+2025-10-19 22:13:33 [INFO] [Programm_X_Logger] [ConstructorController] start_log_parse: type=Bitrix, lines=60
+2025-10-19 22:13:33 [INFO] [Programm_X_Logger] [LogParserThread] Запуск парсинга: type=Bitrix, lines=60
+2025-10-19 22:13:33 [INFO] [Programm_X_Logger] [LogParser] Получено 59 записей Bitrix
+2025-10-19 22:13:33 [INFO] [Programm_X_Logger] [LogParserThread] Парсинг завершён, поток завершается.
+2025-10-19 22:13:33 [INFO] [Programm_X_Logger] [ConstructorController] Парсинг завершён, записей: 59
+2025-10-19 22:13:33 [INFO] [Programm_X_Logger] [ConstructorController] Создана LogsTableModel: rows=88, cols=16
+2025-10-19 22:13:37 [INFO] [Programm_X_Logger] [ConstructorController] start_log_parse: type=Nginx, lines=60
+2025-10-19 22:13:37 [INFO] [Programm_X_Logger] [LogParserThread] Запуск парсинга: type=Nginx, lines=60
+2025-10-19 22:13:37 [INFO] [Programm_X_Logger] [LogParser] Парсинг Apache/Nginx логов, строк=60
+2025-10-19 22:13:37 [INFO] [Programm_X_Logger] [LogParser] Получено 58 записей Apache/Nginx
+2025-10-19 22:13:37 [INFO] [Programm_X_Logger] [LogParserThread] Парсинг завершён, поток завершается.
+2025-10-19 22:13:37 [INFO] [Programm_X_Logger] [ConstructorController] Парсинг завершён, записей: 58
+2025-10-19 22:13:37 [INFO] [Programm_X_Logger] [ConstructorController] Создана LogsTableModel: rows=146, cols=16
+2025-10-19 22:14:05 [INFO] [Programm_X_Logger] [ConstructorView] Выбран файл: /home/ubuntupc/my-proj/wordpress.log
+2025-10-19 22:14:05 [INFO] [Programm_X_Logger] [FileLoaderThread] Загрузка файла: /home/ubuntupc/my-proj/wordpress.log
+2025-10-19 22:14:05 [INFO] [Programm_X_Logger] [FileLoaderThread] Файл успешно загружен, строк: 3
+2025-10-19 22:14:05 [INFO] [Programm_X_Logger] [ConstructorView] Загружено строк: 3
+2025-10-19 22:14:09 [INFO] [Programm_X_Logger] [ConstructorController] start_log_parse: type=Wordpress, lines=3
+2025-10-19 22:14:09 [INFO] [Programm_X_Logger] [LogParserThread] Запуск парсинга: type=Wordpress, lines=3
+2025-10-19 22:14:09 [INFO] [Programm_X_Logger] [LogParser] Получено 27 записей WordPress
+2025-10-19 22:14:09 [INFO] [Programm_X_Logger] [LogParserThread] Парсинг завершён, поток завершается.
+2025-10-19 22:14:09 [INFO] [Programm_X_Logger] [ConstructorController] Парсинг завершён, записей: 27
+2025-10-19 22:14:09 [INFO] [Programm_X_Logger] [ConstructorController] Создана LogsTableModel: rows=173, cols=16
+2025-10-19 22:14:20 [INFO] [Programm_X_Logger] [ConstructorController] Prefill из отмеченных ячеек: {'rules_ip_s': '127.0.0.1, 192.168.232.131'}
+2025-10-19 22:14:30 [INFO] [Programm_X_Logger] === Завершение работы приложения ===
+2025-10-19 22:18:11 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-10-19.log
+2025-10-19 22:18:12 [INFO] [Programm_X_Logger] === Запуск Программа Х ===
+2025-10-19 22:18:12 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-10-19 22:18:12 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-10-19 22:18:12 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-10-19 22:18:12 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-10-19 22:18:12 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-19 22:18:19 [INFO] [Programm_X_Logger] [ConstructorView] Выбран файл: /home/ubuntupc/my-proj/apache.log
+2025-10-19 22:18:19 [INFO] [Programm_X_Logger] [FileLoaderThread] Загрузка файла: /home/ubuntupc/my-proj/apache.log
+2025-10-19 22:18:19 [INFO] [Programm_X_Logger] [FileLoaderThread] Файл успешно загружен, строк: 5
+2025-10-19 22:18:20 [INFO] [Programm_X_Logger] [ConstructorView] Загружено строк: 5
+2025-10-19 22:18:24 [INFO] [Programm_X_Logger] [ConstructorController] start_log_parse: type=Apache, lines=5
+2025-10-19 22:18:24 [INFO] [Programm_X_Logger] [LogParserThread] Запуск парсинга: type=Apache, lines=5
+2025-10-19 22:18:24 [INFO] [Programm_X_Logger] [LogParser] Парсинг Apache/Nginx логов, строк=5
+2025-10-19 22:18:24 [INFO] [Programm_X_Logger] [LogParser] Получено 5 записей Apache/Nginx
+2025-10-19 22:18:24 [INFO] [Programm_X_Logger] [LogParserThread] Парсинг завершён, поток завершается.
+2025-10-19 22:18:24 [INFO] [Programm_X_Logger] [ConstructorController] Парсинг завершён, записей: 5
+2025-10-19 22:18:24 [INFO] [Programm_X_Logger] [ConstructorController] Создана LogsTableModel: rows=5, cols=16
+2025-10-19 22:18:29 [INFO] [Programm_X_Logger] [ConstructorView] Выбран файл: /home/ubuntupc/my-proj/nginx.txt
+2025-10-19 22:18:29 [INFO] [Programm_X_Logger] [FileLoaderThread] Загрузка файла: /home/ubuntupc/my-proj/nginx.txt
+2025-10-19 22:18:29 [INFO] [Programm_X_Logger] [FileLoaderThread] Файл успешно загружен, строк: 60
+2025-10-19 22:18:30 [INFO] [Programm_X_Logger] [ConstructorView] Загружено строк: 60
+2025-10-19 22:18:55 [INFO] [Programm_X_Logger] [ConstructorController] start_log_parse: type=Nginx, lines=60
+2025-10-19 22:18:55 [INFO] [Programm_X_Logger] [LogParserThread] Запуск парсинга: type=Nginx, lines=60
+2025-10-19 22:18:55 [INFO] [Programm_X_Logger] [LogParser] Парсинг Apache/Nginx логов, строк=60
+2025-10-19 22:18:55 [INFO] [Programm_X_Logger] [LogParser] Получено 58 записей Apache/Nginx
+2025-10-19 22:18:55 [INFO] [Programm_X_Logger] [LogParserThread] Парсинг завершён, поток завершается.
+2025-10-19 22:18:55 [INFO] [Programm_X_Logger] [ConstructorController] Парсинг завершён, записей: 58
+2025-10-19 22:18:55 [INFO] [Programm_X_Logger] [ConstructorController] Создана LogsTableModel: rows=63, cols=16
+2025-10-19 22:19:02 [INFO] [Programm_X_Logger] [ConstructorView] Выбран файл: /home/ubuntupc/my-proj/wordpress.log
+2025-10-19 22:19:02 [INFO] [Programm_X_Logger] [FileLoaderThread] Загрузка файла: /home/ubuntupc/my-proj/wordpress.log
+2025-10-19 22:19:02 [INFO] [Programm_X_Logger] [FileLoaderThread] Файл успешно загружен, строк: 3
+2025-10-19 22:19:03 [INFO] [Programm_X_Logger] [ConstructorView] Загружено строк: 3
+2025-10-19 22:19:07 [INFO] [Programm_X_Logger] [ConstructorController] start_log_parse: type=Wordpress, lines=3
+2025-10-19 22:19:07 [INFO] [Programm_X_Logger] [LogParserThread] Запуск парсинга: type=Wordpress, lines=3
+2025-10-19 22:19:07 [INFO] [Programm_X_Logger] [LogParser] Получено 27 записей WordPress
+2025-10-19 22:19:07 [INFO] [Programm_X_Logger] [LogParserThread] Парсинг завершён, поток завершается.
+2025-10-19 22:19:07 [INFO] [Programm_X_Logger] [ConstructorController] Парсинг завершён, записей: 27
+2025-10-19 22:19:07 [INFO] [Programm_X_Logger] [ConstructorController] Создана LogsTableModel: rows=90, cols=16
+2025-10-19 22:19:24 [INFO] [Programm_X_Logger] === Завершение работы приложения ===
+2025-10-19 22:20:19 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-10-19.log
+2025-10-19 22:20:20 [INFO] [Programm_X_Logger] === Запуск Программа Х ===
+2025-10-19 22:20:20 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-10-19 22:20:20 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-10-19 22:20:20 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-10-19 22:20:20 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-10-19 22:20:20 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-19 22:20:25 [INFO] [Programm_X_Logger] [ConstructorView] Выбран файл: /home/ubuntupc/my-proj/apache.log
+2025-10-19 22:20:25 [INFO] [Programm_X_Logger] [FileLoaderThread] Загрузка файла: /home/ubuntupc/my-proj/apache.log
+2025-10-19 22:20:25 [INFO] [Programm_X_Logger] [FileLoaderThread] Файл успешно загружен, строк: 5
+2025-10-19 22:20:26 [INFO] [Programm_X_Logger] [ConstructorView] Загружено строк: 5
+2025-10-19 22:20:28 [INFO] [Programm_X_Logger] [ConstructorController] start_log_parse: type=Apache, lines=5
+2025-10-19 22:20:28 [INFO] [Programm_X_Logger] [LogParserThread] Запуск парсинга: type=Apache, lines=5
+2025-10-19 22:20:28 [INFO] [Programm_X_Logger] [LogParser] Парсинг Apache/Nginx логов, строк=5
+2025-10-19 22:20:28 [INFO] [Programm_X_Logger] [LogParser] Получено 5 записей Apache/Nginx
+2025-10-19 22:20:28 [INFO] [Programm_X_Logger] [LogParserThread] Парсинг завершён, поток завершается.
+2025-10-19 22:20:28 [INFO] [Programm_X_Logger] [ConstructorController] Парсинг завершён, записей: 5
+2025-10-19 22:20:28 [INFO] [Programm_X_Logger] [ConstructorController] Создана LogsTableModel: rows=5, cols=16
+2025-10-19 22:20:34 [INFO] [Programm_X_Logger] [ConstructorView] Выбран файл: /home/ubuntupc/my-proj/wordpress.log
+2025-10-19 22:20:34 [INFO] [Programm_X_Logger] [FileLoaderThread] Загрузка файла: /home/ubuntupc/my-proj/wordpress.log
+2025-10-19 22:20:34 [INFO] [Programm_X_Logger] [FileLoaderThread] Файл успешно загружен, строк: 3
+2025-10-19 22:20:35 [INFO] [Programm_X_Logger] [ConstructorView] Загружено строк: 3
+2025-10-19 22:20:40 [INFO] [Programm_X_Logger] [ConstructorController] start_log_parse: type=Wordpress, lines=3
+2025-10-19 22:20:40 [INFO] [Programm_X_Logger] [LogParserThread] Запуск парсинга: type=Wordpress, lines=3
+2025-10-19 22:20:40 [INFO] [Programm_X_Logger] [LogParser] Получено 27 записей WordPress
+2025-10-19 22:20:40 [INFO] [Programm_X_Logger] [LogParserThread] Парсинг завершён, поток завершается.
+2025-10-19 22:20:40 [INFO] [Programm_X_Logger] [ConstructorController] Парсинг завершён, записей: 27
+2025-10-19 22:20:40 [INFO] [Programm_X_Logger] [ConstructorController] Создана LogsTableModel: rows=32, cols=16
+2025-10-19 22:20:42 [INFO] [Programm_X_Logger] === Завершение работы приложения ===
+2025-10-19 22:22:19 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-10-19.log
+2025-10-19 22:22:20 [INFO] [Programm_X_Logger] === Запуск Программа Х ===
+2025-10-19 22:22:20 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-10-19 22:22:20 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-10-19 22:22:20 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-10-19 22:22:20 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-10-19 22:22:20 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-19 22:22:25 [INFO] [Programm_X_Logger] [ConstructorView] Выбран файл: /home/ubuntupc/my-proj/wordpress.log
+2025-10-19 22:22:25 [INFO] [Programm_X_Logger] [FileLoaderThread] Загрузка файла: /home/ubuntupc/my-proj/wordpress.log
+2025-10-19 22:22:25 [INFO] [Programm_X_Logger] [FileLoaderThread] Файл успешно загружен, строк: 3
+2025-10-19 22:22:26 [INFO] [Programm_X_Logger] [ConstructorView] Загружено строк: 3
+2025-10-19 22:22:29 [INFO] [Programm_X_Logger] [ConstructorController] start_log_parse: type=Wordpress, lines=3
+2025-10-19 22:22:29 [INFO] [Programm_X_Logger] [LogParserThread] Запуск парсинга: type=Wordpress, lines=3
+2025-10-19 22:22:29 [INFO] [Programm_X_Logger] [LogParser] Получено 27 записей WordPress
+2025-10-19 22:22:29 [INFO] [Programm_X_Logger] [LogParserThread] Парсинг завершён, поток завершается.
+2025-10-19 22:22:29 [INFO] [Programm_X_Logger] [ConstructorController] Парсинг завершён, записей: 27
+2025-10-19 22:22:29 [INFO] [Programm_X_Logger] [ConstructorController] Создана LogsTableModel: rows=27, cols=16
+2025-10-19 22:22:38 [INFO] [Programm_X_Logger] [ConstructorView] Выбран файл: /home/ubuntupc/my-proj/apache.log
+2025-10-19 22:22:38 [INFO] [Programm_X_Logger] [FileLoaderThread] Загрузка файла: /home/ubuntupc/my-proj/apache.log
+2025-10-19 22:22:38 [INFO] [Programm_X_Logger] [FileLoaderThread] Файл успешно загружен, строк: 5
+2025-10-19 22:22:39 [INFO] [Programm_X_Logger] [ConstructorView] Загружено строк: 5
+2025-10-19 22:22:41 [INFO] [Programm_X_Logger] [ConstructorController] start_log_parse: type=Wordpress, lines=5
+2025-10-19 22:22:41 [INFO] [Programm_X_Logger] [LogParserThread] Запуск парсинга: type=Wordpress, lines=5
+2025-10-19 22:22:41 [INFO] [Programm_X_Logger] [LogParser] Получено 5 записей WordPress
+2025-10-19 22:22:41 [INFO] [Programm_X_Logger] [LogParserThread] Парсинг завершён, поток завершается.
+2025-10-19 22:22:41 [INFO] [Programm_X_Logger] [ConstructorController] Парсинг завершён, записей: 5
+2025-10-19 22:22:41 [INFO] [Programm_X_Logger] [ConstructorController] Создана LogsTableModel: rows=32, cols=16
+2025-10-19 22:22:49 [INFO] [Programm_X_Logger] [ConstructorController] start_log_parse: type=Apache, lines=5
+2025-10-19 22:22:49 [INFO] [Programm_X_Logger] [LogParserThread] Запуск парсинга: type=Apache, lines=5
+2025-10-19 22:22:49 [INFO] [Programm_X_Logger] [LogParser] Парсинг Apache/Nginx логов, строк=5
+2025-10-19 22:22:49 [INFO] [Programm_X_Logger] [LogParser] Получено 5 записей Apache/Nginx
+2025-10-19 22:22:49 [INFO] [Programm_X_Logger] [LogParserThread] Парсинг завершён, поток завершается.
+2025-10-19 22:22:49 [INFO] [Programm_X_Logger] [ConstructorController] Парсинг завершён, записей: 5
+2025-10-19 22:22:49 [INFO] [Programm_X_Logger] [ConstructorController] Создана LogsTableModel: rows=37, cols=16
+2025-10-19 22:23:15 [INFO] [Programm_X_Logger] === Завершение работы приложения ===

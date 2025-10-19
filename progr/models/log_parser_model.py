@@ -23,7 +23,7 @@ class LogParser:
     def parse_apache_nginx(self, lines):
         """
         Парсит Apache/Nginx access logs в DataFrame.
-        Теперь 'time' разбивается на отдельные колонки 'date' и 'time'.
+         'time' разбивается на отдельные колонки 'date' и 'time'.
         """
         LOGGER.info(f"[LogParser] Парсинг Apache/Nginx логов, строк={len(lines)}")
         parsed_data = []
@@ -37,15 +37,15 @@ class LogParser:
                 proto, proto_ver = self._split_protocol(protocol)
 
                 parsed_data.append([
-                    date_str,                         # 'date'  <-- НОВОЕ
-                    time_str,                         # 'time'  <-- обновлённое (HH:MM:SS)
+                    date_str,                         
+                    time_str,                         
                     match.group("source_ip"),
                     match.group("method"),
                     match.group("object"),
                     protocol,
                     proto,
                     proto_ver,
-                    int(match.group("code")),
+                    (match.group("code")),
                     match.group("referer"),
                     match.group("agent")
                 ])
@@ -59,10 +59,9 @@ class LogParser:
     def parse_wordpress_activitylog(self, text) -> pd.DataFrame:
         """
         Парсер дампа WordPress activity log (кортежи в скобках).
-        Возвращает DataFrame с колонками (строго по твоей схеме):
+        Возвращает DataFrame с колонками:
         ip, object, user_agent, event_type, user_roles, username, site_id, user_id
         """
-        # допускаем list[str] как в других ветках
         if not isinstance(text, str):
             try:
                 text = "".join(text)
@@ -71,9 +70,6 @@ class LogParser:
 
         rows = []
         for rec in self._iter_wp_tuples(text):
-            # Твой пример:
-            # (1,1,6052,1760681713.316443,'127.0.0.1','400','wp-activity-log','modified',
-            #  'Mozilla/...','administrator','userwp',1,'','','',0)
             try:
                 row = {
                     "source_ip":         str(rec[4]  or ""),   # №5
@@ -87,7 +83,6 @@ class LogParser:
                 }
                 rows.append(row)
             except Exception:
-                # пропускаем кривые записи, не роняем общий парсинг
                 continue
 
         df = pd.DataFrame(rows, columns=[
@@ -98,7 +93,6 @@ class LogParser:
         LOGGER.info(f"[LogParser] Получено {len(df)} записей WordPress")
         return df
 
-    # --- helpers ---
 
     def _iter_wp_tuples(self, text: str):
         """
@@ -109,7 +103,7 @@ class LogParser:
             inner = tup[1:-1]
             fields = self._split_fields_sql_quotes(inner)
             norm = [self._normalize_wp_field(f) for f in fields]
-            # В твоём примере — 16 полей
+
             if len(norm) < 16:
                 norm += [""] * (16 - len(norm))
             elif len(norm) > 16:
@@ -118,7 +112,7 @@ class LogParser:
 
     @staticmethod
     def _find_parenthesized(text: str):
-        """Нахождение '(...)' без вложенности."""
+
         start, depth = None, 0
         for i, ch in enumerate(text):
             if ch == "(":
@@ -133,10 +127,8 @@ class LogParser:
 
     @staticmethod
     def _split_fields_sql_quotes(s: str):
-        """
-        Делит строку кортежа по ',' с учётом строк в одинарных кавычках.
-        Поддержка SQL-экранирования одинарной кавычки: '' → '
-        """
+
+
         fields, buf = [], []
         in_q = False
         i = 0
@@ -144,7 +136,7 @@ class LogParser:
             ch = s[i]
             if in_q:
                 if ch == "'":
-                    if i + 1 < len(s) and s[i + 1] == "'":  # удвоенная кавычка
+                    if i + 1 < len(s) and s[i + 1] == "'":  
                         buf.append("'")
                         i += 2
                         continue
@@ -270,7 +262,7 @@ class LogParser:
         """
         Итерирует кортежи из b_event_log, корректно деля на поля по запятым
         с учётом одинарных кавычек и экранирования (\' внутри строки).
-        Возвращает список значений (длина 13).
+        Возвращает список значений.
         """
         # 1) вычленяем подстроки вида (...) — допускаем перевод строки внутри
         for tup in self._find_parenthesized(text):
@@ -279,7 +271,7 @@ class LogParser:
             fields = self._split_fields_preserving_quotes(inner)
             # нормализуем NULL/строки/числа
             norm = [self._normalize_field(f) for f in fields]
-            # ожидаем 13 полей; если больше/меньше — подрежем/добьём пустыми
+
             if len(norm) < 13:
                 norm += [""] * (13 - len(norm))
             elif len(norm) > 13:
@@ -288,10 +280,8 @@ class LogParser:
 
     @staticmethod
     def _find_parenthesized(text: str):
-        """
-        Жадный поиск кортежей '(...)' на верхнем уровне.
-        Предполагаем, что скобки не вложены (как в типичной INSERT-дампе).
-        """
+
+
         start = None
         depth = 0
         for i, ch in enumerate(text):
@@ -305,7 +295,7 @@ class LogParser:
                     if depth == 0 and start is not None:
                         yield text[start:i+1]
                         start = None
-        # хвост игнорируем, если скобки не сбалансированы
+
 
     @staticmethod
     def _split_fields_preserving_quotes(s: str):
@@ -378,8 +368,8 @@ class LogParser:
     def _split_apache_time(raw: str) -> tuple[str, str]:
         """
         Разбирает время вида '27/Jul/2025:07:55:25 +0700' на ('YYYY-MM-DD', 'HH:MM:SS'),
-        НЕ завися от локали ОС.
 
+        
         Возвращает ("", исходная_строка), если распарсить не удалось.
         """
         if not raw:
@@ -387,16 +377,16 @@ class LogParser:
         s = str(raw).strip()
 
     # Ожидаем формат: DD/Mon/YYYY:HH:MM:SS ±ZZZZ
-    # Разделим на основную часть и смещение часового пояса (offset нам тут не нужно).
+
         parts = s.split(" ", 1)
         core = parts[0]  # '27/Jul/2025:07:55:25'
-    # offset = parts[1] if len(parts) > 1 else None  # если когда-нибудь понадобится
+
 
     # DD/Mon/YYYY:HH:MM:SS
         try:
             day_str, mon_str, rest = core.split("/", 2)           # '27', 'Jul', '2025:07:55:25'
             year_str, hh, mm, ss = rest.split(":", 3)             # '2025', '07', '55', '25'
-        # Месяцы — английские аббревиатуры, не зависят от локали
+
             mon_map = {
             "Jan": "01", "Feb": "02", "Mar": "03", "Apr": "04",
             "May": "05", "Jun": "06", "Jul": "07", "Aug": "08",
@@ -416,7 +406,7 @@ class LogParser:
             return date_str, time_str
 
         except Exception:
-        # Фолбэк: не ломаемся — вернём исходную строку во 'time', а 'date' оставим пустой
+
             return "", s
     @staticmethod
     def _split_protocol(proto_raw: str) -> tuple[str, str]:

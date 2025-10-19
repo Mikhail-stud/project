@@ -57,7 +57,6 @@ class EditorController:
     def update_rule(self, rule_id, updated_data):
         """
         Копит изменения для пакетного сохранения (через BatchSaverThread).
-        Здесь НЕ увеличиваем версию — это обычное обновление по ID.
         """
         is_valid, errors = validate_rule(updated_data)
         if not is_valid:
