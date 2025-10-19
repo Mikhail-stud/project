@@ -1,0 +1,107 @@
+2025-10-19 21:17:31 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-10-19.log
+2025-10-19 21:17:32 [INFO] [Programm_X_Logger] === Запуск Программа Х ===
+2025-10-19 21:17:32 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-10-19 21:17:32 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-10-19 21:17:32 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-10-19 21:17:32 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-10-19 21:17:32 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-19 21:18:26 [INFO] [Programm_X_Logger] [ConstructorView] Выбран файл: /home/ubuntupc/my-proj/apache.log
+2025-10-19 21:18:26 [INFO] [Programm_X_Logger] [FileLoaderThread] Загрузка файла: /home/ubuntupc/my-proj/apache.log
+2025-10-19 21:18:26 [INFO] [Programm_X_Logger] [FileLoaderThread] Файл успешно загружен, строк: 5
+2025-10-19 21:18:27 [INFO] [Programm_X_Logger] [ConstructorView] Загружено строк: 5
+2025-10-19 21:18:29 [INFO] [Programm_X_Logger] [ConstructorController] start_log_parse: type=Apache, lines=5
+2025-10-19 21:18:29 [INFO] [Programm_X_Logger] [LogParserThread] Запуск парсинга: type=Apache, lines=5
+2025-10-19 21:18:29 [INFO] [Programm_X_Logger] [LogParser] Парсинг Apache/Nginx логов, строк=5
+2025-10-19 21:18:29 [INFO] [Programm_X_Logger] [LogParser] Получено 5 записей Apache/Nginx
+2025-10-19 21:18:29 [INFO] [Programm_X_Logger] [LogParserThread] Парсинг завершён, поток завершается.
+2025-10-19 21:18:29 [INFO] [Programm_X_Logger] [ConstructorController] Парсинг завершён, записей: 5
+2025-10-19 21:18:29 [INFO] [Programm_X_Logger] [ConstructorController] Создана LogsTableModel: rows=5, cols=16
+2025-10-19 21:18:36 [INFO] [Programm_X_Logger] [ConstructorView] Выбран файл: /home/ubuntupc/my-proj/bitrix.txt
+2025-10-19 21:18:36 [INFO] [Programm_X_Logger] [FileLoaderThread] Загрузка файла: /home/ubuntupc/my-proj/bitrix.txt
+2025-10-19 21:18:36 [INFO] [Programm_X_Logger] [FileLoaderThread] Файл успешно загружен, строк: 2
+2025-10-19 21:18:37 [INFO] [Programm_X_Logger] [ConstructorView] Загружено строк: 2
+2025-10-19 21:18:41 [INFO] [Programm_X_Logger] [ConstructorController] start_log_parse: type=Bitrix, lines=2
+2025-10-19 21:18:41 [INFO] [Programm_X_Logger] [LogParserThread] Запуск парсинга: type=Bitrix, lines=2
+2025-10-19 21:18:41 [INFO] [Programm_X_Logger] [LogParser] Получено 24 записей Bitrix
+2025-10-19 21:18:41 [INFO] [Programm_X_Logger] [LogParserThread] Парсинг завершён, поток завершается.
+2025-10-19 21:18:41 [INFO] [Programm_X_Logger] [ConstructorController] Парсинг завершён, записей: 24
+2025-10-19 21:18:41 [INFO] [Programm_X_Logger] [ConstructorController] Создана LogsTableModel: rows=29, cols=16
+2025-10-19 21:19:11 [INFO] [Programm_X_Logger] [ConstructorController] Prefill из отмеченных ячеек: {'rules_ip_s': '127.0.0.1, 192.168.232.131', 'rules_content': 'GET, /login/?login=yes'}
+2025-10-19 21:20:01 [INFO] [Programm_X_Logger] [RuleModel] Получено правило по SID=7001: нашлось
+2025-10-19 21:20:01 [WARNING] [Programm_X_Logger] [ConstructorController] Правило с SID=7001 уже существует -> отмена создания
+2025-10-19 21:20:09 [INFO] [Programm_X_Logger] [RuleModel] Получено правило по SID=7004: нет
+2025-10-19 21:20:09 [INFO] [Programm_X_Logger] [RuleModel] Новое правило добавлено ID=32
+2025-10-19 21:20:09 [INFO] [Programm_X_Logger] [ConstructorController] Создано правило ID=32 с SID=7004, rev=1
+2025-10-19 21:20:09 [INFO] [Programm_X_Logger] [RuleModel] Получено правило по SID=7004: нашлось
+2025-10-19 21:20:09 [WARNING] [Programm_X_Logger] [ConstructorController] Правило с SID=7004 уже существует -> отмена создания
+2025-10-19 21:20:10 [INFO] [Programm_X_Logger] [ConstructorView] Правило успешно создано
+2025-10-19 21:20:14 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=20, limit=20
+2025-10-19 21:20:14 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=20, limit=20
+2025-10-19 21:20:14 [INFO] [Programm_X_Logger] [RuleModel] Получено 11 правил (offset=20, limit=20)
+2025-10-19 21:20:14 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 11
+2025-10-19 21:20:14 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-19 21:20:16 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=32
+2025-10-19 21:20:16 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=32
+2025-10-19 21:21:08 [INFO] [Programm_X_Logger] [EditorController] Изменение правила ID=32: {'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': '127.0.0.1, 192.168.232.131', 'rules_port_s': '53', 'rules_route': '->', 'rules_ip_d': '192.168.0.0/24', 'rules_port_d': '78', 'rules_msg': 'Test rules', 'rules_content': 'GET, /login/?login=yes', 'rules_sid': '7004', 'rules_rev': '1'}
+2025-10-19 21:21:12 [INFO] [Programm_X_Logger] [BatchSaverThread] Сохранение 1 правил...
+2025-10-19 21:21:12 [DEBUG] [Programm_X_Logger] [BatchSaverThread] Сохранение правила ID=32: {'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': '127.0.0.1, 192.168.232.131', 'rules_port_s': '53', 'rules_route': '->', 'rules_ip_d': '192.168.0.0/24', 'rules_port_d': '78', 'rules_msg': 'Test rules', 'rules_content': 'GET, /login/?login=yes', 'rules_sid': '7004', 'rules_rev': '1'}
+2025-10-19 21:21:12 [INFO] [Programm_X_Logger] [RuleModel] Правило ID=32 обновлено
+2025-10-19 21:21:12 [INFO] [Programm_X_Logger] [BatchSaverThread] Сохранение завершено успешно.
+2025-10-19 21:21:13 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=20, limit=20
+2025-10-19 21:21:13 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=20, limit=20
+2025-10-19 21:21:13 [INFO] [Programm_X_Logger] [RuleModel] Получено 11 правил (offset=20, limit=20)
+2025-10-19 21:21:13 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 11
+2025-10-19 21:21:13 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-19 21:21:31 [INFO] [Programm_X_Logger] [ExportView] Запрошен экспорт: system=IDS, path=/home/ubuntupc/my-proj/test ids1
+2025-10-19 21:21:31 [INFO] [Programm_X_Logger] [ExportController] export_rules_async: type=IDS, path=/home/ubuntupc/my-proj/test ids1
+2025-10-19 21:21:31 [INFO] [Programm_X_Logger] [ExportRulesThread] Экспорт правил: system_type=ids, file=/home/ubuntupc/my-proj/test ids1
+2025-10-19 21:21:31 [INFO] [Programm_X_Logger] [ExportModel] Получение правил для ids (actions=('alert', 'log', 'pass', 'activate', 'dynamic'))
+2025-10-19 21:21:31 [INFO] [Programm_X_Logger] [ExportModel] Получено 24 правил для ids
+2025-10-19 21:21:31 [INFO] [Programm_X_Logger] [ExportRulesThread] Экспортировано 24 правил в /home/ubuntupc/my-proj/test ids1
+2025-10-19 21:21:31 [INFO] [Programm_X_Logger] [ExportController] Экспорт завершён: Экспортировано 24 правил в /home/ubuntupc/my-proj/test ids1
+2025-10-19 21:21:35 [INFO] [Programm_X_Logger] === Завершение работы приложения ===
+2025-10-19 21:40:13 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-10-19.log
+2025-10-19 21:40:14 [INFO] [Programm_X_Logger] === Запуск Программа Х ===
+2025-10-19 21:40:14 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-10-19 21:40:14 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-10-19 21:40:14 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-10-19 21:40:14 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-10-19 21:40:14 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-19 21:40:38 [INFO] [Programm_X_Logger] [ConstructorView] Выбран файл: /home/ubuntupc/my-proj/apache.log
+2025-10-19 21:40:38 [INFO] [Programm_X_Logger] [FileLoaderThread] Загрузка файла: /home/ubuntupc/my-proj/apache.log
+2025-10-19 21:40:38 [INFO] [Programm_X_Logger] [FileLoaderThread] Файл успешно загружен, строк: 5
+2025-10-19 21:40:39 [INFO] [Programm_X_Logger] [ConstructorView] Загружено строк: 5
+2025-10-19 21:40:40 [INFO] [Programm_X_Logger] [ConstructorController] start_log_parse: type=Apache, lines=5
+2025-10-19 21:40:40 [INFO] [Programm_X_Logger] [LogParserThread] Запуск парсинга: type=Apache, lines=5
+2025-10-19 21:40:40 [INFO] [Programm_X_Logger] [LogParser] Парсинг Apache/Nginx логов, строк=5
+2025-10-19 21:40:40 [INFO] [Programm_X_Logger] [LogParser] Получено 5 записей Apache/Nginx
+2025-10-19 21:40:40 [INFO] [Programm_X_Logger] [LogParserThread] Парсинг завершён, поток завершается.
+2025-10-19 21:40:40 [INFO] [Programm_X_Logger] [ConstructorController] Парсинг завершён, записей: 5
+2025-10-19 21:40:40 [INFO] [Programm_X_Logger] [ConstructorController] Создана LogsTableModel: rows=5, cols=16
+2025-10-19 21:41:22 [INFO] [Programm_X_Logger] [ConstructorView] Выбран файл: /home/ubuntupc/my-proj/nginx.txt
+2025-10-19 21:41:22 [INFO] [Programm_X_Logger] [FileLoaderThread] Загрузка файла: /home/ubuntupc/my-proj/nginx.txt
+2025-10-19 21:41:22 [INFO] [Programm_X_Logger] [FileLoaderThread] Файл успешно загружен, строк: 60
+2025-10-19 21:41:23 [INFO] [Programm_X_Logger] [ConstructorView] Загружено строк: 60
+2025-10-19 21:41:24 [INFO] [Programm_X_Logger] [ConstructorController] start_log_parse: type=Apache, lines=60
+2025-10-19 21:41:24 [INFO] [Programm_X_Logger] [LogParserThread] Запуск парсинга: type=Apache, lines=60
+2025-10-19 21:41:24 [INFO] [Programm_X_Logger] [LogParser] Парсинг Apache/Nginx логов, строк=60
+2025-10-19 21:41:24 [INFO] [Programm_X_Logger] [LogParser] Получено 58 записей Apache/Nginx
+2025-10-19 21:41:24 [INFO] [Programm_X_Logger] [LogParserThread] Парсинг завершён, поток завершается.
+2025-10-19 21:41:24 [INFO] [Programm_X_Logger] [ConstructorController] Парсинг завершён, записей: 58
+2025-10-19 21:41:24 [INFO] [Programm_X_Logger] [ConstructorController] Создана LogsTableModel: rows=63, cols=16
+2025-10-19 21:42:24 [INFO] [Programm_X_Logger] [ConstructorController] Prefill из отмеченных ячеек: {'rules_ip_s': '127.0.0.1, 192.168.232.131', 'rules_content': 'GET, /bitrix/tools/autosave.php?bxsender=core_autosave&sessid=054e497b06b3ea86c53df90170f101be, 200'}
+2025-10-19 21:44:07 [INFO] [Programm_X_Logger] [RuleModel] Получено правило по SID=7001: нашлось
+2025-10-19 21:44:07 [WARNING] [Programm_X_Logger] [ConstructorController] Правило с SID=7001 уже существует -> отмена создания
+2025-10-19 21:44:15 [INFO] [Programm_X_Logger] [RuleModel] Получено правило по SID=7005: нет
+2025-10-19 21:44:15 [INFO] [Programm_X_Logger] [RuleModel] Новое правило добавлено ID=33
+2025-10-19 21:44:15 [INFO] [Programm_X_Logger] [ConstructorController] Создано правило ID=33 с SID=7005, rev=1
+2025-10-19 21:44:15 [INFO] [Programm_X_Logger] [RuleModel] Получено правило по SID=7005: нашлось
+2025-10-19 21:44:15 [WARNING] [Programm_X_Logger] [ConstructorController] Правило с SID=7005 уже существует -> отмена создания
+2025-10-19 21:44:16 [INFO] [Programm_X_Logger] [ConstructorView] Правило успешно создано
+2025-10-19 21:44:29 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=20, limit=20
+2025-10-19 21:44:29 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=20, limit=20
+2025-10-19 21:44:29 [INFO] [Programm_X_Logger] [RuleModel] Получено 12 правил (offset=20, limit=20)
+2025-10-19 21:44:29 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 12
+2025-10-19 21:44:29 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-19 21:44:43 [INFO] [Programm_X_Logger] [ConstructorController] Prefill из отмеченных ячеек: {'rules_ip_s': '127.0.0.1, 192.168.232.131', 'rules_content': 'GET, /bitrix/tools/autosave.php?bxsender=core_autosave&sessid=054e497b06b3ea86c53df90170f101be, 200'}
+2025-10-19 21:45:24 [INFO] [Programm_X_Logger] === Завершение работы приложения ===
