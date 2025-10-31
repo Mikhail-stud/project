@@ -1,10 +1,10 @@
-# constructor_controller.py
 from progr.threads.log_parser_thread import LogParserThread
 from progr.models.logs_table_model import LogsTableModel
 from progr.models.rule_model import RuleModel
 from progr.utils_app.logger import LOGGER
 import pandas as pd
 from PyQt6.QtCore import Qt
+from PyQt6.QtWidgets import QMessageBox
 
 
 class ConstructorController:
@@ -185,29 +185,70 @@ class ConstructorController:
 
     def create_rule(self, rule_data: dict) -> bool:
         """
-    Создание правила:
-    - если SID уже существует -> не создаём, возвращаем False
-    - если SID новый         -> создаём с rules_rev = 1
+        Создание правила:
+        - если SID уже существует -> предложить ближайший свободный из диапазона 7000000–7999999
+        - если SID новый         -> создаём с rules_rev = 1
         """
         sid = rule_data.get("rules_sid") or rule_data.get("sid")
         if sid is None or str(sid).strip() == "":
             LOGGER.error("[ConstructorController] SID пуст — правило не создано")
+            QMessageBox.critical(None, "Ошибка", "SID пуст. Укажите значение SID.")
             return False
 
         try:
-            # 1) Проверяем наличие правила с таким SID
+            sid = int(str(sid).strip())
+        except ValueError:
+            QMessageBox.critical(None, "Ошибка", f"Некорректный SID: {sid}")
+            return False
+
+        # ✅ Гарантируем, что SID находится в тестовом диапазоне
+        if sid < 7000000 or sid > 7999999:
+            QMessageBox.warning(
+                None,
+                "Некорректный SID",
+                "Все тестовые SID должны быть в диапазоне 7000000–7999999.\n"
+                "Будет предложено ближайшее доступное значение."
+            )
+            sid = 7000000
+
+        try:
+            # Проверяем наличие правила с таким SID
             existing = RuleModel.get_rule_by_sid(sid)
             if existing:
-                LOGGER.warning("[ConstructorController] Правило с SID=%s уже существует -> отмена создания", sid)
-                return False
+                LOGGER.warning(f"[ConstructorController] Правило с SID={sid} уже существует")
 
-        # 2) Вставляем новое правило с версией 1 (явно)
-            rule_data = dict(rule_data)  # не трогаем исходный словарь
+                # === 🔍 Ищем ближайший свободный SID ===
+                suggested = RuleModel.find_next_free_test_sid(start_sid=sid)
+                if suggested:
+                    res = QMessageBox.question(
+                        None,
+                        "SID занят",
+                        f"SID {sid} уже используется.\n"
+                        f"Предложить ближайший свободный: {suggested}?",
+                        QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No
+                    )
+                    if res == QMessageBox.StandardButton.Yes:
+                        sid = suggested
+                        rule_data["rules_sid"] = str(sid)
+                        LOGGER.info(f"[ConstructorController] Пользователь выбрал предложенный SID={sid}")
+                    else:
+                        LOGGER.info("[ConstructorController] Пользователь отказался от замены SID")
+                        return False
+                else:
+                    QMessageBox.critical(None, "Ошибка", "Нет доступных SID в диапазоне 7000000–7999999.")
+                    return False
+
+            # Вставляем новое правило с версией 1
+            rule_data = dict(rule_data)
+            rule_data["rules_sid"] = str(sid)
             rule_data["rules_rev"] = 1
             new_id = RuleModel.add_rule(rule_data)
-            LOGGER.info("[ConstructorController] Создано правило ID=%s с SID=%s, rev=1", new_id, sid)
+
+            LOGGER.info(f"[ConstructorController] Создано правило ID={new_id} с SID={sid}, rev=1")
+            QMessageBox.information(None, "Создание правила", f"Правило успешно создано.\nSID: {sid}")
             return True
 
         except Exception as e:
             LOGGER.error(f"[ConstructorController] Ошибка при создании правила: {e}", exc_info=True)
+            QMessageBox.critical(None, "Ошибка", str(e))
             return False

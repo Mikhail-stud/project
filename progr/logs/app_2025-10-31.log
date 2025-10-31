@@ -1,0 +1,424 @@
+2025-10-31 18:39:56 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-10-31.log
+2025-10-31 18:39:57 [INFO] [Programm_X_Logger] === Запуск Программа Х ===
+2025-10-31 18:39:57 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-10-31 18:39:57 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-10-31 18:39:57 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-10-31 18:39:57 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-10-31 18:39:57 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-31 18:40:12 [INFO] [Programm_X_Logger] [ConstructorView] Выбран файл: /home/ubuntupc/my-proj/wordpress.log
+2025-10-31 18:40:12 [INFO] [Programm_X_Logger] [FileLoaderThread] Загрузка файла: /home/ubuntupc/my-proj/wordpress.log
+2025-10-31 18:40:12 [INFO] [Programm_X_Logger] [FileLoaderThread] Файл успешно загружен, строк: 3
+2025-10-31 18:40:13 [INFO] [Programm_X_Logger] [ConstructorView] Загружено строк: 3
+2025-10-31 18:40:14 [INFO] [Programm_X_Logger] [ConstructorController] start_log_parse: type=Apache, lines=3
+2025-10-31 18:40:14 [INFO] [Programm_X_Logger] [LogParserThread] Запуск парсинга: type=Apache, lines=3
+2025-10-31 18:40:14 [INFO] [Programm_X_Logger] [LogParser] Парсинг Apache/Nginx логов, строк=3
+2025-10-31 18:40:14 [INFO] [Programm_X_Logger] [LogParser] Получено 0 записей Apache/Nginx
+2025-10-31 18:40:14 [INFO] [Programm_X_Logger] [LogParserThread] Парсинг завершён, поток завершается.
+2025-10-31 18:40:14 [INFO] [Programm_X_Logger] [ConstructorController] Парсинг завершён, записей: 0
+2025-10-31 18:40:14 [INFO] [Programm_X_Logger] [ConstructorController] Создана LogsTableModel: rows=0, cols=16
+2025-10-31 18:40:28 [INFO] [Programm_X_Logger] === Завершение работы приложения ===
+2025-10-31 18:41:54 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-10-31.log
+2025-10-31 18:41:54 [INFO] [Programm_X_Logger] === Запуск Программа Х ===
+2025-10-31 18:41:54 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-10-31 18:41:54 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-10-31 18:41:54 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-10-31 18:41:54 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-10-31 18:41:54 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-31 18:41:59 [INFO] [Programm_X_Logger] [ConstructorView] Выбран файл: /home/ubuntupc/my-proj/apache.log
+2025-10-31 18:41:59 [INFO] [Programm_X_Logger] [FileLoaderThread] Загрузка файла: /home/ubuntupc/my-proj/apache.log
+2025-10-31 18:41:59 [INFO] [Programm_X_Logger] [FileLoaderThread] Файл успешно загружен, строк: 5
+2025-10-31 18:41:59 [INFO] [Programm_X_Logger] [ConstructorView] Загружено строк: 5
+2025-10-31 18:42:01 [INFO] [Programm_X_Logger] [ConstructorController] start_log_parse: type=Apache, lines=5
+2025-10-31 18:42:01 [INFO] [Programm_X_Logger] [LogParserThread] Запуск парсинга: type=Apache, lines=5
+2025-10-31 18:42:01 [INFO] [Programm_X_Logger] [LogParser] Парсинг Apache/Nginx логов, строк=5
+2025-10-31 18:42:01 [INFO] [Programm_X_Logger] [LogParser] Получено 5 записей Apache/Nginx
+2025-10-31 18:42:01 [INFO] [Programm_X_Logger] [LogParserThread] Парсинг завершён, поток завершается.
+2025-10-31 18:42:01 [INFO] [Programm_X_Logger] [ConstructorController] Парсинг завершён, записей: 5
+2025-10-31 18:42:01 [INFO] [Programm_X_Logger] [ConstructorController] Создана LogsTableModel: rows=5, cols=16
+2025-10-31 18:42:10 [INFO] [Programm_X_Logger] [ConstructorController] Prefill из отмеченных ячеек: {'rules_ip_s': '127.0.0.1', 'rules_content': 'GET, /favicon.ico, 404'}
+2025-10-31 18:43:01 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=1
+2025-10-31 18:43:01 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=1
+2025-10-31 18:43:13 [INFO] [Programm_X_Logger] [EditorController] Изменение правила ID=1: {'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': '192.168.1.1', 'rules_port_s': '150', 'rules_route': '->', 'rules_ip_d': '123.12.12.2', 'rules_port_d': '50', 'rules_msg': 'new test 145652', 'rules_content': 'test, wen', 'rules_sid': '7000001', 'rules_rev': '5'}
+2025-10-31 18:43:17 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=2
+2025-10-31 18:43:17 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=2
+2025-10-31 18:43:32 [INFO] [Programm_X_Logger] [EditorController] Изменение правила ID=2: {'rules_action': 'alert', 'rules_protocol': 'udp', 'rules_ip_s': '8.8.8.8', 'rules_port_s': '53', 'rules_route': '->', 'rules_ip_d': '192.168.0.0', 'rules_port_d': '45', 'rules_msg': 'cdbchb', 'rules_content': 'djhfbvhj', 'rules_sid': '7000002', 'rules_rev': '3'}
+2025-10-31 18:43:34 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=3
+2025-10-31 18:43:34 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=3
+2025-10-31 18:43:41 [INFO] [Programm_X_Logger] [EditorController] Изменение правила ID=3: {'rules_action': 'drop', 'rules_protocol': 'tcp', 'rules_ip_s': '192.120.0.0', 'rules_port_s': '1000', 'rules_route': '->', 'rules_ip_d': '192.168.0.0', 'rules_port_d': '2000', 'rules_msg': 'test22 test22', 'rules_content': 'test22', 'rules_sid': '7000003', 'rules_rev': '2'}
+2025-10-31 18:43:44 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=4
+2025-10-31 18:43:44 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=4
+2025-10-31 18:43:48 [INFO] [Programm_X_Logger] [EditorController] Изменение правила ID=4: {'rules_action': 'drop', 'rules_protocol': 'udp', 'rules_ip_s': '7.7.7.7', 'rules_port_s': '789', 'rules_route': '<-', 'rules_ip_d': '8.8.8.8', 'rules_port_d': '456', 'rules_msg': 'TEST 123', 'rules_content': 'TEST', 'rules_sid': '7000004', 'rules_rev': '6'}
+2025-10-31 18:43:51 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=5
+2025-10-31 18:43:51 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=5
+2025-10-31 18:44:13 [INFO] [Programm_X_Logger] [EditorController] Изменение правила ID=5: {'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': '18.18.18.1', 'rules_port_s': '123', 'rules_route': '->', 'rules_ip_d': '192.168.0.0', 'rules_port_d': '7895', 'rules_msg': 'Test create 13254', 'rules_content': 'create', 'rules_sid': '7000005', 'rules_rev': '46'}
+2025-10-31 18:44:15 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=6
+2025-10-31 18:44:16 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=6
+2025-10-31 18:44:24 [INFO] [Programm_X_Logger] [EditorController] Изменение правила ID=6: {'rules_action': 'drop', 'rules_protocol': 'udp', 'rules_ip_s': '192.168.0.0', 'rules_port_s': '53', 'rules_route': '->', 'rules_ip_d': '8.8.8.8', 'rules_port_d': '53', 'rules_msg': 'Dns test', 'rules_content': 'dns, test', 'rules_sid': '7000006', 'rules_rev': '6'}
+2025-10-31 18:44:27 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=7
+2025-10-31 18:44:27 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=7
+2025-10-31 18:44:33 [INFO] [Programm_X_Logger] [EditorController] Изменение правила ID=7: {'rules_action': 'drop', 'rules_protocol': 'tcp', 'rules_ip_s': '15.15.15.15', 'rules_port_s': '15', 'rules_route': '->', 'rules_ip_d': '192.16.2.2', 'rules_port_d': '12', 'rules_msg': 'output test', 'rules_content': 'test', 'rules_sid': '7000007', 'rules_rev': '2'}
+2025-10-31 18:44:35 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=8
+2025-10-31 18:44:35 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=8
+2025-10-31 18:44:43 [INFO] [Programm_X_Logger] [EditorController] Изменение правила ID=8: {'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': 'any', 'rules_port_s': '53', 'rules_route': '<-', 'rules_ip_d': '7.7.7.7', 'rules_port_d': '53', 'rules_msg': 'Test DNS req, req', 'rules_content': 'TEST, request', 'rules_sid': '7000008', 'rules_rev': '3'}
+2025-10-31 18:44:46 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=10
+2025-10-31 18:44:46 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=10
+2025-10-31 18:44:51 [INFO] [Programm_X_Logger] [EditorController] Изменение правила ID=10: {'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': '12.12.12.12', 'rules_port_s': '156', 'rules_route': '<->', 'rules_ip_d': '131.123.123.11', 'rules_port_d': '165', 'rules_msg': 'test12', 'rules_content': 'jhvbfqjhd', 'rules_sid': '7000009', 'rules_rev': '516'}
+2025-10-31 18:44:54 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=11
+2025-10-31 18:44:54 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=11
+2025-10-31 18:44:59 [INFO] [Programm_X_Logger] [EditorController] Изменение правила ID=11: {'rules_action': 'alert', 'rules_protocol': 'udp', 'rules_ip_s': '54.64.46.54', 'rules_port_s': '5616', 'rules_route': '<->', 'rules_ip_d': '45.44.45.4', 'rules_port_d': '561', 'rules_msg': 'mn dkjfdk', 'rules_content': 'dnf, qd, test', 'rules_sid': '7000010', 'rules_rev': '89'}
+2025-10-31 18:45:01 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=12
+2025-10-31 18:45:01 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=12
+2025-10-31 18:45:07 [INFO] [Programm_X_Logger] [EditorController] Изменение правила ID=12: {'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': '192.168.0.0', 'rules_port_s': '50', 'rules_route': '->', 'rules_ip_d': '7.7.7.7', 'rules_port_d': '53', 'rules_msg': 'New dns req test rule', 'rules_content': 'dns. req', 'rules_sid': '7000011', 'rules_rev': '3'}
+2025-10-31 18:45:14 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=13
+2025-10-31 18:45:14 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=13
+2025-10-31 18:45:17 [INFO] [Programm_X_Logger] [EditorController] Изменение правила ID=13: {'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': '192.168.0.0', 'rules_port_s': '22', 'rules_route': '->', 'rules_ip_d': '7.7.7.7', 'rules_port_d': '45', 'rules_msg': 'Test scan rule', 'rules_content': 'scan', 'rules_sid': '7000012', 'rules_rev': '2'}
+2025-10-31 18:45:19 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=14
+2025-10-31 18:45:19 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=14
+2025-10-31 18:45:23 [INFO] [Programm_X_Logger] [EditorController] Изменение правила ID=14: {'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': '192.168.0.0', 'rules_port_s': '22', 'rules_route': '->', 'rules_ip_d': '7.7.7.1', 'rules_port_d': '789', 'rules_msg': 'Tets rele scan out', 'rules_content': 'scan', 'rules_sid': '7000013', 'rules_rev': '2'}
+2025-10-31 18:45:25 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=15
+2025-10-31 18:45:25 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=15
+2025-10-31 18:45:33 [INFO] [Programm_X_Logger] [EditorController] Изменение правила ID=15: {'rules_action': 'drop', 'rules_protocol': 'tcp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '->', 'rules_ip_d': 'any', 'rules_port_d': 'any', 'rules_msg': 'Tets reu with any', 'rules_content': 'test, rule, any', 'rules_sid': '7000014', 'rules_rev': '2'}
+2025-10-31 18:46:37 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=16
+2025-10-31 18:46:37 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=16
+2025-10-31 18:46:43 [INFO] [Programm_X_Logger] [EditorController] Изменение правила ID=16: {'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '->', 'rules_ip_d': '192.168.0.0', 'rules_port_d': 'any', 'rules_msg': 'Test rule', 'rules_content': 'test', 'rules_sid': '7000015', 'rules_rev': '13'}
+2025-10-31 18:46:45 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=17
+2025-10-31 18:46:45 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=17
+2025-10-31 18:46:53 [INFO] [Programm_X_Logger] [EditorController] Изменение правила ID=17: {'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '->', 'rules_ip_d': '192.168.1.1', 'rules_port_d': 'any', 'rules_msg': 'New dis', 'rules_content': 'new, rule, dis, test', 'rules_sid': '7000016', 'rules_rev': '2'}
+2025-10-31 18:46:55 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=18
+2025-10-31 18:46:55 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=18
+2025-10-31 18:47:00 [INFO] [Programm_X_Logger] [EditorController] Изменение правила ID=18: {'rules_action': 'drop', 'rules_protocol': 'udp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '<->', 'rules_ip_d': 'any', 'rules_port_d': 'any', 'rules_msg': 'test test test tes test tset st ts st stts', 'rules_content': 'vvvvvvvvvvvvvvv, vvvvvvvvvvvvvvvvvvv, gggggggggggggg', 'rules_sid': '7000017', 'rules_rev': '2'}
+2025-10-31 18:47:02 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=19
+2025-10-31 18:47:02 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=19
+2025-10-31 18:47:07 [INFO] [Programm_X_Logger] [EditorController] Изменение правила ID=19: {'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '<->', 'rules_ip_d': 'any', 'rules_port_d': 'any', 'rules_msg': 'any test', 'rules_content': 'any, test', 'rules_sid': '7000018', 'rules_rev': '3'}
+2025-10-31 18:47:15 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=20
+2025-10-31 18:47:15 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=20
+2025-10-31 18:47:18 [INFO] [Programm_X_Logger] [EditorController] Изменение правила ID=20: {'rules_action': 'pass', 'rules_protocol': 'tcp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '->', 'rules_ip_d': 'any', 'rules_port_d': 'any', 'rules_msg': 'pass 156', 'rules_content': 're, je, ct, ru, le', 'rules_sid': '7000019', 'rules_rev': '2'}
+2025-10-31 18:47:20 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=21
+2025-10-31 18:47:20 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=21
+2025-10-31 18:47:25 [INFO] [Programm_X_Logger] [EditorController] Изменение правила ID=21: {'rules_action': 'alert', 'rules_protocol': 'udp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '<-', 'rules_ip_d': 'any', 'rules_port_d': 'any', 'rules_msg': 'anyanyanyanyanyany', 'rules_content': 'any, any, any, any, any', 'rules_sid': '7000020', 'rules_rev': '113'}
+2025-10-31 18:47:27 [INFO] [Programm_X_Logger] [BatchSaverThread] Сохранение 20 правил...
+2025-10-31 18:47:27 [DEBUG] [Programm_X_Logger] [BatchSaverThread] Сохранение правила ID=1: {'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': '192.168.1.1', 'rules_port_s': '150', 'rules_route': '->', 'rules_ip_d': '123.12.12.2', 'rules_port_d': '50', 'rules_msg': 'new test 145652', 'rules_content': 'test, wen', 'rules_sid': '7000001', 'rules_rev': '5'}
+2025-10-31 18:47:27 [INFO] [Programm_X_Logger] [RuleModel] Правило ID=1 обновлено
+2025-10-31 18:47:27 [DEBUG] [Programm_X_Logger] [BatchSaverThread] Сохранение правила ID=2: {'rules_action': 'alert', 'rules_protocol': 'udp', 'rules_ip_s': '8.8.8.8', 'rules_port_s': '53', 'rules_route': '->', 'rules_ip_d': '192.168.0.0', 'rules_port_d': '45', 'rules_msg': 'cdbchb', 'rules_content': 'djhfbvhj', 'rules_sid': '7000002', 'rules_rev': '3'}
+2025-10-31 18:47:27 [INFO] [Programm_X_Logger] [RuleModel] Правило ID=2 обновлено
+2025-10-31 18:47:27 [DEBUG] [Programm_X_Logger] [BatchSaverThread] Сохранение правила ID=3: {'rules_action': 'drop', 'rules_protocol': 'tcp', 'rules_ip_s': '192.120.0.0', 'rules_port_s': '1000', 'rules_route': '->', 'rules_ip_d': '192.168.0.0', 'rules_port_d': '2000', 'rules_msg': 'test22 test22', 'rules_content': 'test22', 'rules_sid': '7000003', 'rules_rev': '2'}
+2025-10-31 18:47:27 [INFO] [Programm_X_Logger] [RuleModel] Правило ID=3 обновлено
+2025-10-31 18:47:27 [DEBUG] [Programm_X_Logger] [BatchSaverThread] Сохранение правила ID=4: {'rules_action': 'drop', 'rules_protocol': 'udp', 'rules_ip_s': '7.7.7.7', 'rules_port_s': '789', 'rules_route': '<-', 'rules_ip_d': '8.8.8.8', 'rules_port_d': '456', 'rules_msg': 'TEST 123', 'rules_content': 'TEST', 'rules_sid': '7000004', 'rules_rev': '6'}
+2025-10-31 18:47:27 [INFO] [Programm_X_Logger] [RuleModel] Правило ID=4 обновлено
+2025-10-31 18:47:27 [DEBUG] [Programm_X_Logger] [BatchSaverThread] Сохранение правила ID=5: {'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': '18.18.18.1', 'rules_port_s': '123', 'rules_route': '->', 'rules_ip_d': '192.168.0.0', 'rules_port_d': '7895', 'rules_msg': 'Test create 13254', 'rules_content': 'create', 'rules_sid': '7000005', 'rules_rev': '46'}
+2025-10-31 18:47:27 [INFO] [Programm_X_Logger] [RuleModel] Правило ID=5 обновлено
+2025-10-31 18:47:27 [DEBUG] [Programm_X_Logger] [BatchSaverThread] Сохранение правила ID=6: {'rules_action': 'drop', 'rules_protocol': 'udp', 'rules_ip_s': '192.168.0.0', 'rules_port_s': '53', 'rules_route': '->', 'rules_ip_d': '8.8.8.8', 'rules_port_d': '53', 'rules_msg': 'Dns test', 'rules_content': 'dns, test', 'rules_sid': '7000006', 'rules_rev': '6'}
+2025-10-31 18:47:27 [INFO] [Programm_X_Logger] [RuleModel] Правило ID=6 обновлено
+2025-10-31 18:47:27 [DEBUG] [Programm_X_Logger] [BatchSaverThread] Сохранение правила ID=7: {'rules_action': 'drop', 'rules_protocol': 'tcp', 'rules_ip_s': '15.15.15.15', 'rules_port_s': '15', 'rules_route': '->', 'rules_ip_d': '192.16.2.2', 'rules_port_d': '12', 'rules_msg': 'output test', 'rules_content': 'test', 'rules_sid': '7000007', 'rules_rev': '2'}
+2025-10-31 18:47:27 [INFO] [Programm_X_Logger] [RuleModel] Правило ID=7 обновлено
+2025-10-31 18:47:27 [DEBUG] [Programm_X_Logger] [BatchSaverThread] Сохранение правила ID=8: {'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': 'any', 'rules_port_s': '53', 'rules_route': '<-', 'rules_ip_d': '7.7.7.7', 'rules_port_d': '53', 'rules_msg': 'Test DNS req, req', 'rules_content': 'TEST, request', 'rules_sid': '7000008', 'rules_rev': '3'}
+2025-10-31 18:47:27 [INFO] [Programm_X_Logger] [RuleModel] Правило ID=8 обновлено
+2025-10-31 18:47:27 [DEBUG] [Programm_X_Logger] [BatchSaverThread] Сохранение правила ID=10: {'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': '12.12.12.12', 'rules_port_s': '156', 'rules_route': '<->', 'rules_ip_d': '131.123.123.11', 'rules_port_d': '165', 'rules_msg': 'test12', 'rules_content': 'jhvbfqjhd', 'rules_sid': '7000009', 'rules_rev': '516'}
+2025-10-31 18:47:27 [INFO] [Programm_X_Logger] [RuleModel] Правило ID=10 обновлено
+2025-10-31 18:47:27 [DEBUG] [Programm_X_Logger] [BatchSaverThread] Сохранение правила ID=11: {'rules_action': 'alert', 'rules_protocol': 'udp', 'rules_ip_s': '54.64.46.54', 'rules_port_s': '5616', 'rules_route': '<->', 'rules_ip_d': '45.44.45.4', 'rules_port_d': '561', 'rules_msg': 'mn dkjfdk', 'rules_content': 'dnf, qd, test', 'rules_sid': '7000010', 'rules_rev': '89'}
+2025-10-31 18:47:27 [INFO] [Programm_X_Logger] [RuleModel] Правило ID=11 обновлено
+2025-10-31 18:47:27 [DEBUG] [Programm_X_Logger] [BatchSaverThread] Сохранение правила ID=12: {'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': '192.168.0.0', 'rules_port_s': '50', 'rules_route': '->', 'rules_ip_d': '7.7.7.7', 'rules_port_d': '53', 'rules_msg': 'New dns req test rule', 'rules_content': 'dns. req', 'rules_sid': '7000011', 'rules_rev': '3'}
+2025-10-31 18:47:27 [INFO] [Programm_X_Logger] [RuleModel] Правило ID=12 обновлено
+2025-10-31 18:47:27 [DEBUG] [Programm_X_Logger] [BatchSaverThread] Сохранение правила ID=13: {'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': '192.168.0.0', 'rules_port_s': '22', 'rules_route': '->', 'rules_ip_d': '7.7.7.7', 'rules_port_d': '45', 'rules_msg': 'Test scan rule', 'rules_content': 'scan', 'rules_sid': '7000012', 'rules_rev': '2'}
+2025-10-31 18:47:27 [INFO] [Programm_X_Logger] [RuleModel] Правило ID=13 обновлено
+2025-10-31 18:47:27 [DEBUG] [Programm_X_Logger] [BatchSaverThread] Сохранение правила ID=14: {'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': '192.168.0.0', 'rules_port_s': '22', 'rules_route': '->', 'rules_ip_d': '7.7.7.1', 'rules_port_d': '789', 'rules_msg': 'Tets rele scan out', 'rules_content': 'scan', 'rules_sid': '7000013', 'rules_rev': '2'}
+2025-10-31 18:47:27 [INFO] [Programm_X_Logger] [RuleModel] Правило ID=14 обновлено
+2025-10-31 18:47:27 [DEBUG] [Programm_X_Logger] [BatchSaverThread] Сохранение правила ID=15: {'rules_action': 'drop', 'rules_protocol': 'tcp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '->', 'rules_ip_d': 'any', 'rules_port_d': 'any', 'rules_msg': 'Tets reu with any', 'rules_content': 'test, rule, any', 'rules_sid': '7000014', 'rules_rev': '2'}
+2025-10-31 18:47:27 [INFO] [Programm_X_Logger] [RuleModel] Правило ID=15 обновлено
+2025-10-31 18:47:27 [DEBUG] [Programm_X_Logger] [BatchSaverThread] Сохранение правила ID=16: {'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '->', 'rules_ip_d': '192.168.0.0', 'rules_port_d': 'any', 'rules_msg': 'Test rule', 'rules_content': 'test', 'rules_sid': '7000015', 'rules_rev': '13'}
+2025-10-31 18:47:27 [INFO] [Programm_X_Logger] [RuleModel] Правило ID=16 обновлено
+2025-10-31 18:47:27 [DEBUG] [Programm_X_Logger] [BatchSaverThread] Сохранение правила ID=17: {'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '->', 'rules_ip_d': '192.168.1.1', 'rules_port_d': 'any', 'rules_msg': 'New dis', 'rules_content': 'new, rule, dis, test', 'rules_sid': '7000016', 'rules_rev': '2'}
+2025-10-31 18:47:27 [INFO] [Programm_X_Logger] [RuleModel] Правило ID=17 обновлено
+2025-10-31 18:47:27 [DEBUG] [Programm_X_Logger] [BatchSaverThread] Сохранение правила ID=18: {'rules_action': 'drop', 'rules_protocol': 'udp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '<->', 'rules_ip_d': 'any', 'rules_port_d': 'any', 'rules_msg': 'test test test tes test tset st ts st stts', 'rules_content': 'vvvvvvvvvvvvvvv, vvvvvvvvvvvvvvvvvvv, gggggggggggggg', 'rules_sid': '7000017', 'rules_rev': '2'}
+2025-10-31 18:47:27 [INFO] [Programm_X_Logger] [RuleModel] Правило ID=18 обновлено
+2025-10-31 18:47:27 [DEBUG] [Programm_X_Logger] [BatchSaverThread] Сохранение правила ID=19: {'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '<->', 'rules_ip_d': 'any', 'rules_port_d': 'any', 'rules_msg': 'any test', 'rules_content': 'any, test', 'rules_sid': '7000018', 'rules_rev': '3'}
+2025-10-31 18:47:27 [INFO] [Programm_X_Logger] [RuleModel] Правило ID=19 обновлено
+2025-10-31 18:47:27 [DEBUG] [Programm_X_Logger] [BatchSaverThread] Сохранение правила ID=20: {'rules_action': 'pass', 'rules_protocol': 'tcp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '->', 'rules_ip_d': 'any', 'rules_port_d': 'any', 'rules_msg': 'pass 156', 'rules_content': 're, je, ct, ru, le', 'rules_sid': '7000019', 'rules_rev': '2'}
+2025-10-31 18:47:27 [INFO] [Programm_X_Logger] [RuleModel] Правило ID=20 обновлено
+2025-10-31 18:47:27 [DEBUG] [Programm_X_Logger] [BatchSaverThread] Сохранение правила ID=21: {'rules_action': 'alert', 'rules_protocol': 'udp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '<-', 'rules_ip_d': 'any', 'rules_port_d': 'any', 'rules_msg': 'anyanyanyanyanyany', 'rules_content': 'any, any, any, any, any', 'rules_sid': '7000020', 'rules_rev': '113'}
+2025-10-31 18:47:27 [INFO] [Programm_X_Logger] [RuleModel] Правило ID=21 обновлено
+2025-10-31 18:47:27 [INFO] [Programm_X_Logger] [BatchSaverThread] Сохранение завершено успешно.
+2025-10-31 18:47:29 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-10-31 18:47:29 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-10-31 18:47:29 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-10-31 18:47:29 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-10-31 18:47:29 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-31 18:47:32 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=20, limit=20
+2025-10-31 18:47:32 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=20, limit=20
+2025-10-31 18:47:32 [INFO] [Programm_X_Logger] [RuleModel] Получено 12 правил (offset=20, limit=20)
+2025-10-31 18:47:32 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 12
+2025-10-31 18:47:32 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-31 18:47:35 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=22
+2025-10-31 18:47:35 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=22
+2025-10-31 18:47:53 [INFO] [Programm_X_Logger] [EditorController] Изменение правила ID=22: {'rules_action': 'reject', 'rules_protocol': 'tcp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '->', 'rules_ip_d': 'any', 'rules_port_d': 'any', 'rules_msg': 'any test pravilo', 'rules_content': 'any, test, pravilo, any', 'rules_sid': '7000021', 'rules_rev': '13'}
+2025-10-31 18:48:03 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=23
+2025-10-31 18:48:03 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=23
+2025-10-31 18:48:07 [INFO] [Programm_X_Logger] [EditorController] Изменение правила ID=23: {'rules_action': 'log', 'rules_protocol': 'tcp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '->', 'rules_ip_d': 'any', 'rules_port_d': 'any', 'rules_msg': 'any any any', 'rules_content': 'any, any, any, any', 'rules_sid': '7000022', 'rules_rev': '568'}
+2025-10-31 18:48:09 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=24
+2025-10-31 18:48:09 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=24
+2025-10-31 18:48:15 [INFO] [Programm_X_Logger] [EditorController] Изменение правила ID=24: {'rules_action': 'alert', 'rules_protocol': 'udp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '<-', 'rules_ip_d': 'any', 'rules_port_d': 'any', 'rules_msg': 'any any test any', 'rules_content': 'any, any, any', 'rules_sid': '7000023', 'rules_rev': '9'}
+2025-10-31 18:48:17 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=25
+2025-10-31 18:48:17 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=25
+2025-10-31 18:48:24 [INFO] [Programm_X_Logger] [EditorController] Изменение правила ID=25: {'rules_action': 'log', 'rules_protocol': 'tcp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '->', 'rules_ip_d': 'any', 'rules_port_d': 'any', 'rules_msg': 'any', 'rules_content': 'any, any', 'rules_sid': '7000024', 'rules_rev': '88'}
+2025-10-31 18:48:26 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=26
+2025-10-31 18:48:26 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=26
+2025-10-31 18:48:30 [INFO] [Programm_X_Logger] [EditorController] Изменение правила ID=26: {'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '->', 'rules_ip_d': '192.168.0.0', 'rules_port_d': 'any', 'rules_msg': 'Test rules num 2', 'rules_content': 'num, rules, 12', 'rules_sid': '7000025', 'rules_rev': '3'}
+2025-10-31 18:48:32 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=27
+2025-10-31 18:48:32 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=27
+2025-10-31 18:48:37 [INFO] [Programm_X_Logger] [EditorController] Изменение правила ID=27: {'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '->', 'rules_ip_d': 'any', 'rules_port_d': 'any', 'rules_msg': 'Test for rec', 'rules_content': 'rec, test', 'rules_sid': '7000026', 'rules_rev': '6'}
+2025-10-31 18:48:41 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=28
+2025-10-31 18:48:41 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=28
+2025-10-31 18:48:47 [INFO] [Programm_X_Logger] [EditorController] Изменение правила ID=28: {'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '->', 'rules_ip_d': 'any', 'rules_port_d': 'any', 'rules_msg': 'Test for rec', 'rules_content': 'rec, test', 'rules_sid': '7000027', 'rules_rev': '748'}
+2025-10-31 18:48:49 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=29
+2025-10-31 18:48:49 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=29
+2025-10-31 18:48:53 [INFO] [Programm_X_Logger] [EditorController] Изменение правила ID=29: {'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '->', 'rules_ip_d': 'any', 'rules_port_d': 'any', 'rules_msg': 'ane aneane ane', 'rules_content': '/icons/ubuntu-logo.png', 'rules_sid': '7000028', 'rules_rev': '3'}
+2025-10-31 18:48:55 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=30
+2025-10-31 18:48:55 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=30
+2025-10-31 18:49:00 [INFO] [Programm_X_Logger] [EditorController] Изменение правила ID=30: {'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '->', 'rules_ip_d': 'any', 'rules_port_d': 'any', 'rules_msg': 'new anyany', 'rules_content': '/icons/ubuntu-logo.png', 'rules_sid': '7000029', 'rules_rev': '2'}
+2025-10-31 18:49:01 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=31
+2025-10-31 18:49:01 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=31
+2025-10-31 18:49:04 [INFO] [Programm_X_Logger] [EditorController] Изменение правила ID=31: {'rules_action': 'alert', 'rules_protocol': 'icmp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '->', 'rules_ip_d': 'any', 'rules_port_d': 'any', 'rules_msg': 'Test icmp', 'rules_content': '/icons/ubuntu-logo.png, /favicon.ico, /icons/ubuntu-logo.png', 'rules_sid': '7000030', 'rules_rev': '1'}
+2025-10-31 18:49:06 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=32
+2025-10-31 18:49:06 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=32
+2025-10-31 18:49:28 [INFO] [Programm_X_Logger] [EditorController] Изменение правила ID=32: {'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': '127.0.0.1, 192.168.232.131', 'rules_port_s': '53', 'rules_route': '->', 'rules_ip_d': '192.168.0.0/24', 'rules_port_d': '78', 'rules_msg': 'Test rules', 'rules_content': 'GET, /login/?login=yes', 'rules_sid': '7000031', 'rules_rev': '2'}
+2025-10-31 18:49:30 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=33
+2025-10-31 18:49:30 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=33
+2025-10-31 18:49:43 [INFO] [Programm_X_Logger] [EditorController] Изменение правила ID=33: {'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': '127.0.0.1, 192.168.232.131', 'rules_port_s': '53', 'rules_route': '->', 'rules_ip_d': '192.168.1.0/24', 'rules_port_d': '789', 'rules_msg': 'Test for vid', 'rules_content': 'GET, /bitrix/tools/autosave.php?bxsender=core_autosave&sessid=054e497b06b3ea86c53df90170f101be, 200', 'rules_sid': '7000032', 'rules_rev': '1'}
+2025-10-31 18:49:46 [INFO] [Programm_X_Logger] [BatchSaverThread] Сохранение 12 правил...
+2025-10-31 18:49:46 [DEBUG] [Programm_X_Logger] [BatchSaverThread] Сохранение правила ID=22: {'rules_action': 'reject', 'rules_protocol': 'tcp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '->', 'rules_ip_d': 'any', 'rules_port_d': 'any', 'rules_msg': 'any test pravilo', 'rules_content': 'any, test, pravilo, any', 'rules_sid': '7000021', 'rules_rev': '13'}
+2025-10-31 18:49:46 [INFO] [Programm_X_Logger] [RuleModel] Правило ID=22 обновлено
+2025-10-31 18:49:46 [DEBUG] [Programm_X_Logger] [BatchSaverThread] Сохранение правила ID=23: {'rules_action': 'log', 'rules_protocol': 'tcp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '->', 'rules_ip_d': 'any', 'rules_port_d': 'any', 'rules_msg': 'any any any', 'rules_content': 'any, any, any, any', 'rules_sid': '7000022', 'rules_rev': '568'}
+2025-10-31 18:49:46 [INFO] [Programm_X_Logger] [RuleModel] Правило ID=23 обновлено
+2025-10-31 18:49:46 [DEBUG] [Programm_X_Logger] [BatchSaverThread] Сохранение правила ID=24: {'rules_action': 'alert', 'rules_protocol': 'udp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '<-', 'rules_ip_d': 'any', 'rules_port_d': 'any', 'rules_msg': 'any any test any', 'rules_content': 'any, any, any', 'rules_sid': '7000023', 'rules_rev': '9'}
+2025-10-31 18:49:46 [INFO] [Programm_X_Logger] [RuleModel] Правило ID=24 обновлено
+2025-10-31 18:49:46 [DEBUG] [Programm_X_Logger] [BatchSaverThread] Сохранение правила ID=25: {'rules_action': 'log', 'rules_protocol': 'tcp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '->', 'rules_ip_d': 'any', 'rules_port_d': 'any', 'rules_msg': 'any', 'rules_content': 'any, any', 'rules_sid': '7000024', 'rules_rev': '88'}
+2025-10-31 18:49:46 [INFO] [Programm_X_Logger] [RuleModel] Правило ID=25 обновлено
+2025-10-31 18:49:46 [DEBUG] [Programm_X_Logger] [BatchSaverThread] Сохранение правила ID=26: {'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '->', 'rules_ip_d': '192.168.0.0', 'rules_port_d': 'any', 'rules_msg': 'Test rules num 2', 'rules_content': 'num, rules, 12', 'rules_sid': '7000025', 'rules_rev': '3'}
+2025-10-31 18:49:46 [INFO] [Programm_X_Logger] [RuleModel] Правило ID=26 обновлено
+2025-10-31 18:49:46 [DEBUG] [Programm_X_Logger] [BatchSaverThread] Сохранение правила ID=27: {'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '->', 'rules_ip_d': 'any', 'rules_port_d': 'any', 'rules_msg': 'Test for rec', 'rules_content': 'rec, test', 'rules_sid': '7000026', 'rules_rev': '6'}
+2025-10-31 18:49:46 [INFO] [Programm_X_Logger] [RuleModel] Правило ID=27 обновлено
+2025-10-31 18:49:46 [DEBUG] [Programm_X_Logger] [BatchSaverThread] Сохранение правила ID=28: {'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '->', 'rules_ip_d': 'any', 'rules_port_d': 'any', 'rules_msg': 'Test for rec', 'rules_content': 'rec, test', 'rules_sid': '7000027', 'rules_rev': '748'}
+2025-10-31 18:49:46 [INFO] [Programm_X_Logger] [RuleModel] Правило ID=28 обновлено
+2025-10-31 18:49:46 [DEBUG] [Programm_X_Logger] [BatchSaverThread] Сохранение правила ID=29: {'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '->', 'rules_ip_d': 'any', 'rules_port_d': 'any', 'rules_msg': 'ane aneane ane', 'rules_content': '/icons/ubuntu-logo.png', 'rules_sid': '7000028', 'rules_rev': '3'}
+2025-10-31 18:49:46 [INFO] [Programm_X_Logger] [RuleModel] Правило ID=29 обновлено
+2025-10-31 18:49:46 [DEBUG] [Programm_X_Logger] [BatchSaverThread] Сохранение правила ID=30: {'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '->', 'rules_ip_d': 'any', 'rules_port_d': 'any', 'rules_msg': 'new anyany', 'rules_content': '/icons/ubuntu-logo.png', 'rules_sid': '7000029', 'rules_rev': '2'}
+2025-10-31 18:49:46 [INFO] [Programm_X_Logger] [RuleModel] Правило ID=30 обновлено
+2025-10-31 18:49:46 [DEBUG] [Programm_X_Logger] [BatchSaverThread] Сохранение правила ID=31: {'rules_action': 'alert', 'rules_protocol': 'icmp', 'rules_ip_s': 'any', 'rules_port_s': 'any', 'rules_route': '->', 'rules_ip_d': 'any', 'rules_port_d': 'any', 'rules_msg': 'Test icmp', 'rules_content': '/icons/ubuntu-logo.png, /favicon.ico, /icons/ubuntu-logo.png', 'rules_sid': '7000030', 'rules_rev': '1'}
+2025-10-31 18:49:46 [INFO] [Programm_X_Logger] [RuleModel] Правило ID=31 обновлено
+2025-10-31 18:49:46 [DEBUG] [Programm_X_Logger] [BatchSaverThread] Сохранение правила ID=32: {'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': '127.0.0.1, 192.168.232.131', 'rules_port_s': '53', 'rules_route': '->', 'rules_ip_d': '192.168.0.0/24', 'rules_port_d': '78', 'rules_msg': 'Test rules', 'rules_content': 'GET, /login/?login=yes', 'rules_sid': '7000031', 'rules_rev': '2'}
+2025-10-31 18:49:46 [INFO] [Programm_X_Logger] [RuleModel] Правило ID=32 обновлено
+2025-10-31 18:49:46 [DEBUG] [Programm_X_Logger] [BatchSaverThread] Сохранение правила ID=33: {'rules_action': 'alert', 'rules_protocol': 'tcp', 'rules_ip_s': '127.0.0.1, 192.168.232.131', 'rules_port_s': '53', 'rules_route': '->', 'rules_ip_d': '192.168.1.0/24', 'rules_port_d': '789', 'rules_msg': 'Test for vid', 'rules_content': 'GET, /bitrix/tools/autosave.php?bxsender=core_autosave&sessid=054e497b06b3ea86c53df90170f101be, 200', 'rules_sid': '7000032', 'rules_rev': '1'}
+2025-10-31 18:49:46 [INFO] [Programm_X_Logger] [RuleModel] Правило ID=33 обновлено
+2025-10-31 18:49:46 [INFO] [Programm_X_Logger] [BatchSaverThread] Сохранение завершено успешно.
+2025-10-31 18:49:47 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=20, limit=20
+2025-10-31 18:49:47 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=20, limit=20
+2025-10-31 18:49:47 [INFO] [Programm_X_Logger] [RuleModel] Получено 12 правил (offset=20, limit=20)
+2025-10-31 18:49:47 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 12
+2025-10-31 18:49:47 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-31 18:50:27 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-10-31 18:50:27 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-10-31 18:50:27 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-10-31 18:50:27 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-10-31 18:50:27 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-31 18:51:07 [INFO] [Programm_X_Logger] [ConstructorController] Prefill из отмеченных ячеек: {'rules_ip_s': '127.0.0.1', 'rules_content': 'GET, /favicon.ico, 404'}
+2025-10-31 18:53:44 [INFO] [Programm_X_Logger] [RuleModel] Получено правило по SID=7000001: нашлось
+2025-10-31 18:53:44 [WARNING] [Programm_X_Logger] [ConstructorController] Правило с SID=7000001 уже существует
+2025-10-31 18:53:44 [ERROR] [Programm_X_Logger] [ConstructorController] Ошибка при создании правила: RuleModel.find_next_free_test_sid() missing 1 required positional argument: 'self'
+Traceback (most recent call last):
+  File "/home/ubuntupc/my-proj/progr/controllers/constructor_controller.py", line 221, in create_rule
+    suggested = RuleModel.find_next_free_test_sid(start_sid=sid)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: RuleModel.find_next_free_test_sid() missing 1 required positional argument: 'self'
+2025-10-31 18:54:44 [INFO] [Programm_X_Logger] === Завершение работы приложения ===
+2025-10-31 18:56:09 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-10-31.log
+2025-10-31 18:56:09 [INFO] [Programm_X_Logger] === Запуск Программа Х ===
+2025-10-31 18:56:09 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-10-31 18:56:09 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-10-31 18:56:09 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-10-31 18:56:09 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-10-31 18:56:09 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-31 18:56:46 [INFO] [Programm_X_Logger] [ConstructorView] Выбран файл: /home/ubuntupc/my-proj/apache.log
+2025-10-31 18:56:46 [INFO] [Programm_X_Logger] [FileLoaderThread] Загрузка файла: /home/ubuntupc/my-proj/apache.log
+2025-10-31 18:56:46 [INFO] [Programm_X_Logger] [FileLoaderThread] Файл успешно загружен, строк: 5
+2025-10-31 18:56:47 [INFO] [Programm_X_Logger] [ConstructorView] Загружено строк: 5
+2025-10-31 18:56:48 [INFO] [Programm_X_Logger] [ConstructorController] start_log_parse: type=Apache, lines=5
+2025-10-31 18:56:48 [INFO] [Programm_X_Logger] [LogParserThread] Запуск парсинга: type=Apache, lines=5
+2025-10-31 18:56:48 [INFO] [Programm_X_Logger] [LogParser] Парсинг Apache/Nginx логов, строк=5
+2025-10-31 18:56:48 [INFO] [Programm_X_Logger] [LogParser] Получено 5 записей Apache/Nginx
+2025-10-31 18:56:48 [INFO] [Programm_X_Logger] [LogParserThread] Парсинг завершён, поток завершается.
+2025-10-31 18:56:48 [INFO] [Programm_X_Logger] [ConstructorController] Парсинг завершён, записей: 5
+2025-10-31 18:56:48 [INFO] [Programm_X_Logger] [ConstructorController] Создана LogsTableModel: rows=5, cols=16
+2025-10-31 18:56:58 [INFO] [Programm_X_Logger] [ConstructorController] Prefill из отмеченных ячеек: {'rules_ip_s': '127.0.0.1', 'rules_content': 'GET, /icons/ubuntu-logo.png, HTTP/1.1, 404'}
+2025-10-31 19:00:22 [INFO] [Programm_X_Logger] [RuleModel] Получено правило по SID=7000001: нашлось
+2025-10-31 19:00:22 [WARNING] [Programm_X_Logger] [ConstructorController] Правило с SID=7000001 уже существует
+2025-10-31 19:00:22 [ERROR] [Programm_X_Logger] [ConstructorController] Ошибка при создании правила: 'ConstructorController' object has no attribute 'conn'
+Traceback (most recent call last):
+  File "/home/ubuntupc/my-proj/progr/controllers/constructor_controller.py", line 221, in create_rule
+    suggested = RuleModel.find_next_free_test_sid(self, start_sid=sid)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntupc/my-proj/progr/models/rule_model.py", line 91, in find_next_free_test_sid
+    with self.conn.cursor() as cur:
+         ^^^^^^^^^
+AttributeError: 'ConstructorController' object has no attribute 'conn'
+2025-10-31 19:01:39 [INFO] [Programm_X_Logger] === Завершение работы приложения ===
+2025-10-31 19:07:25 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-10-31.log
+2025-10-31 19:07:25 [INFO] [Programm_X_Logger] === Запуск Программа Х ===
+2025-10-31 19:07:25 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-10-31 19:07:25 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-10-31 19:07:25 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-10-31 19:07:25 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-10-31 19:07:25 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-31 19:07:31 [INFO] [Programm_X_Logger] [ConstructorView] Выбран файл: /home/ubuntupc/my-proj/apache.log
+2025-10-31 19:07:31 [INFO] [Programm_X_Logger] [FileLoaderThread] Загрузка файла: /home/ubuntupc/my-proj/apache.log
+2025-10-31 19:07:31 [INFO] [Programm_X_Logger] [FileLoaderThread] Файл успешно загружен, строк: 5
+2025-10-31 19:07:32 [INFO] [Programm_X_Logger] [ConstructorView] Загружено строк: 5
+2025-10-31 19:07:33 [INFO] [Programm_X_Logger] [ConstructorController] start_log_parse: type=Apache, lines=5
+2025-10-31 19:07:33 [INFO] [Programm_X_Logger] [LogParserThread] Запуск парсинга: type=Apache, lines=5
+2025-10-31 19:07:33 [INFO] [Programm_X_Logger] [LogParser] Парсинг Apache/Nginx логов, строк=5
+2025-10-31 19:07:33 [INFO] [Programm_X_Logger] [LogParser] Получено 5 записей Apache/Nginx
+2025-10-31 19:07:33 [INFO] [Programm_X_Logger] [LogParserThread] Парсинг завершён, поток завершается.
+2025-10-31 19:07:33 [INFO] [Programm_X_Logger] [ConstructorController] Парсинг завершён, записей: 5
+2025-10-31 19:07:33 [INFO] [Programm_X_Logger] [ConstructorController] Создана LogsTableModel: rows=5, cols=16
+2025-10-31 19:07:46 [INFO] [Programm_X_Logger] [ConstructorController] Prefill из отмеченных ячеек: {'rules_ip_s': '127.0.0.1', 'rules_content': 'GET, /favicon.ico, HTTP/1.1, 404'}
+2025-10-31 19:12:39 [INFO] [Programm_X_Logger] [RuleModel] Получено правило по SID=7000001: нашлось
+2025-10-31 19:12:39 [WARNING] [Programm_X_Logger] [ConstructorController] Правило с SID=7000001 уже существует
+2025-10-31 19:12:40 [ERROR] [Programm_X_Logger] [ConstructorController] Ошибка при создании правила: 0
+Traceback (most recent call last):
+  File "/home/ubuntupc/my-proj/progr/controllers/constructor_controller.py", line 221, in create_rule
+    suggested = RuleModel.find_next_free_test_sid(self, start_sid=sid)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntupc/my-proj/progr/models/rule_model.py", line 95, in find_next_free_test_sid
+    return row[0] if row else None
+           ~~~^^^
+KeyError: 0
+2025-10-31 20:05:56 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-10-31.log
+2025-10-31 20:05:57 [INFO] [Programm_X_Logger] === Запуск Программа Х ===
+2025-10-31 20:05:57 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-10-31 20:05:57 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-10-31 20:05:57 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-10-31 20:05:57 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-10-31 20:05:57 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-31 20:06:02 [INFO] [Programm_X_Logger] [ConstructorView] Выбран файл: /home/ubuntupc/my-proj/apache.log
+2025-10-31 20:06:02 [INFO] [Programm_X_Logger] [FileLoaderThread] Загрузка файла: /home/ubuntupc/my-proj/apache.log
+2025-10-31 20:06:02 [INFO] [Programm_X_Logger] [FileLoaderThread] Файл успешно загружен, строк: 5
+2025-10-31 20:06:03 [INFO] [Programm_X_Logger] [ConstructorView] Загружено строк: 5
+2025-10-31 20:06:04 [INFO] [Programm_X_Logger] [ConstructorController] start_log_parse: type=Apache, lines=5
+2025-10-31 20:06:04 [INFO] [Programm_X_Logger] [LogParserThread] Запуск парсинга: type=Apache, lines=5
+2025-10-31 20:06:04 [INFO] [Programm_X_Logger] [LogParser] Парсинг Apache/Nginx логов, строк=5
+2025-10-31 20:06:04 [INFO] [Programm_X_Logger] [LogParser] Получено 5 записей Apache/Nginx
+2025-10-31 20:06:04 [INFO] [Programm_X_Logger] [LogParserThread] Парсинг завершён, поток завершается.
+2025-10-31 20:06:04 [INFO] [Programm_X_Logger] [ConstructorController] Парсинг завершён, записей: 5
+2025-10-31 20:06:04 [INFO] [Programm_X_Logger] [ConstructorController] Создана LogsTableModel: rows=5, cols=16
+2025-10-31 20:06:14 [INFO] [Programm_X_Logger] [ConstructorController] Prefill из отмеченных ячеек: {'rules_ip_s': '127.0.0.1', 'rules_content': 'GET, /favicon.ico, 404'}
+2025-10-31 20:08:11 [INFO] [Programm_X_Logger] [RuleModel] Получено правило по SID=7000001: нашлось
+2025-10-31 20:08:11 [WARNING] [Programm_X_Logger] [ConstructorController] Правило с SID=7000001 уже существует
+2025-10-31 20:08:11 [ERROR] [Programm_X_Logger] [ConstructorController] Ошибка при создании правила: 0
+Traceback (most recent call last):
+  File "/home/ubuntupc/my-proj/progr/controllers/constructor_controller.py", line 221, in create_rule
+    suggested = RuleModel.find_next_free_test_sid(start_sid=sid)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntupc/my-proj/progr/models/rule_model.py", line 95, in find_next_free_test_sid
+    return row[0] if row else None
+           ~~~^^^
+KeyError: 0
+2025-10-31 20:13:35 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-10-31.log
+2025-10-31 20:13:35 [INFO] [Programm_X_Logger] === Запуск Программа Х ===
+2025-10-31 20:13:35 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-10-31 20:13:35 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-10-31 20:13:35 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-10-31 20:13:35 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-10-31 20:13:35 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-31 20:13:39 [INFO] [Programm_X_Logger] [ConstructorView] Выбран файл: /home/ubuntupc/my-proj/apache.log
+2025-10-31 20:13:39 [INFO] [Programm_X_Logger] [FileLoaderThread] Загрузка файла: /home/ubuntupc/my-proj/apache.log
+2025-10-31 20:13:39 [INFO] [Programm_X_Logger] [FileLoaderThread] Файл успешно загружен, строк: 5
+2025-10-31 20:13:40 [INFO] [Programm_X_Logger] [ConstructorView] Загружено строк: 5
+2025-10-31 20:13:41 [INFO] [Programm_X_Logger] [ConstructorController] start_log_parse: type=Apache, lines=5
+2025-10-31 20:13:41 [INFO] [Programm_X_Logger] [LogParserThread] Запуск парсинга: type=Apache, lines=5
+2025-10-31 20:13:41 [INFO] [Programm_X_Logger] [LogParser] Парсинг Apache/Nginx логов, строк=5
+2025-10-31 20:13:41 [INFO] [Programm_X_Logger] [LogParser] Получено 5 записей Apache/Nginx
+2025-10-31 20:13:41 [INFO] [Programm_X_Logger] [LogParserThread] Парсинг завершён, поток завершается.
+2025-10-31 20:13:41 [INFO] [Programm_X_Logger] [ConstructorController] Парсинг завершён, записей: 5
+2025-10-31 20:13:41 [INFO] [Programm_X_Logger] [ConstructorController] Создана LogsTableModel: rows=5, cols=16
+2025-10-31 20:13:50 [INFO] [Programm_X_Logger] [ConstructorController] start_log_parse: type=Apache, lines=5
+2025-10-31 20:13:50 [INFO] [Programm_X_Logger] [LogParserThread] Запуск парсинга: type=Apache, lines=5
+2025-10-31 20:13:50 [INFO] [Programm_X_Logger] [LogParser] Парсинг Apache/Nginx логов, строк=5
+2025-10-31 20:13:50 [INFO] [Programm_X_Logger] [LogParser] Получено 5 записей Apache/Nginx
+2025-10-31 20:13:50 [INFO] [Programm_X_Logger] [LogParserThread] Парсинг завершён, поток завершается.
+2025-10-31 20:13:50 [INFO] [Programm_X_Logger] [ConstructorController] Парсинг завершён, записей: 5
+2025-10-31 20:13:50 [INFO] [Programm_X_Logger] [ConstructorController] Создана LogsTableModel: rows=10, cols=16
+2025-10-31 20:14:03 [INFO] [Programm_X_Logger] [ConstructorController] Prefill из отмеченных ячеек: {'rules_ip_s': '127.0.0.1', 'rules_content': 'GET, /, /icons/ubuntu-logo.png, HTTP/1.1, 404'}
+2025-10-31 20:15:17 [INFO] [Programm_X_Logger] [RuleModel] Получено правило по SID=7000001: нашлось
+2025-10-31 20:15:17 [WARNING] [Programm_X_Logger] [ConstructorController] Правило с SID=7000001 уже существует
+2025-10-31 20:15:30 [INFO] [Programm_X_Logger] [ConstructorController] Пользователь выбрал предложенный SID=7000033
+2025-10-31 20:15:30 [INFO] [Programm_X_Logger] [RuleModel] Новое правило добавлено ID=34
+2025-10-31 20:15:30 [INFO] [Programm_X_Logger] [ConstructorController] Создано правило ID=34 с SID=7000033, rev=1
+2025-10-31 20:15:34 [INFO] [Programm_X_Logger] [RuleModel] Получено правило по SID=7000001: нашлось
+2025-10-31 20:15:34 [WARNING] [Programm_X_Logger] [ConstructorController] Правило с SID=7000001 уже существует
+2025-10-31 20:15:40 [INFO] [Programm_X_Logger] [ConstructorController] Пользователь отказался от замены SID
+2025-10-31 20:15:42 [INFO] [Programm_X_Logger] [ConstructorView] Правило успешно создано
+2025-10-31 20:16:15 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=20, limit=20
+2025-10-31 20:16:15 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=20, limit=20
+2025-10-31 20:16:15 [INFO] [Programm_X_Logger] [RuleModel] Получено 13 правил (offset=20, limit=20)
+2025-10-31 20:16:15 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 13
+2025-10-31 20:16:15 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-31 20:16:20 [INFO] [Programm_X_Logger] [MainWindow] Обновление данных во вкладке 'Редактор'
+2025-10-31 20:16:20 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=20, limit=20
+2025-10-31 20:16:20 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=20, limit=20
+2025-10-31 20:16:20 [INFO] [Programm_X_Logger] [RuleModel] Получено 13 правил (offset=20, limit=20)
+2025-10-31 20:16:20 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 13
+2025-10-31 20:16:20 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-31 20:16:30 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=34
+2025-10-31 20:16:30 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=34
+2025-10-31 20:16:45 [INFO] [Programm_X_Logger] [ExportView] Запрошен экспорт: system=IDS, path=/home/ubuntupc/my-proj/testiiic
+2025-10-31 20:16:45 [INFO] [Programm_X_Logger] [ExportController] export_rules_async: type=IDS, path=/home/ubuntupc/my-proj/testiiic
+2025-10-31 20:16:45 [INFO] [Programm_X_Logger] [ExportRulesThread] Экспорт правил: system_type=ids, file=/home/ubuntupc/my-proj/testiiic
+2025-10-31 20:16:45 [INFO] [Programm_X_Logger] [ExportModel] Получение правил для ids (actions=('alert', 'log', 'pass', 'activate', 'dynamic'))
+2025-10-31 20:16:45 [INFO] [Programm_X_Logger] [ExportModel] Получено 26 правил для ids
+2025-10-31 20:16:45 [INFO] [Programm_X_Logger] [ExportRulesThread] Экспортировано 26 правил в /home/ubuntupc/my-proj/testiiic
+2025-10-31 20:16:45 [INFO] [Programm_X_Logger] [ExportController] Экспорт завершён: Экспортировано 26 правил в /home/ubuntupc/my-proj/testiiic
+2025-10-31 20:17:38 [INFO] [Programm_X_Logger] [ConstructorController] Prefill из отмеченных ячеек: {'rules_ip_s': '127.0.0.1', 'rules_content': 'GET, /, /icons/ubuntu-logo.png, HTTP/1.1, 404'}
+2025-10-31 20:18:12 [INFO] [Programm_X_Logger] [RuleModel] Получено правило по SID=7000001: нашлось
+2025-10-31 20:18:12 [WARNING] [Programm_X_Logger] [ConstructorController] Правило с SID=7000001 уже существует
+2025-10-31 20:18:15 [INFO] [Programm_X_Logger] [ConstructorController] Пользователь выбрал предложенный SID=7000034
+2025-10-31 20:18:15 [INFO] [Programm_X_Logger] [RuleModel] Новое правило добавлено ID=35
+2025-10-31 20:18:15 [INFO] [Programm_X_Logger] [ConstructorController] Создано правило ID=35 с SID=7000034, rev=1
+2025-10-31 20:18:17 [INFO] [Programm_X_Logger] [RuleModel] Получено правило по SID=7000001: нашлось
+2025-10-31 20:18:17 [WARNING] [Programm_X_Logger] [ConstructorController] Правило с SID=7000001 уже существует
+2025-10-31 20:18:21 [INFO] [Programm_X_Logger] [ConstructorController] Пользователь выбрал предложенный SID=7000035
+2025-10-31 20:18:21 [INFO] [Programm_X_Logger] [RuleModel] Новое правило добавлено ID=36
+2025-10-31 20:18:21 [INFO] [Programm_X_Logger] [ConstructorController] Создано правило ID=36 с SID=7000035, rev=1
+2025-10-31 20:18:24 [INFO] [Programm_X_Logger] [ConstructorView] Правило успешно создано
+2025-10-31 20:18:28 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-10-31 20:18:28 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-10-31 20:18:28 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-10-31 20:18:28 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-10-31 20:18:28 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-31 20:18:32 [INFO] [Programm_X_Logger] [MainWindow] Обновление данных во вкладке 'Редактор'
+2025-10-31 20:18:32 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-10-31 20:18:32 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-10-31 20:18:32 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-10-31 20:18:32 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-10-31 20:18:32 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-31 20:18:36 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=20, limit=20
+2025-10-31 20:18:36 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=20, limit=20
+2025-10-31 20:18:36 [INFO] [Programm_X_Logger] [RuleModel] Получено 15 правил (offset=20, limit=20)
+2025-10-31 20:18:36 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 15
+2025-10-31 20:18:36 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-31 20:18:38 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=35
+2025-10-31 20:18:38 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=35
+2025-10-31 20:18:47 [INFO] [Programm_X_Logger] [EditorController] Получение данных правила ID=36
+2025-10-31 20:18:47 [INFO] [Programm_X_Logger] [RuleModel] Получено правило ID=36
+2025-10-31 20:18:55 [INFO] [Programm_X_Logger] === Завершение работы приложения ===
+2025-10-31 20:20:16 [INFO] [Programm_X_Logger] Логгер инициализирован. Логи пишутся в /home/ubuntupc/my-proj/progr/utils_app/../logs/app_2025-10-31.log
+2025-10-31 20:20:17 [INFO] [Programm_X_Logger] === Запуск Программа Х ===
+2025-10-31 20:20:17 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=0, limit=20
+2025-10-31 20:20:17 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=0, limit=20
+2025-10-31 20:20:17 [INFO] [Programm_X_Logger] [RuleModel] Получено 20 правил (offset=0, limit=20)
+2025-10-31 20:20:17 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 20
+2025-10-31 20:20:17 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-31 20:20:20 [INFO] [Programm_X_Logger] [RulesFetcherThread] Получение правил через контроллер: offset=20, limit=20
+2025-10-31 20:20:20 [INFO] [Programm_X_Logger] [EditorController] Загрузка правил: offset=20, limit=20
+2025-10-31 20:20:21 [INFO] [Programm_X_Logger] [RuleModel] Получено 15 правил (offset=20, limit=20)
+2025-10-31 20:20:21 [INFO] [Programm_X_Logger] [EditorController] Загружено правил: 15
+2025-10-31 20:20:21 [INFO] [Programm_X_Logger] [RulesFetcherThread] Загрузка завершена, поток завершается.
+2025-10-31 20:25:33 [INFO] [Programm_X_Logger] === Завершение работы приложения ===

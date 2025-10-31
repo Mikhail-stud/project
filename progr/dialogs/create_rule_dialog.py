@@ -1,5 +1,6 @@
 from PyQt6.QtWidgets import (
-    QDialog, QVBoxLayout, QHBoxLayout, QLabel, QLineEdit, QPushButton, QMessageBox, QStyle, QToolTip
+    QDialog, QVBoxLayout, QHBoxLayout, QLabel, QLineEdit, QPlainTextEdit,
+    QPushButton, QMessageBox, QStyle, QToolTip, QSizePolicy, QToolButton
 )
 from PyQt6.QtCore import Qt, QPoint
 from progr.config_app.ui_config import UI_CONFIG
@@ -35,6 +36,8 @@ class CreateRuleDialog(QDialog):
         "rules_sid": "<b>SID</b> — уникальный числовой идентификатор правила (если тестовое правило, то 700...).",
         "rules_rev": "<b>Версия</b> — увеличивается автоматически при изменении правила, иначе равно 1."
     }
+    
+    MULTILINE_KEYS = {"rules_content", "rules_ip_s", "rules_ip_d"}	
 
     def __init__(self, parent=None, controller=None, rule_data: dict | None = None):
         """
@@ -75,17 +78,34 @@ class CreateRuleDialog(QDialog):
             label.setFixedWidth(175)
             label.setAlignment(Qt.AlignmentFlag.AlignRight | Qt.AlignmentFlag.AlignVCenter)
 
-            input_field = QLineEdit()
-            if rule_data and db_key in rule_data:
-                input_field.setText(str(rule_data[db_key]))
+            # Выбираем тип поля ввода
+            if db_key in self.MULTILINE_KEYS:
+                input_field = QPlainTextEdit()
+                input_field.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
+                input_field.setMinimumHeight(64)              # базовая высота; пользователь может растянуть
+                input_field.setLineWrapMode(QPlainTextEdit.LineWrapMode.NoWrap)  # удобно для IP/масок
+                if rule_data and db_key in rule_data:
+                    input_field.setPlainText(str(rule_data[db_key]))
+            else:
+                input_field = QLineEdit()
+                if rule_data and db_key in rule_data:
+                    input_field.setText(str(rule_data[db_key]))
 
-            # >>> Добавляем иконку-подсказку справа от поля, если есть текст для неё
-            if db_key in self.HELP_TEXTS:
-                self._add_help_icon(input_field, self.HELP_TEXTS[db_key])
 
             row.addWidget(label)
             row.addWidget(input_field)
+
+
+            if db_key in self.HELP_TEXTS:
+                self._add_help_button(row, input_field, self.HELP_TEXTS[db_key])
+
+
+            # Чтобы многострочные поля росли при ресайзе диалога — даём строке больше стретча
+            row_index = self.layout.count()
             self.layout.addLayout(row)
+            if db_key in self.MULTILINE_KEYS:
+                self.layout.setStretch(row_index, 1)
+
             self.fields[db_key] = input_field
 
         # ─────────────────────────────────────────────────────────────
@@ -101,22 +121,23 @@ class CreateRuleDialog(QDialog):
         self.layout.addLayout(buttons_layout)
 
     # ─────────────────────────────────────────────────────────────
-    # ВСПОМОГАТЕЛЬНЫЙ МЕТОД: добавляет иконку "i" в QLineEdit
+    # ВСПОМОГАТЕЛЬНЫЙ МЕТОД: добавляет иконку "i" 
     # ─────────────────────────────────────────────────────────────
-    def _add_help_icon(self, lineedit: QLineEdit, tooltip_text: str):
+    def _add_help_button(self, row_layout: QHBoxLayout, widget, tooltip_text: str):
         """
-        Добавляет иконку справа внутри поля.
-        По клику — показывает QToolTip с подсказкой.
+        Добавляет кнопочку-подсказку справа от поля (рядом, не внутри).
+        Работает и для QLineEdit, и для QPlainTextEdit.
         """
-        icon = lineedit.style().standardIcon(QStyle.StandardPixmap.SP_MessageBoxInformation)
-        action = lineedit.addAction(icon, QLineEdit.ActionPosition.TrailingPosition)
-        action.setToolTip("Показать подсказку")
+        btn = QToolButton()
+        btn.setIcon(self.style().standardIcon(QStyle.StandardPixmap.SP_MessageBoxInformation))
+        btn.setToolTip("Показать подсказку")
 
         def _show_tooltip():
-            global_pos = lineedit.mapToGlobal(lineedit.rect().bottomRight() + QPoint(-10, 10))
-            QToolTip.showText(global_pos, tooltip_text, lineedit)
+            global_pos = widget.mapToGlobal(widget.rect().bottomRight() + QPoint(-10, 10))
+            QToolTip.showText(global_pos, tooltip_text, widget)
 
-        action.triggered.connect(_show_tooltip)
+        btn.clicked.connect(_show_tooltip)
+        row_layout.addWidget(btn)
 
     # ─────────────────────────────────────────────────────────────
     # ДАЛЬШЕ КОД ВАЛИДАЦИИ (без изменений)
@@ -188,4 +209,10 @@ class CreateRuleDialog(QDialog):
         return matched_keys
 
     def get_data(self):
-        return {db_key: widget.text().strip() for db_key, widget in self.fields.items()}
+        out = {}
+        for db_key, widget in self.fields.items():
+            if isinstance(widget, QPlainTextEdit):
+                out[db_key] = widget.toPlainText().strip()
+            else:
+                out[db_key] = widget.text().strip()
+        return out

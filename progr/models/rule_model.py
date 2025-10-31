@@ -74,6 +74,29 @@ class RuleModel:
             LOGGER.error(f"[RuleModel] Ошибка получения правила по SID={sid}: {e}", exc_info=True)
             raise
 
+    @staticmethod
+    def find_next_free_test_sid(start_sid: int = 7000000, pool_min: int = 7000000, pool_max: int = 7999999) -> int | None:
+        """
+        Возвращает ближайший свободный SID в тестовом диапазоне (7000000–7999999).
+        Если start_sid уже занят — ищет следующее свободное значение выше.
+        """
+        sql = """
+            SELECT gs AS free_sid
+            FROM generate_series(%s, %s) AS gs
+            LEFT JOIN rules r ON r.rules_sid = gs
+            WHERE r.rules_sid IS NULL
+            ORDER BY gs
+            LIMIT 1;
+        """
+        with RuleModel._get_connection() as conn:
+            with conn.cursor() as cur:
+                cur.execute(sql, (max(start_sid, pool_min), pool_max))
+                row = cur.fetchone()
+                if not row:
+                    return None
+                # Поддержка и обычного курсора (tuple), и RealDictCursor (dict)
+                return row["free_sid"] if isinstance(row, dict) else row[0]
+
     # ---------- СОЗДАНИЕ / ОБНОВЛЕНИЕ ----------
     def add_rule(rule_data):
         """
