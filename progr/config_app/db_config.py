@@ -8,5 +8,5 @@ DB_CONFIG = {
     "port": 5432,               # порт PostgreSQL
     "dbname": "proga_db",     # имя базы данных
     "user": "postgres",         # имя пользователя
-    "password": "admin" # пароль пользователя
+    "password": "****" # пароль пользователя
 }
